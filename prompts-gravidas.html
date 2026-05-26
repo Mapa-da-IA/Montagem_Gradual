@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompts para Gestantes | Biblioteca IA</title>
+  <meta
+    name="description"
+    content="Biblioteca de prompts para ensaios de gestante com poses solo, casal, família, detalhes, estúdio, externo, lifestyle, editorial e fine art.">
+  <meta name="theme-color" content="#080b12">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260514-performance">
+  <link rel="stylesheet" href="./assets/css/prompts-library.css?v=20260526-audit">
+</head>
+<body class="maternity-library-body">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <main class="prompt-library-page maternity-library-page">
+    <header class="prompt-library-hero maternity-library-hero" aria-labelledby="library-title">
+      <p class="prompt-library-kicker">Biblioteca de Prompts</p>
+      <h1 id="library-title">Prompts para Gestantes</h1>
+      <p class="prompt-library-subtitle">
+        Poses universais para ensaios de gr&aacute;vida no Nano Banana, preservando identidade, tra&ccedil;os faciais,
+        pele, corpo, formato da barriga e consist&ecirc;ncia visual da refer&ecirc;ncia.
+      </p>
+      <div class="prompt-library-actions" aria-label="Atalhos da biblioteca">
+        <a class="prompt-library-link prompt-library-link-secondary" href="./menu.html">Menu principal</a>
+        <a class="prompt-library-link" href="./biblioteca-prompts.html">Biblioteca geral</a>
+        <a class="prompt-library-link" href="#promptGrid">Ver prompts</a>
+      </div>
+
+      <div class="maternity-reference-note" aria-label="Regra de preservacao">
+        <strong>Regra base</strong>
+        <span>Mantenha fielmente tra&ccedil;os faciais, cor de pele e formato do rosto. Ajuste apenas ilumina&ccedil;&atilde;o, cena e vestu&aacute;rio.</span>
+      </div>
+
+      <div class="maternity-token-list" aria-label="Marcadores universais">
+        <span><strong>CHARACTER_A</strong> gestante</span>
+        <span><strong>CHARACTER_B</strong> parceiro(a)</span>
+        <span><strong>CHARACTER_C</strong> filho(a)</span>
+        <span><strong>[LOCATION]</strong> est&uacute;dio, casa, praia, campo</span>
+        <span><strong>[WARDROBE]</strong> vestido, body, camisa, all black</span>
+        <span><strong>[MOOD]</strong> maternal, intimate, elegant, serene</span>
+      </div>
+
+      <div class="prompt-library-toolbar" role="search">
+        <label for="promptSearch" class="prompt-search-field">
+          <span class="prompt-search-label">Buscar prompts</span>
+          <input
+            id="promptSearch"
+            name="promptSearch"
+            type="search"
+            placeholder="Pesquisar por pose, clima, local ou tema"
+            autocomplete="off">
+        </label>
+
+        <div class="prompt-filter-group" id="promptFilters" aria-label="Filtros por tema"></div>
+      </div>
+    </header>
+
+    <section class="prompt-library-content" aria-live="polite">
+      <div class="prompt-library-meta">
+        <p id="promptCount" class="prompt-count">0 prompts encontrados</p>
+      </div>
+
+      <div class="prompt-grid" id="promptGrid"></div>
+
+      <div id="emptyState" class="prompt-empty" hidden>
+        <h2>Nenhum prompt encontrado</h2>
+        <p>Tente outro termo de busca ou selecione um tema diferente.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./assets/js/gravidas-prompts.js?v=20260526-audit" defer></script>
+</body>
+</html>

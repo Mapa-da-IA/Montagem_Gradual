@@ -19,7 +19,7 @@
           prompt: "Create a wide eye-level exterior establishing shot, camera positioned straight in front of the property, balanced symmetrical composition, 24mm architectural lens, clean vertical lines, realistic natural daylight, professional real estate photography."
         },
         {
-          title: "Hero shot em angulo baixo",
+          title: "Hero shot em ângulo baixo",
           prompt: "Create a slightly low-angle exterior hero shot, camera placed below eye level looking upward, emphasizing scale and presence, 24mm lens, dramatic but realistic lighting, premium architectural photography."
         },
         {
@@ -35,7 +35,7 @@
           prompt: "Create a cinematic front facade shot from a low corner angle, camera close to the ground, 20mm wide-angle lens, strong depth, elegant shadows, premium real estate look."
         },
         {
-          title: "Exterior em angulo alto",
+          title: "Exterior em ângulo alto",
           prompt: "Create a high-angle exterior shot from slightly above eye level, looking down gently at the property, 28mm lens, clean composition, realistic daylight, refined architectural presentation."
         },
         {
@@ -117,7 +117,7 @@
           prompt: "Create a wide drone establishing shot, high altitude, showing the property in context with its surroundings, realistic natural light, sharp details, premium real estate aerial photography."
         },
         {
-          title: "Canto diagonal aereo",
+          title: "Canto diagonal aéreo",
           prompt: "Create a diagonal aerial corner shot, drone positioned above one corner, showing depth, roofline, facade, and spatial layout, clean composition, realistic daylight."
         },
         {
@@ -151,7 +151,7 @@
           prompt: "Create a close-up entrance shot, 35mm lens, camera at eye level, focusing on the doorway, access path, textures, and architectural details, realistic natural light, premium real estate photography."
         },
         {
-          title: "Entrada em angulo baixo",
+          title: "Entrada em ângulo baixo",
           prompt: "Create a low-angle entrance detail shot, camera near ground level looking toward the entry area, 24mm lens, strong depth, realistic shadows, clean premium composition."
         },
         {
@@ -217,11 +217,11 @@
           prompt: "Create a medium-wide interior shot, 28mm lens, camera at eye level, natural perspective without distortion, clean composition, realistic ambient light."
         },
         {
-          title: "Interior em angulo alto",
+          title: "Interior em ângulo alto",
           prompt: "Create a high-angle interior shot from slightly above eye level, 24mm lens, looking gently downward to show layout, furniture arrangement, circulation, and spatial organization."
         },
         {
-          title: "Interior hero em angulo baixo",
+          title: "Interior hero em ângulo baixo",
           prompt: "Create a low-angle interior hero shot, camera near floor height, 20mm lens, emphasizing height, depth, ceiling lines, and architectural presence, realistic premium photography."
         },
         {
@@ -271,7 +271,7 @@
           prompt: "Create a close shot of interior textures, 70mm lens, compressed perspective, sharp material detail, shallow depth of field, natural realistic lighting."
         },
         {
-          title: "Lifestyle arquitetonico sem pessoas",
+          title: "Lifestyle arquitetônico sem pessoas",
           prompt: "Create an interior lifestyle-style architectural shot without people, 35mm lens, natural composition, refined details, realistic light, premium magazine photography."
         },
         {
@@ -315,14 +315,14 @@
           prompt: "Create a clean minimalist interior shot, 35mm lens, simple balanced framing, negative space, refined materials, realistic daylight, editorial real estate style."
         },
         {
-          title: "Interior dramatico arquitetonico",
+          title: "Interior dramático arquitetônico",
           prompt: "Create a dramatic interior architectural shot, 24mm lens, controlled contrast, realistic shadows, strong depth, premium cinematic real estate photography."
         }
       ]
     },
     {
       id: "transicoes",
-      label: "Transicao",
+      label: "Transição",
       items: [
         {
           title: "Interior olhando para fora",
@@ -353,7 +353,7 @@
           prompt: "Create a centered interior corridor shot, 24mm lens, symmetrical perspective, clean lines, realistic lighting, professional architectural photography."
         },
         {
-          title: "Layout interno em angulo alto",
+          title: "Layout interno em ângulo alto",
           prompt: "Create a high-angle open interior layout shot, 20mm lens, showing room relationships, furniture placement, and circulation flow, realistic natural light."
         },
         {
@@ -441,7 +441,7 @@
           prompt: "Create a 70mm compressed architectural detail shot, elegant framing, sharp material focus, shallow depth of field, realistic natural light, premium editorial photography."
         },
         {
-          title: "Wide em angulo baixo",
+          title: "Wide em ângulo baixo",
           prompt: "Create a low-angle wide architectural shot, camera close to the ground, 20mm lens, strong depth and scale, realistic shadows, professional premium composition."
         },
         {

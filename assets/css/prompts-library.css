@@ -398,14 +398,15 @@
   }
 
   .prompt-library-page {
-    width: auto;
-    margin-inline: 7px;
-    max-width: none;
+    width: calc(100vw - 14px);
+    margin-inline: auto;
+    max-width: calc(100vw - 14px);
     padding: 8px 0 42px;
     overflow: hidden;
   }
 
   .prompt-library-hero {
+    width: 100%;
     gap: 12px;
     padding: 18px 14px;
     border-radius: 10px;
@@ -588,7 +589,9 @@
 
 @media (max-width: 420px) {
   .prompt-library-page {
-    margin-inline: 5px;
+    width: calc(100% - 10px);
+    max-width: 378px;
+    margin-inline: auto;
   }
 
   .prompt-library-hero {
@@ -634,5 +637,128 @@
 
   .prompt-card-prompt {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 680px) {
+  .prompt-filter-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Maternity prompt library. */
+.maternity-library-body {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(188, 112, 143, 0.16), transparent 32%),
+    radial-gradient(circle at 86% 10%, rgba(116, 181, 164, 0.13), transparent 34%),
+    #060911;
+}
+
+.maternity-library-hero {
+  border-color: rgba(218, 169, 189, 0.28);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(circle at 12% 10%, rgba(218, 169, 189, 0.22), transparent 38%),
+    radial-gradient(circle at 92% 12%, rgba(116, 181, 164, 0.16), transparent 42%),
+    linear-gradient(145deg, rgba(22, 20, 30, 0.98), rgba(8, 12, 20, 0.96));
+  background-size: 52px 52px, 52px 52px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+.maternity-library-hero .prompt-library-link {
+  border-color: rgba(218, 169, 189, 0.76);
+  background: linear-gradient(135deg, rgba(218, 169, 189, 0.96), rgba(116, 181, 164, 0.94));
+}
+
+.maternity-library-hero .prompt-library-link-secondary {
+  color: #f8eef4;
+  border-color: rgba(218, 169, 189, 0.42);
+  background: rgba(218, 169, 189, 0.1);
+}
+
+.maternity-reference-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border: 1px solid rgba(218, 169, 189, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #dce6ef;
+  line-height: 1.55;
+}
+
+.maternity-reference-note strong {
+  flex: 0 0 auto;
+  color: #ffeef7;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.maternity-token-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.maternity-token-list span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #cdd7e8;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.maternity-token-list strong {
+  color: #ffeef7;
+  letter-spacing: 0.04em;
+}
+
+.maternity-prompt-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 169, 189, 0.14), transparent 48%),
+    linear-gradient(160deg, rgba(24, 23, 34, 0.94), rgba(12, 17, 28, 0.91));
+}
+
+.maternity-prompt-card .prompt-card-tag {
+  background: rgba(218, 169, 189, 0.15);
+  border-color: rgba(218, 169, 189, 0.35);
+}
+
+.maternity-prompt-card .prompt-copy-btn {
+  background: linear-gradient(140deg, #b76586, #4f9d92);
+}
+
+.maternity-prompt-card .prompt-copy-btn.is-copied {
+  background: linear-gradient(140deg, #4f9d92, #74b5a4);
+}
+
+@media (max-width: 680px) {
+  .maternity-reference-note {
+    display: grid;
+    gap: 6px;
+    border-radius: 10px;
+  }
+
+  .maternity-token-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .maternity-token-list span {
+    justify-content: flex-start;
+    border-radius: 10px;
+  }
+
+  .maternity-library-hero .prompt-library-subtitle,
+  .maternity-reference-note span {
+    max-width: 32ch;
   }
 }

@@ -117,7 +117,12 @@
 
   copyButtons.forEach((button) => {
     const promptBox = button.closest(".prompt-box");
-    const promptLabel = promptBox ? promptBox.querySelector(".prompt-header span, .prompt-title h3") : null;
+    const promptHeader = button.closest(".prompt-header");
+    const promptLabel = promptHeader
+      ? promptHeader.querySelector("span")
+      : promptBox
+        ? promptBox.querySelector(".prompt-header span, .prompt-title h3")
+        : null;
     const defaultText = button.textContent.trim() || "Copiar";
 
     button.dataset.defaultText = defaultText;
@@ -129,7 +134,14 @@
 
     button.addEventListener("click", async () => {
       const promptBox = button.closest(".prompt-box");
-      const promptCode = promptBox ? promptBox.querySelector(".prompt-code") : null;
+      const promptHeader = button.closest(".prompt-header");
+      const nextPromptCode =
+        promptHeader &&
+        promptHeader.nextElementSibling &&
+        promptHeader.nextElementSibling.classList.contains("prompt-code")
+          ? promptHeader.nextElementSibling
+          : null;
+      const promptCode = nextPromptCode || (promptBox ? promptBox.querySelector(".prompt-code") : null);
 
       if (!promptCode) {
         return;

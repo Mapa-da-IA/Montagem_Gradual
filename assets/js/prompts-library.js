@@ -183,7 +183,7 @@
     {
       title: "Camera 01 / Full-body eye-level portrait",
       category: "Camera",
-      description: "Corpo inteiro com camera frontal no nivel dos olhos.",
+      description: "Corpo inteiro com câmera frontal no nível dos olhos.",
       imageLabel: "Camera 01",
       colors: ["#3b5f8a", "#88b5df"],
       prompt: "Full-body portrait framing, eye-level camera position, camera placed directly in front of the subject, balanced vertical composition, natural standing perspective, realistic 50mm lens look, minimal perspective distortion, full body visible from head to feet, clean subject separation, softly blurred background, professional portrait photography, sharp focus on the subject."
@@ -191,7 +191,7 @@
     {
       title: "Camera 02 / Full-body low-angle fashion shot",
       category: "Camera",
-      description: "Corpo inteiro com angulo baixo e impacto fashion.",
+      description: "Corpo inteiro com ângulo baixo e impacto fashion.",
       imageLabel: "Camera 02",
       colors: ["#41506b", "#98a9c7"],
       prompt: "Full-body fashion photography framing, low-angle camera position slightly below the subject's waist level, camera tilted subtly upward, subject appearing taller and more powerful, 35mm editorial lens perspective, slight foreground depth, strong vertical composition, natural perspective compression, sharp subject focus, soft background blur, professional fashion shoot look."
@@ -207,7 +207,7 @@
     {
       title: "Camera 04 / Three-quarter body portrait",
       category: "Camera",
-      description: "Enquadramento tres quartos da cabeca ate joelhos.",
+      description: "Enquadramento três quartos da cabeça até joelhos.",
       imageLabel: "Camera 04",
       colors: ["#6e5a7a", "#c2a6cf"],
       prompt: "Three-quarter body portrait framing, subject visible from head to mid-thigh or knees, camera at chest height, slightly angled perspective, 50mm portrait lens look, natural compression, soft shallow depth of field, background smoothly blurred, subject centered with clean negative space, professional editorial portrait composition."
@@ -263,7 +263,7 @@
     {
       title: "Camera 11 / Seated portrait eye-level",
       category: "Camera",
-      description: "Retrato sentado com camera na altura dos olhos.",
+      description: "Retrato sentado com câmera na altura dos olhos.",
       imageLabel: "Camera 11",
       colors: ["#4b6f66", "#98cdc0"],
       prompt: "Seated portrait framing, camera positioned at the subject's eye level while seated, natural perspective, 50mm lens look, balanced vertical composition, subject centered with clean framing, soft shallow depth of field, sharp focus on the face, professional portrait photography style."
@@ -271,7 +271,7 @@
     {
       title: "Camera 12 / Seated low-angle portrait",
       category: "Camera",
-      description: "Retrato sentado com angulo baixo e leitura editorial.",
+      description: "Retrato sentado com ângulo baixo e leitura editorial.",
       imageLabel: "Camera 12",
       colors: ["#735347", "#c79f8d"],
       prompt: "Seated portrait with a low camera angle, camera positioned slightly below the subject's torso level and tilted gently upward, 35mm editorial lens perspective, subtle dramatic perspective, full seated posture visible, clean subject separation, shallow depth of field, professional fashion portrait look."
@@ -279,7 +279,7 @@
     {
       title: "Camera 13 / Floor-level cinematic shot",
       category: "Camera",
-      description: "Perspectiva rente ao chao com escala dramatica.",
+      description: "Perspectiva rente ao chão com escala dramática.",
       imageLabel: "Camera 13",
       colors: ["#3f4f5f", "#8ea2b6"],
       prompt: "Floor-level camera perspective, camera positioned very low near the ground, looking slightly upward toward the subject, wide 35mm lens feel, cinematic foreground depth, strong sense of scale, subject dominant in frame, soft background blur, dramatic editorial composition, professional photography style."
@@ -375,7 +375,7 @@
     {
       title: "Camera 25 / Baby child low eye-level camera",
       category: "Camera",
-      description: "Infantil no nivel do olhar da crianca para proporcao natural.",
+      description: "Infantil no nível do olhar da criança para proporção natural.",
       imageLabel: "Camera 25",
       colors: ["#6b7b58", "#c8d8b1"],
       prompt: "Low eye-level portrait photography for a baby or child, camera positioned at the child's face height, close-to-medium distance, 50mm portrait lens feel, natural proportions, soft shallow depth of field, creamy background blur, sharp focus on the eyes, professional children's portrait photography."
@@ -383,7 +383,7 @@
     {
       title: "Camera 26 / Baby child top-down soft portrait",
       category: "Camera",
-      description: "Infantil com vista superior suave e composicao equilibrada.",
+      description: "Infantil com vista superior suave e composição equilibrada.",
       imageLabel: "Camera 26",
       colors: ["#7a6a84", "#d3c2dc"],
       prompt: "Soft top-down portrait for a baby or child, camera positioned above the subject looking downward, gentle overhead perspective, 35mm to 50mm lens look, balanced framing around the body, soft focus falloff, clean composition, natural proportions, professional baby photography style."

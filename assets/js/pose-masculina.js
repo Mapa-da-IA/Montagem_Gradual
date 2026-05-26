@@ -6,9 +6,9 @@
       items: [
         {
           title: "Three-Quarter Relaxed Stance",
-          subtitle: "Pose 45 graus com maos no bolso",
+          subtitle: "Pose 45 graus com mãos no bolso",
           usage: "Ensaio masculino casual, perfil, moda, retrato externo.",
-          emotion: "Confianca calma, naturalidade, presenca sem exagero.",
+          emotion: "Confiança calma, naturalidade, presença sem exagero.",
           prompt: "Using the attached reference image as PERSON_A, preserve the exact same face, skin tone, hairstyle, body proportions and identity. Create a realistic male portrait with PERSON_A standing in a relaxed three-quarter pose, body turned 45 degrees from the camera, both hands casually inside the pockets, shoulders relaxed, calm confident expression, slightly off-camera gaze. Modern casual menswear, clean urban background, eye-level camera, 85mm portrait lens, medium-full vertical framing, soft natural light, shallow depth of field, premium editorial portrait, realistic skin texture, 4:5 aspect ratio."
         },
         {
@@ -36,13 +36,13 @@
           title: "Outfit Adjust Pose",
           subtitle: "Ajustando relogio, manga ou jaqueta",
           usage: "Moda masculina, old money, editorial, ensaio premium.",
-          emotion: "Elegancia, refinamento, cuidado com imagem.",
+          emotion: "Elegância, refinamento, cuidado com imagem.",
           prompt: "Using the attached reference image as PERSON_A, keep the exact same identity, face and proportions. Create a candid editorial portrait of PERSON_A adjusting his jacket cuff and wristwatch, calm focused expression, refined masculine styling with a blazer, linen shirt or smart casual outfit. Shot on an 85mm lens, medium portrait framing, soft directional loop lighting, shallow depth of field, elegant neutral background, premium menswear editorial photography, realistic details, 4:5 aspect ratio."
         },
         {
           title: "Seated Forward Lean",
           subtitle: "Sentado inclinado para frente",
-          usage: "Retrato de marca pessoal, estudio, perfil profissional, criador de conteudo.",
+          usage: "Retrato de marca pessoal, estúdio, perfil profissional, criador de conteúdo.",
           emotion: "Proximidade, inteligencia, escuta, confianca.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity and facial structure. Create a seated male portrait with PERSON_A leaning slightly forward, elbows resting naturally on the knees, hands relaxed, open posture, attentive confident expression. Premium casual outfit, modern studio or lounge background, 85mm lens, medium shot, soft clamshell lighting, shallow depth of field, realistic skin texture, clean professional portrait, 4:5 aspect ratio."
         },
@@ -55,8 +55,8 @@
         },
         {
           title: "Clasped Hands / Thinker Pose",
-          subtitle: "Maos unidas ou mao no queixo",
-          usage: "Retrato profissional, criador de conteudo, ensaio intelectual.",
+          subtitle: "Mãos unidas ou mão no queixo",
+          usage: "Retrato profissional, criador de conteúdo, ensaio intelectual.",
           emotion: "Profundidade, pensamento, maturidade.",
           prompt: "Using the attached reference image as PERSON_A, keep exact identity, face and body proportions. Create a reflective male portrait with PERSON_A seated or standing with lightly clasped hands near the chin or chest, thoughtful expression, refined dark knitwear or blazer styling. 85mm lens, medium-close framing, soft side lighting, subtle background blur, premium personal-brand portrait, realistic skin texture, 4:5 aspect ratio."
         },
@@ -64,7 +64,7 @@
           title: "Over-the-Shoulder Glance",
           subtitle: "Olhando por cima do ombro",
           usage: "Editorial masculino, moda, ensaio sofisticado.",
-          emotion: "Misterio, elegancia, magnetismo.",
+          emotion: "Mistério, elegância, magnetismo.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact facial identity and body proportions. Create a fashion portrait of PERSON_A turned slightly away from the camera and looking back over the shoulder, composed serious expression, elegant jawline, monochrome or tailored menswear outfit. 85mm lens, medium portrait framing, soft directional side light, blurred minimalist background, high-end editorial realism, 4:5 aspect ratio."
         }
       ]
@@ -75,23 +75,23 @@
       items: [
         {
           title: "Studio Stool Portrait",
-          subtitle: "Sentado em banco alto no estudio",
+          subtitle: "Sentado em banco alto no estúdio",
           usage: "Book masculino, retrato clean, perfil profissional, ensaio minimalista.",
-          emotion: "Controle, elegancia, simplicidade.",
+          emotion: "Controle, elegância, simplicidade.",
           prompt: "Using the attached reference image as PERSON_A, keep the exact same face, body proportions and identity. Create a minimalist studio portrait of PERSON_A seated on a tall stool, one elbow resting on one knee, relaxed masculine posture, calm confident expression. Clean casual outfit in neutral tones, seamless gray studio backdrop, 85mm lens, medium-full vertical framing, butterfly lighting with soft fill, shallow depth of field, commercial studio realism, 4:5 aspect ratio."
         },
         {
           title: "Head Tilt Close-Up",
-          subtitle: "Close com leve inclinacao da cabeca",
+          subtitle: "Close com leve inclinação da cabeça",
           usage: "Foto de perfil, retrato masculino, headshot, perfil dark.",
-          emotion: "Misterio, foco no olhar, sofisticacao.",
+          emotion: "Mistério, foco no olhar, sofisticação.",
           prompt: "Using the attached reference image as PERSON_A, preserve the exact identity, facial structure, skin texture and hairstyle. Create a tight male head-and-shoulders portrait with a subtle head tilt, body slightly turned away from the camera, eyes sharp and expressive, neutral serious expression, black or neutral outfit. 85mm lens, close framing, soft Rembrandt lighting, dark neutral background, shallow depth of field, refined cinematic headshot, 4:5 aspect ratio."
         },
         {
           title: "Dark Profile Portrait",
-          subtitle: "Retrato escuro dramatico",
+          subtitle: "Retrato escuro dramático",
           usage: "Foto de perfil, ensaio masculino dark, capa de artista, editorial.",
-          emotion: "Intensidade, misterio, sensualidade controlada.",
+          emotion: "Intensidade, mistério, sensualidade controlada.",
           prompt: "Using the attached reference image as PERSON_A, keep exact face, skin tone, hair and identity. Create a cinematic dark male profile portrait with only part of the face illuminated, intense eyes, serious expression, black turtleneck or leather jacket, dark studio background or nighttime bokeh. 85mm lens, close-up framing, split lighting or Rembrandt lighting, deep shadows, shallow depth of field, premium moody realism, 4:5 aspect ratio."
         },
         {
@@ -103,15 +103,15 @@
         },
         {
           title: "Creative Studio Gel Light",
-          subtitle: "Luz colorida em estudio",
-          usage: "Artista, cantor, DJ, criador de conteudo, ensaio moderno.",
+          subtitle: "Luz colorida em estúdio",
+          usage: "Artista, cantor, DJ, criador de conteúdo, ensaio moderno.",
           emotion: "Ousadia, energia pop, personalidade forte.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity, face, hair and body proportions. Create a creative studio portrait of PERSON_A with teal and magenta gel lighting, modern fashion styling, bold expression, clean dark background, 85mm lens, shallow depth of field, glossy pop-editorial realism, vibrant but realistic lighting, 4:5 aspect ratio."
         },
         {
           title: "Tattoo / Detail Portrait",
           subtitle: "Detalhes de tatuagem, maos e rosto",
-          usage: "Ensaio alternativo, lifestyle, estetica masculina, close editorial.",
+          usage: "Ensaio alternativo, lifestyle, estética masculina, close editorial.",
           emotion: "Identidade, personalidade, textura visual.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity and facial features. Create a detailed masculine portrait focusing on PERSON_A's face, hands, jawline and visible tattoos if present, dark premium styling, realistic skin texture, moody studio or tattoo-studio environment. 85mm lens, close-up framing, contrasty directional light, shallow depth of field, gritty editorial realism, 4:5 aspect ratio."
         }
@@ -132,28 +132,28 @@
           title: "Old Money / Quiet Luxury",
           subtitle: "Ensaio elegante masculino",
           usage: "Ensaio premium, moda masculina, perfil sofisticado.",
-          emotion: "Status discreto, elegancia, autocontrole.",
+          emotion: "Status discreto, elegância, autocontrole.",
           prompt: "Using the attached reference image as PERSON_A, keep exact face, skin tone, hairstyle and proportions. Create a refined old-money menswear portrait of PERSON_A wearing a knit polo or linen shirt, tailored trousers, loafers and an elegant watch, beige, navy and white color palette. Relaxed three-quarter stance, calm self-assured expression, upscale architectural or garden background, 85mm lens, soft daylight, subtle background blur, quiet luxury realism, 4:5 aspect ratio."
         },
         {
           title: "Relaxed Tailoring",
           subtitle: "Alfaiataria casual",
           usage: "Ensaio profissional, LinkedIn, editorial, marca pessoal.",
-          emotion: "Maturidade jovem, credibilidade, sofisticacao moderna.",
+          emotion: "Maturidade jovem, credibilidade, sofisticação moderna.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity and facial structure. Create a modern mens editorial portrait with PERSON_A wearing relaxed tailoring: unstructured blazer, straight trousers, soft shirt or premium T-shirt, youthful refined attitude. Medium-full portrait, 85mm lens, soft loop lighting, neutral seamless backdrop or minimalist architectural background, shallow depth of field, modern tailoring realism, 4:5 aspect ratio."
         },
         {
           title: "Monochrome All Black",
           subtitle: "Look todo preto",
           usage: "Perfil masculino, moda, dark aesthetic, ensaio urbano.",
-          emotion: "Autoridade, misterio, elegancia simples.",
+          emotion: "Autoridade, mistério, elegância simples.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact face, hair, body proportions and identity. Create a monochromatic male portrait with PERSON_A wearing a full black outfit, clean lines, confident controlled expression, modern masculine styling. 85mm lens, medium portrait framing, soft contrast lighting, minimalist dark background, premium fashion realism, realistic skin texture, 4:5 aspect ratio."
         },
         {
           title: "Earth-Tone Minimalist Look",
           subtitle: "Tons terrosos minimalistas",
-          usage: "Ensaio lifestyle, moda casual, estetica premium natural.",
-          emotion: "Equilibrio, calma, modernidade.",
+          usage: "Ensaio lifestyle, moda casual, estética premium natural.",
+          emotion: "Equilíbrio, calma, modernidade.",
           prompt: "Using the attached reference image as PERSON_A, keep exact identity and body proportions. Create a minimalist male portrait with PERSON_A wearing an earth-tone outfit, beige, brown, olive or cream color palette, relaxed posture, calm natural expression. 50mm lens, medium vertical framing, soft natural daylight, clean architectural or neutral background, shallow depth of field, premium lifestyle realism, 4:5 aspect ratio."
         },
         {
@@ -192,8 +192,8 @@
         },
         {
           title: "Post-Workout Pose",
-          subtitle: "Pos-treino com toalha ou garrafa",
-          usage: "Academia, conteudo fitness, ensaio de personal.",
+          subtitle: "Pós-treino com toalha ou garrafa",
+          usage: "Academia, conteúdo fitness, ensaio de personal.",
           emotion: "Esforco, superacao, rotina real.",
           prompt: "Using the attached reference image as PERSON_A, keep exact identity, face and body proportions. Create a realistic post-workout portrait of PERSON_A standing in a gym, holding a towel or water bottle, slightly sweaty skin, focused but calm expression, athletic outfit, natural muscular definition. 50mm lens, medium vertical framing, controlled gym lighting, soft background blur, realistic sports lifestyle photography, 4:5 aspect ratio."
         },
@@ -221,27 +221,27 @@
           title: "Mirror Flash Selfie Aesthetic",
           subtitle: "Foto no espelho com flash",
           usage: "Foto jovem, academia, streetwear, perfil social.",
-          emotion: "Intimidade digital, espontaneidade, estetica de rede social.",
+          emotion: "Intimidade digital, espontaneidade, estética de rede social.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity, face, body and hairstyle. Create a stylish mirror-flash portrait of PERSON_A holding a smartphone in front of a mirror, relaxed online-photo pose, masculine outfit in dark or neutral tones, realistic bathroom, elevator or gym mirror environment. Direct flash lighting, crisp reflection, slight nostalgic social-media aesthetic, realistic details, 4:5 aspect ratio."
         },
         {
           title: "Resort Linen / Beach Sophisticated",
           subtitle: "Praia sofisticada",
           usage: "Ensaio praia, verao, lifestyle premium, old money tropical.",
-          emotion: "Leveza, liberdade, elegancia solar.",
+          emotion: "Leveza, liberdade, elegância solar.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact identity, face and body proportions. Create a sunlit resort-style portrait of PERSON_A wearing a white or beige linen shirt and relaxed summer menswear, calm elegant expression, natural beachside or tropical background. 50mm lens, medium-full framing, warm golden-hour light, soft background blur, airy summer editorial realism, 4:5 aspect ratio."
         },
         {
           title: "Home Lifestyle",
           subtitle: "Ensaio em casa",
-          usage: "Criador de conteudo, lifestyle, ensaio intimista, fotos naturais.",
+          usage: "Criador de conteúdo, lifestyle, ensaio intimista, fotos naturais.",
           emotion: "Conforto, autenticidade, rotina real.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact facial identity, hairstyle, skin tone and body proportions. Create an in-home lifestyle portrait of PERSON_A in a realistic apartment setting, soft window light, relaxed natural body language, white shirt or casual knitwear, sitting on a sofa, bed or near a window, warm intimate atmosphere. 35mm lens, shallow depth of field, cinematic home portrait realism, 4:5 aspect ratio."
         },
         {
           title: "Coffee Shop / Creator Lifestyle",
           subtitle: "Cafe ou trabalho criativo",
-          usage: "Marca pessoal, criador de conteudo, estudante, empreendedor.",
+          usage: "Marca pessoal, criador de conteúdo, estudante, empreendedor.",
           emotion: "Criatividade, rotina produtiva, modernidade.",
           prompt: "Using the attached reference image as PERSON_A, keep exact identity and facial structure. Create a realistic lifestyle portrait of PERSON_A sitting in a modern coffee shop, using a laptop or holding a coffee cup, relaxed confident posture, smart casual outfit, natural candid expression. 50mm lens, medium framing, soft window light, warm background bokeh, premium creator lifestyle photography, 4:5 aspect ratio."
         },
@@ -249,21 +249,21 @@
           title: "Night City / Neon Mood",
           subtitle: "Ensaio noturno urbano",
           usage: "Streetwear premium, perfil dark, capa musical, editorial.",
-          emotion: "Magnetismo, misterio, energia noturna.",
+          emotion: "Magnetismo, mistério, energia noturna.",
           prompt: "Using the attached reference image as PERSON_A, preserve exact face, hair, skin tone and identity. Create a cinematic night urban portrait of PERSON_A standing in a city street with blurred lights and subtle neon reflections, black leather jacket or dark tailored outfit, calm intense gaze, serious expression. 85mm lens, shallow depth of field, realistic nighttime bokeh, premium cinematic nightlife realism, 4:5 aspect ratio."
         },
         {
           title: "Barbershop Portrait",
           subtitle: "Barbearia",
-          usage: "Estilo masculino, autocuidado, estetica premium, lifestyle.",
+          usage: "Estilo masculino, autocuidado, estética premium, lifestyle.",
           emotion: "Vaidade, identidade, masculinidade refinada.",
           prompt: "Using the attached reference image as PERSON_A, keep exact face, skin tone, hairstyle and identity. Create a detailed masculine portrait of PERSON_A inside a premium barbershop, sharp haircut, clean grooming, dark stylish outfit, relaxed confident expression. 50mm or 85mm portrait lens, contrasty directional lighting, shallow depth of field, warm realistic barbershop background, gritty-luxury realism, 4:5 aspect ratio."
         },
         {
           title: "Faceless Outfit Detail",
           subtitle: "Foto sem mostrar totalmente o rosto",
-          usage: "Moda, look do dia, streetwear, estetica misteriosa.",
-          emotion: "Estilo, misterio, foco na roupa.",
+          usage: "Moda, look do dia, streetwear, estética misteriosa.",
+          emotion: "Estilo, mistério, foco na roupa.",
           prompt: "Using the attached reference image as PERSON_A, preserve body proportions and clothing fit while keeping the face partially hidden or cropped naturally. Create a stylish faceless male outfit portrait focusing on the clothing, posture, hands, accessories and sneakers, urban background, relaxed stance. 35mm lens, medium-full framing, shallow depth of field, realistic fashion photography, premium streetwear or minimalist menswear aesthetic, 4:5 aspect ratio."
         },
         {
@@ -297,7 +297,7 @@
           title: "Couple Side Embrace",
           subtitle: "Abraco lateral",
           usage: "Ensaio de casal, noivado, lifestyle, fotos para feed.",
-          emotion: "Cumplicidade, proximidade, protecao.",
+          emotion: "Cumplicidade, proximidade, proteção.",
           prompt: "Using the attached reference images as PERSON_A and PERSON_B, preserve both identities exactly. Create an urban couple portrait with a side embrace, subtle intimate body language, coordinated stylish outfits in black, denim or soft neutrals. 50mm lens, medium-full framing, city wall or glass background, soft evening light or natural side light, shallow depth of field, premium realistic couple portrait, 4:5 aspect ratio."
         },
         {
@@ -311,27 +311,27 @@
           title: "Editorial Two-Men Fashion Pose",
           subtitle: "Dois homens em editorial",
           usage: "Moda masculina, campanha, lookbook, editorial.",
-          emotion: "Presenca, contraste, sofisticacao.",
+          emotion: "Presença, contraste, sofisticação.",
           prompt: "Using the attached reference images as PERSON_A and PERSON_B, preserve both identities exactly. Create a high-end men's fashion editorial with two male subjects in coordinated but distinct outfits, one standing slightly forward and the other positioned behind at a different angle, strong body language, serious model expressions. 50mm lens, medium-wide framing, minimalist architectural background, cinematic directional lighting, premium magazine editorial realism, 4:5 aspect ratio."
         }
       ]
     },
     {
       id: "formula",
-      label: "Formula",
+      label: "Fórmula",
       items: [
         {
-          title: "Formula universal para adaptar qualquer prompt",
-          subtitle: "Modelo editavel",
-          usage: "Trocar pose, expressao, roupa, local, lente, enquadramento, luz e formato.",
-          emotion: "Controle criativo e consistencia visual.",
+          title: "Fórmula universal para adaptar qualquer prompt",
+          subtitle: "Modelo editável",
+          usage: "Trocar pose, expressão, roupa, local, lente, enquadramento, luz e formato.",
+          emotion: "Controle criativo e consistência visual.",
           prompt: "Using the attached reference image as PERSON_A, preserve the exact same face, hairstyle, skin tone, body proportions and identity. Create [POSE OR PHOTOSHOOT STYLE], with [BODY POSITION], [FACIAL EXPRESSION], [OUTFIT STYLE], in [LOCATION]. Shot with [LENS], [CAMERA ANGLE], [FRAMING], [LIGHTING STYLE], shallow depth of field, realistic skin texture, premium editorial photography, [ASPECT RATIO]."
         },
         {
           title: "Formatos recomendados",
           subtitle: "Feed, story/Reels e perfil",
-          usage: "Use como guia rapido antes de trocar o aspect ratio.",
-          emotion: "Organizacao para publicacao.",
+          usage: "Use como guia rápido antes de trocar o aspect ratio.",
+          emotion: "Organização para publicação.",
           prompt: "Para Nano Banana, os melhores formatos para esse tipo de ensaio sao: 4:5 para feed, 9:16 para story/Reels e 1:1 para foto de perfil."
         }
       ]
