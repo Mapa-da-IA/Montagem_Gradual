@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de Prompt para Fotografia de Estúdio | Opera</title>
+  <meta
+    name="description"
+    content="Ferramenta local para montar prompts profissionais de fotografia de estúdio usando bibliotecas validadas do Prompt Builder.">
+  <meta name="theme-color" content="#080a10">
+  <link rel="stylesheet" href="./assets/css/studio-prompt-builder.css?v=20260526-v1">
+</head>
+<body>
+  <main class="studio-builder" data-studio-builder>
+    <header class="builder-header">
+      <a class="back-link" href="./menu.html">Menu</a>
+      <div>
+        <p class="eyebrow">Prompt Builder</p>
+        <h1>Gerador de Prompt para Fotografia de Estúdio</h1>
+      </div>
+      <p class="header-summary">Monte o prompt com descrições manuais, bibliotecas locais e resultado separado por prompt principal e negativo.</p>
+    </header>
+
+    <div class="builder-layout">
+      <form class="builder-form" id="studio-prompt-form">
+        <section class="builder-panel" aria-labelledby="step-character-count">
+          <div class="panel-heading">
+            <span class="step-number">1</span>
+            <h2 id="step-character-count">Quantos personagens vão aparecer na cena?</h2>
+          </div>
+          <div class="segmented-control" role="radiogroup" aria-label="Quantidade de personagens">
+            <label>
+              <input type="radio" name="character-count" value="1" checked>
+              <span>1</span>
+            </label>
+            <label>
+              <input type="radio" name="character-count" value="2">
+              <span>2</span>
+            </label>
+            <label>
+              <input type="radio" name="character-count" value="3">
+              <span>3</span>
+            </label>
+            <label>
+              <input type="radio" name="character-count" value="4">
+              <span>4 ou mais</span>
+            </label>
+          </div>
+          <div class="dynamic-fields" id="character-fields"></div>
+        </section>
+
+        <section class="builder-panel" aria-labelledby="step-session-options">
+          <div class="panel-heading">
+            <span class="step-number">2</span>
+            <h2 id="step-session-options">Personalização do ensaio</h2>
+          </div>
+          <div class="library-tabs" id="library-tabs" role="tablist" aria-label="Bibliotecas do prompt"></div>
+          <div class="library-content" id="library-content"></div>
+        </section>
+
+        <section class="builder-panel" aria-labelledby="step-wardrobe">
+          <div class="panel-heading">
+            <span class="step-number">3</span>
+            <h2 id="step-wardrobe">Roupa/figurino manual</h2>
+          </div>
+          <div class="dynamic-fields" id="wardrobe-fields"></div>
+        </section>
+      </form>
+
+      <aside class="result-panel" aria-labelledby="step-result">
+        <div class="panel-heading">
+          <span class="step-number">4</span>
+          <h2 id="step-result">Prompt final</h2>
+        </div>
+
+        <div class="result-section">
+          <div class="result-title-row">
+            <h3>Prompt principal</h3>
+            <button class="copy-button" type="button" data-copy-target="main">Copiar prompt principal</button>
+          </div>
+          <textarea id="main-prompt-output" readonly spellcheck="false"></textarea>
+        </div>
+
+        <div class="result-section">
+          <div class="result-title-row">
+            <h3>Prompt negativo</h3>
+            <button class="copy-button" type="button" data-copy-target="negative">Copiar prompt negativo</button>
+          </div>
+          <textarea id="negative-prompt-output" readonly spellcheck="false"></textarea>
+        </div>
+
+        <div class="result-section">
+          <div class="result-title-row">
+            <h3>Prompt combinado completo</h3>
+            <button class="copy-button" type="button" data-copy-target="combined">Copiar prompt completo</button>
+          </div>
+          <textarea id="combined-prompt-output" readonly spellcheck="false"></textarea>
+        </div>
+
+        <div class="result-actions">
+          <button class="secondary-button" type="button" id="clear-form-button">Limpar formulário</button>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="./assets/js/prompt-builder/prompt-library.js?v=20260526-v1"></script>
+  <script src="./assets/js/prompt-builder/prompt-categories.js?v=20260526-v1"></script>
+  <script src="./assets/js/prompt-builder/prompt-templates.js?v=20260526-v1"></script>
+  <script src="./assets/js/prompt-builder/studio-prompt-builder.js?v=20260526-v1"></script>
+</body>
+</html>
