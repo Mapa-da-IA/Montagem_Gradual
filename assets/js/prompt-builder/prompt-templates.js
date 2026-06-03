@@ -22,7 +22,7 @@ const promptBuilderTemplateVariables = [
   '{{NEGATIVE_RULES}}'
 ];
 
-const promptBuilderTemplateBlock = [
+const promptBuilderStudioTemplateBlock = [
   '{{QUALITY_OPENING}}',
   '{{CHARACTER_COUNT}}',
   '{{CHARACTERS}}',
@@ -49,7 +49,7 @@ const promptBuilderTemplates = [
     label: 'Template para 1 personagem',
     description: 'Estrutura profissional para ensaio com um personagem manual.',
     characterMode: 'one',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: 'CHARACTER_B, CHARACTER_C e respectivos wardrobes podem ficar vazios.'
   },
@@ -58,7 +58,7 @@ const promptBuilderTemplates = [
     label: 'Template para 2 personagens',
     description: 'Estrutura profissional para ensaio com dois personagens manuais.',
     characterMode: 'two',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: 'CHARACTER_C e WARDROBE_C podem ficar vazios.'
   },
@@ -67,7 +67,7 @@ const promptBuilderTemplates = [
     label: 'Template para 3 personagens',
     description: 'Estrutura profissional para ensaio com três personagens manuais.',
     characterMode: 'three',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: ''
   },
@@ -76,7 +76,7 @@ const promptBuilderTemplates = [
     label: 'Template para múltiplos personagens',
     description: 'Estrutura para três ou mais personagens usando CHARACTERS como bloco consolidado.',
     characterMode: 'multiple',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: 'Usar CHARACTERS e WARDROBE para consolidar personagens adicionais.'
   },
@@ -85,7 +85,7 @@ const promptBuilderTemplates = [
     label: 'Template para ensaio infantil',
     description: 'Estrutura com atenção a linguagem segura e apropriada para ensaio infantil.',
     characterMode: 'child',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: 'Usar regras negativas infantis quando aplicável.'
   },
@@ -94,7 +94,7 @@ const promptBuilderTemplates = [
     label: 'Template para ensaio corporativo/profissional',
     description: 'Estrutura para retratos profissionais, branding pessoal e equipe.',
     characterMode: 'corporate',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: ''
   },
@@ -103,7 +103,7 @@ const promptBuilderTemplates = [
     label: 'Template para ensaio gestante',
     description: 'Estrutura para ensaio gestante com campos manuais de personagem e roupa.',
     characterMode: 'maternity',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: ''
   },
@@ -112,7 +112,7 @@ const promptBuilderTemplates = [
     label: 'Template para ensaio de casal/família',
     description: 'Estrutura para casal, família e interações afetivas.',
     characterMode: 'couple-family',
-    template: promptBuilderTemplateBlock,
+    template: promptBuilderStudioTemplateBlock,
     variables: promptBuilderTemplateVariables,
     notes: ''
   }

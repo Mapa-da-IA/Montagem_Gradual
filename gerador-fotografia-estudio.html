@@ -8,7 +8,7 @@
     name="description"
     content="Ferramenta local para montar prompts profissionais de fotografia de estúdio usando bibliotecas validadas do Prompt Builder.">
   <meta name="theme-color" content="#080a10">
-  <link rel="stylesheet" href="./assets/css/studio-prompt-builder.css?v=20260526-v1">
+  <link rel="stylesheet" href="./assets/css/studio-prompt-builder.css?v=20260527-ux1">
 </head>
 <body>
   <main class="studio-builder" data-studio-builder>
@@ -46,13 +46,35 @@
               <span>4 ou mais</span>
             </label>
           </div>
+          <p class="panel-note">Descreva o personagem com idade aparente, cabelo, rosto, corpo e detalhes importantes.</p>
           <div class="dynamic-fields" id="character-fields"></div>
+        </section>
+
+        <section class="builder-panel" aria-labelledby="step-presets">
+          <div class="panel-heading">
+            <span class="step-number">2</span>
+            <h2 id="step-presets">Presets rápidos de estúdio</h2>
+          </div>
+          <p class="panel-note">O preset apenas pré-seleciona opções. Você ainda pode editar tudo manualmente.</p>
+          <div class="active-preset-bar" id="active-preset-bar" hidden>
+            <span id="active-preset-label">Nenhum preset ativo</span>
+            <button class="secondary-button compact-button" type="button" id="clear-preset-button">Limpar preset</button>
+          </div>
+          <div class="preset-grid" id="preset-grid"></div>
         </section>
 
         <section class="builder-panel" aria-labelledby="step-session-options">
           <div class="panel-heading">
-            <span class="step-number">2</span>
+            <span class="step-number">3</span>
             <h2 id="step-session-options">Personalização do ensaio</h2>
+          </div>
+          <p class="panel-note">Os botões abaixo apenas ajudam a montar o prompt. Você pode trocar qualquer opção.</p>
+          <div class="library-controls" aria-label="Busca e filtros das bibliotecas">
+            <label class="search-field" for="library-search">
+              <span>Buscar opções</span>
+              <input id="library-search" type="search" placeholder="Nome, descrição, tag ou categoria">
+            </label>
+            <div class="quick-filters" id="quick-filters" aria-label="Filtros rápidos"></div>
           </div>
           <div class="library-tabs" id="library-tabs" role="tablist" aria-label="Bibliotecas do prompt"></div>
           <div class="library-content" id="library-content"></div>
@@ -60,22 +82,26 @@
 
         <section class="builder-panel" aria-labelledby="step-wardrobe">
           <div class="panel-heading">
-            <span class="step-number">3</span>
+            <span class="step-number">4</span>
             <h2 id="step-wardrobe">Roupa/figurino manual</h2>
           </div>
+          <p class="panel-note">A roupa será aplicada separadamente para cada personagem.</p>
           <div class="dynamic-fields" id="wardrobe-fields"></div>
         </section>
       </form>
 
       <aside class="result-panel" aria-labelledby="step-result">
         <div class="panel-heading">
-          <span class="step-number">4</span>
+          <span class="step-number">5</span>
           <h2 id="step-result">Prompt final</h2>
         </div>
 
         <div class="result-section">
           <div class="result-title-row">
-            <h3>Prompt principal</h3>
+            <div class="result-title-stack">
+              <h3>Prompt principal</h3>
+              <span class="char-counter" id="main-prompt-count">0 caracteres</span>
+            </div>
             <button class="copy-button" type="button" data-copy-target="main">Copiar prompt principal</button>
           </div>
           <textarea id="main-prompt-output" readonly spellcheck="false"></textarea>
@@ -83,7 +109,10 @@
 
         <div class="result-section">
           <div class="result-title-row">
-            <h3>Prompt negativo</h3>
+            <div class="result-title-stack">
+              <h3>Prompt negativo</h3>
+              <span class="char-counter" id="negative-prompt-count">0 caracteres</span>
+            </div>
             <button class="copy-button" type="button" data-copy-target="negative">Copiar prompt negativo</button>
           </div>
           <textarea id="negative-prompt-output" readonly spellcheck="false"></textarea>
@@ -91,7 +120,10 @@
 
         <div class="result-section">
           <div class="result-title-row">
-            <h3>Prompt combinado completo</h3>
+            <div class="result-title-stack">
+              <h3>Prompt combinado completo</h3>
+              <span class="char-counter" id="combined-prompt-count">0 caracteres</span>
+            </div>
             <button class="copy-button" type="button" data-copy-target="combined">Copiar prompt completo</button>
           </div>
           <textarea id="combined-prompt-output" readonly spellcheck="false"></textarea>
@@ -108,6 +140,7 @@
   <script src="./assets/js/prompt-builder/prompt-library.js?v=20260526-v1"></script>
   <script src="./assets/js/prompt-builder/prompt-categories.js?v=20260526-v1"></script>
   <script src="./assets/js/prompt-builder/prompt-templates.js?v=20260526-v1"></script>
-  <script src="./assets/js/prompt-builder/studio-prompt-builder.js?v=20260526-v1"></script>
+  <script src="./assets/js/prompt-builder/studio-presets.js?v=20260527-v1"></script>
+  <script src="./assets/js/prompt-builder/studio-prompt-builder.js?v=20260527-ux1"></script>
 </body>
 </html>

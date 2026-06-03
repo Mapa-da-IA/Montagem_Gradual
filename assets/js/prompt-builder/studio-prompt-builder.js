@@ -6,6 +6,7 @@
 
   const library = window.promptBuilderLibrary;
   const categories = window.promptBuilderCategories || [];
+  const presets = window.studioPromptBuilderPresets || [];
 
   const requiredLibraries = [
     'poses',
@@ -54,9 +55,36 @@
     'background'
   ];
 
+  const quickFilters = [
+    { id: 'geral', label: 'Geral' },
+    { id: 'feminino', label: 'Feminino' },
+    { id: 'masculino', label: 'Masculino' },
+    { id: 'infantil', label: 'Infantil' },
+    { id: 'casal', label: 'Casal' },
+    { id: 'familia', label: 'Família', aliases: ['familia', 'família'] },
+    { id: 'gestante', label: 'Gestante' },
+    { id: 'corporativo', label: 'Corporativo' },
+    { id: 'editorial', label: 'Editorial', aliases: ['editorial', 'fashion', 'moda', 'revista'] },
+    { id: 'estudio', label: 'Estúdio', aliases: ['estudio', 'estúdio', 'studio', 'portrait', 'retrato', 'softbox'] }
+  ];
+
   const characterLetters = ['A', 'B', 'C', 'D'];
+  const presetSelectionMap = {
+    pose: 'poses',
+    expression: 'expressoes',
+    locationShootType: 'locaisTiposDeEnsaio',
+    lighting: 'iluminacao',
+    framing: 'enquadramento',
+    visualStyle: 'estilosVisuais',
+    qualityFinish: 'qualidadeAcabamento',
+    negativeRules: 'regrasNegativas'
+  };
+
   const state = {
     characterCount: 1,
+    activePresetId: null,
+    searchTerm: '',
+    activeFilter: 'geral',
     selected: Object.fromEntries(requiredLibraries.map((id) => [id, new Set()]))
   };
 
@@ -64,11 +92,20 @@
     form: document.getElementById('studio-prompt-form'),
     characterFields: document.getElementById('character-fields'),
     wardrobeFields: document.getElementById('wardrobe-fields'),
+    presetGrid: document.getElementById('preset-grid'),
+    activePresetBar: document.getElementById('active-preset-bar'),
+    activePresetLabel: document.getElementById('active-preset-label'),
+    clearPresetButton: document.getElementById('clear-preset-button'),
+    searchInput: document.getElementById('library-search'),
+    quickFilters: document.getElementById('quick-filters'),
     tabs: document.getElementById('library-tabs'),
     libraryContent: document.getElementById('library-content'),
     mainOutput: document.getElementById('main-prompt-output'),
     negativeOutput: document.getElementById('negative-prompt-output'),
     combinedOutput: document.getElementById('combined-prompt-output'),
+    mainCount: document.getElementById('main-prompt-count'),
+    negativeCount: document.getElementById('negative-prompt-count'),
+    combinedCount: document.getElementById('combined-prompt-count'),
     clearButton: document.getElementById('clear-form-button'),
     copyStatus: document.getElementById('copy-status')
   };
@@ -88,6 +125,13 @@
       ...(item.tags || []),
       ...(item.recommendedFor || [])
     ].join(' ').toLowerCase();
+  }
+
+  function normalizeText(value) {
+    return String(value || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
   }
 
   function isStudioRecommended(item) {
@@ -138,6 +182,56 @@
     });
   }
 
+  function renderPresets() {
+    if (!elements.presetGrid) return;
+    elements.presetGrid.innerHTML = '';
+
+    if (!presets.length) {
+      elements.presetGrid.innerHTML = '<p class="panel-note">Nenhum preset local foi encontrado.</p>';
+      return;
+    }
+
+    presets.forEach((preset) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'preset-card';
+      card.dataset.presetId = preset.id;
+      card.setAttribute('aria-pressed', 'false');
+
+      const tags = (preset.recommendedFor || []).slice(0, 4);
+      card.innerHTML = `
+        <span class="preset-title">${escapeHtml(preset.label)}</span>
+        <span class="preset-description">${escapeHtml(preset.description)}</span>
+        <span class="option-tags">
+          ${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
+        </span>
+      `;
+
+      card.addEventListener('click', () => applyPreset(preset.id));
+      elements.presetGrid.appendChild(card);
+    });
+  }
+
+  function renderQuickFilters() {
+    if (!elements.quickFilters) return;
+    elements.quickFilters.innerHTML = '';
+
+    quickFilters.forEach((filter) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'filter-button';
+      button.dataset.filterId = filter.id;
+      button.setAttribute('aria-pressed', String(filter.id === state.activeFilter));
+      button.textContent = filter.label;
+      button.addEventListener('click', () => {
+        state.activeFilter = filter.id;
+        syncQuickFilterButtons();
+        applyLibraryFilters();
+      });
+      elements.quickFilters.appendChild(button);
+    });
+  }
+
   function renderTabs() {
     elements.tabs.innerHTML = '';
     elements.libraryContent.innerHTML = '';
@@ -164,7 +258,7 @@
       const featuredCount = sortedItems.filter(isStudioRecommended).length;
       panel.innerHTML = `
         <div class="library-meta">
-          <span>${getCategoryLabel(config.id)} · ${sortedItems.length} itens</span>
+          <span>${getCategoryLabel(config.id)} · <span data-visible-count="${config.id}">${sortedItems.length}</span> de ${sortedItems.length} itens</span>
           <span class="selection-count" data-selection-count="${config.id}">0 selecionado</span>
         </div>
       `;
@@ -177,7 +271,7 @@
       panel.appendChild(grid);
 
       if (featuredCount === 0) {
-        panel.querySelector('.library-meta span').textContent += ' · todos disponíveis';
+        panel.querySelector('.library-meta span').insertAdjacentHTML('beforeend', ' · todos disponíveis');
       }
 
       elements.libraryContent.appendChild(panel);
@@ -191,6 +285,15 @@
     card.className = `option-card${featured ? ' is-featured' : ''}`;
     card.dataset.library = config.id;
     card.dataset.itemId = item.id;
+    card.dataset.searchText = normalizeText(textForSearch(item));
+    card.dataset.filterText = normalizeText([
+      item.category,
+      item.label,
+      item.description,
+      ...(item.tags || []),
+      ...(item.recommendedFor || [])
+    ].join(' '));
+    card.dataset.studioRecommended = String(featured);
     card.setAttribute('aria-pressed', 'false');
 
     const tags = [
@@ -221,6 +324,48 @@
     });
   }
 
+  function syncQuickFilterButtons() {
+    if (!elements.quickFilters) return;
+    elements.quickFilters.querySelectorAll('[data-filter-id]').forEach((button) => {
+      const isActive = button.dataset.filterId === state.activeFilter;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+  }
+
+  function matchesActiveFilter(card) {
+    if (state.activeFilter === 'geral') return true;
+
+    const filter = quickFilters.find((item) => item.id === state.activeFilter);
+    const aliases = [state.activeFilter, ...(filter?.aliases || [])].map(normalizeText);
+    const searchable = `${card.dataset.filterText || ''} ${card.dataset.searchText || ''}`;
+
+    if (state.activeFilter === 'estudio' && card.dataset.studioRecommended === 'true') {
+      return true;
+    }
+
+    return aliases.some((alias) => searchable.includes(alias));
+  }
+
+  function applyLibraryFilters() {
+    const query = normalizeText(state.searchTerm);
+
+    libraryConfig.forEach((config) => {
+      const cards = [...document.querySelectorAll(`[data-library="${config.id}"]`)];
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const matchesSearch = !query || (card.dataset.searchText || '').includes(query);
+        const isVisible = matchesSearch && matchesActiveFilter(card);
+        card.classList.toggle('is-hidden', !isVisible);
+        if (isVisible) visibleCount += 1;
+      });
+
+      const counter = document.querySelector(`[data-visible-count="${config.id}"]`);
+      if (counter) counter.textContent = String(visibleCount);
+    });
+  }
+
   function toggleSelection(item, config) {
     const selectedSet = state.selected[config.id];
 
@@ -236,6 +381,51 @@
 
     syncSelectedCards(config.id);
     updatePrompts();
+  }
+
+  function applyPreset(presetId) {
+    const preset = presets.find((item) => item.id === presetId);
+    if (!preset) return;
+
+    Object.values(state.selected).forEach((selectedSet) => selectedSet.clear());
+
+    Object.entries(presetSelectionMap).forEach(([presetKey, libraryId]) => {
+      const rawValue = preset.selections?.[presetKey];
+      const values = Array.isArray(rawValue) ? rawValue : [rawValue].filter(Boolean);
+      const availableIds = new Set((library[libraryId] || []).map((item) => item.id));
+      values.forEach((id) => {
+        if (availableIds.has(id)) state.selected[libraryId].add(id);
+      });
+    });
+
+    state.activePresetId = preset.id;
+    requiredLibraries.forEach(syncSelectedCards);
+    syncPresetCards();
+    updatePrompts();
+  }
+
+  function clearPreset() {
+    state.activePresetId = null;
+    Object.values(state.selected).forEach((selectedSet) => selectedSet.clear());
+    requiredLibraries.forEach(syncSelectedCards);
+    syncPresetCards();
+    updatePrompts();
+  }
+
+  function syncPresetCards() {
+    document.querySelectorAll('[data-preset-id]').forEach((card) => {
+      const isActive = card.dataset.presetId === state.activePresetId;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-pressed', String(isActive));
+    });
+
+    const activePreset = presets.find((preset) => preset.id === state.activePresetId);
+    if (elements.activePresetBar) {
+      elements.activePresetBar.hidden = !activePreset;
+    }
+    if (elements.activePresetLabel) {
+      elements.activePresetLabel.textContent = activePreset ? `Preset ativo: ${activePreset.label}` : 'Nenhum preset ativo';
+    }
   }
 
   function syncSelectedCards(libraryId) {
@@ -308,6 +498,19 @@
     elements.mainOutput.value = result.mainPrompt;
     elements.negativeOutput.value = result.negativePrompt;
     elements.combinedOutput.value = result.combinedPrompt;
+    updatePromptCounters(result);
+  }
+
+  function updatePromptCounters(result) {
+    const counters = [
+      [elements.mainCount, result.mainPrompt.length],
+      [elements.negativeCount, result.negativePrompt.length],
+      [elements.combinedCount, result.combinedPrompt.length]
+    ];
+
+    counters.forEach(([element, count]) => {
+      if (element) element.textContent = `${count.toLocaleString('pt-BR')} caracteres`;
+    });
   }
 
   async function copyText(target) {
@@ -345,9 +548,16 @@
   function clearForm() {
     elements.form.reset();
     state.characterCount = 1;
+    state.activePresetId = null;
+    state.searchTerm = '';
+    state.activeFilter = 'geral';
+    if (elements.searchInput) elements.searchInput.value = '';
     Object.values(state.selected).forEach((selectedSet) => selectedSet.clear());
     renderManualFields();
     requiredLibraries.forEach(syncSelectedCards);
+    syncQuickFilterButtons();
+    applyLibraryFilters();
+    syncPresetCards();
     updatePrompts();
   }
 
@@ -377,7 +587,13 @@
       button.addEventListener('click', () => copyText(button.dataset.copyTarget));
     });
 
+    elements.searchInput?.addEventListener('input', () => {
+      state.searchTerm = elements.searchInput.value;
+      applyLibraryFilters();
+    });
+
     elements.clearButton.addEventListener('click', clearForm);
+    elements.clearPresetButton?.addEventListener('click', clearPreset);
   }
 
   function renderError() {
@@ -399,15 +615,22 @@
     }
 
     renderManualFields();
+    renderPresets();
+    renderQuickFilters();
     renderTabs();
     bindEvents();
+    syncPresetCards();
+    applyLibraryFilters();
     updatePrompts();
   }
 
   window.StudioPromptBuilder = {
+    applyPreset,
+    clearPreset,
     buildPrompt,
     getState: () => ({
       characterCount: state.characterCount,
+      activePresetId: state.activePresetId,
       selected: Object.fromEntries(Object.entries(state.selected).map(([key, value]) => [key, [...value]]))
     })
   };
