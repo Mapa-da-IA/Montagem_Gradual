@@ -106,13 +106,13 @@
         motionSections: motionSections.length,
         genericSections: genericSections.length
       };
-      log("info", "Diagnostico de seletores", selectorCheck);
+      log("info", "Diagnóstico de seletores", selectorCheck);
     }
 
     if (!heroSection || !heroTitle || !heroLead || !heroCta) {
       ROOT.dataset.lpGsapStatus = "missing-selectors";
       ROOT.classList.remove("motion-pending");
-      log("error", "Seletores obrigatorios nao encontrados.");
+      log("error", "Seletores obrigatórios não encontrados.");
       return;
     }
 
@@ -328,7 +328,7 @@
       };
 
       if (!spinRoot || !imageEl) {
-        log("warn", "Frame 360 da hero nao encontrado.");
+        log("warn", "Frame 360 da hero não encontrado.");
         return noopControl;
       }
 
@@ -336,7 +336,7 @@
       const sourceMatch = currentSrc.match(/^(.*frame)(\d{3})(\.webp)(\?.*)?$/i);
 
       if (!sourceMatch) {
-        log("warn", "Padrao de source do frame 360 invalido.", currentSrc);
+        log("warn", "Padrão de source do frame 360 inválido.", currentSrc);
         return noopControl;
       }
 
@@ -686,7 +686,7 @@
         const firstFrameLoaded = await preloadFrame(0);
         if (!firstFrameLoaded) {
           ROOT.dataset.lpGsapHeroSpin = "first-frame-error";
-          log("error", "Falha ao carregar o primeiro frame da animacao 360.");
+          log("error", "Falha ao carregar o primeiro frame da animação 360.");
           return;
         }
 
@@ -713,13 +713,13 @@
             if (!hasUserInteracted) {
               hintEl.textContent = prefersReducedMotion
                 ? "Use as setas para explorar"
-                : (isCoarsePointer ? "Animacao 360 automatica" : "Use as setas para explorar");
+                : (isCoarsePointer ? "Animação 360 automática" : "Use as setas para explorar");
             }
           }, 3800);
         }
 
         ROOT.dataset.lpGsapHeroSpin = prefersReducedMotion ? "running-soft" : "running";
-        log("info", "Animacao 360 da hero iniciada.");
+        log("info", "Animação 360 da hero iniciada.");
       };
 
       bootSpin();
@@ -747,7 +747,7 @@
     gsapLib.set(heroLead, { autoAlpha: 0, y: 34 });
     gsapLib.set(heroCta, { autoAlpha: 0, y: 28, scale: 0.96, transformOrigin: "50% 50%" });
 
-    // Hero: animacao automatica ao entrar na pagina (sem scroll).
+    // Hero: animação automática ao entrar na página (sem scroll).
     ROOT.classList.remove("motion-pending");
     gsapLib.timeline({
       defaults: {
@@ -773,7 +773,7 @@
       }, 0.5);
 
     ROOT.dataset.lpGsapHero = "autoplay-ready";
-    log("info", "Hero configurada com entrada automatica.");
+    log("info", "Hero configurada com entrada automática.");
     let promiseOrbitControl = null;
     let activeSectionId = "";
     const media = gsapLib.matchMedia();
@@ -914,7 +914,7 @@
       }
     );
 
-    // Secoes seguintes: animacao por scroll (segunda secao).
+    // Seções seguintes: animação por scroll (segunda seção).
     if (painSection && painTitle && painSubtitle && painCards.length && painQuote && painCta) {
       gsapLib.set(painTitle, { autoAlpha: 0, y: 40 });
       gsapLib.set(painSubtitle, { autoAlpha: 0, y: 32 });
@@ -928,7 +928,7 @@
       gsapLib.set(painQuote, { autoAlpha: 0, y: 24 });
       gsapLib.set(painCta, { autoAlpha: 0, y: 26, scale: 0.96, transformOrigin: "50% 50%" });
 
-      // Entrada principal da secao (sem pin/scrub longo para manter fluidez
+      // Entrada principal da seção (sem pin/scrub longo para manter fluidez
       // e garantir que o CTA final apareca sempre).
       const buildPainTimeline = (isDesktop) => {
         const painTimeline = gsapLib.timeline({
@@ -1004,10 +1004,10 @@
       );
 
       ROOT.dataset.lpGsapPain = "scroll-ready";
-      log("info", "Segunda secao configurada com ScrollTrigger.");
+      log("info", "Segunda seção configurada com ScrollTrigger.");
     } else {
       ROOT.dataset.lpGsapPain = "missing-selectors";
-      log("warn", "Segunda secao sem seletores completos para ScrollTrigger.");
+      log("warn", "Segunda seção sem seletores completos para ScrollTrigger.");
     }
 
     if (promiseSection && promiseTitle && promiseSubtitle && promiseGrid && promiseCards.length && promiseHighlight && promiseCta) {
@@ -1118,10 +1118,10 @@
       );
 
       ROOT.dataset.lpGsapPromise = "scroll-ready";
-      log("info", "Terceira secao configurada com ScrollTrigger.");
+      log("info", "Terceira seção configurada com ScrollTrigger.");
     } else {
       ROOT.dataset.lpGsapPromise = "missing-selectors";
-      log("warn", "Terceira secao sem seletores completos para ScrollTrigger.");
+      log("warn", "Terceira seção sem seletores completos para ScrollTrigger.");
     }
 
     const setupGenericSectionAnimation = (section) => {
@@ -1214,7 +1214,7 @@
 
     const animatedGenericSections = genericSections.filter(setupGenericSectionAnimation);
     ROOT.dataset.lpGsapGeneric = animatedGenericSections.length ? "scroll-ready" : "no-sections";
-    log("info", "Secoes genericas configuradas com ScrollTrigger.", {
+    log("info", "Seções genéricas configuradas com ScrollTrigger.", {
       count: animatedGenericSections.length
     });
 
@@ -1246,7 +1246,7 @@
 
       ROOT.dataset.lpGsapStatus = "missing-libs";
       ROOT.classList.remove("motion-pending");
-      log("error", "GSAP/ScrollTrigger indisponiveis apos tentativas.");
+      log("error", "GSAP/ScrollTrigger indisponíveis após tentativas.");
       return;
     }
 

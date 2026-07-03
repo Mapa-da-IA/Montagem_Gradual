@@ -215,7 +215,7 @@
     {
       title: "Camera 05 / Medium portrait waist-up",
       category: "Camera",
-      description: "Retrato medio da cintura para cima com foco no rosto.",
+      description: "Retrato médio da cintura para cima com foco no rosto.",
       imageLabel: "Camera 05",
       colors: ["#6a4f4f", "#c79a9a"],
       prompt: "Medium portrait framing from the waist up, eye-level camera angle, natural 50mm lens perspective, balanced headroom, clean shoulder framing, soft background blur, shallow depth of field, realistic portrait compression, sharp focus on the eyes and face, professional studio portrait photography."
@@ -239,7 +239,7 @@
     {
       title: "Camera 08 / Profile side portrait",
       category: "Camera",
-      description: "Retrato lateral de perfil com espaco negativo elegante.",
+      description: "Retrato lateral de perfil com espaço negativo elegante.",
       imageLabel: "Camera 08",
       colors: ["#4f6770", "#9dc3cf"],
       prompt: "Side profile portrait framing, camera positioned directly to the side of the subject, clean lateral perspective, 85mm portrait lens look, compressed background, shallow depth of field, subject sharply separated from the background, elegant negative space in front of the face, professional editorial portrait style."
@@ -247,7 +247,7 @@
     {
       title: "Camera 09 / Three-quarter face angle",
       category: "Camera",
-      description: "Rosto em tres quartos com perspectiva valorizada.",
+      description: "Rosto em três quartos com perspectiva valorizada.",
       imageLabel: "Camera 09",
       colors: ["#6f6451", "#ccb590"],
       prompt: "Three-quarter face portrait angle, camera positioned slightly to one side of the subject, face turned partially toward the lens, 50mm to 85mm portrait lens feel, flattering facial perspective, shallow depth of field, soft background blur, sharp focus on the eyes, professional portrait composition."
@@ -255,7 +255,7 @@
     {
       title: "Camera 10 / Over-the-shoulder portrait",
       category: "Camera",
-      description: "Composicao por cima do ombro com foco cinematico.",
+      description: "Composição por cima do ombro com foco cinematográfico.",
       imageLabel: "Camera 10",
       colors: ["#515173", "#a7a9da"],
       prompt: "Over-the-shoulder portrait composition, camera positioned behind and slightly to the side of the subject, subject looking back toward the lens, 85mm portrait lens look, strong background compression, shallow depth of field, cinematic focus on the face, elegant editorial framing, soft blurred background."
@@ -311,7 +311,7 @@
     {
       title: "Camera 17 / Compressed telephoto portrait",
       category: "Camera",
-      description: "Retrato teleobjetiva com compressao forte de fundo.",
+      description: "Retrato teleobjetiva com compressão forte de fundo.",
       imageLabel: "Camera 17",
       colors: ["#55626f", "#a8b6c4"],
       prompt: "Telephoto portrait composition, 85mm to 135mm lens look, strong background compression, shallow depth of field, creamy bokeh, subject sharply separated from the background, minimal perspective distortion, professional high-end portrait photography, clean and elegant framing."
@@ -327,7 +327,7 @@
     {
       title: "Camera 19 / Editorial tilted camera angle",
       category: "Camera",
-      description: "Angulo holandes sutil para energia visual moderna.",
+      description: "Ângulo holandês sutil para energia visual moderna.",
       imageLabel: "Camera 19",
       colors: ["#6f5a5a", "#c9a5a5"],
       prompt: "Editorial portrait with a subtle Dutch angle, camera slightly tilted for a dynamic fashion composition, medium-to-full body framing, 35mm to 50mm lens look, controlled perspective, sharp subject focus, shallow depth of field, modern editorial photography style, cinematic visual energy."
@@ -335,7 +335,7 @@
     {
       title: "Camera 20 / Centered symmetrical portrait",
       category: "Camera",
-      description: "Composicao central simetrica com equilibrio visual.",
+      description: "Composição central simétrica com equilíbrio visual.",
       imageLabel: "Camera 20",
       colors: ["#4a5d6f", "#9fb8cf"],
       prompt: "Centered symmetrical portrait composition, camera positioned directly in front of the subject at eye level, balanced vertical framing, equal negative space on both sides, 50mm lens perspective, natural compression, shallow depth of field, clean professional portrait photography, sharp focus on the subject."
@@ -343,7 +343,7 @@
     {
       title: "Camera 21 / Off-center rule-of-thirds portrait",
       category: "Camera",
-      description: "Regra dos tercos com sujeito deslocado e respiro.",
+      description: "Regra dos terços com sujeito deslocado e respiro.",
       imageLabel: "Camera 21",
       colors: ["#5f6a50", "#b8c79a"],
       prompt: "Rule-of-thirds portrait composition, subject positioned slightly off-center, camera at eye level, medium-to-full body framing, 50mm lens look, balanced negative space, soft shallow depth of field, clean background separation, professional editorial portrait style."
@@ -367,7 +367,7 @@
     {
       title: "Camera 24 / Dynamic walking-style camera angle",
       category: "Camera",
-      description: "Angulo dinamico de caminhada para moda em movimento.",
+      description: "Ângulo dinâmico de caminhada para moda em movimento.",
       imageLabel: "Camera 24",
       colors: ["#4d6f7b", "#9dc9d7"],
       prompt: "Dynamic full-body portrait framing, camera positioned slightly low and in front of the subject, 35mm lens perspective, subtle sense of movement, natural editorial composition, subject framed from head to feet, shallow depth of field, sharp focus on the subject, professional fashion photography style."
@@ -399,7 +399,7 @@
     {
       title: "Camera 28 / Baby child full-body seated framing",
       category: "Camera",
-      description: "Corpo inteiro infantil sentado com separacao limpa.",
+      description: "Corpo inteiro infantil sentado com separação limpa.",
       imageLabel: "Camera 28",
       colors: ["#516c73", "#9fc9d1"],
       prompt: "Full-body seated portrait for a baby or child, camera positioned at low eye level, subject fully visible within the frame, 50mm lens perspective, natural proportions, soft background blur, shallow depth of field, clean subject separation, professional studio baby photography style."

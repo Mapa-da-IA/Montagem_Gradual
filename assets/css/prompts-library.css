@@ -762,3 +762,69 @@
     max-width: 32ch;
   }
 }
+
+/* Typography and card rhythm polish. */
+.prompt-library-hero h1,
+.prompt-empty h2,
+.prompt-card-title,
+.maternity-library-hero h1 {
+  text-wrap: balance;
+}
+
+.prompt-library-subtitle,
+.prompt-empty p,
+.prompt-card-description,
+.maternity-reference-note,
+.maternity-token-list span {
+  line-height: 1.65;
+}
+
+.prompt-card,
+.prompt-library-card,
+.prompt-card-body,
+.prompt-card-prompt,
+.prompt-card-example {
+  min-width: 0;
+}
+
+.prompt-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.prompt-card-description {
+  margin-bottom: 18px;
+}
+
+.prompt-card-actions {
+  margin-top: auto;
+}
+
+.prompt-card-prompt,
+.prompt-card-example {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 680px) {
+  .prompt-library-hero h1,
+  .maternity-library-hero h1 {
+    max-width: 14ch;
+  }
+
+  .prompt-library-subtitle,
+  .prompt-empty p,
+  .prompt-card-description {
+    max-width: 42ch;
+  }
+
+  .prompt-card,
+  .prompt-library-card {
+    border-radius: 16px;
+  }
+}

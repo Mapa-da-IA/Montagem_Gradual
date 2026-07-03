@@ -5,7 +5,7 @@
       label: "Prefixo",
       items: [
         {
-          title: "Consistencia da imagem de referencia",
+          title: "Consistência da imagem de referência",
           prompt: "Use the provided reference image as the exact architectural source. Preserve the original structure, proportions, materials, colors, doors, windows, walls, layout, furniture placement, landscaping, and overall identity. Do not redesign the property. Do not add people, cars, text, logos, signs, or unrealistic objects. Photorealistic professional architectural photography, ultra-sharp details, realistic lighting, clean composition, natural shadows, high dynamic range, premium real estate photography style."
         }
       ]
@@ -23,7 +23,7 @@
           prompt: "Create a slightly low-angle exterior hero shot, camera placed below eye level looking upward, emphasizing scale and presence, 24mm lens, dramatic but realistic lighting, premium architectural photography."
         },
         {
-          title: "Exterior medio natural",
+          title: "Exterior médio natural",
           prompt: "Create a medium eye-level exterior shot, camera positioned at human height, natural perspective, 35mm lens, clean composition, realistic daylight, sharp architectural details."
         },
         {
@@ -31,7 +31,7 @@
           prompt: "Create a wide 45-degree exterior angle from the front corner, showing depth and volume, 24mm lens, realistic perspective, clean vertical lines, professional property photography."
         },
         {
-          title: "Fachada cinematografica baixa",
+          title: "Fachada cinematográfica baixa",
           prompt: "Create a cinematic front facade shot from a low corner angle, camera close to the ground, 20mm wide-angle lens, strong depth, elegant shadows, premium real estate look."
         },
         {
@@ -43,15 +43,15 @@
           prompt: "Create a wide exterior shot from across the street or open space, 35mm lens, compressed natural perspective, showing the full facade clearly, realistic professional photography."
         },
         {
-          title: "Fachada simetrica central",
+          title: "Fachada simétrica central",
           prompt: "Create a centered symmetrical facade shot, camera perfectly aligned with the main entrance, 35mm lens, straight vertical lines, clean balanced framing, premium architectural magazine style."
         },
         {
-          title: "Vista tres quartos externa",
+          title: "Vista três quartos externa",
           prompt: "Create a three-quarter exterior view, camera placed diagonally to reveal both the front and side planes, 24mm lens, natural daylight, realistic shadows, clean real estate composition."
         },
         {
-          title: "Fachada ampla cinematografica",
+          title: "Fachada ampla cinematográfica",
           prompt: "Create a front exterior shot with a subtle cinematic wide-angle perspective, 20mm lens, camera at eye level, emphasizing openness, clean framing, ultra-realistic architectural photography."
         },
         {
@@ -59,7 +59,7 @@
           prompt: "Create a telephoto exterior shot, 70mm lens, slightly compressed perspective, clean elegant framing, premium architectural photography, realistic daylight and sharp details."
         },
         {
-          title: "Detalhe arquitetonico externo",
+          title: "Detalhe arquitetônico externo",
           prompt: "Create a close exterior architectural detail shot, 50mm lens, focusing on textures, materials, edges, windows, walls, and design details, shallow depth of field, realistic premium photography."
         },
         {
@@ -101,11 +101,11 @@
       label: "Drone",
       items: [
         {
-          title: "Aereo obliquo alto",
+          title: "Aéreo oblíquo alto",
           prompt: "Create a high oblique aerial view, drone camera angled downward at 45 degrees, showing the full property and surrounding layout, 24mm lens equivalent, realistic daylight, professional aerial real estate photography."
         },
         {
-          title: "Aereo top-down",
+          title: "Aéreo top-down",
           prompt: "Create a top-down aerial view, drone camera directly above, showing the property layout, roof geometry, paths, outdoor areas, and spatial organization, ultra-sharp realistic aerial photography."
         },
         {
@@ -121,11 +121,11 @@
           prompt: "Create a diagonal aerial corner shot, drone positioned above one corner, showing depth, roofline, facade, and spatial layout, clean composition, realistic daylight."
         },
         {
-          title: "Elevacao frontal aerea",
+          title: "Elevação frontal aérea",
           prompt: "Create an aerial front elevation shot, drone positioned high and centered in front, camera tilted slightly downward, symmetrical framing, realistic professional property photography."
         },
         {
-          title: "Drone descendente cinematico",
+          title: "Drone descendente cinematográfico",
           prompt: "Create a cinematic descending drone-style view, high angle perspective, wide 24mm lens equivalent, showing architecture clearly with elegant depth and realistic lighting."
         },
         {
@@ -133,18 +133,18 @@
           prompt: "Create a drone orbit-style still frame, camera positioned at a dynamic diagonal angle around the property, wide architectural perspective, realistic shadows, premium aerial composition."
         },
         {
-          title: "Aereo golden hour",
+          title: "Aéreo golden hour",
           prompt: "Create a wide aerial view during golden hour, warm sunlight, long shadows, realistic highlights, clean property visibility, premium architectural photography."
         },
         {
-          title: "Aereo blue hour",
+          title: "Aéreo blue hour",
           prompt: "Create a blue-hour aerial exterior view, soft evening sky, realistic ambient lighting, balanced highlights, clean architectural detail, premium drone photography style."
         }
       ]
     },
     {
       id: "exterior-detalhes",
-      label: "Area externa",
+      label: "Área externa",
       items: [
         {
           title: "Entrada close-up",
@@ -159,7 +159,7 @@
           prompt: "Create a medium exterior detail shot of architectural materials, 50mm lens, shallow depth of field, realistic texture, natural light, refined editorial property photography."
         },
         {
-          title: "Circulacao externa",
+          title: "Circulação externa",
           prompt: "Create a wide exterior shot focused on the outdoor circulation area, camera at eye level, 24mm lens, showing paths, access points, landscape, and architectural flow, realistic daylight."
         },
         {
@@ -175,7 +175,7 @@
           prompt: "Create an exterior shot from the side perspective, 35mm lens, camera at eye level, showing depth, wall planes, openings, and architectural proportions, realistic natural light."
         },
         {
-          title: "Composicao vertical externa",
+          title: "Composição vertical externa",
           prompt: "Create a clean exterior vertical composition, camera aligned with the main architectural lines, 35mm lens, straight verticals, premium editorial real estate photography."
         },
         {
@@ -213,7 +213,7 @@
           prompt: "Create a two-point perspective interior shot from a diagonal corner, 18mm lens, showing depth, layout, walls, ceiling, floor, and furniture placement clearly, professional real estate style."
         },
         {
-          title: "Interior medio amplo",
+          title: "Interior médio amplo",
           prompt: "Create a medium-wide interior shot, 28mm lens, camera at eye level, natural perspective without distortion, clean composition, realistic ambient light."
         },
         {
@@ -245,7 +245,7 @@
           prompt: "Create an interior shot with foreground framing, 35mm lens, subtle blurred foreground elements, sharp architectural space in focus, realistic natural light, premium editorial style."
         },
         {
-          title: "Interior espacoso amplo",
+          title: "Interior espaçoso amplo",
           prompt: "Create a spacious wide interior shot, 16mm lens, camera at eye level, showing openness and circulation, straight vertical lines, realistic premium real estate photography."
         },
         {
@@ -263,7 +263,7 @@
           prompt: "Create a close-up interior detail shot, 50mm lens, focusing on materials, textures, surfaces, edges, furniture details, and architectural finishes, shallow depth of field, realistic premium photography."
         },
         {
-          title: "Area de design refinada",
+          title: "Área de design refinada",
           prompt: "Create a medium close interior shot, 35mm lens, focusing on a refined design area, balanced composition, soft natural light, realistic textures, editorial architectural photography."
         },
         {
@@ -275,11 +275,11 @@
           prompt: "Create an interior lifestyle-style architectural shot without people, 35mm lens, natural composition, refined details, realistic light, premium magazine photography."
         },
         {
-          title: "Composicao vertical interna",
+          title: "Composição vertical interna",
           prompt: "Create a vertical interior composition, 24mm lens, emphasizing height, walls, ceiling, lighting, and architectural lines, clean premium real estate photography."
         },
         {
-          title: "Composicao horizontal interna",
+          title: "Composição horizontal interna",
           prompt: "Create a horizontal wide interior composition, 20mm lens, showing spatial flow, furniture placement, and architectural depth, realistic professional photography."
         },
         {
@@ -287,7 +287,7 @@
           prompt: "Create an interior shot focused on natural light entering the space, 24mm lens, realistic window light, soft shadows, clean exposure, premium architectural photography."
         },
         {
-          title: "Pe direito e espaco vertical",
+          title: "Pé-direito e espaço vertical",
           prompt: "Create an interior shot emphasizing ceiling height and vertical space, low camera position, 20mm lens, clean vertical lines, realistic lighting, professional real estate style."
         },
         {
@@ -295,7 +295,7 @@
           prompt: "Create an interior shot emphasizing floor texture and depth, camera placed low near the floor, 24mm lens, leading lines through the room, realistic premium photography."
         },
         {
-          title: "Luminarias e materiais",
+          title: "Luminárias e materiais",
           prompt: "Create a clean detail shot of lighting fixtures, materials, and surrounding architecture, 50mm lens, shallow depth of field, realistic highlights, editorial real estate photography."
         },
         {
@@ -341,7 +341,7 @@
           prompt: "Create a doorway-framed interior shot, 35mm lens, using the doorway as a natural frame, showing depth into the next space, realistic premium photography."
         },
         {
-          title: "Composicao interna em camadas",
+          title: "Composição interna em camadas",
           prompt: "Create a layered interior composition, 35mm lens, showing foreground, midground, and background spaces clearly, natural depth, realistic architectural photography."
         },
         {
@@ -349,7 +349,7 @@
           prompt: "Create a wide open-plan interior shot, 18mm lens, camera placed diagonally to show multiple connected areas, realistic proportions, clean vertical lines, premium real estate style."
         },
         {
-          title: "Corredor central simetrico",
+          title: "Corredor central simétrico",
           prompt: "Create a centered interior corridor shot, 24mm lens, symmetrical perspective, clean lines, realistic lighting, professional architectural photography."
         },
         {
@@ -371,15 +371,15 @@
       label: "Premium",
       items: [
         {
-          title: "Editorial arquitetonico premium",
+          title: "Editorial arquitetônico premium",
           prompt: "Create a premium editorial architectural shot, 35mm lens, carefully composed with clean geometry, refined shadows, realistic materials, balanced negative space, magazine-quality photography."
         },
         {
-          title: "Composicao cinematografica",
+          title: "Composição cinematográfica",
           prompt: "Create a cinematic architectural composition, 24mm lens, strong depth, realistic contrast, elegant shadows, premium real estate photography without exaggeration."
         },
         {
-          title: "Luxo imobiliario",
+          title: "Luxo imobiliário",
           prompt: "Create a luxury real estate photography angle, 24mm lens, clean vertical lines, balanced light, refined materials, polished composition, ultra-realistic professional quality."
         },
         {
@@ -399,7 +399,7 @@
           prompt: "Create an elegant architectural detail composition, 70mm lens, shallow depth of field, focusing on textures, lines, shadows, and material quality, premium editorial style."
         },
         {
-          title: "HDR arquitetonico realista",
+          title: "HDR arquitetônico realista",
           prompt: "Create a realistic HDR architectural photo, 24mm lens, balanced highlights and shadows, natural colors, clean vertical lines, professional real estate photography."
         },
         {
@@ -425,7 +425,7 @@
           prompt: "Create a 20mm wide-angle architectural photo, spacious composition, realistic proportions, balanced light, clean premium property photography."
         },
         {
-          title: "24mm arquitetonico",
+          title: "24mm arquitetônico",
           prompt: "Create a 24mm architectural photography shot, natural wide perspective, sharp details, balanced composition, realistic lighting, professional real estate style."
         },
         {
@@ -449,11 +449,11 @@
           prompt: "Create an eye-level architectural shot, camera at natural human height, 24mm lens, clean balanced perspective, realistic daylight, professional property photography."
         },
         {
-          title: "Angulo alto arquitetonico",
+          title: "Ângulo alto arquitetônico",
           prompt: "Create a high-angle architectural shot, camera positioned above eye level, 24mm lens, gently looking downward, showing layout and spatial organization clearly."
         },
         {
-          title: "Perspectiva aerea",
+          title: "Perspectiva aérea",
           prompt: "Create an aerial architectural photography shot, drone perspective, wide composition, realistic scale, clean geometry, sharp details, premium real estate photography."
         }
       ]
@@ -463,7 +463,7 @@
       label: "Negativo",
       items: [
         {
-          title: "Evitar alteracoes irreais",
+          title: "Evitar alterações irreais",
           prompt: "Do not change the architecture, do not redesign the property, do not add people, vehicles, animals, text, logos, signs, fake decorations, unrealistic furniture, distorted windows, warped walls, incorrect perspective, oversaturated colors, cartoon style, CGI look, fisheye distortion, messy composition, blurry details, or artificial-looking lighting."
         }
       ]
@@ -471,22 +471,22 @@
   ];
 
   const fallbackImage = {
-    src: "./assets/images/Imoveis/camera-exemplos/fachada-06-referencia.jpeg",
-    width: 2752,
-    height: 1536
+    src: "./assets/images/Imoveis/camera/fachada-06.jpeg",
+    width: 1200,
+    height: 670
   };
 
-  const promptImagePath = "./assets/images/FOTOS IMOVEIS";
+  const promptImagePath = "./assets/images/Imoveis/camera";
 
   const promptImageGroups = {
-    "exterior-fachada": "Fachada",
-    "exterior-aereo": "Drone",
-    "exterior-detalhes": "Area externa",
-    "interior-geral": "Interior",
-    "interior-detalhes": "Detalhe interno",
-    transicoes: "Transi\u00e7\u00e3o",
-    premium: "Premium",
-    lentes: "Lente"
+    "exterior-fachada": "fachada",
+    "exterior-aereo": "drone",
+    "exterior-detalhes": "area-externa",
+    "interior-geral": "interior",
+    "interior-detalhes": "detalhe-interno",
+    transicoes: "transicao",
+    premium: "premium",
+    lentes: "lente"
   };
 
   const getPromptImage = (sectionId, index) => {
@@ -499,9 +499,9 @@
     const fileNumber = String(index + 1).padStart(2, "0");
 
     return {
-      src: `${promptImagePath}/${filePrefix} ${fileNumber}.jpeg`,
-      width: 2752,
-      height: 1536
+      src: `${promptImagePath}/${filePrefix}-${fileNumber}.jpeg`,
+      width: 1200,
+      height: 670
     };
   };
 
@@ -511,7 +511,7 @@
     figure.className = "prompt-reference camera-prompt-reference";
 
     const image = document.createElement("img");
-    image.src = encodeURI(promptImage.src);
+    image.src = promptImage.src;
     image.width = promptImage.width;
     image.height = promptImage.height;
     image.alt = `Exemplo visual para ${item.title}`;

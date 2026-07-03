@@ -77,7 +77,7 @@ Create a natural maternity portrait of CHARACTER_A walking slowly through [LOCAT
       title: "Backlit Silhouette / Silhueta em contraluz",
       category: "Fine Art",
       tags: ["Solo", "Fine Art", "Externo"],
-      description: "Composicao poetica que valoriza o contorno da barriga em contraluz.",
+      description: "Composição poética que valoriza o contorno da barriga em contraluz.",
       prompt: `Using the attached reference image as CHARACTER_A, preserve her exact body proportions, pregnancy shape, hairstyle silhouette and visual consistency.
 
 Create an artistic backlit maternity silhouette of CHARACTER_A in [LOCATION]. She stands in side profile or gentle three-quarter profile, with the pregnant belly clearly outlined against a strong natural or studio backlight. Her hands softly frame the belly, posture elegant and still. Use minimal background, strong rim light, clean negative space, poetic maternal atmosphere, cinematic glow, high contrast but refined detail, fine-art maternity photography, no text, no watermark, [ASPECT RATIO].`
@@ -452,7 +452,7 @@ Create a [POSE STYLE] maternity portrait of CHARACTER_A in [LOCATION]. She is po
     const defaultText = "Copiar Prompt";
     button.textContent = success ? "Copiado!" : "Falha ao copiar";
     button.classList.toggle("is-copied", success);
-    feedback.textContent = success ? "Prompt copiado!" : "Nao foi possivel copiar automaticamente.";
+    feedback.textContent = success ? "Prompt copiado!" : "Não foi possível copiar automaticamente.";
 
     if (button.copyTimeoutId) {
       window.clearTimeout(button.copyTimeoutId);

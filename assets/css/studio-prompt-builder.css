@@ -59,26 +59,6 @@ button {
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid var(--studio-line);
-  border-radius: var(--studio-radius);
-  color: var(--studio-soft);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.back-link:hover,
-.back-link:focus-visible {
-  border-color: var(--studio-line-strong);
-  color: #ffffff;
-  outline: none;
-}
-
 .eyebrow {
   margin: 0 0 8px;
   color: var(--studio-accent);
@@ -655,5 +635,59 @@ textarea:focus {
   *::before,
   *::after {
     scroll-behavior: auto !important;
+  }
+}
+
+/* Typography and form rhythm polish. */
+.builder-header h1,
+.builder-panel h2,
+.result-panel h2,
+.result-section h3 {
+  text-wrap: balance;
+}
+
+.builder-header p,
+.builder-panel p,
+.result-section p,
+.preset-card p,
+.field-group textarea,
+.result-output {
+  line-height: 1.65;
+}
+
+.builder-header,
+.builder-panel,
+.result-panel,
+.preset-card,
+.field-group,
+.result-section {
+  min-width: 0;
+}
+
+.preset-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preset-card .tag-list {
+  margin-top: auto;
+}
+
+.field-group textarea,
+.result-output {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .builder-header h1 {
+    max-width: 14ch;
+  }
+
+  .builder-header p,
+  .builder-panel p,
+  .preset-card p,
+  .result-section p {
+    max-width: 42ch;
   }
 }

@@ -3771,3 +3771,65 @@ img {
     text-align: center;
   }
 }
+
+/* Global landing-page hierarchy polish. */
+.hero-title,
+.section-title,
+.section-head h2,
+.promise-card h3,
+.feature-card h3,
+.audience-card h3,
+.outcome-card h3,
+.offer-value-card h3,
+.final-card h3 {
+  text-wrap: balance;
+}
+
+.hero-lead,
+.section-subtitle,
+.section-meta,
+.promise-card p,
+.feature-card p,
+.audience-card p,
+.outcome-card p,
+.offer-value-card p,
+.final-card p,
+.signal-list,
+.pain-before,
+.pain-after {
+  overflow-wrap: anywhere;
+}
+
+.promise-card,
+.feature-card,
+.audience-card,
+.outcome-card,
+.offer-value-card,
+.final-card,
+.hero-content,
+.section-head,
+.lp-content-section {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .section-subtitle,
+  .section-meta,
+  .promise-card p,
+  .feature-card p,
+  .audience-card p,
+  .outcome-card p,
+  .offer-value-card p,
+  .final-card p {
+    max-width: 42ch;
+  }
+
+  .promise-card,
+  .feature-card,
+  .audience-card,
+  .outcome-card,
+  .offer-value-card,
+  .final-card {
+    border-radius: 16px;
+  }
+}
