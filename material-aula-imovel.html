@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material da Aula | Montagem Gradual de Imóveis</title>
+  <meta
+    name="description"
+    content="Guia prático para criar o efeito de montagem gradual de imóveis com storyboard, prompts para Gemini, animação em IA e finalização no CapCut.">
+  <meta name="theme-color" content="#05070d">
+  <link rel="preload" as="image" href="./assets/images/Imoveis/montagem-gradual-imovel-hero.png">
+  <link rel="stylesheet" href="./assets/css/material-aula.css?v=20260702-imovel">
+</head>
+<body class="lesson-body">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <main class="lesson-page" id="topo">
+    <header class="lesson-hero" aria-labelledby="lesson-title">
+      <img
+        class="lesson-hero-image"
+        src="./assets/images/Imoveis/montagem-gradual-imovel-hero.png"
+        width="1672"
+        height="941"
+        alt="Casa moderna em composição visual de construção gradual para material de imóveis."
+        loading="eager"
+        decoding="async">
+      <div class="lesson-hero-shade" aria-hidden="true"></div>
+      <div class="lesson-hero-content">
+        <a class="lesson-back-link" href="./menu.html">Voltar para o menu</a>
+        <p class="lesson-kicker">Material da Aula</p>
+        <h1 id="lesson-title">Montagem Gradual de Imóveis</h1>
+        <p>
+          Guia prático para criar uma animação em que um imóvel surge aos poucos, começando pelo terreno
+          vazio e evoluindo até a casa finalizada com fachada, pintura, iluminação e acabamento profissional.
+        </p>
+        <div class="lesson-hero-actions" aria-label="Ações rápidas">
+          <a class="lesson-btn lesson-btn-primary" href="#prompts-frames">Ver prompts do Gemini</a>
+          <a class="lesson-btn lesson-btn-secondary" href="#prompts-animacao">Ver prompts de animação</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="lesson-nav" aria-label="Navegação do material">
+      <a href="#objetivo">Objetivo</a>
+      <a href="#ferramentas">Ferramentas</a>
+      <a href="#storyboard">Storyboard</a>
+      <a href="#fluxo-gemini">Gemini</a>
+      <a href="#prompts-frames">Frames</a>
+      <a href="#prompts-animacao">Animação</a>
+      <a href="#capcut">CapCut</a>
+      <a href="#modo-avancado">Avançado</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+
+    <section class="lesson-section" id="objetivo" aria-labelledby="objetivo-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">01</p>
+        <h2 id="objetivo-title">Objetivo do Efeito</h2>
+        <p>
+          O efeito de montagem gradual de imóvel mostra a construção acontecendo etapa por etapa. A cena pode
+          começar em um terreno vazio e avançar por fundação, pilares, vigas, paredes, telhado, portas, janelas,
+          revestimentos, pintura, paisagismo e iluminação final.
+        </p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-5">
+        <article class="lesson-card">
+          <h3>Terreno primeiro</h3>
+          <p>A cena começa com o lote vazio ou com a base limpa onde o imóvel será construído.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Fundação</h3>
+          <p>A fundação aparece no chão, marcando a planta e a área ocupada pela casa.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Estrutura</h3>
+          <p>Pilares, vigas, lajes e paredes começam a formar o esqueleto arquitetônico.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Fachada</h3>
+          <p>Telhado, portas, janelas, pintura e revestimentos completam o visual externo.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Resultado visual</h3>
+          <p>O vídeo transmite evolução, valorização imobiliária e acabamento premium.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="ferramentas" aria-labelledby="ferramentas-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">02</p>
+        <h2 id="ferramentas-title">Ferramentas Usadas</h2>
+        <p>O fluxo do material combina criação de prompts, geração de frames, animação e edição final.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Para estruturar</p>
+          <h3>ChatGPT</h3>
+          <p>Cria prompts detalhados, organiza a lógica da montagem e transforma cada etapa em comando claro.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Para gerar frames</p>
+          <h3>Gemini / Nano Banana</h3>
+          <p>Produz os frames progressivos: terreno vazio, fundação, estrutura, paredes, telhado e imóvel finalizado.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Para animar</p>
+          <h3>Veo 3.1</h3>
+          <p>Transforma os frames em vídeos curtos com sensação de surgimento, encaixe e construção.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Para finalizar</p>
+          <h3>CapCut</h3>
+          <p>Une os vídeos, ajusta ritmo, cortes, transições, cor, trilha sonora e acabamento final.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="storyboard" aria-labelledby="storyboard-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">03</p>
+        <h2 id="storyboard-title">Método Storyboard</h2>
+        <p>
+          O storyboard é a sequência de imagens que representa cada fase da construção. O ideal é trabalhar
+          com intervalos de 5 a 6 segundos por etapa para que o público entenda a evolução do imóvel.
+        </p>
+      </div>
+
+      <div class="lesson-timeline">
+        <article class="lesson-step">
+          <span>1</span>
+          <div>
+            <h3>Terreno vazio</h3>
+            <p>Apenas o cenário aparece: lote, rua, condomínio, área verde ou terreno base.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>2</span>
+          <div>
+            <h3>Fundação</h3>
+            <p>A base do imóvel surge no chão com concreto, marcações estruturais e delimitação da planta.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>3</span>
+          <div>
+            <h3>Pilares e vigas</h3>
+            <p>A estrutura principal aparece com pilares, vigas, lajes e sustentação da construção.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>4</span>
+          <div>
+            <h3>Paredes</h3>
+            <p>As paredes externas e internas definem o volume da casa e a distribuição dos cômodos.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>5</span>
+          <div>
+            <h3>Telhado e esquadrias</h3>
+            <p>Telhado, portas, janelas e elementos principais da fachada são adicionados.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>6</span>
+          <div>
+            <h3>Revestimento</h3>
+            <p>A casa recebe pintura, textura, revestimentos e detalhes arquitetônicos externos.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>7</span>
+          <div>
+            <h3>Imóvel completo</h3>
+            <p>Fachada pronta, iluminação, paisagismo, calçada, garagem e acabamento premium.</p>
+          </div>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Regra de consistência</h3>
+        <p>
+          A câmera precisa permanecer travada. Não altere enquadramento, perspectiva, ângulo, iluminação,
+          escala do imóvel, terreno, céu, rua ou elementos fixos do ambiente entre os frames.
+        </p>
+      </aside>
+    </section>
+
+    <section class="lesson-section" id="fluxo-gemini" aria-labelledby="gemini-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">04</p>
+        <h2 id="gemini-title">Montagem no Gemini</h2>
+        <p>
+          A lógica principal é criar frames incrementais. Cada etapa usa a imagem anterior como base para preservar
+          câmera, ambiente e composição.
+        </p>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-title">
+          <span>Prompt inicial</span>
+          <h3>Preparar o ChatGPT</h3>
+          <p>Use este comando antes de gerar os prompts técnicos em inglês.</p>
+        </div>
+        <div class="prompt-header">
+          <span>Texto</span>
+          <button class="copy-button" type="button">Copiar</button>
+        </div>
+        <pre class="prompt-code">Preciso criar uma série de imagens usando o Gemini/Nano Banana. O objetivo é criar uma montagem gradual de um imóvel, mostrando a construção surgindo passo a passo. Quero trabalhar com frames incrementais: primeiro o terreno vazio, depois a fundação, depois a estrutura, paredes, telhado, portas, janelas, acabamento e o imóvel finalizado.
+
+Preciso que os prompts mantenham a mesma câmera, mesma perspectiva, mesmo enquadramento, mesma iluminação e o mesmo ambiente em todos os frames. A imagem final deve parecer profissional, realista, arquitetônica e visualmente consistente.
+
+Crie prompts detalhados em inglês para cada etapa, com comandos claros para não alterar o cenário original nem modificar a composição.</pre>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="prompts-frames" aria-labelledby="frames-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">05</p>
+        <h2 id="frames-title">Prompts para Criar os Frames</h2>
+        <p>Prompts em inglês para gerar cada imagem base no Gemini/Nano Banana.</p>
+      </div>
+
+      <div class="lesson-accordion-list">
+        <details class="lesson-details" open>
+          <summary>Passo 1 - Terreno vazio</summary>
+          <p>Cria a base limpa da cena, removendo qualquer construção existente.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Edit the uploaded image only. Keep the camera fixed exactly as in the reference image. Do not change the perspective, angle, framing, zoom, crop, horizon line, background, lighting, shadows, street, sky, vegetation, sidewalk, or scene composition.
+
+Remove only the existing house or building from the image, leaving the terrain completely clean and natural. Fill the removed area realistically with the surrounding ground, grass, pavement, soil, or environment. The final image must look like the same exact location from the same exact camera position, but with the construction completely removed. No traces, debris, shadows, walls, roof, windows, doors, or marks from the original building should remain.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 2 - Fundação do imóvel</summary>
+          <p>Adiciona a primeira etapa visível da construção.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the uploaded empty terrain image as the main reference, add only the foundation of a modern residential property in the correct location where the house will be built. Keep the camera, perspective, angle, framing, background, lighting, shadows, ground, sky, and environment exactly the same.
+
+The foundation should appear as a realistic concrete base with structural outlines, clean edges, and accurate proportions. It must be naturally integrated into the terrain, respecting the perspective and scale of the scene. Do not add walls, roof, windows, doors, furniture, people, vehicles, or landscaping yet. Only the foundation/base structure should be visible.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 3 - Pilares e vigas</summary>
+          <p>Mostra a estrutura inicial do imóvel.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Edit the uploaded image only. Keep the existing foundation exactly in place. Add the main structural skeleton of the house, including realistic concrete pillars, beams, and support elements. The structure must be aligned with the foundation and follow the same architectural footprint.
+
+Do not change the camera, perspective, framing, lighting, background, terrain, sky, or environment. Do not add exterior walls, roof, windows, doors, paint, decoration, furniture, people, vehicles, or landscaping yet. The result should show only the foundation plus the structural framework of the property, cleanly assembled and realistically integrated.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 4 - Paredes externas e internas</summary>
+          <p>Forma o volume principal do imóvel.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the uploaded image as the main reference, keep the foundation, pillars, and beams exactly in place. Add the exterior and interior walls of the house, forming the main architectural volume. The walls should look realistic, unfinished, and under construction, with clean masonry or concrete surfaces.
+
+Maintain the exact same camera angle, perspective, framing, lighting, shadows, background, terrain, and environment. Do not add roof tiles, final paint, decorative facade elements, doors, windows, furniture, people, vehicles, or landscaping yet. The result should show the property taking shape, with walls clearly defining the rooms and exterior structure.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 5 - Telhado, portas e janelas</summary>
+          <p>Deixa a casa reconhecível como imóvel quase finalizado.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Edit the uploaded image only. Keep the house walls, foundation, pillars, and structure exactly as they are. Add a realistic roof, front door, windows, window frames, and basic architectural openings. The roof and openings must match the perspective, scale, and architectural style of the house.
+
+Do not change the camera, background, lighting, shadows, terrain, sky, or scene composition. Do not add final paint, decorative facade cladding, landscaping, people, vehicles, or furniture yet. The result should look like a house in an advanced construction stage, with the main structure, roof, doors, and windows already installed.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 6 - Fachada, pintura e revestimento</summary>
+          <p>Aplica o acabamento visual principal do imóvel.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the uploaded image as the main reference, keep the house structure, roof, doors, and windows exactly in place. Add the final exterior facade finish, including professional paint, clean wall texture, architectural cladding, modern trim details, realistic materials, and polished exterior surfaces.
+
+Maintain the exact same camera position, perspective, framing, background, lighting, shadows, terrain, sky, and environment. Do not add people, vehicles, furniture, or excessive decoration. The house should now look almost complete, with a clean, premium, realistic residential facade.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Passo 7 - Imóvel finalizado</summary>
+          <p>Entrega o frame final profissional.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Edit the uploaded image only. Keep the completed house exactly in the same position, with the same camera angle, perspective, framing, lighting, shadows, background, sky, and environment. Add the final real estate presentation details: clean landscaping, grass, small plants, sidewalk finishing, driveway, subtle exterior lights, polished entrance, and a premium residential look.
+
+The final image should look like a professional architectural real estate render blended into a realistic environment. Keep everything natural, elegant, high quality, and visually consistent. Do not add people, cars, signs, text, logos, or unrealistic elements. The property must look fully completed and ready for presentation.</pre>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="prompts-animacao" aria-labelledby="animacao-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">06</p>
+        <h2 id="animacao-title">Prompts para Animação</h2>
+        <p>
+          Use sempre um frame inicial e um frame final. A IA deve animar a transição como um time-lapse realista
+          de obra, com trabalhadores construindo cada etapa e câmera fixa em tripé.
+        </p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 0</span>
+            <h3>Fundação sendo construída no terreno</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "reference_images": {
+      "image_1": "target reference for the completed foundation layout, including the concrete base, stepped pathways, landscaping integration, and architectural footprint",
+      "image_2": "starting reference for the empty terrain, defining the original environment"
+    },
+    "start_frame": "empty_terrain",
+    "end_frame": "terrain_with_foundation",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "static",
+    "description": "Create a realistic construction time-lapse scene showing the house foundation being built on the empty terrain. Use Image 1 as the target reference for the completed foundation layout and Image 2 as the starting reference for the empty terrain. Show workers, masons, and construction operators actively building the foundation in fast-motion time-lapse. The empty grassy terrain should gradually transform into a construction site, with workers marking the ground, preparing the area, carrying materials, using wheelbarrows, positioning forms, pouring concrete, leveling surfaces, and assembling the foundation step by step. The foundation must gradually take shape in the exact same position, scale, and layout seen in Image 1, while preserving the same camera angle, perspective, framing, horizon line, surrounding trees, sky, lighting, and environment from Image 2. The transformation should feel realistic and believable, driven by visible human work rather than magical appearance. Preserve the premium architectural style of Image 1, including the clean concrete slabs, stepped pathway alignment, landscaped edges, subtle lighting details, and elegant site organization. Add subtle time-lapse motion blur to the workers and active construction elements. The final result should look like the same location evolving from an empty grassy lot into a professionally built residential foundation stage, with cinematic realism, high detail, natural textures, and premium architectural presentation quality."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 1</span>
+            <h3>Estrutura surgindo sobre a fundação com trabalhadores</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "terrain_with_foundation",
+    "end_frame": "foundation_with_pillars_and_beams",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "locked_static_tripod",
+    "description": "Create a realistic construction time-lapse from a fixed tripod camera. Start with the completed foundation and show workers, masons, and construction operators assembling the structural skeleton of the house. Workers should move quickly across the site, carrying materials, positioning rebar, preparing concrete columns, installing formwork, using ladders, aligning beams, and working around the foundation. The concrete pillars, beams, and support elements should gradually rise and connect as a result of visible construction work. Include realistic temporary elements such as scaffolding, wooden supports, buckets, wheelbarrows, and construction tools, but keep them organized and believable. The movement should feel like a fast-motion real construction process, with subtle motion blur on workers and tools. By the end, the final frame must show the completed foundation with pillars and beams, matching the end reference frame. Keep the camera fully static, tripod-mounted, with no zoom, no pan, no tilt, and maintain the same lighting, perspective, shadows, background, and environment."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 2</span>
+            <h3>Paredes sendo montadas por pedreiros</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "foundation_with_pillars_and_beams",
+    "end_frame": "house_with_walls",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "locked_static_tripod",
+    "description": "Create a realistic construction time-lapse from a fixed tripod camera. Start with the foundation, pillars, and beams already in place. Show masons and construction workers actively building the exterior and interior walls section by section. Workers should move quickly in time-lapse style, carrying bricks or blocks, applying mortar, aligning walls, using levels, moving wheelbarrows, handling buckets, and working from different positions around the structure. The walls should gradually rise from the foundation and connect naturally to the structural beams and pillars. Add realistic construction details such as temporary scaffolding, stacked blocks, cement bags, masonry tools, and unfinished surfaces. The scene should feel like a real house being built in fast motion, not a magical transformation. By the end, the final frame must show the house with completed unfinished walls, matching the end reference frame. Keep the camera completely static on a tripod and preserve the same perspective, framing, lighting, shadows, terrain, background, and environment."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 3</span>
+            <h3>Telhado, portas e janelas sendo instalados</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "house_with_walls",
+    "end_frame": "house_with_roof_doors_and_windows",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "locked_static_tripod",
+    "description": "Create a realistic construction time-lapse from a fixed tripod camera. Start with the house walls already built. Show construction workers, installers, and operators actively installing the roof structure, roof covering, front door, windows, window frames, and architectural openings. Workers should move quickly in time-lapse style, using ladders, scaffolding, lifting materials, positioning roof elements, carrying frames, placing doors, adjusting windows, and working around the facade. The roof should gradually assemble over the walls, while doors and windows are installed naturally by workers. Include realistic temporary construction elements such as scaffolding, ladders, toolboxes, protective materials, and stacked frames. The movement should feel like an accelerated construction day with visible human activity. By the end, the house must show the completed roof, doors, and windows, matching the end reference frame. Keep the camera locked in a static tripod position with no camera movement, and maintain the same perspective, lighting, shadows, background, and environment."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 4</span>
+            <h3>Fachada e acabamento com equipe trabalhando</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "house_with_roof_doors_and_windows",
+    "end_frame": "house_with_finished_facade",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "locked_static_tripod",
+    "description": "Create a realistic construction time-lapse from a fixed tripod camera. Start with the house structure, roof, doors, and windows already installed. Show painters, finishers, facade workers, and construction professionals actively completing the exterior facade. Workers should move quickly in time-lapse style, applying paint, installing wall cladding, smoothing surfaces, adding trim details, cleaning windows, finishing edges, and adjusting exterior materials. The unfinished construction should gradually transform into a polished finished facade through visible human work. Include realistic temporary elements such as scaffolding, paint buckets, rollers, ladders, protective covers, tools, and construction materials. The transformation should feel premium, clean, realistic, and professional. By the end, the final frame must show the completed finished facade, matching the end reference frame. Keep the camera fully static, as if mounted on a tripod, and preserve the same framing, perspective, lighting, shadows, background, terrain, and environment."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt 5</span>
+            <h3>Imóvel completo com paisagismo e finalização da obra</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "house_with_finished_facade",
+    "end_frame": "completed_property_with_landscaping",
+    "animation_type": "construction_timelapse_with_workers",
+    "camera": "locked_static_tripod",
+    "description": "Create a realistic construction time-lapse from a fixed tripod camera. Start with the finished house facade and show landscapers, workers, and final-stage construction professionals completing the exterior presentation of the property. Workers should move quickly in time-lapse style, placing grass, planting small trees and shrubs, arranging garden beds, finishing the driveway, cleaning the sidewalk, installing exterior lights, organizing the entrance, and removing construction tools from the scene. The property should gradually transform from a finished house into a fully completed premium real estate presentation. Include realistic final-work details such as garden tools, wheelbarrows, plants, soil bags, cleaning equipment, light installation, and workers moving in and out of the frame. By the end, the workers and temporary tools should be removed or minimized, leaving a polished completed property with landscaping, driveway, sidewalk details, entrance lighting, and a professional finished look. Keep the camera completely static on a tripod, with no zoom, no pan, no tilt, and preserve full consistency with the previous frames, including lighting, perspective, shadows, background, and environment."
+  }
+}</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="capcut" aria-labelledby="capcut-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">07</p>
+        <h2 id="capcut-title">Finalização no CapCut</h2>
+        <p>Depois de gerar os vídeos, organize tudo em uma sequência contínua e com acabamento profissional.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <h3>Importar vídeos</h3>
+          <p>Leve todos os vídeos para a linha do tempo, mantendo a ordem da construção.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Organizar sequência</h3>
+          <p>Terreno, fundação, estrutura, paredes, telhado, fachada, paisagismo e imóvel finalizado.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Ajustar duração</h3>
+          <p>Use 5 a 6 segundos por etapa. Para Reels, TikTok ou Shorts, mire em 25 a 40 segundos.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Adicionar transições</h3>
+          <p>Prefira cortes limpos, transições suaves e pequenas acelerações para sensação de obra rápida.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Efeitos sonoros</h3>
+          <p>Use construção leve, encaixe, concreto, impacto suave, whoosh, brilho e finalização premium.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Correção de cor</h3>
+          <p>Ajuste brilho, contraste, nitidez e saturação para valorizar o imóvel.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Trilha sonora</h3>
+          <p>Escolha uma trilha moderna, corporativa, tecnológica ou cinematográfica leve.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Exportação</h3>
+          <p>Exporte em MP4, 1080x1920 para Reels/Stories ou 1920x1080 para apresentação horizontal.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="modo-avancado" aria-labelledby="avancado-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">08</p>
+        <h2 id="avancado-title">Modo Avançado</h2>
+        <p>
+          Além da montagem principal com câmera fixa, crie cenas de detalhe para deixar o vídeo mais profissional.
+          Esses cortes funcionam como planos cinematográficos entre as etapas principais.
+        </p>
+      </div>
+
+      <div class="lesson-accordion-list">
+        <details class="lesson-details">
+          <summary>Cena avançada 1 - Close-up da fundação</summary>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Generate a realistic close-up shot of the concrete foundation of the property, showing clean structural lines, construction texture, and accurate architectural proportions. Keep the visual style consistent with the main reference scene.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Cena avançada 2 - Close-up dos pilares e vigas</summary>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Generate a cinematic close-up of the structural pillars and beams of the house under construction. Show realistic concrete texture, clean alignment, and strong architectural composition. The image should look professional, detailed, and consistent with the property construction sequence.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Cena avançada 3 - Close-up das paredes</summary>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Generate a realistic close-up of the house walls under construction, showing masonry, concrete texture, clean edges, and architectural structure. The scene should feel like a premium construction progress shot, with consistent lighting and realistic material detail.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Cena avançada 4 - Close-up da fachada</summary>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Generate a cinematic close-up of the finished house facade, focusing on the paint, wall texture, cladding, window frames, and modern architectural details. The image should look premium, realistic, clean, and suitable for a real estate presentation.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Cena avançada 5 - Close-up da entrada finalizada</summary>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Generate a professional close-up of the completed property entrance, showing the front door, exterior lighting, clean wall finish, landscaping details, and premium residential design. Keep the image realistic, elegant, and visually attractive.</pre>
+          </div>
+        </details>
+      </div>
+
+      <div class="prompt-grid storyboard-generated-prompts">
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt universal</span>
+            <h3>Vídeos avançados</h3>
+            <p>Use quando quiser animar qualquer detalhe da construção sem citar uma parte específica.</p>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create an animated sequence that begins with an unfinished construction detail and gradually transforms it into a completed architectural element. The visible parts should assemble, align, and connect naturally, as if the property is being built in a clean and realistic fast-motion construction process.
+
+Maintain consistent lighting, materials, shadows, perspective, and camera composition with the reference frame. Do not change the architectural style, do not add people, vehicles, text, logos, or unrelated objects. The animation should feel premium, professional, realistic, and suitable for a real estate presentation.</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt reverso</span>
+            <h3>Desmontagem gradual</h3>
+            <p>Use para começar com o imóvel pronto e revelar a estrutura em ordem inversa.</p>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create an animated sequence that begins with the fully completed property as shown in the reference frame. Perform a gradual reverse-construction disassembly: the final exterior elements should detach, fade, retract, or separate naturally, revealing the internal structure underneath.
+
+The facade finish, paint, cladding, windows, doors, roof elements, walls, beams, pillars, and foundation should progressively disappear in a realistic architectural order. Maintain consistent lighting, shadows, materials, perspective, and camera position. The result should look like a clean reverse construction process, professional, realistic, and visually controlled.</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Prompt complementar</span>
+            <h3>Animações internas reversas</h3>
+            <p>Use para interiores mobiliados voltando ao estágio de obra, com operadores e pedreiros.</p>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a realistic reverse interior construction time-lapse starting from a fully completed and furnished room. Animate the process backward, with workers moving in reverse as they undo the interior step by step. Remove furniture, decor, lighting, cabinetry, trim, doors, flooring, paint, plaster, and finishing layers until the room returns to an unfinished construction stage.
+
+Important: do not turn glass areas into walls. Windows, sliding glass doors, fixed glass panels, curtain walls, and large openings must remain architectural openings during the reverse process. If the glass or frames are removed, leave the opening exposed. Do not fill any glass area with masonry or create new walls where openings already exist. Preserve the original structure, openings, and room layout.
+
+The reverse transformation should feel realistic and based on visible human work, not magical changes. Use smooth cinematic camera movement, subtle reverse time-lapse motion blur, realistic lighting, professional architectural style, and a believable unfinished final state.</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="checklist" aria-labelledby="checklist-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">09</p>
+        <h2 id="checklist-title">Checklist de Qualidade</h2>
+        <p>Antes de animar, confira se todos os frames estão consistentes e prontos para a montagem.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-3">
+        <article class="lesson-card">
+          <h3>Câmera e perspectiva</h3>
+          <p>A câmera deve permanecer na mesma posição e a perspectiva não pode mudar entre os frames.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Ambiente</h3>
+          <p>O terreno, a iluminação, as sombras, o céu e o entorno precisam continuar coerentes.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Escala</h3>
+          <p>A casa deve manter proporção realista e ocupar o mesmo espaço durante toda a sequência.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Encaixe</h3>
+          <p>Paredes, telhado, portas, janelas, revestimentos e fundação precisam se encaixar corretamente.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Limpeza visual</h3>
+          <p>Nenhum elemento estranho, pessoa, carro, texto, placa, logo ou distorção deve aparecer na cena.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Resultado final</h3>
+          <p>O imóvel final precisa parecer profissional, limpo, valorizado e pronto para apresentação imobiliária.</p>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Uso recomendado</h3>
+        <p>
+          Esse vídeo funciona para construtoras, venda de imóveis, lançamento imobiliário, simulação de obra,
+          apresentação de projeto arquitetônico, antes e depois, Instagram, TikTok, Shorts e vídeos institucionais
+          de engenharia ou arquitetura.
+        </p>
+      </aside>
+    </section>
+
+    <footer class="lesson-footer">
+      <p>Conteúdo organizado para consulta rápida durante a aula.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </footer>
+  </main>
+
+  <script src="./assets/js/material-aula.js?v=20260702-imovel" defer></script>
+</body>
+</html>

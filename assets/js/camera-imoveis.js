@@ -470,6 +470,203 @@
     }
   ];
 
+  const fallbackImage = {
+    src: "./assets/images/Imoveis/camera-exemplos/fachada-06-referencia.jpeg",
+    width: 2752,
+    height: 1536
+  };
+
+  const promptImagePath = "./assets/images/FOTOS IMOVEIS";
+
+  const promptImageGroups = {
+    "exterior-fachada": "Fachada",
+    "exterior-aereo": "Drone",
+    "exterior-detalhes": "Area externa",
+    "interior-geral": "Interior",
+    "interior-detalhes": "Detalhe interno",
+    transicoes: "Transi\u00e7\u00e3o",
+    premium: "Premium",
+    lentes: "Lente"
+  };
+
+  const getPromptImage = (sectionId, index) => {
+    const filePrefix = promptImageGroups[sectionId];
+
+    if (!filePrefix) {
+      return fallbackImage;
+    }
+
+    const fileNumber = String(index + 1).padStart(2, "0");
+
+    return {
+      src: `${promptImagePath}/${filePrefix} ${fileNumber}.jpeg`,
+      width: 2752,
+      height: 1536
+    };
+  };
+
+  const createPromptExample = (item, index, sectionId) => {
+    const promptImage = getPromptImage(sectionId, index);
+    const figure = document.createElement("figure");
+    figure.className = "prompt-reference camera-prompt-reference";
+
+    const image = document.createElement("img");
+    image.src = encodeURI(promptImage.src);
+    image.width = promptImage.width;
+    image.height = promptImage.height;
+    image.alt = `Exemplo visual para ${item.title}`;
+    image.loading = "lazy";
+    image.decoding = "async";
+
+    figure.appendChild(image);
+    return figure;
+  };
+
+  const promptUseDescriptions = {
+    prefixo: [
+      "Use antes dos outros prompts quando quiser preservar o imóvel original e evitar mudanças na arquitetura, materiais, cores e composição."
+    ],
+    "exterior-fachada": [
+      "Ideal para apresentar a fachada completa em uma imagem limpa, equilibrada e fácil de entender em anúncios ou portfólios.",
+      "Use quando quiser valorizar imponência, altura e presença visual da fachada sem perder realismo arquitetônico.",
+      "Indicado para uma leitura natural do imóvel, com perspectiva humana e aparência próxima de uma foto comercial comum.",
+      "Melhor para mostrar profundidade, volume e lateral da construção em uma visão mais dinâmica que a foto frontal.",
+      "Use para criar uma imagem mais impactante e cinematográfica, com câmera baixa e sensação de escala premium.",
+      "Indicado para revelar o layout externo de cima, mostrando melhor o jardim, caminhos, varanda e área de implantação.",
+      "Melhor para mostrar a casa inteira com respiro, contexto e distância, ótimo para capa de catálogo ou anúncio imobiliário.",
+      "Use quando a fachada tiver eixo central forte e você quiser uma composição alinhada, elegante e simétrica.",
+      "Ideal para mostrar frente e lateral ao mesmo tempo, destacando profundidade, volumetria e arquitetura do imóvel.",
+      "Use para uma fachada ampla com aparência mais cinematográfica, boa para imagem principal de apresentação.",
+      "Indicado para comprimir a perspectiva e criar uma foto mais elegante, com menos distorção e foco na fachada.",
+      "Melhor para destacar materiais, esquadrias, revestimentos, texturas e detalhes arquitetônicos externos.",
+      "Use para gerar uma fachada com luz quente e comercial, ideal para transmitir sofisticação e fim de tarde.",
+      "Indicado para cenas de entardecer com céu azul profundo e luz interna acesa, criando clima premium e acolhedor.",
+      "Use para valorizar iluminação externa, arandelas, interiores iluminados e uma atmosfera noturna sofisticada.",
+      "Melhor para simular clima chuvoso com piso molhado, reflexos sutis e apresentação realista em tempo fechado.",
+      "Indicado para fachada com luz suave e uniforme, reduzindo sombras duras e deixando todos os detalhes visíveis.",
+      "Use quando quiser conduzir o olhar do público até a casa usando caminho, piso, muro ou linhas do paisagismo.",
+      "Melhor para criar profundidade com elementos em primeiro plano, deixando a imagem mais editorial e envolvente.",
+      "Ideal para uma composição limpa, com poucos elementos visuais, muito respiro e foco total na arquitetura."
+    ],
+    "exterior-aereo": [
+      "Use para mostrar o imóvel e o terreno de cima em ângulo oblíquo, destacando implantação, jardim e relação com o entorno.",
+      "Ideal para visualizar telhado, caminhos, áreas externas e organização espacial como uma planta fotográfica aérea.",
+      "Melhor para criar sensação de drone próximo ao telhado, valorizando fachada e cobertura sem afastar demais a câmera.",
+      "Use para apresentar o imóvel dentro do bairro, terreno ou paisagem, ótimo para contexto de venda e localização.",
+      "Indicado para mostrar canto, profundidade, telhado e laterais em uma composição aérea mais dinâmica.",
+      "Melhor para uma vista frontal elevada e organizada, com leitura clara da fachada e do volume do imóvel.",
+      "Use quando quiser simular câmera de drone descendo, com perspectiva alta e sensação cinematográfica controlada.",
+      "Indicado para um still de drone em movimento orbital, criando uma visão diagonal elegante e comercial.",
+      "Use para uma vista aérea com luz quente de fim de tarde, destacando sombras longas e atmosfera premium.",
+      "Melhor para uma vista aérea de entardecer, com céu suave, luz ambiente equilibrada e clima sofisticado."
+    ],
+    "exterior-detalhes": [
+      "Use para destacar porta, acesso, caminho de entrada e texturas próximas, ideal para mostrar a chegada ao imóvel.",
+      "Melhor para valorizar a entrada com câmera baixa, criando profundidade e sensação de imponência no acesso.",
+      "Indicado para evidenciar revestimentos, pedras, madeira, concreto, esquadrias e acabamento externo.",
+      "Use para mostrar fluxo externo, caminhos, circulação, acessos e conexão entre áreas da fachada.",
+      "Ideal para integrar arquitetura e paisagismo, mostrando jardim, vegetação, caminhos e implantação visual.",
+      "Melhor para destacar linhas de fachada, texturas, juntas, esquadrias e detalhes de design com olhar editorial.",
+      "Use quando quiser mostrar a lateral do imóvel, profundidade das paredes, aberturas e proporções arquitetônicas.",
+      "Indicado para composições verticais que valorizam altura, linhas retas e elementos altos da fachada.",
+      "Use para reforçar simetria, volumes, planos e geometria limpa da arquitetura externa.",
+      "Melhor para criar uma foto externa com profundidade suave, usando desfoque e foco na arquitetura principal."
+    ],
+    "interior-geral": [
+      "Use para apresentar um ambiente interno inteiro a partir do canto, mostrando amplitude, layout e circulação.",
+      "Ideal para uma visão interna natural, na altura dos olhos, com aparência realista e fácil de entender.",
+      "Melhor para mostrar o ambiente entrando pela porta, usando a moldura da abertura para criar profundidade.",
+      "Use quando o interior tiver linhas fortes e você quiser uma perspectiva central, limpa e simétrica.",
+      "Indicado para mostrar profundidade em diagonal, revelando paredes, piso, teto, móveis e circulação.",
+      "Use para um enquadramento interno mais natural, sem excesso de grande-angular e com boa leitura do espaço.",
+      "Melhor para mostrar distribuição de móveis e organização do ambiente a partir de uma posição levemente alta.",
+      "Use para valorizar pé-direito, profundidade e presença arquitetônica com câmera próxima ao piso.",
+      "Ideal para interiores claros, com luz natural, janelas valorizadas e sensação de ambiente arejado.",
+      "Use para criar clima acolhedor de fim de tarde, com luz quente e atmosfera residencial confortável.",
+      "Melhor para uma imagem de interiores mais editorial, com foco em equilíbrio, materiais, móveis e composição.",
+      "Use para conduzir o olhar por linhas de piso, teto, móveis ou paredes, criando profundidade no ambiente.",
+      "Indicado para usar objetos ou aberturas em primeiro plano como moldura, deixando a imagem mais sofisticada.",
+      "Use para mostrar amplitude e circulação em ambientes grandes, com aparência profissional de anúncio imobiliário.",
+      "Melhor para revelar o máximo de profundidade a partir de um canto equilibrado e visualmente aberto."
+    ],
+    "interior-detalhes": [
+      "Use para close-ups de acabamento, superfícies e detalhes internos que precisam parecer premium e bem executados.",
+      "Ideal para destacar uma área de design refinada, como bancada, painel, mobiliário ou composição decorativa.",
+      "Melhor para mostrar textura de materiais internos com lente mais fechada e fundo levemente desfocado.",
+      "Use para uma foto editorial de interior sem pessoas, com sensação de ambiente vivido, elegante e organizado.",
+      "Indicado para valorizar altura, paredes, teto, iluminação e linhas verticais dentro do ambiente.",
+      "Use para uma visão horizontal ampla do interior, mostrando fluxo, móveis e profundidade do espaço.",
+      "Melhor para destacar a entrada de luz natural pelas janelas, mantendo exposição limpa e realista.",
+      "Use quando quiser reforçar pé-direito, altura do ambiente e sensação de espaço vertical.",
+      "Indicado para destacar piso, textura, paginação e linhas de profundidade próximas ao chão.",
+      "Use para mostrar luminárias, metais, materiais e detalhes de iluminação com aparência editorial.",
+      "Melhor para pequenos recortes de interiores, como mesa, poltrona, aparador ou composição de decoração.",
+      "Use quando houver janelas fortes e você quiser equilibrar interior e exterior com aparência HDR natural.",
+      "Indicado para interiores com luz suave e clima calmo, valorizando conforto, textura e sombras delicadas.",
+      "Use para criar um interior minimalista, limpo, com poucos elementos e foco em materiais e proporções.",
+      "Melhor para uma imagem interna mais dramática, com contraste, sombras controladas e aparência cinematográfica."
+    ],
+    transicoes: [
+      "Use para mostrar a conexão entre interior e exterior a partir de dentro, valorizando vista, luz e abertura.",
+      "Ideal para olhar da entrada para dentro do imóvel, revelando profundidade e continuidade dos ambientes.",
+      "Melhor para corredores ou áreas de passagem com linhas fortes, criando direção visual e perspectiva.",
+      "Use para enquadrar outro ambiente através de uma porta, adicionando profundidade e composição editorial.",
+      "Indicado para mostrar vários planos do espaço ao mesmo tempo: primeiro plano, meio e fundo.",
+      "Use para ambientes integrados, como sala, cozinha e jantar, mostrando conexão e amplitude em diagonal.",
+      "Melhor para corredores centrais ou passagens simétricas, com linhas limpas e leitura organizada.",
+      "Use para explicar o layout interno de cima, mostrando relação entre móveis, áreas e circulação.",
+      "Indicado para criar profundidade interna a partir de câmera baixa, com linhas fortes e sensação arquitetônica.",
+      "Melhor para fotografar de um canto ao outro, maximizando profundidade e clareza espacial."
+    ],
+    premium: [
+      "Use para uma imagem com linguagem de revista, composição refinada e acabamento visual mais sofisticado.",
+      "Ideal para criar uma foto cinematográfica com profundidade, contraste elegante e impacto comercial.",
+      "Melhor para imóveis de alto padrão, destacando materiais, luz equilibrada e acabamento luxuoso.",
+      "Use para reforçar geometria, linhas modernas, textura e estilo arquitetônico contemporâneo.",
+      "Indicado para uma foto mais natural e autêntica, com perspectiva humana e aparência documental limpa.",
+      "Use para imagens comerciais de alto nível, com nitidez, iluminação premium e apresentação polida.",
+      "Melhor para detalhes arquitetônicos elegantes, com lente fechada, desfoque suave e foco em textura.",
+      "Use para equilibrar sombras e luzes em uma imagem realista, nítida e adequada para venda imobiliária.",
+      "Indicado para criar clima mais sofisticado e contrastado, sem perder o realismo da arquitetura.",
+      "Melhor para anúncios claros e objetivos, com imagem limpa, neutra e fácil de vender."
+    ],
+    lentes: [
+      "Use quando precisar mostrar um espaço muito amplo com lente ultra-wide, mantendo linhas verticais corrigidas.",
+      "Ideal para uma imagem ampla e espaçosa, com grande-angular controlada e boa sensação de ambiente.",
+      "Melhor como lente padrão de arquitetura, equilibrando amplitude, nitidez e proporção realista.",
+      "Use para uma perspectiva mais natural, próxima do olhar humano, com composição editorial elegante.",
+      "Indicado para detalhes e recortes mais fechados, com foco em textura, material e acabamento.",
+      "Use para detalhes comprimidos e elegantes, com fundo suave e destaque em materiais arquitetônicos.",
+      "Melhor para fotos de baixo ângulo que aumentam escala, presença e profundidade da arquitetura.",
+      "Use para uma foto equilibrada na altura natural dos olhos, fácil de entender e comercialmente segura.",
+      "Indicado para mostrar organização espacial a partir de um ângulo alto, sem virar uma imagem de drone.",
+      "Use para transformar a cena em uma perspectiva aérea ou de drone, destacando escala e implantação."
+    ],
+    negativo: [
+      "Use junto com qualquer prompt quando quiser impedir distorções, elementos inventados, mudanças irreais ou alterações na identidade do imóvel."
+    ]
+  };
+
+  const getPromptUseDescription = (sectionId, index) => {
+    const descriptions = promptUseDescriptions[sectionId] || [];
+    return descriptions[index] || "Use para direcionar o enquadramento, a lente e a linguagem visual mantendo o imóvel fiel à referência.";
+  };
+
+  const createPromptMeta = (sectionId, index) => {
+    const meta = document.createElement("div");
+    meta.className = "prompt-meta";
+
+    const text = document.createElement("p");
+    const label = document.createElement("strong");
+    label.textContent = "Melhor uso: ";
+
+    text.appendChild(label);
+    text.append(getPromptUseDescription(sectionId, index));
+    meta.appendChild(text);
+
+    return meta;
+  };
+
   const copyText = async (text) => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
@@ -498,7 +695,7 @@
     }
   };
 
-  const createPromptCard = (item, index, label) => {
+  const createPromptCard = (item, index, label, sectionId) => {
     const card = document.createElement("article");
     card.className = "prompt-box";
 
@@ -552,7 +749,9 @@
       button.dataset.resetTimer = String(resetTimer);
     });
 
+    card.appendChild(createPromptExample(item, index, sectionId));
     card.appendChild(titleWrap);
+    card.appendChild(createPromptMeta(sectionId, index));
     card.appendChild(header);
     card.appendChild(code);
 
@@ -566,7 +765,7 @@
     }
 
     container.replaceChildren(
-      ...section.items.map((item, index) => createPromptCard(item, index, section.label))
+      ...section.items.map((item, index) => createPromptCard(item, index, section.label, section.id))
     );
   });
 })();

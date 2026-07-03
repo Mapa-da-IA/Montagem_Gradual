@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material da Aula | Montagem Gradual Arquitetônica</title>
+  <meta
+    name="description"
+    content="Guia prático para criar uma montagem gradual arquitetônica com condomínio surgindo em terreno vazio, câmera aérea, storyboard, prompts para Gemini e animação em IA.">
+  <meta name="theme-color" content="#05070d">
+  <link rel="preload" as="image" href="./assets/images/Arquitetonica/montagem-gradual-arquitetonica-hero.png">
+  <link rel="stylesheet" href="./assets/css/material-aula.css?v=20260702-arquitetonica">
+</head>
+<body class="lesson-body">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <main class="lesson-page" id="topo">
+    <header class="lesson-hero" aria-labelledby="lesson-title">
+      <img
+        class="lesson-hero-image"
+        src="./assets/images/Arquitetonica/montagem-gradual-arquitetonica-hero.png"
+        width="1672"
+        height="941"
+        alt="Vista aérea cinematográfica de condomínio moderno surgindo em terreno vazio."
+        loading="eager"
+        decoding="async">
+      <div class="lesson-hero-shade" aria-hidden="true"></div>
+      <div class="lesson-hero-content">
+        <a class="lesson-back-link" href="./menu.html">Voltar para o menu</a>
+        <p class="lesson-kicker">Material da Aula</p>
+        <h1 id="lesson-title">Montagem Gradual Arquitetônica</h1>
+        <p>
+          Guia prático para criar um vídeo em estilo arquitetônico mostrando um terreno vazio se transformando
+          gradualmente em um condomínio completo com câmera aérea e movimentos cinematográficos.
+        </p>
+        <div class="lesson-hero-actions" aria-label="Ações rápidas">
+          <a class="lesson-btn lesson-btn-primary" href="#prompts-frames">Ver prompts de frames</a>
+          <a class="lesson-btn lesson-btn-secondary" href="#prompts-animacao">Ver prompts JSON</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="lesson-nav" aria-label="Navegação do material">
+      <a href="#objetivo">Objetivo</a>
+      <a href="#conceito">Conceito</a>
+      <a href="#estrategia">Estratégia</a>
+      <a href="#storyboard">Storyboard</a>
+      <a href="#camera">Câmera</a>
+      <a href="#prompts-frames">Frames</a>
+      <a href="#prompts-animacao">Animação</a>
+      <a href="#universais">Universais</a>
+      <a href="#capcut">CapCut</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+
+    <section class="lesson-section" id="objetivo" aria-labelledby="objetivo-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">01</p>
+        <h2 id="objetivo-title">Objetivo do Efeito</h2>
+        <p>
+          O objetivo é criar uma apresentação visual onde o condomínio nasce aos poucos dentro de um terreno vazio.
+          A cena começa com uma visão aérea distante, depois a câmera se aproxima e revela marcações, ruas internas,
+          fundações, blocos de casas, paisagismo, iluminação e o empreendimento finalizado.
+        </p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <h3>Visão aérea</h3>
+          <p>O vídeo começa alto, como se fosse captado por drone, mostrando o lote antes da implantação.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Construção por etapas</h3>
+          <p>Linhas, ruas, fundações e casas surgem em ordem lógica, com leitura clara de progresso.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Movimento contínuo</h3>
+          <p>Diferente da montagem fixa, este modelo usa zoom, tilt, orbit, fly-through e pull-back.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Apresentação premium</h3>
+          <p>O resultado precisa parecer institucional, arquitetônico, realista e pronto para lançamento imobiliário.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="conceito" aria-labelledby="conceito-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">02</p>
+        <h2 id="conceito-title">Conceito Visual</h2>
+        <p>O vídeo deve parecer uma mistura de render imobiliário cinematográfico com animação aérea de implantação urbana.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-3">
+        <article class="lesson-card">
+          <h3>Projeto arquitetônico</h3>
+          <p>Mostra planejamento, implantação, divisão de lotes e evolução da construção.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Institucional de construtora</h3>
+          <p>Valoriza o empreendimento com linguagem organizada, limpa e comercial.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Time-lapse premium</h3>
+          <p>Cria sensação de transformação rápida, mas com ritmo suave e controle visual.</p>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Aplicação ideal</h3>
+        <p>
+          Este formato é indicado para arquitetos, construtoras, imobiliárias, engenheiros, incorporadoras e vídeos
+          de lançamento de empreendimentos.
+        </p>
+      </aside>
+    </section>
+
+    <section class="lesson-section" id="ferramentas" aria-labelledby="ferramentas-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">03</p>
+        <h2 id="ferramentas-title">Ferramentas Usadas</h2>
+        <p>O processo combina planejamento, geração de frames, animação com movimento de câmera e finalização.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Story e prompts</p>
+          <h3>ChatGPT</h3>
+          <p>Monta a lógica do storyboard, cria prompts técnicos e define os movimentos de câmera.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Frames visuais</p>
+          <h3>Gemini / Nano Banana</h3>
+          <p>Gera terreno vazio, demarcação, ruas, fundações, blocos de casas e condomínio finalizado.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Animação</p>
+          <h3>Veo 3.1</h3>
+          <p>Anima frames com zoom, drone shot, orbit, fly-through, tilt, pan e transições graduais.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Finalização</p>
+          <h3>CapCut</h3>
+          <p>Organiza vídeos, ajusta ritmo, trilha, efeitos sonoros, textos, cor e exportação final.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="estrategia" aria-labelledby="estrategia-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">04</p>
+        <h2 id="estrategia-title">Estratégia Principal</h2>
+        <p>
+          Este projeto deve ser feito em modo avançado. A câmera não precisa ficar parada: o segredo é criar uma
+          progressão cinematográfica que acompanha a implantação do condomínio.
+        </p>
+      </div>
+
+      <div class="lesson-timeline">
+        <article class="lesson-step">
+          <span>1</span>
+          <div>
+            <h3>Drone distante</h3>
+            <p>Comece com visão aérea ampla do terreno vazio.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>2</span>
+          <div>
+            <h3>Aproximação</h3>
+            <p>Use zoom suave e descida para preparar a transformação.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>3</span>
+          <div>
+            <h3>Implantação</h3>
+            <p>Revele marcações, ruas, fundações e blocos de casas.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>4</span>
+          <div>
+            <h3>Revelação final</h3>
+            <p>Finalize com pull-back aéreo mostrando o condomínio pronto.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="storyboard" aria-labelledby="storyboard-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">05</p>
+        <h2 id="storyboard-title">Estrutura do Storyboard</h2>
+        <p>Sequência de cenas para transformar o terreno vazio em um empreendimento completo.</p>
+      </div>
+
+      <div class="lesson-timeline">
+        <article class="lesson-step">
+          <span>1</span>
+          <div>
+            <h3>Terreno vazio</h3>
+            <p>Drone alto mostra vegetação, terra, rua próxima ou área aberta.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>2</span>
+          <div>
+            <h3>Aproximação</h3>
+            <p>A câmera desce ou avança para o lote, mantendo o terreno vazio.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>3</span>
+          <div>
+            <h3>Demarcação</h3>
+            <p>Linhas arquitetônicas, lotes, ruas internas e áreas comuns aparecem.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>4</span>
+          <div>
+            <h3>Infraestrutura</h3>
+            <p>Ruas, calçadas, guias, circulação e iluminação começam a surgir.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>5</span>
+          <div>
+            <h3>Fundações</h3>
+            <p>Fundações surgem em várias áreas, organizadas por blocos.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>6</span>
+          <div>
+            <h3>Casas por bloco</h3>
+            <p>Primeiro um bloco de casas, depois outro, com implantação planejada.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>7</span>
+          <div>
+            <h3>Acabamento</h3>
+            <p>Telhados, portas, janelas, pintura, revestimentos e fachadas entram.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>8</span>
+          <div>
+            <h3>Paisagismo</h3>
+            <p>Grama, árvores, jardins, portaria, playground, piscina ou área comum.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>9</span>
+          <div>
+            <h3>Condomínio completo</h3>
+            <p>A câmera sobe e revela o empreendimento inteiro em visão premium.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="camera" aria-labelledby="camera-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">06</p>
+        <h2 id="camera-title">Estilo de Câmera</h2>
+        <p>Movimentos sugeridos para dar cara de apresentação arquitetônica profissional.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-3">
+        <article class="lesson-card">
+          <h3>Drone establishing shot</h3>
+          <p>Mostra o terreno vazio de longe, com visão alta e ampla do espaço.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Slow aerial zoom-in</h3>
+          <p>Aproxima do terreno com movimento suave, como um drone entrando no local.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Top-down planning view</h3>
+          <p>Inclina a câmera para uma leitura mais vertical, parecida com planta baixa no terreno.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Orbit parcial</h3>
+          <p>Gira levemente quando as primeiras casas aparecem, criando profundidade.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Fly-through interno</h3>
+          <p>Atravessa ruas internas para mostrar escala, fachadas, circulação e paisagismo.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Pull-back final</h3>
+          <p>A câmera se afasta e sobe para revelar o condomínio inteiro pronto.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="fluxo-chatgpt" aria-labelledby="chatgpt-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">07</p>
+        <h2 id="chatgpt-title">Prompt Inicial para o ChatGPT</h2>
+        <p>Use este comando para gerar uma sequência personalizada de prompts técnicos.</p>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <span>Prompt inicial</span>
+          <button class="copy-button" type="button">Copiar</button>
+        </div>
+        <pre class="prompt-code">Preciso criar um vídeo de montagem gradual arquitetônica para um condomínio. A cena deve começar com uma visão aérea de um terreno vazio, como se fosse captada por drone. Depois, a câmera deve se aproximar do terreno e mostrar o condomínio sendo construído progressivamente.
+
+Quero que o vídeo tenha movimentos cinematográficos de câmera: drone shot, zoom-in, tilt-down, orbit parcial, fly-through pelas ruas internas e pull-back final. O condomínio deve surgir por etapas: demarcação do terreno, ruas internas, fundações, blocos de casas, fachadas, calçadas, paisagismo, iluminação e área comum.
+
+Preciso de prompts em inglês para criar os frames no Gemini/Nano Banana e prompts JSON para animar no Hailuo/Veo. O resultado deve parecer uma apresentação profissional de arquitetura, com visual realista, premium, organizado e cinematográfico.</pre>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="prompts-frames" aria-labelledby="frames-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">08</p>
+        <h2 id="frames-title">Prompts para Criar os Frames</h2>
+        <p>Prompts em inglês para gerar os frames principais no Gemini/Nano Banana.</p>
+      </div>
+
+      <div class="lesson-accordion-list">
+        <details class="lesson-details" open>
+          <summary>Frame 1 - Terreno vazio em visão aérea</summary>
+          <p>Cria a imagem inicial do terreno sem construção.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Create a realistic aerial drone view of an empty construction site prepared for a future residential condominium. The scene should show a large open land area, natural soil, grass, surrounding streets, nearby vegetation, and a clean environment. The camera should be positioned high above the terrain, with a wide cinematic view, slightly angled downward, showing the full scale of the land.
+
+The image must look realistic, professional, and suitable for an architectural presentation. Do not add houses, buildings, roads inside the condominium, people, cars, construction machines, text, signs, or logos. Keep the terrain empty and ready for development.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 2 - Aproximação do terreno</summary>
+          <p>Gera um frame mais próximo, preparando a entrada no lote.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Create a realistic aerial drone view of the same empty construction terrain, but from a closer position. The camera should feel like it has moved forward and slightly downward toward the center of the land. Keep the same environment, terrain shape, surrounding streets, vegetation, lighting, and general composition.
+
+The land must still be empty, with no houses or structures yet. The image should feel cinematic, clean, professional, and realistic, as if preparing for an architectural development reveal.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 3 - Demarcação arquitetônica</summary>
+          <p>Mostra a planta começando a surgir sobre o terreno.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the aerial view of the empty terrain as reference, add subtle architectural ground markings for a future residential condominium. Show clean white or light-colored planning lines on the ground, defining internal streets, house lots, common areas, sidewalks, entrances, and block divisions.
+
+Keep the camera angle, terrain, environment, surrounding streets, vegetation, lighting, and scale consistent. Do not add buildings or houses yet. The result should look like a professional architectural site planning overlay physically marked on the terrain, realistic and integrated into the ground.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 4 - Ruas internas e infraestrutura inicial</summary>
+          <p>Transforma a marcação em estrutura urbana inicial.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the marked terrain image as reference, add the first stage of internal condominium infrastructure. Convert the planning lines into realistic internal streets, compacted soil paths, early sidewalks, curb outlines, drainage channels, and basic lot divisions.
+
+Keep the aerial perspective, lighting, surrounding environment, vegetation, and terrain scale consistent. Do not add houses yet. The scene should look like the early infrastructure stage of a residential condominium construction site.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 5 - Fundação das casas por blocos</summary>
+          <p>Mostra os primeiros blocos sendo preparados.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the condominium infrastructure image as reference, add realistic house foundations in several planned lots. The foundations should appear in organized blocks, aligned with the internal streets and lot divisions. Show concrete bases, structural outlines, and early construction platforms.
+
+Keep the same aerial perspective, terrain, roads, sidewalks, lighting, background, and environment. Do not add full houses yet. The result should show the condominium beginning to take shape through multiple house foundations distributed across the site.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 6 - Primeiro bloco de casas surgindo</summary>
+          <p>Monta as primeiras casas em uma área do condomínio.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the condominium foundation image as reference, add the first completed block of modern residential houses on one side of the condominium. The houses should be aligned with the foundations, roads, and lot divisions. Keep the rest of the lots in foundation stage.
+
+The architecture should be modern, clean, realistic, and suitable for a residential condominium. Maintain the same aerial perspective, lighting, environment, road layout, and scale. Do not add people, cars, text, signs, or logos.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 7 - Mais blocos de casas</summary>
+          <p>Expande a construção para outras áreas.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the previous condominium image as reference, add more residential houses in additional blocks across the terrain. The new houses should appear organized, aligned with the internal roads, and consistent with the architectural style of the first block.
+
+Some lots may still show foundations, while other blocks are now completed. Keep the same camera perspective, lighting, environment, terrain shape, road layout, and visual consistency. The scene should show the condominium construction progressing block by block.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 8 - Condomínio quase completo</summary>
+          <p>Mostra praticamente todas as casas prontas.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the previous image as reference, complete almost all residential blocks of the condominium. Add modern houses across the planned lots, keeping consistent architecture, spacing, proportions, roof style, facade design, and alignment with the internal streets.
+
+Add basic sidewalks, driveways, street lighting, and clean paved roads. Keep the same aerial perspective, lighting, environment, terrain scale, and realistic visual style. Do not add people, cars, text, signs, or logos.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 9 - Paisagismo, portaria e área comum</summary>
+          <p>Deixa o condomínio com aparência comercial premium.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Using the almost completed condominium image as reference, add final landscaping and shared amenities. Include grass, trees, small gardens, decorative plants, a clean entrance gate, a modern guardhouse, sidewalks, streetlights, and a common leisure area such as a small playground, pool area, or community space.
+
+Keep the architecture consistent, realistic, clean, and premium. Maintain the same aerial perspective, lighting, environment, road layout, and scale. Do not add people, cars, text, signs, or logos.</pre>
+          </div>
+        </details>
+
+        <details class="lesson-details">
+          <summary>Frame 10 - Condomínio completo em visão aérea premium</summary>
+          <p>Gera o frame final para apresentação.</p>
+          <div class="prompt-box">
+            <div class="prompt-header">
+              <span>Prompt em inglês</span>
+              <button class="copy-button" type="button">Copiar</button>
+            </div>
+            <pre class="prompt-code">Create the final completed version of the residential condominium from a cinematic aerial drone perspective. The condominium should look fully finished, with all houses completed, internal roads paved, sidewalks clean, landscaping finished, entrance gate complete, guardhouse ready, common areas polished, and exterior lighting subtly visible.
+
+The scene must look like a professional real estate architectural presentation, realistic, premium, organized, visually attractive, and ready for marketing. Keep the environment natural and consistent. Do not add people, cars, text, signs, logos, or unrealistic elements.</pre>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="prompts-animacao" aria-labelledby="animacao-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">09</p>
+        <h2 id="animacao-title">Prompts JSON para Animação</h2>
+        <p>Prompts para Hailuo/Veo, sempre conectando um frame inicial a um frame final.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 1</span>
+            <h3>Terreno vazio com aproximação aérea</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_empty_land_wide_view",
+    "end_frame": "aerial_empty_land_closer_view",
+    "animation_type": "cinematic_drone_approach",
+    "camera_movement": "slow aerial zoom-in with gentle downward movement",
+    "description": "Create a smooth cinematic drone movement starting from a high wide aerial view of the empty land and slowly moving forward and downward toward the center of the terrain. The land remains empty during this shot. Keep the motion elegant, stable, realistic, and suitable for a professional architectural presentation."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 2</span>
+            <h3>Linhas de implantação</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_empty_land_closer_view",
+    "end_frame": "aerial_land_with_condominium_planning_lines",
+    "animation_type": "gradual_architectural_overlay",
+    "camera_movement": "slow tilt-down into semi top-down view",
+    "description": "Animate the gradual appearance of architectural planning lines on the empty terrain. Internal streets, lots, blocks, sidewalks, entrance area, and common spaces should draw themselves smoothly on the ground like a professional site plan being revealed. The camera slowly tilts downward toward a more top-down planning view while keeping the motion stable and cinematic."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 3</span>
+            <h3>Ruas e infraestrutura</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_land_with_condominium_planning_lines",
+    "end_frame": "aerial_land_with_internal_roads_and_infrastructure",
+    "animation_type": "gradual_infrastructure_construction",
+    "camera_movement": "slow forward drone movement with slight parallax",
+    "description": "Animate the transformation of the ground planning lines into realistic internal roads, sidewalks, curbs, drainage details, and early infrastructure. The construction should appear gradually across the terrain, following the marked layout. The camera moves slowly forward with subtle parallax, creating depth while preserving a professional architectural presentation style."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 4</span>
+            <h3>Fundações por blocos</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_land_with_internal_roads_and_infrastructure",
+    "end_frame": "aerial_land_with_house_foundations_by_blocks",
+    "animation_type": "block_by_block_foundation_assembly",
+    "camera_movement": "smooth aerial orbit with slow zoom-in",
+    "description": "Animate house foundations appearing across the condominium lots in organized blocks. The concrete bases should emerge from the ground, section by section, following the planned layout and aligning perfectly with the internal roads. The camera performs a slow aerial orbit with a gentle zoom-in, making the construction feel dynamic and premium."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 5</span>
+            <h3>Primeiro bloco de casas</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_land_with_house_foundations_by_blocks",
+    "end_frame": "aerial_condominium_with_first_house_block_completed",
+    "animation_type": "gradual_house_assembly",
+    "camera_movement": "drone push-in toward the first block",
+    "description": "Animate the first block of residential houses assembling on top of the foundations. Walls, roofs, windows, doors, facade materials, and exterior finishes should appear progressively and lock into place. The camera pushes in smoothly toward the first completed block, giving the feeling of a professional architectural reveal."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 6</span>
+            <h3>Casas em vários blocos</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_condominium_with_first_house_block_completed",
+    "end_frame": "aerial_condominium_with_multiple_house_blocks_completed",
+    "animation_type": "progressive_block_construction",
+    "camera_movement": "continuous aerial tracking movement across the condominium",
+    "description": "Animate multiple blocks of houses being built progressively across the condominium. Each block should assemble in sequence, with foundations transforming into complete modern houses. The camera tracks smoothly across the site, following the construction as it spreads from one block to another. Keep the motion elegant, realistic, and visually organized."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 7</span>
+            <h3>Fly-through nas ruas internas</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "aerial_condominium_with_multiple_house_blocks_completed",
+    "end_frame": "near_complete_condominium_with_roads_sidewalks_and_houses",
+    "animation_type": "cinematic_condominium_reveal",
+    "camera_movement": "drone fly-through entering the internal streets",
+    "description": "Create a cinematic drone fly-through movement entering the condominium streets. As the camera moves forward, complete the roads, sidewalks, driveways, streetlights, and facade details. The houses should feel aligned, realistic, and premium. The movement should be continuous, smooth, and architectural, as if presenting the development to a client."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 8</span>
+            <h3>Paisagismo e área comum</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "near_complete_condominium_with_roads_sidewalks_and_houses",
+    "end_frame": "condominium_with_landscaping_gate_and_common_areas",
+    "animation_type": "gradual_finalization",
+    "camera_movement": "slow orbit around the main entrance and common area",
+    "description": "Animate the final landscaping and shared amenities appearing across the condominium. Grass, trees, gardens, entrance gate, guardhouse, leisure area, exterior lighting, and decorative details should gradually appear. The camera performs a slow orbit around the main entrance and common area, creating a premium real estate presentation effect."
+  }
+}</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Vídeo 9</span>
+            <h3>Revelação final</h3>
+          </div>
+          <div class="prompt-header">
+            <span>JSON</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">{
+  "animation": {
+    "start_frame": "condominium_with_landscaping_gate_and_common_areas",
+    "end_frame": "completed_condominium_final_aerial_view",
+    "animation_type": "final_architectural_reveal",
+    "camera_movement": "smooth pull-back and aerial rise",
+    "description": "Create a final cinematic reveal of the completed residential condominium. The camera slowly pulls back and rises into a wide aerial drone view, revealing the entire finished development. The condominium should look complete, premium, organized, realistic, and ready for a professional real estate presentation. Maintain smooth motion, balanced lighting, and a polished architectural style."
+  }
+}</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="universais" aria-labelledby="universais-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">10</p>
+        <h2 id="universais-title">Prompts Universais e Close-ups</h2>
+        <p>Use estes prompts para versões contínuas, foco por blocos, visão aérea e cenas de detalhe.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Movimento contínuo</span>
+            <h3>Sequência longa</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a continuous cinematic architectural animation showing an empty land gradually transforming into a completed residential condominium. Start with a wide aerial drone view of the empty terrain. The camera slowly moves forward and downward toward the land. As the camera approaches, architectural planning lines appear on the ground, followed by internal roads, sidewalks, lot divisions, foundations, and residential blocks.
+
+The houses should assemble progressively by blocks, with walls, roofs, windows, doors, facade finishes, landscaping, entrance gate, guardhouse, streetlights, and common areas appearing in a realistic and organized construction sequence.
+
+The camera movement should feel continuous and premium, combining aerial drone approach, smooth zoom-in, subtle orbit, fly-through through the internal streets, and final pull-back reveal. The final shot should rise and reveal the entire completed condominium from above.
+
+Keep everything realistic, clean, modern, elegant, and suitable for a professional architectural real estate presentation. Do not add people, cars, text, signs, logos, or unrealistic objects.</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Construção por blocos</span>
+            <h3>Casas em grupos</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Animate the construction of a residential condominium by blocks. Starting from a prepared terrain with internal roads and foundations, make the houses appear progressively in organized groups. Each block should assemble in a clean architectural sequence: foundations, walls, roof, windows, doors, facade finishing, sidewalks, driveway details, and landscaping.
+
+The camera should move smoothly across the condominium, following the construction from one block to the next. The animation should feel like a professional architectural reveal, with realistic scale, consistent lighting, premium design, and organized urban planning.
+
+Do not add people, cars, text, signs, or logos. Keep the focus on the architectural transformation and the gradual completion of the condominium.</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Visão aérea</span>
+            <h3>Referência de drone</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Texto</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a realistic cinematic aerial drone view of a modern residential condominium development. The scene should show organized house blocks, internal paved roads, sidewalks, landscaping, entrance gate, guardhouse, common leisure area, and clean architectural design.
+
+The image should look like a professional real estate render blended with realistic drone photography. Use natural daylight, balanced shadows, premium composition, and high architectural detail. The layout must look planned, organized, and visually attractive.
+
+Do not add people, cars, text, signs, logos, or unrealistic elements.</pre>
+        </article>
+
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Close-ups</span>
+            <h3>Cenas para intercalar</h3>
+            <p>Planos curtos para deixar o vídeo menos repetitivo.</p>
+          </div>
+          <div class="prompt-header">
+            <span>Textos</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Close-up 1 - Markings on the terrain:
+Create a cinematic close-up of architectural planning lines appearing on the soil of a future residential condominium site. Show lot divisions, internal road markings, and construction planning details. The image should feel realistic, premium, and suitable for an architectural presentation.
+
+Close-up 2 - House foundation:
+Create a realistic close-up of a house foundation being formed inside a residential condominium construction site. Show concrete base lines, structural outlines, clean construction details, soil texture, and accurate architectural proportions.
+
+Close-up 3 - Wall assembly:
+Create a cinematic close-up of a modern house wall being assembled during construction. Show masonry, concrete, structural details, clean edges, and realistic material texture. The scene should feel premium and architectural.
+
+Close-up 4 - Finished facade:
+Create a cinematic close-up of a modern residential facade inside a condominium. Show clean paint, architectural cladding, window frames, roof details, entrance lighting, and premium exterior materials.
+
+Close-up 5 - Internal condominium street:
+Create a professional cinematic shot of an internal condominium street with modern houses on both sides, clean sidewalks, landscaping, streetlights, and premium residential architecture. The camera should feel like a smooth drone fly-through.
+
+Close-up 6 - Condominium entrance:
+Create a realistic architectural shot of a modern residential condominium entrance gate and guardhouse. Show clean landscaping, premium materials, elegant lighting, organized sidewalks, and a professional real estate presentation style.</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="linha-tempo" aria-labelledby="linha-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">11</p>
+        <h2 id="linha-title">Sugestão de Linha do Tempo</h2>
+        <p>Roteiro de duração para um vídeo de aproximadamente 55 segundos.</p>
+      </div>
+
+      <div class="lesson-timeline">
+        <article class="lesson-step">
+          <span>0</span>
+          <div>
+            <h3>0s a 4s</h3>
+            <p>Visão aérea ampla do terreno vazio.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>4</span>
+          <div>
+            <h3>4s a 8s</h3>
+            <p>Drone aproxima e desce em direção ao lote.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>8</span>
+          <div>
+            <h3>8s a 12s</h3>
+            <p>Linhas de implantação aparecem no solo.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>12</span>
+          <div>
+            <h3>12s a 16s</h3>
+            <p>Ruas internas e infraestrutura começam a surgir.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>16</span>
+          <div>
+            <h3>16s a 21s</h3>
+            <p>Fundações aparecem em vários blocos.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>21</span>
+          <div>
+            <h3>21s a 27s</h3>
+            <p>Primeiro bloco de casas se monta.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>27</span>
+          <div>
+            <h3>27s a 34s</h3>
+            <p>Outros blocos surgem em sequência.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>34</span>
+          <div>
+            <h3>34s a 41s</h3>
+            <p>Câmera atravessa as ruas internas mostrando as casas.</p>
+          </div>
+        </article>
+        <article class="lesson-step">
+          <span>41</span>
+          <div>
+            <h3>41s a 55s</h3>
+            <p>Paisagismo, portaria, área comum e revelação aérea final.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="capcut" aria-labelledby="capcut-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">12</p>
+        <h2 id="capcut-title">Finalização no CapCut</h2>
+        <p>Organize os vídeos na ordem do storyboard e use cortes suaves para parecer que a câmera continua o movimento.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <h3>Ritmo</h3>
+          <p>Para Reels, mantenha entre 30 e 45 segundos. Para apresentação de projeto, pode chegar a 60 ou 90 segundos.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Trilha sonora</h3>
+          <p>Use trilha moderna, institucional, elegante ou cinematográfica, sem roubar foco do projeto.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Efeitos sonoros</h3>
+          <p>Use whoosh leve, construção suave, impacto limpo, transição tecnológica, vento de drone e brilho sutil.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Correção de cor</h3>
+          <p>Aplique visual limpo e premium, com nitidez, contraste equilibrado, verdes naturais e céu agradável.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Textos opcionais</h3>
+          <p>Use frases curtas: implantação do empreendimento, evolução da construção, casas modernas e área comum completa.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Vertical</h3>
+          <p>Exporte em 1080x1920 para Reels, Stories e TikTok.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Horizontal</h3>
+          <p>Exporte em 1920x1080 para YouTube, apresentação e site.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Portfólio</h3>
+          <p>Use 4K horizontal se a ferramenta permitir e o projeto pedir acabamento de render.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="checklist" aria-labelledby="checklist-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">13</p>
+        <h2 id="checklist-title">Checklist de Qualidade</h2>
+        <p>Antes de finalizar, confira os pontos que sustentam a sensação de apresentação profissional.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-3">
+        <article class="lesson-card">
+          <h3>Terreno legível</h3>
+          <p>A visão aérea precisa mostrar bem o espaço e o contexto do lote.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Câmera suave</h3>
+          <p>O movimento deve ser estável, cinematográfico e sem saltos estranhos.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Ordem lógica</h3>
+          <p>A construção deve surgir em sequência: marcação, ruas, fundações, casas e acabamento.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Arquitetura consistente</h3>
+          <p>As casas precisam manter o mesmo estilo, escala, alinhamento e proporção.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Implantação organizada</h3>
+          <p>Ruas internas, calçadas, lotes, portaria e área comum precisam parecer planejados.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Cena limpa</h3>
+          <p>Evite pessoas, carros, placas, textos, logos, exagero no paisagismo e objetos aleatórios.</p>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Resultado final esperado</h3>
+        <p>
+          O vídeo deve começar com um terreno vazio visto de cima. A câmera se aproxima, mostra marcações do projeto,
+          ruas, fundações, casas por blocos, fachadas, calçadas, paisagismo, portaria e área comum. No final, a câmera
+          sobe e revela o condomínio inteiro pronto, transmitindo planejamento, valorização e qualidade arquitetônica.
+        </p>
+      </aside>
+    </section>
+
+    <footer class="lesson-footer">
+      <p>Conteúdo organizado para consulta rápida durante a aula.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </footer>
+  </main>
+
+  <script src="./assets/js/material-aula.js?v=20260702-arquitetonica" defer></script>
+</body>
+</html>
