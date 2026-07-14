@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Montagem Gradual | Imóveis e Decoração</title>
+  <meta
+    name="description"
+    content="Biblioteca de prompts para criar animações de montagem gradual no Veo 3, com foco em imóveis, arquitetura, reforma e decoração de ambientes.">
+  <meta name="theme-color" content="#05070d">
+  <link rel="preload" as="image" href="./assets/images/Imoveis/montagem-gradual-imovel-hero.jpg">
+  <link rel="stylesheet" href="./assets/css/material-aula.css?v=20260708-montagem-decoracao">
+  <style>
+    .gradual-real-estate-page .lesson-hero h1 {
+      max-width: 12ch;
+    }
+
+    .gradual-real-estate-page .prompt-box {
+      display: flex;
+      min-height: 100%;
+      overflow: hidden;
+      flex-direction: column;
+      background:
+        linear-gradient(145deg, rgba(16, 22, 38, 0.92), rgba(6, 10, 19, 0.92)),
+        rgba(9, 13, 24, 0.78);
+    }
+
+    .gradual-real-estate-page .prompt-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    }
+
+    .gradual-real-estate-page .prompt-code {
+      max-height: 420px;
+    }
+
+    .gradual-real-estate-page .variable-card h3 {
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    .gradual-real-estate-page .lesson-copy {
+      margin-top: 16px;
+    }
+
+    .gradual-real-estate-page .prompt-title h3 {
+      line-height: 1.24;
+    }
+
+    .gradual-real-estate-page .prompt-title-with-preview {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(135deg, rgba(142, 231, 255, 0.08), transparent 46%),
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .gradual-real-estate-page .prompt-title-copy {
+      display: grid;
+      min-width: 0;
+      gap: 8px;
+    }
+
+    .gradual-real-estate-page .prompt-title-copy span {
+      width: max-content;
+      max-width: 100%;
+      border: 1px solid rgba(156, 255, 106, 0.22);
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: rgba(156, 255, 106, 0.08);
+      color: #9cff6a;
+      white-space: nowrap;
+    }
+
+    .gradual-real-estate-page .effect-preview {
+      display: block;
+      width: 132px;
+      aspect-ratio: 13 / 16;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.26);
+    }
+
+    .gradual-real-estate-page .effect-preview img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gradual-real-estate-page .prompt-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(2, 5, 12, 0.42);
+    }
+
+    .gradual-real-estate-page .prompt-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .gradual-real-estate-page .copy-button,
+    .gradual-real-estate-page .translation-toggle {
+      min-height: 34px;
+      padding-inline: 11px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 520px) {
+      .gradual-real-estate-page .prompt-title-with-preview {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .gradual-real-estate-page .effect-preview {
+        width: 92px;
+      }
+
+      .gradual-real-estate-page .prompt-header {
+        grid-template-columns: 1fr;
+      }
+
+      .gradual-real-estate-page .prompt-actions {
+        justify-content: stretch;
+      }
+
+      .gradual-real-estate-page .copy-button,
+      .gradual-real-estate-page .translation-toggle {
+        flex: 1 1 0;
+      }
+    }
+  </style>
+</head>
+<body class="lesson-body gradual-real-estate-page">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <main class="lesson-page" id="topo">
+    <header class="lesson-hero" aria-labelledby="lesson-title">
+      <img
+        class="lesson-hero-image"
+        src="./assets/images/Imoveis/montagem-gradual-imovel-hero.jpg"
+        width="1672"
+        height="941"
+        alt="Casa moderna em apresentação visual de montagem gradual para imóveis e decoração."
+        loading="eager"
+        decoding="async">
+      <div class="lesson-hero-shade" aria-hidden="true"></div>
+      <div class="lesson-hero-content">
+        <p class="lesson-kicker">Veo 3 + Imóveis</p>
+        <h1 id="lesson-title">Montagem Gradual</h1>
+        <p>
+          Biblioteca prática para criar vídeos em que casas, apartamentos, lojas, cômodos e móveis surgem aos poucos,
+          com estética premium de arquitetura, reforma, decoração e apresentação imobiliária.
+        </p>
+        <div class="lesson-hero-actions" aria-label="Ações rápidas">
+          <a class="lesson-btn lesson-btn-primary" href="#imoveis">Prompts de imóveis</a>
+          <a class="lesson-btn lesson-btn-secondary" href="#decoracao">Prompts de decoração</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="lesson-nav" aria-label="Navegação da página">
+      <a href="#variaveis">Variáveis</a>
+      <a href="#fluxo">Fluxo</a>
+      <a href="#imoveis">Imóveis</a>
+      <a href="#decoracao">Decoração</a>
+      <a href="#bases">Bases</a>
+      <a href="#dicas">Dicas</a>
+    </nav>
+
+    <section class="lesson-section" id="variaveis" aria-labelledby="variaveis-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">01</p>
+        <h2 id="variaveis-title">Variáveis para Substituir</h2>
+        <p>Troque os campos entre colchetes para adaptar o prompt ao tipo de imóvel, cômodo, estilo, material e movimento desejado.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[PROPERTY TYPE]</p>
+          <h3>house, luxury apartment, modern villa, tiny house, office, store, studio</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[ROOM]</p>
+          <h3>living room, bedroom, kitchen, bathroom, home office, dining room</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[STYLE]</p>
+          <h3>modern, minimalist, luxury, rustic, Scandinavian, industrial, Japandi, classic</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[MATERIALS]</p>
+          <h3>wood, marble, glass, concrete, steel, stone, ceramic</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[FURNITURE]</p>
+          <h3>sofa, bed, table, cabinet, wardrobe, kitchen island, shelves</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[CAMERA STYLE]</p>
+          <h3>cinematic dolly shot, smooth orbit shot, drone shot, fixed tripod shot, slow push-in</h3>
+        </article>
+        <article class="lesson-card variable-card">
+          <p class="lesson-card-tag">[TIME OF DAY]</p>
+          <h3>morning, golden hour, sunset, night</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="fluxo" aria-labelledby="fluxo-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">02</p>
+        <h2 id="fluxo-title">Fluxo de Montagem Gradual</h2>
+        <p>Use a lógica abaixo para escolher rapidamente o tipo de animação antes de copiar um prompt.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Imóveis</p>
+          <h3>Construção</h3>
+          <p>Terreno vazio, fundação, paredes, telhado, fachada, iluminação e paisagismo surgindo em sequência.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Arquitetura</p>
+          <h3>Apresentação premium</h3>
+          <p>Peças, módulos, planta baixa, energia, drones ou corte arquitetônico revelando o projeto final.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Interiores</p>
+          <h3>Decoração</h3>
+          <p>Piso, paredes, luzes, móveis, tecidos, plantas e objetos entrando em composição de forma elegante.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Reforma</p>
+          <h3>Antes e depois</h3>
+          <p>Ambientes antigos se transformam em espaços prontos, modernos e com acabamento profissional.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="imoveis" aria-labelledby="imoveis-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">03</p>
+        <h2 id="imoveis-title">Prompts para Imóveis e Arquitetura</h2>
+        <p>Prompts para casas, apartamentos, villas, lojas, escritórios, construções modulares e apresentações imobiliárias.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-01.jpg" alt="Ilustra&#231;&#227;o do efeito: Constru&#231;&#227;o Time-Lapse Realista." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 01</span>
+              <h3>Constru&#231;&#227;o Time-Lapse Realista</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic time-lapse video of a [PROPERTY TYPE] being built from the ground up. Workers, construction tools, scaffolding, concrete, bricks, wooden frames, walls, roof, windows, doors, exterior finishes and landscaping appear progressively in a smooth accelerated construction sequence. The camera remains stable with a professional architectural composition, showing the full building process from empty land to a finished beautiful property. Realistic lighting, natural shadows, high-end real estate visual style, smooth motion, professional video quality.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-02.jpg" alt="Ilustra&#231;&#227;o do efeito: Casa Surgindo do Terreno em Camadas." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 02</span>
+              <h3>Casa Surgindo do Terreno em Camadas</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where a [PROPERTY TYPE] gradually assembles itself on an empty plot of land. The foundation appears first, then floor structure, walls, windows, roof, exterior materials, lighting, garden, pathway and final landscaping appear layer by layer. Each part slides, rises and locks perfectly into place like a premium architectural assembly animation. Smooth camera movement, realistic materials, elegant lighting, professional real estate presentation.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-03.jpg" alt="Ilustra&#231;&#227;o do efeito: Planta Baixa Virando Im&#243;vel Real." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 03</span>
+              <h3>Planta Baixa Virando Im&#243;vel Real</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video starting with a clean architectural floor plan on the ground. The lines of the blueprint glow softly, then rise upward and transform into real walls, floors, windows, doors, furniture and final interior details. The [PROPERTY TYPE] gradually becomes fully built from the blueprint, with a smooth magical yet realistic transformation. Elegant architectural visualization, premium lighting, smooth camera orbit, high-quality cinematic finish.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-04.jpg" alt="Ilustra&#231;&#227;o do efeito: Constru&#231;&#227;o com Trabalhadores em Movimento R&#225;pido." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 04</span>
+              <h3>Constru&#231;&#227;o com Trabalhadores em Movimento R&#225;pido</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a realistic construction time-lapse of workers building a [PROPERTY TYPE]. Workers move quickly but naturally, carrying materials, installing walls, painting surfaces, placing windows, assembling the roof and adding exterior finishes. The scene evolves from raw construction site to polished finished property. Cinematic documentary style, professional camera angle, natural daylight, realistic textures, clean architectural composition.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-10.jpg" alt="Ilustra&#231;&#227;o do efeito: Constru&#231;&#227;o Modular Futurista." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 10</span>
+              <h3>Constru&#231;&#227;o Modular Futurista</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a futuristic modular assembly video of a [PROPERTY TYPE]. Large architectural modules float into the scene and connect perfectly: floor modules, wall panels, glass windows, roof sections, balcony, interior modules and exterior landscaping. The building assembles smoothly like advanced smart construction technology. Cinematic sci-fi realism, premium architectural visualization, smooth drone camera movement, realistic materials.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-13.jpg" alt="Ilustra&#231;&#227;o do efeito: Constru&#231;&#227;o por Pe&#231;as de LEGO Realistas." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 13</span>
+              <h3>Constru&#231;&#227;o por Pe&#231;as de LEGO Realistas</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a playful yet realistic architectural assembly video of a [PROPERTY TYPE] being built block by block. Realistic construction pieces stack and connect progressively, forming the foundation, walls, roof, windows, doors, interior and landscaping. The final result becomes a polished real property, not a toy. Smooth time-lapse motion, cinematic camera angle, premium architectural visualization.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-15.jpg" alt="Ilustra&#231;&#227;o do efeito: Casa Sendo Impressa em 3D." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 15</span>
+              <h3>Casa Sendo Impressa em 3D</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of a [PROPERTY TYPE] being gradually created through a large-scale 3D printing process. Layers of material are printed smoothly from the foundation upward, forming walls, structure, roof, windows, doors and final exterior finishes. The scene ends with a fully completed modern property. Realistic construction technology style, smooth time-lapse movement, professional architectural lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-24.jpg" alt="Ilustra&#231;&#227;o do efeito: Im&#243;vel Surgindo com Energia Dourada." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 24</span>
+              <h3>Im&#243;vel Surgindo com Energia Dourada</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where golden energy lines outline a [PROPERTY TYPE] and gradually turn into real architecture. The glowing lines form the foundation, walls, windows, roof, facade details, interior lights and landscaping. The energy fades, revealing a finished elegant property. Premium magical realism, golden hour lighting, smooth architectural camera movement, high-end real estate presentation.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-25.jpg" alt="Ilustra&#231;&#227;o do efeito: Constru&#231;&#227;o Reversa Explodida que se Junta." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 25</span>
+              <h3>Constru&#231;&#227;o Reversa Explodida que se Junta</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic exploded-view assembly video of a [PROPERTY TYPE]. Architectural components float separately in space, then move inward and connect perfectly: foundation, walls, beams, windows, roof, doors, interiors and landscaping. The final property appears complete and polished. Smooth controlled motion, premium architectural visualization, realistic materials, professional lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-27.jpg" alt="Ilustra&#231;&#227;o do efeito: Casa Crescendo Organicamente." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 27</span>
+              <h3>Casa Crescendo Organicamente</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where a [PROPERTY TYPE] grows organically from the ground like a natural architectural structure. Foundations emerge, walls rise smoothly, wooden beams extend, windows form, roof appears, plants grow around the property and the final design becomes a harmonious finished home. Natural motion, warm lighting, realistic materials, elegant architectural visualization.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-31.jpg" alt="Ilustra&#231;&#227;o do efeito: Im&#243;vel Sendo Montado por Drone." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 31</span>
+              <h3>Im&#243;vel Sendo Montado por Drone</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic construction video where small futuristic drones assemble a [PROPERTY TYPE]. Drones carry panels, glass, beams, roof sections, lights and decorative exterior details, placing everything precisely. The property gradually transforms from an empty site into a finished modern building. Smooth drone-style camera movement, realistic materials, premium architectural visualization.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-34.jpg" alt="Ilustra&#231;&#227;o do efeito: Casa Sendo Revelada por Cortina de Luz." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 34</span>
+              <h3>Casa Sendo Revelada por Cortina de Luz</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where a curtain of light sweeps across an empty lot, revealing a finished [PROPERTY TYPE] progressively from left to right. As the light passes, foundation, walls, windows, roof, facade, garden and lighting appear in perfect detail. Smooth elegant reveal, premium real estate style, realistic materials, cinematic atmosphere.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-39.jpg" alt="Ilustra&#231;&#227;o do efeito: Im&#243;vel Montado em Corte Arquitet&#244;nico." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 39</span>
+              <h3>Im&#243;vel Montado em Corte Arquitet&#244;nico</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic architectural cutaway video of a [PROPERTY TYPE] being assembled gradually. Show the structure forming from foundation to walls, rooms, furniture, lighting, roof and exterior landscaping while the camera reveals the interior layout clearly. Premium real estate visualization, smooth motion, realistic materials, elegant lighting and professional composition.</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="decoracao" aria-labelledby="decoracao-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">04</p>
+        <h2 id="decoracao-title">Prompts para Decoração de Ambientes</h2>
+        <p>Prompts para salas, quartos, cozinhas, banheiros, home office, showroom e móveis surgindo ou se montando gradualmente.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-05.jpg" alt="Ilustra&#231;&#227;o do efeito: Reforma Antes e Depois em Transi&#231;&#227;o Gradual." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 05</span>
+              <h3>Reforma Antes e Depois em Transi&#231;&#227;o Gradual</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic renovation transformation video of a [ROOM] in [STYLE] style. The old room gradually changes as walls are repainted, flooring is replaced, lighting fixtures appear, furniture slides into place, decorations are added, and the final room becomes modern, elegant and fully designed. Use a smooth before-and-after transformation with professional interior design presentation, realistic lighting and polished cinematic motion.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-06.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Saindo de uma Caixa M&#225;gica." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 06</span>
+              <h3>M&#243;veis Saindo de uma Caixa M&#225;gica</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of a closed box placed in the center of an empty [ROOM]. The box opens and elegant [STYLE] furniture pieces begin to emerge one by one, floating gently into position. A sofa, table, shelves, lamps, rug, curtains and decorations arrange themselves naturally to complete the room. Smooth magical motion, warm lighting, premium interior design look, clean composition, realistic materials, professional video quality.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-07.jpg" alt="Ilustra&#231;&#227;o do efeito: Decora&#231;&#227;o Surgindo Como Magia." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 07</span>
+              <h3>Decora&#231;&#227;o Surgindo Como Magia</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a magical interior design reveal video of an empty [ROOM]. Sparkling particles flow through the space, and each element appears gradually: flooring, wall color, lighting, [FURNITURE], rug, curtains, artwork, plants and decorative objects. Everything materializes smoothly in perfect harmony, creating a finished [STYLE] interior. Cinematic lighting, elegant camera movement, premium real estate presentation, refined magical atmosphere.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-08.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Montando Sozinhos Pe&#231;a por Pe&#231;a." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 08</span>
+              <h3>M&#243;veis Montando Sozinhos Pe&#231;a por Pe&#231;a</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where [FURNITURE] assembles itself piece by piece inside a [ROOM]. Wooden panels, screws, legs, drawers, cushions and decorative details float into position and connect smoothly with realistic motion. The furniture becomes fully completed and perfectly placed in the room. Premium product assembly style, clean background, realistic materials, smooth camera movement, professional lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-09.jpg" alt="Ilustra&#231;&#227;o do efeito: Apartamento Sendo Decorado em Camadas." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 09</span>
+              <h3>Apartamento Sendo Decorado em Camadas</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic interior animation of a [STYLE] apartment being decorated layer by layer. Start with an empty space, then flooring appears, wall finishes appear, ceiling lights turn on, furniture slides into place, textiles unfold, plants and decorative objects appear, and the final apartment becomes elegant and ready to live in. Smooth transitions, premium interior design aesthetic, realistic lighting, clean camera movement.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-11.jpg" alt="Ilustra&#231;&#227;o do efeito: C&#244;modo Montado por Ondas de Luz." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 11</span>
+              <h3>C&#244;modo Montado por Ondas de Luz</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where waves of soft light pass through an empty [ROOM], gradually revealing the complete interior design. As each light wave moves across the space, walls gain texture, the floor becomes finished, furniture appears, lamps turn on, curtains unfold, artwork appears and decorations settle into place. Elegant magical realism, smooth camera movement, premium [STYLE] interior design, high-end lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-12.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Entrando por Movimento Coreografado." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 12</span>
+              <h3>M&#243;veis Entrando por Movimento Coreografado</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a smooth cinematic video of an empty [ROOM] being furnished through choreographed motion. Furniture pieces enter the frame from different directions, sliding, rotating and settling perfectly into their final positions. A [FURNITURE], rug, lighting, plants, wall art and accessories complete the composition. Elegant interior design animation, realistic materials, professional lighting, satisfying smooth movement.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-14.jpg" alt="Ilustra&#231;&#227;o do efeito: Ambiente Surgindo a Partir de Part&#237;culas." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 14</span>
+              <h3>Ambiente Surgindo a Partir de Part&#237;culas</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where thousands of fine particles gather inside an empty [ROOM] and gradually form the complete interior. Particles assemble into floors, walls, furniture, lighting, textiles, plants and decorative objects. The final room becomes a beautiful [STYLE] interior with realistic materials and premium lighting. Smooth particle motion, magical atmosphere, elegant camera movement, professional video quality.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-16.jpg" alt="Ilustra&#231;&#227;o do efeito: Decora&#231;&#227;o com Toque Invis&#237;vel." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 16</span>
+              <h3>Decora&#231;&#227;o com Toque Invis&#237;vel</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty [ROOM] being decorated by an invisible designer. Furniture moves into position by itself, cushions arrange neatly, curtains unfold, lights turn on, plants appear, artwork aligns on the wall and decorative objects settle perfectly. Smooth elegant motion, premium [STYLE] interior design, warm realistic lighting, professional real estate video style.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-17.jpg" alt="Ilustra&#231;&#227;o do efeito: Montagem de Cozinha Planejada." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 17</span>
+              <h3>Montagem de Cozinha Planejada</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic assembly video of a [STYLE] kitchen being installed gradually. Start with an empty room, then cabinets attach to the walls, countertops slide into place, a kitchen island appears, appliances fit perfectly, lighting turns on, backsplash tiles appear, and decorative items complete the space. Smooth professional motion, realistic materials like [MATERIALS], premium interior design presentation.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-18.jpg" alt="Ilustra&#231;&#227;o do efeito: Quarto Sendo Montado de Forma Cinem&#225;tica." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 18</span>
+              <h3>Quarto Sendo Montado de Forma Cinem&#225;tica</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty bedroom transforming into a finished [STYLE] bedroom. The bed frame assembles, mattress and bedding unfold smoothly, bedside tables slide into place, wardrobe appears, curtains fall naturally, lamps turn on, rug rolls out and decor elements complete the room. Soft lighting, cozy atmosphere, smooth camera push-in, premium interior design quality.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-19.jpg" alt="Ilustra&#231;&#227;o do efeito: Sala de Estar com Montagem Luxuosa." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 19</span>
+              <h3>Sala de Estar com Montagem Luxuosa</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of a [STYLE] living room assembling gradually. A sofa appears and settles into place, coffee table slides in, rug unfolds, shelves build themselves, wall art appears, curtains open, lamps turn on, plants grow into position and decorative objects complete the space. Elegant motion, warm lighting, realistic textures, premium real estate visual style.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-20.jpg" alt="Ilustra&#231;&#227;o do efeito: Banheiro Surgindo com &#193;gua e Luz." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 20</span>
+              <h3>Banheiro Surgindo com &#193;gua e Luz</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic transformation video of an empty bathroom becoming a finished [STYLE] bathroom. Tiles appear across the walls and floor, sink, mirror, shower glass, bathtub, fixtures and lighting assemble smoothly. Soft reflections, clean surfaces, realistic water highlights and elegant materials create a premium spa-like atmosphere. Smooth camera movement, high-end interior visualization.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-21.jpg" alt="Ilustra&#231;&#227;o do efeito: Escrit&#243;rio Montado por Fluxo Digital." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 21</span>
+              <h3>Escrit&#243;rio Montado por Fluxo Digital</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty home office being assembled by a futuristic digital interface. Glowing grid lines scan the room, then desk, chair, shelves, lighting, computer setup, plants and decor appear gradually and lock into place. The final office becomes a clean [STYLE] productive workspace. Smooth digital animation, realistic materials, premium lighting, professional composition.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-22.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Dobrando e Desdobrando." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 22</span>
+              <h3>M&#243;veis Dobrando e Desdobrando</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where flat panels and folded shapes unfold into complete furniture inside a [ROOM]. A [FURNITURE], shelves, table, chairs and decor pieces unfold elegantly like precision origami, then settle into a finished [STYLE] interior. Smooth mechanical motion, satisfying assembly, realistic materials, clean lighting, premium design animation.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-23.jpg" alt="Ilustra&#231;&#227;o do efeito: Ambiente Sendo Pintado no Ar." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 23</span>
+              <h3>Ambiente Sendo Pintado no Ar</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where an invisible brush paints an empty [ROOM] into existence. First the walls gain color, then flooring appears, furniture is drawn into the scene, lighting forms, textiles and decorations appear with elegant brush-like strokes. The final result is a fully decorated [STYLE] room. Artistic magical motion, smooth camera movement, refined lighting, premium visual finish.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-26.jpg" alt="Ilustra&#231;&#227;o do efeito: Decora&#231;&#227;o com Portal M&#225;gico." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 26</span>
+              <h3>Decora&#231;&#227;o com Portal M&#225;gico</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty [ROOM] with a glowing portal opening in the center. Furniture and decor elements gently emerge from the portal and arrange themselves around the room: [FURNITURE], rug, lamps, plants, curtains and artwork. The portal closes after the room becomes fully decorated in [STYLE] style. Magical elegant motion, cinematic lighting, realistic textures.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-28.jpg" alt="Ilustra&#231;&#227;o do efeito: C&#244;modo Montado por Comandos de Interface." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 28</span>
+              <h3>C&#244;modo Montado por Comandos de Interface</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic interior design video where a clean digital interface controls the assembly of a [ROOM]. Minimal UI markers select the floor, walls, furniture, lights, plants and decorations, and each item appears smoothly in place. The final room becomes a polished [STYLE] interior. Futuristic design presentation, smooth camera movement, realistic materials, premium lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-29.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Surgindo de Sombras." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 29</span>
+              <h3>M&#243;veis Surgindo de Sombras</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty [ROOM] where soft shadows gradually transform into real furniture and decorations. Dark silhouettes appear first, then become detailed objects: sofa, table, lamps, rug, plants, shelves and wall art. The room slowly becomes a complete [STYLE] interior. Moody cinematic lighting, smooth transformation, realistic materials, elegant atmosphere.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-30.jpg" alt="Ilustra&#231;&#227;o do efeito: Montagem por Estalo de Dedos." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 30</span>
+              <h3>Montagem por Estalo de Dedos</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where an empty [ROOM] transforms after a magical finger snap. With each subtle pulse of light, a new layer appears: flooring, wall finish, furniture, lighting, textiles, plants and decorations. The final space becomes a fully designed [STYLE] room. Smooth magical transitions, professional interior design look, warm realistic lighting, elegant camera movement.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-32.jpg" alt="Ilustra&#231;&#227;o do efeito: Decora&#231;&#227;o com Caixa de Mudan&#231;a." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 32</span>
+              <h3>Decora&#231;&#227;o com Caixa de Mudan&#231;a</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of moving boxes inside an empty [ROOM]. The boxes open one by one and furniture, textiles, lighting, books, plants and decorative objects float out and arrange themselves perfectly. The room gradually becomes a cozy finished [STYLE] interior. Smooth magical motion, realistic textures, warm lighting, professional home staging style.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-33.jpg" alt="Ilustra&#231;&#227;o do efeito: Montagem Estilo Stop Motion Premium." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 33</span>
+              <h3>Montagem Estilo Stop Motion Premium</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a premium stop-motion style video of a [ROOM] being decorated gradually. Furniture pieces appear frame by frame, the rug unrolls, chairs move into place, shelves fill with objects, lamps turn on and decorations align perfectly. Keep the motion clean, charming and satisfying, with realistic materials, soft lighting and a polished interior design result.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-35.jpg" alt="Ilustra&#231;&#227;o do efeito: Ambiente Montado com Fluxo de Vento." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 35</span>
+              <h3>Ambiente Montado com Fluxo de Vento</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where a soft wind flows through an empty [ROOM], carrying fabric, dust particles and light. As the wind moves, curtains unfold, rug rolls out, furniture appears, lamps turn on, plants settle into place and decor completes the scene. Elegant [STYLE] interior, smooth natural motion, warm lighting, premium visual quality.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-36.jpg" alt="Ilustra&#231;&#227;o do efeito: Montagem de Loja ou Showroom." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 36</span>
+              <h3>Montagem de Loja ou Showroom</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of an empty commercial space transforming into a finished [STYLE] showroom. Display shelves assemble, counters appear, lighting tracks turn on, products arrange themselves, signage elements integrate cleanly into the design, plants and decor complete the space. Smooth professional motion, premium commercial interior visualization, realistic materials and lighting.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-37.jpg" alt="Ilustra&#231;&#227;o do efeito: M&#243;veis Entrando em Sincronia Musical." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 37</span>
+              <h3>M&#243;veis Entrando em Sincronia Musical</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic interior assembly video where furniture and decor move into place with rhythmic, synchronized motion. A [ROOM] starts empty, then each item appears in a satisfying sequence: [FURNITURE], table, chairs, lighting, rug, curtains, plants and decor. Smooth elegant timing, premium [STYLE] design, professional lighting, high-quality video finish.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-38.jpg" alt="Ilustra&#231;&#227;o do efeito: Decora&#231;&#227;o Luxo por Camadas Transparentes." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 38</span>
+              <h3>Decora&#231;&#227;o Luxo por Camadas Transparentes</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video where transparent ghost-like outlines of furniture appear first inside an empty [ROOM], then gradually become solid realistic objects. The floor, walls, lighting, [FURNITURE], textiles, plants and accessories materialize layer by layer into a complete luxury [STYLE] interior. Smooth camera orbit, realistic materials, refined lighting, premium architectural visualization.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title prompt-title-with-preview">
+            <figure class="effect-preview">
+              <img src="./assets/images/MontagemGradual/efeito-40.jpg" alt="Ilustra&#231;&#227;o do efeito: Apari&#231;&#227;o Gradual com Poeira C&#243;smica." loading="lazy" decoding="async">
+            </figure>
+            <div class="prompt-title-copy">
+              <span>Prompt 40</span>
+              <h3>Apari&#231;&#227;o Gradual com Poeira C&#243;smica</h3>
+            </div>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic magical video where cosmic dust slowly gathers in an empty [ROOM] and forms a complete [STYLE] interior. Tiny glowing particles become furniture, lighting, rugs, curtains, plants and decorative objects. The scene ends with a fully furnished, elegant and realistic room. Smooth magical particle animation, refined atmosphere, premium interior design lighting.</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="bases" aria-labelledby="bases-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">05</p>
+        <h2 id="bases-title">Prompts Base Universais</h2>
+        <p>Use estes modelos quando quiser partir de uma estrutura mais ampla e adaptar para qualquer projeto.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Base universal</span>
+            <h3>Prompt Base Universal para Qualquer Projeto</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic video of a [PROPERTY TYPE or ROOM] being gradually assembled and revealed. Start from an empty or unfinished space, then progressively add structure, materials, furniture, lighting, textures, decorations and final styling. Use smooth satisfying motion, realistic materials, elegant transitions, professional architectural visualization, premium real estate presentation, cinematic lighting, clean camera movement and a polished final reveal in [STYLE] style.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Base universal</span>
+            <h3>Prompt Base para Apari&#231;&#227;o M&#225;gica de M&#243;veis</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic magical interior design video inside a [ROOM]. Begin with an empty space, then furniture and decoration elements appear gradually through elegant magical motion. A [FURNITURE], rug, lights, curtains, plants, artwork and accessories float into place and complete the environment. Use realistic materials, smooth camera movement, refined lighting, premium [STYLE] interior design and a beautiful final reveal.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Base universal</span>
+            <h3>Prompt Base para Time-Lapse de Constru&#231;&#227;o</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic construction time-lapse of a [PROPERTY TYPE] being built step by step. Begin with an empty site, then show foundation, structure, walls, roof, windows, doors, exterior finishes, interior details and landscaping appearing progressively. Include realistic workers, tools and construction movement, smooth time-lapse pacing, professional camera composition, realistic lighting and a premium finished real estate reveal.</pre>
+        </article>
+        <article class="prompt-box">
+          <div class="prompt-title">
+            <span>Base universal</span>
+            <h3>Prompt Base para Decora&#231;&#227;o de C&#244;modo</h3>
+          </div>
+          <div class="prompt-header">
+            <span>Prompt em inglês</span>
+            <button class="copy-button" type="button">Copiar</button>
+          </div>
+          <pre class="prompt-code">Create a cinematic interior decoration video of a [ROOM] transforming from empty to fully furnished. Flooring, wall finishes, lighting, [FURNITURE], textiles, plants, artwork and decorative objects appear gradually and arrange themselves with smooth elegant motion. The final result is a complete [STYLE] interior with realistic textures, warm lighting, professional composition and premium visual quality.</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="dicas" aria-labelledby="dicas-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">06</p>
+        <h2 id="dicas-title">Dicas de Uso</h2>
+        <p>Pequenos ajustes que ajudam o Veo a entender melhor a montagem gradual e manter o resultado com aparência imobiliária profissional.</p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-3">
+        <article class="lesson-card">
+          <h3>Defina o ponto de partida</h3>
+          <p>Use empty land, empty room, unfinished space ou old room para orientar claramente o início da transformação.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Escolha a mecânica visual</h3>
+          <p>Time-lapse, camadas, partículas, interface digital, drones, peças flutuando ou movimento coreografado mudam o estilo do vídeo.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>Feche com acabamento premium</h3>
+          <p>Termine com realistic materials, premium real estate presentation, cinematic lighting e polished final reveal.</p>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Combinação rápida</h3>
+        <p>
+          Para um resultado mais controlado, comece com um prompt base, escolha uma variável de imóvel ou cômodo e acrescente um estilo de câmera como slow push-in, smooth orbit shot ou fixed tripod shot.
+        </p>
+      </aside>
+    </section>
+
+    <footer class="lesson-footer">
+      <p>Prompts organizados para criar animações de montagem gradual em imóveis, arquitetura, reformas e decoração de ambientes.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </footer>
+  </main>
+
+  <script src="./assets/js/material-aula.js?v=20260708-montagem-decoracao" defer></script>
+  <script src="./assets/js/prompt-translations.js?v=20260708-actions" defer></script>
+</body>
+</html>

@@ -31,6 +31,19 @@
       outline-offset: 3px;
     }
 
+    .prompt-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .prompt-header .translation-toggle {
+      margin: 0;
+      align-self: center;
+    }
+
     .prompt-translation {
       margin-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -268,6 +281,25 @@
         code.textContent = "Não foi possível gerar a tradução automática agora. Verifique sua conexão e tente novamente.";
       }
     });
+
+    const header = node.previousElementSibling;
+
+    if (header && header.classList.contains("prompt-header")) {
+      let actions = header.querySelector(".prompt-actions");
+
+      if (!actions) {
+        actions = document.createElement("div");
+        actions.className = "prompt-actions";
+        header.querySelectorAll("button").forEach((actionButton) => {
+          actions.append(actionButton);
+        });
+        header.append(actions);
+      }
+
+      actions.append(button);
+      node.after(block);
+      return;
+    }
 
     node.after(button, block);
   };
