@@ -1,0 +1,3373 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca de Prompts Eleitorais | Nano Banana</title>
+  <meta
+    name="description"
+    content="Biblioteca universal de prompts eleitorais para Nano Banana, com modelos copiáveis para artes de campanha, chapas, propostas, eventos, correções e adaptações de formato.">
+  <meta name="theme-color" content="#05070d">
+  <link rel="preload" as="image" href="./assets/images/Prompts/biblioteca-prompts-eleitorais-hero.png">
+  <link rel="stylesheet" href="./assets/css/material-aula.css?v=20260716-eleitorais-revisao">
+</head>
+<body class="lesson-body prompt-three-column-page election-prompts-page">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <main class="lesson-page" id="topo">
+    <header class="lesson-hero" aria-labelledby="lesson-title">
+      <img
+        class="lesson-hero-image"
+        src="./assets/images/Prompts/biblioteca-prompts-eleitorais-hero.png"
+        width="1680"
+        height="945"
+        alt="Mesa de criação com mockups de campanha, cartelas de cores, layouts sociais e peças gráficas em estilo premium."
+        loading="eager"
+        decoding="async">
+      <div class="lesson-hero-shade" aria-hidden="true"></div>
+      <div class="lesson-hero-content">
+        <p class="lesson-kicker">Prompts Universais</p>
+        <h1 id="lesson-title">Prompts Eleitorais Nano Banana</h1>
+        <p>
+          Biblioteca premium para criar artes eleitorais brasileiras com hierarquia limpa,
+          preservação de identidade, campos substituíveis e blocos de segurança para evitar
+          texto inventado, número errado ou colagem visual confusa.
+        </p>
+        <div class="lesson-hero-actions" aria-label="Ações rápidas">
+          <a class="lesson-btn lesson-btn-primary" href="#campos-campanha">Preencher campos</a>
+          <a class="lesson-btn lesson-btn-secondary" href="#sistema-visual">Ver sistema</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="lesson-nav" aria-label="Navegação da biblioteca eleitoral">
+      <a href="#como-usar">Como usar</a>
+      <a href="#campos-campanha">Campos</a>
+      <a href="#sistema-visual">Sistema</a>
+      <a href="#prompt-base">Prompt-base</a>
+      <a href="#prompts-estilo">Estilos</a>
+      <a href="#composicoes">Composições</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#materiais-impressos">Impressos</a>
+      <a href="#producao-mockups">Produção</a>
+      <a href="#digital-redes">Digital</a>
+      <a href="#utilitarios">Utilitários</a>
+      <a href="#restricoes">Restrições</a>
+    </nav>
+
+    <section class="lesson-section" id="como-usar" aria-labelledby="como-usar-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">01</p>
+        <h2 id="como-usar-title">Como Usar</h2>
+        <p>
+          Cada prompt usa campos em português no formato <code>[[...]]</code>. Substitua apenas o conteúdo
+          dentro desses marcadores, cole o prompt escolhido no Nano Banana e envie as referências de imagem quando
+          o modelo pedir candidato, logo, estilo ou cidade.
+        </p>
+      </div>
+
+      <div class="lesson-grid lesson-grid-4">
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Identidade</p>
+          <h3>Preserve a pessoa</h3>
+          <p>Use a foto oficial como referência e mantenha rosto, idade, tom de pele, cabelo e proporções.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Legibilidade</p>
+          <h3>Número sem erro</h3>
+          <p>Repita o número eleitoral no campo certo e evite qualquer número extra que confunda a peça.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Conformidade</p>
+          <h3>Rodapé reservado</h3>
+          <p>Mantenha área limpa para texto legal e aviso de IA quando for necessário.</p>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card-tag">Formato</p>
+          <h3>Dimensão adaptável</h3>
+          <p>Preencha <code>[[DIMENSAO_FINAL]]</code> para story, feed, A4, banner ou horizontal.</p>
+        </article>
+      </div>
+
+      <aside class="lesson-note">
+        <h3>Regra prática</h3>
+        <p>
+          Não use o prompt para criar endosso falso, apoio inexistente, símbolo oficial de governo,
+          partido inventado, número inventado ou multidão falsa. O próprio material foi organizado
+          para travar esse tipo de erro.
+        </p>
+      </aside>
+    </section>
+
+    <section class="lesson-section election-fields-section" id="campos-campanha" aria-labelledby="campos-campanha-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">02</p>
+        <h2 id="campos-campanha-title">Campos da Campanha</h2>
+        <p>
+          Preencha os dados uma vez. Os marcadores iguais dentro dos prompts são atualizados em tempo real
+          e o botão de copiar leva o texto já pronto para uso, com os blocos organizados para leitura e edição.
+        </p>
+      </div>
+
+      <div class="election-fields-toolbar" aria-label="Controle dos campos">
+        <div>
+          <p class="lesson-card-tag">Preenchimento</p>
+          <strong id="fieldProgress">0 de 0 campos preenchidos</strong>
+        </div>
+        <div class="election-preset-actions" aria-label="Modelos rápidos de elementos">
+          <button class="election-preset-button" type="button" data-preset="minimal">Só nome + número</button>
+          <button class="election-preset-button" type="button" data-preset="complete">Principal completo</button>
+          <button class="election-preset-button" type="button" data-preset="ticket">Com vice</button>
+          <button class="election-preset-button" type="button" data-preset="support">Com apoios</button>
+          <button class="election-preset-button" type="button" data-preset="proposals">Propostas</button>
+          <button class="election-preset-button" type="button" data-preset="event">Evento</button>
+          <button class="election-preset-button" type="button" data-preset="print">Impresso</button>
+          <button class="election-preset-button" type="button" data-preset="santinho">Santinho</button>
+          <button class="election-preset-button" type="button" data-preset="production">Produção</button>
+          <button class="election-preset-button" type="button" data-preset="social">Redes</button>
+          <button class="election-preset-button" type="button" data-preset="stickers">Figurinhas</button>
+        </div>
+        <div class="election-toolbar-actions">
+          <button class="copy-button election-fix-button" id="normalizeCampaignFields" type="button">Corrigir Campos</button>
+          <button class="copy-button election-clear-button" id="clearCampaignFields" type="button">Limpar Tudo</button>
+        </div>
+      </div>
+
+      <aside class="election-reference-guide" aria-labelledby="reference-guide-title">
+        <div>
+          <p class="lesson-card-tag">Referências Ativas</p>
+          <strong id="reference-guide-title">Arquivos para anexar no Nano Banana</strong>
+          <p>Use esta lista para conferir quais imagens, logos e gabaritos precisam ser enviados junto com o prompt selecionado.</p>
+        </div>
+        <div class="election-reference-grid" id="activeReferenceGuide" aria-live="polite"></div>
+      </aside>
+
+      <div class="election-fields-groups" id="campaignFieldGroups"></div>
+    </section>
+
+    <section class="lesson-section" id="sistema-visual" aria-labelledby="sistema-visual-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">03</p>
+        <h2 id="sistema-visual-title">Sistema Visual</h2>
+        <p>Use primeiro para travar a identidade da campanha antes de aplicar em peças individuais.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="sistema"></div>
+    </section>
+
+    <section class="lesson-section" id="prompt-base" aria-labelledby="prompt-base-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">04</p>
+        <h2 id="prompt-base-title">Prompt-Base Universal</h2>
+        <p>Use quando quiser uma arte eleitoral premium em qualquer dimensão, sem escolher um estilo específico.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="base"></div>
+    </section>
+
+    <section class="lesson-section" id="prompts-estilo" aria-labelledby="prompts-estilo-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">05</p>
+        <h2 id="prompts-estilo-title">Estilos de Campanha</h2>
+        <p>Modelos para variar a direção visual: institucional, minimalista, patriótica, popular, comunitária, social, escura e editorial.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="estilos"></div>
+    </section>
+
+    <section class="lesson-section" id="composicoes" aria-labelledby="composicoes-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">06</p>
+        <h2 id="composicoes-title">Composições com Mais Pessoas</h2>
+        <p>Prompts para chapa com vice, integrantes do partido e casadinha eleitoral com dois candidatos.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="composicoes"></div>
+    </section>
+
+    <section class="lesson-section" id="conteudo" aria-labelledby="conteudo-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">07</p>
+        <h2 id="conteudo-title">Peças de Conteúdo</h2>
+        <p>Modelos para propostas, eventos, caminhadas, comícios e frases de posicionamento.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="conteudo"></div>
+    </section>
+
+    <section class="lesson-section" id="materiais-impressos" aria-labelledby="materiais-impressos-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">08</p>
+        <h2 id="materiais-impressos-title">Materiais Impressos</h2>
+        <p>Modelos para bandeira, santinho, praguinha, banners, capa editorial e peças de impressão.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="impressos"></div>
+    </section>
+
+    <section class="lesson-section" id="producao-mockups" aria-labelledby="producao-mockups-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">09</p>
+        <h2 id="producao-mockups-title">Produção e Mockups</h2>
+        <p>Prompts para vidro traseiro, camiseta da equipe, gabaritos técnicos e mockups de aprovação.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="producao"></div>
+    </section>
+
+    <section class="lesson-section" id="digital-redes" aria-labelledby="digital-redes-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">10</p>
+        <h2 id="digital-redes-title">Digital e Redes</h2>
+        <p>Modelos para redes sociais, pacotes de formatos digitais e figurinhas de WhatsApp ou Telegram.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="digital"></div>
+    </section>
+
+    <section class="lesson-section" id="utilitarios" aria-labelledby="utilitarios-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">11</p>
+        <h2 id="utilitarios-title">Utilitários de Produção</h2>
+        <p>Comandos para adaptar formato, corrigir textos e trocar candidato mantendo a identidade visual aprovada.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="utilitarios"></div>
+    </section>
+
+    <section class="lesson-section" id="restricoes" aria-labelledby="restricoes-title">
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">12</p>
+        <h2 id="restricoes-title">Bloco Universal de Restrições</h2>
+        <p>Adicione ao final de qualquer prompt para reforçar segurança, identidade, legalidade e leitura profissional.</p>
+      </div>
+
+      <div class="prompt-grid" data-prompt-group="restricoes"></div>
+    </section>
+
+    <footer class="lesson-footer">
+      <p>Conteúdo organizado a partir da Biblioteca Universal de Prompts Eleitorais para Nano Banana.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </footer>
+  </main>
+
+  <script>
+    const electionPromptGroups = {
+      base: [
+        {
+          number: "01",
+          title: "Prompt-base universal para qualquer dimensão",
+          description: "Modelo geral para criar uma peça eleitoral premium com candidato, número, partido, slogan, CTA e rodapé legal.",
+          label: "Prompt universal",
+          prompt: `Create a premium Brazilian election campaign graphic using the supplied reference images.
+
+MAIN REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Official party logo: [[LOGO_PARTIDO]]
+- Official campaign logo: [[REFERENCIA_LOGO_CAMPANHA]]
+- Optional visual style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+OUTPUT:
+Create the design at exactly [[DIMENSAO_FINAL]].
+
+The composition must automatically adapt to the requested canvas dimensions. Reorganize the candidate, typography, ballot number, logos, slogan and graphic elements according to the available vertical or horizontal space.
+
+Maintain generous safe margins around all important content. Never crop the candidate's face, head, hands, ballot number, party logo or essential text. Preserve visual hierarchy and readability in every format.
+
+IDENTITY PRESERVATION:
+Preserve the candidate's face with 100% consistency from the reference image. Do not alter, modify, redraw, beautify, age, rejuvenate or reconstruct the face. Keep the exact facial structure, expression, age, skin tone, hairstyle, body proportions and recognizable characteristics. Do not create a different person.
+
+CAMPAIGN LOGO PRESERVATION:
+Preserve the official campaign logo exactly as supplied in [[REFERENCIA_LOGO_CAMPANHA]]. Do not redraw, distort, recolor, simplify, stylize, crop, replace or modify the logo. Keep its original proportions, colors, typography, symbol and internal spacing.
+
+CAMPAIGN INFORMATION:
+Candidate name: [[NOME_CANDIDATO]]
+Ballot number: [[NUMERO_URNA]]
+Office: [[CARGO]]
+Party: [[PARTIDO]]
+Federation or coalition: [[FEDERACAO_OU_COLIGACAO]]
+Campaign slogan: [[SLOGAN_CAMPANHA]]
+Call to action: [[CHAMADA_CURTA]]
+
+COLOR SYSTEM:
+Primary color: [[COR_PRINCIPAL]]
+Secondary color: [[COR_SECUNDARIA]]
+Accent color: [[COR_DESTAQUE]]
+Background color: [[COR_FUNDO]]
+
+Create a sophisticated Brazilian political campaign identity with professional art direction, realistic candidate photography, premium retouching, controlled contrast, clean edges, refined lighting, strong typography and an organized electoral hierarchy.
+
+All visible text must be written in Brazilian Portuguese.
+
+Use only the exact approved text supplied in this prompt. Do not invent names, numbers, slogans, statistics, party names, endorsements, logos or additional information.
+
+Reserve a clean and readable bottom area for:
+[[TEXTO_LEGAL_RODAPE]]
+
+When required, include:
+[[AVISO_USO_IA]]
+
+Do not duplicate faces. Do not alter the ballot number. Do not add fake crowds, fake supporters, public officials, endorsements or government symbols unless explicitly provided.`
+        }
+      ],
+      estilos: [
+        {
+          number: "02",
+          title: "Estilo institucional presidencial",
+          description: "Ideal para presidente, governador, senador e campanhas de grande porte.",
+          label: "Prompt de estilo",
+          prompt: `Create a premium institutional Brazilian election campaign design for [[CARGO]].
+
+REFERENCE IMAGES:
+- Candidate portrait: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Party logo: [[LOGO_PARTIDO]]
+- Optional style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+Create the artwork at exactly [[DIMENSAO_FINAL]]. Automatically adapt the composition to vertical, square or horizontal formats while preserving the same campaign identity.
+
+Use an authoritative and sophisticated institutional direction, similar to a high-level national or state leadership campaign. The candidate must appear confident, prepared, trustworthy and presidential, with realistic studio-quality lighting and premium photographic retouching.
+
+Use a medium close-up or waist-up portrait. Position the candidate as the dominant element while preserving enough negative space for typography.
+
+Visible information:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Color palette:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Use elegant geometric shapes, subtle depth, restrained gradients, refined shadows and sophisticated visual structure. The ballot number must be large, memorable and highly legible without making the design look cheap or overly promotional.
+
+All visible text must be in Brazilian Portuguese and must exactly match the supplied text.
+
+Maintain safe margins and automatically resize or reposition the candidate and typography for [[DIMENSAO_FINAL]].
+
+Reserve a subtle legal footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+Optional AI disclosure:
+[[AVISO_USO_IA]]
+
+Do not create a commercial advertisement appearance. Do not add fake crowds, additional politicians, unprovided logos or invented text.`
+        },
+        {
+          number: "03",
+          title: "Estilo executivo minimalista",
+          description: "Ideal para transmitir gestão, competência e seriedade.",
+          label: "Prompt de estilo",
+          prompt: `Design a premium minimalist Brazilian political campaign graphic for [[CARGO]].
+
+Use:
+- [[FOTO_CANDIDATO_PRINCIPAL]] as the exact candidate identity reference
+- [[LOGO_PARTIDO]] as the official party logo
+- [[REFERENCIA_ESTILO_VISUAL]] as an optional style reference
+
+Output dimension: [[DIMENSAO_FINAL]].
+
+Automatically rebuild the layout to fit any vertical, square or horizontal canvas. Preserve strong visual hierarchy, balanced spacing and wide safe margins.
+
+Art direction: executive, intelligent, modern, organized, strategic and highly professional. Use a clean background, minimal geometric architecture, subtle grid structure, controlled gradients and premium editorial spacing.
+
+The candidate portrait must have realistic skin texture, refined studio lighting, sharp focus and natural shadows. Maintain the original face and identity exactly.
+
+Use only:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Apply:
+Primary color: [[COR_PRINCIPAL]]
+Secondary color: [[COR_SECUNDARIA]]
+Accent color: [[COR_DESTAQUE]]
+Typography direction: [[ESTILO_TIPOGRAFIA]]
+
+The candidate name and ballot number must form the main typographic block. Keep the slogan short and secondary.
+
+All visible copy must be in Brazilian Portuguese. Do not add decorative text, filler text or random lettering.
+
+Reserve space for:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]
+
+No visual clutter, no excessive glow, no fake 3D typography, no lens flare, no crowd and no invented information.`
+        },
+        {
+          number: "04",
+          title: "Estilo patriótico sofisticado",
+          description: "Usa referências nacionais ou regionais sem deixar a arte genérica.",
+          label: "Prompt de estilo",
+          prompt: `Create a sophisticated patriotic Brazilian election campaign graphic for [[CARGO]].
+
+References:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Party logo: [[LOGO_PARTIDO]]
+- Optional Brazilian, state or city reference: [[REFERENCIA_CIDADE_OU_ESTADO]]
+- Optional style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+Canvas: [[DIMENSAO_FINAL]].
+
+Adapt the entire composition automatically to the requested dimension. The artwork must work equally well in vertical, square and horizontal formats.
+
+Create a premium patriotic atmosphere using subtle references to Brazil, [[NOME_CIDADE_OU_ESTADO]], civic architecture, abstract flag-inspired movement or regional landscape elements. These references must remain elegant, modern and secondary to the candidate.
+
+Do not reproduce official government communication. Do not imply that the candidate already holds public office unless this information is explicitly supplied.
+
+Candidate:
+[[NOME_CANDIDATO]]
+Number:
+[[NUMERO_URNA]]
+Office:
+[[CARGO]]
+Party:
+[[PARTIDO]]
+Slogan:
+[[SLOGAN_CAMPANHA]]
+CTA:
+[[CHAMADA_CURTA]]
+
+Colors:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+Use sophisticated fabric-like waves, geometric ribbons, controlled light, subtle depth and modern campaign typography. Avoid cliché flag collages, excessive stars, exaggerated nationalism and cheap visual effects.
+
+Preserve the candidate's exact face and identity.
+
+All visible text must be in Brazilian Portuguese and reproduced exactly.
+
+Reserve footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+When applicable:
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "05",
+          title: "Estilo popular premium com número dominante",
+          description: "Ideal para vereador, deputado e materiais de leitura rápida.",
+          label: "Prompt de estilo",
+          prompt: `Create a bold Brazilian election campaign graphic with a premium popular style.
+
+Use the exact candidate identity from [[FOTO_CANDIDATO_PRINCIPAL]] and the official logo from [[LOGO_PARTIDO]].
+
+Output: [[DIMENSAO_FINAL]].
+
+Automatically adapt the layout to the requested format. In vertical designs, use a stacked composition. In horizontal designs, use a side-by-side composition. In square designs, create a balanced diagonal or divided structure.
+
+The ballot number [[NUMERO_URNA]] must be the most memorable graphic element, using extremely clear and bold typography.
+
+Include only:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Style: energetic, accessible, confident, modern and easy to understand from a distance, but still professionally designed. Use clean bold shapes, controlled contrast, strong number hierarchy and a polished candidate portrait.
+
+Do not overload the design with patterns, icons or excessive text.
+
+All visible text must be in Brazilian Portuguese and spelled exactly as provided.
+
+Preserve the face, age, expression and physical characteristics of the candidate.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]
+
+Do not add extra people, proposals, endorsements, random numbers or fake logos.`
+        },
+        {
+          number: "06",
+          title: "Estilo comunitário premium",
+          description: "Ideal para vereador, prefeito e campanhas relacionadas à comunidade.",
+          label: "Prompt de estilo",
+          prompt: `Create a premium community-focused Brazilian election campaign design.
+
+Use:
+- Candidate reference: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Party logo: [[LOGO_PARTIDO]]
+- City or neighborhood reference: [[REFERENCIA_CIDADE_OU_ESTADO]]
+
+Create at exactly [[DIMENSAO_FINAL]] and automatically adapt all elements to the canvas.
+
+The candidate should appear approachable, trustworthy, close to the community and professionally prepared. Use a realistic portrait with natural but refined lighting.
+
+Use subtle visual references to [[NOME_CIDADE_OU_ESTADO]], such as local architecture, streets, public squares, urban silhouettes or regional graphic shapes. Keep the environmental elements soft and secondary.
+
+Display:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Color identity:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+Create a modern local campaign aesthetic with rounded graphic elements, human-centered composition, strong readability and balanced visual warmth.
+
+Do not create fake scenes of the candidate interacting with citizens. Do not add children, workers, elderly people or crowds unless their actual reference images are supplied.
+
+All visible text must be in Brazilian Portuguese.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "07",
+          title: "Estilo gradiente moderno para redes sociais",
+          description: "Modelo digital para posts, stories e peças com visual social premium.",
+          label: "Prompt de estilo",
+          prompt: `Create a modern premium Brazilian election social media graphic.
+
+Reference images:
+[[FOTO_CANDIDATO_PRINCIPAL]]
+[[LOGO_PARTIDO]]
+[[REFERENCIA_ESTILO_VISUAL]]
+
+Canvas size or aspect ratio:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the design for any vertical, square or horizontal format while maintaining the same visual identity.
+
+Use a sophisticated layered-gradient background based on:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+Add subtle translucent shapes, smooth depth, modern highlights, clean shadows and polished digital campaign aesthetics.
+
+The candidate portrait must remain realistic, sharp and completely consistent with the supplied reference.
+
+Use only:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Create clear information hierarchy:
+1. Candidate portrait
+2. Ballot number
+3. Candidate name
+4. Office
+5. Slogan
+6. Party identification
+
+All visible text must be in Brazilian Portuguese and exactly match the approved copy.
+
+Do not add interface elements, fake comments, likes, social media buttons or random hashtags.
+
+Reserve compliance area:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "08",
+          title: "Estilo escuro premium",
+          description: "Ideal para uma identidade mais sofisticada, séria e elegante.",
+          label: "Prompt de estilo",
+          prompt: `Create a sophisticated dark-mode Brazilian election campaign design for [[CARGO]].
+
+Use:
+[[FOTO_CANDIDATO_PRINCIPAL]]
+[[LOGO_PARTIDO]]
+[[REFERENCIA_ESTILO_VISUAL]]
+
+Create at:
+[[DIMENSAO_FINAL]]
+
+Automatically reorganize the composition according to the requested dimensions. Preserve wide margins, candidate visibility and typographic readability.
+
+Use a deep dark background based on [[COR_FUNDO]], with controlled details in [[COR_PRINCIPAL]], [[COR_SECUNDARIA]] and [[COR_DESTAQUE]].
+
+The design must feel elegant, prestigious, modern and institutional. Use subtle light gradients, refined edge lighting, premium shadows and restrained metallic or luminous accents.
+
+Do not create a nightclub, entertainment or luxury-product advertisement appearance.
+
+Text:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+The number must have strong contrast against the dark background. Keep the party logo clearly visible and undistorted.
+
+All text must be in Brazilian Portuguese.
+
+Preserve the candidate's exact face and natural skin tone. Avoid excessive skin smoothing or artificial facial reconstruction.
+
+Footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+Optional:
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "09",
+          title: "Estilo editorial de revista",
+          description: "Ideal para peças de autoridade, apresentação e posicionamento.",
+          label: "Prompt de estilo",
+          prompt: `Create a premium editorial magazine-style Brazilian election campaign graphic.
+
+Use the exact candidate from [[FOTO_CANDIDATO_PRINCIPAL]], the party logo from [[LOGO_PARTIDO]] and the optional editorial reference [[REFERENCIA_ESTILO_VISUAL]].
+
+Output dimension:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the editorial grid, portrait size and typography to any vertical, square or horizontal format.
+
+Visual direction: sophisticated political editorial design, strong photographic composition, modern grid, clean margins, bold headline typography and refined information blocks.
+
+Use:
+Headline: [[TITULO_PRINCIPAL]]
+Candidate: [[NOME_CANDIDATO]]
+Number: [[NUMERO_URNA]]
+Office: [[CARGO]]
+Party: [[PARTIDO]]
+Subheadline: [[TEXTO_SECUNDARIO]]
+Slogan: [[SLOGAN_CAMPANHA]]
+
+Color palette:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Use the candidate portrait as the main editorial image. Allow controlled overlap between the portrait and typography only when readability is preserved.
+
+All visible text must be in Brazilian Portuguese and reproduced exactly. Do not generate placeholder paragraphs or fake article text.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        }
+      ],
+      composicoes: [
+        {
+          number: "10",
+          title: "Chapa principal com candidato e vice",
+          description: "Para presidente, governador, senador com suplente ou prefeito com vice.",
+          label: "Prompt de chapa",
+          prompt: `Create a premium Brazilian majoritarian election ticket design featuring one main candidate and one running mate.
+
+REFERENCE IMAGES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Optional style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the composition to the requested dimensions.
+
+VISUAL HIERARCHY:
+The main candidate must be the dominant figure.
+The main candidate must always be in the foreground/front visual layer, larger, brighter and more prominent than the running mate.
+The running mate must be secondary but clearly visible and professionally integrated.
+The running mate must never appear in front of the main candidate, larger than the main candidate or more visually dominant than the main candidate.
+Do not hide or excessively reduce the running mate.
+Do not merge the two faces or create duplicated facial characteristics.
+
+MAIN CANDIDATE:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+
+RUNNING MATE:
+[[NOME_VICE_OU_SUPLENTE]]
+[[CARGO_VICE_OU_SUPLENTE]]
+
+POLITICAL IDENTIFICATION:
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+COLOR PALETTE:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create a cohesive premium campaign identity. Use realistic portraits, balanced lighting and professional integration between both candidates.
+
+For vertical layouts, use the main candidate larger in the foreground and the running mate in a clear secondary position.
+
+For horizontal layouts, create a balanced side composition while maintaining the main candidate's dominance.
+
+For square layouts, use a structured diagonal or layered composition.
+
+All visible text must be in Brazilian Portuguese and exactly match the provided information.
+
+Footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+Optional:
+[[AVISO_USO_IA]]
+
+Do not add extra candidates, fake supporters, invented coalition names or additional slogans.`
+        },
+        {
+          number: "11",
+          title: "Candidato principal com integrantes do partido",
+          description: "Para uma peça coordenada com um candidato dominante e até três apoiadores ou candidatos adicionais.",
+          label: "Prompt de composição",
+          prompt: `Create a premium Brazilian election campaign design featuring one main candidate and up to three supporting candidates or party members.
+
+REFERENCES:
+Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+Supporting person 1: [[FOTO_CANDIDATO_APOIO_1]]
+Supporting person 2: [[FOTO_CANDIDATO_APOIO_2]]
+Supporting person 3: [[FOTO_CANDIDATO_APOIO_3]]
+Party logo: [[LOGO_PARTIDO]]
+Style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+Canvas:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the layout for any vertical, square or horizontal format.
+
+The main candidate must represent approximately 60 to 70 percent of the visual importance.
+
+The supporting candidates must appear in a clearly separated secondary band, side column, lower strip or structured supporting area.
+
+MAIN CANDIDATE:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+
+SUPPORTING CANDIDATE 1:
+[[NOME_CANDIDATO_APOIO_1]]
+[[NUMERO_CANDIDATO_APOIO_1]]
+[[CARGO_CANDIDATO_APOIO_1]]
+
+SUPPORTING CANDIDATE 2:
+[[NOME_CANDIDATO_APOIO_2]]
+[[NUMERO_CANDIDATO_APOIO_2]]
+[[CARGO_CANDIDATO_APOIO_2]]
+
+SUPPORTING CANDIDATE 3:
+[[NOME_CANDIDATO_APOIO_3]]
+[[NUMERO_CANDIDATO_APOIO_3]]
+[[CARGO_CANDIDATO_APOIO_3]]
+
+PARTY:
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+
+SLOGAN:
+[[SLOGAN_CAMPANHA]]
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Preserve the exact identity of every person. Do not merge faces, swap facial characteristics or duplicate people.
+
+Each candidate name, office and number must be visually connected to the correct portrait.
+
+All visible text must be in Brazilian Portuguese and exactly match the provided copy.
+
+Maintain professional spacing and avoid creating a crowded collage.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "12",
+          title: "Casadinha eleitoral com dois candidatos",
+          description: "Cria duas candidaturas conectadas, mas com separação clara entre nomes, cargos e números.",
+          label: "Prompt de casadinha",
+          prompt: `Create a premium Brazilian "casadinha eleitoral" campaign graphic featuring two different candidates.
+
+REFERENCE 1:
+[[FOTO_CANDIDATO_PRINCIPAL]]
+
+REFERENCE 2:
+[[FOTO_CANDIDATO_APOIO_1]]
+
+PARTY LOGO:
+[[LOGO_PARTIDO]]
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the composition to any requested format.
+
+PRIMARY CANDIDATE:
+Name: [[NOME_CANDIDATO]]
+Number: [[NUMERO_URNA]]
+Office: [[CARGO]]
+
+SECOND CANDIDATE:
+Name: [[NOME_CANDIDATO_APOIO_1]]
+Number: [[NUMERO_CANDIDATO_APOIO_1]]
+Office: [[CARGO_CANDIDATO_APOIO_1]]
+
+Party or federation:
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+
+Shared slogan:
+[[SLOGAN_CAMPANHA]]
+
+Create a clear visual separation between both candidacies. Each name and ballot number must be directly associated with the correct portrait.
+
+Use one candidate as the main visual focus and the other as the supporting candidate. The primary candidate must be determined by the order of the references.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+The design must appear cohesive and coordinated, but each candidacy must remain individually understandable.
+
+All text must be in Brazilian Portuguese. Do not invent alliances, names, numbers or slogans.
+
+Footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+Optional:
+[[AVISO_USO_IA]]`
+        }
+      ],
+      conteudo: [
+        {
+          number: "13",
+          title: "Arte de propostas",
+          description: "Organiza candidato, número, headline e três propostas em layout editorial claro.",
+          label: "Prompt de conteúdo",
+          prompt: `Create a premium Brazilian election campaign proposal graphic.
+
+Use:
+Candidate reference: [[FOTO_CANDIDATO_PRINCIPAL]]
+Party logo: [[LOGO_PARTIDO]]
+Style reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+Create at exactly:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the design to the requested canvas.
+
+Use an organized editorial hierarchy with a candidate portrait, headline, three proposal blocks and a strong but controlled ballot-number area.
+
+Candidate:
+[[NOME_CANDIDATO]]
+
+Number:
+[[NUMERO_URNA]]
+
+Office:
+[[CARGO]]
+
+Headline:
+[[TITULO_PRINCIPAL]]
+
+Proposal 1:
+[[PROPOSTA_1]]
+
+Proposal 2:
+[[PROPOSTA_2]]
+
+Proposal 3:
+[[PROPOSTA_3]]
+
+Party:
+[[PARTIDO]]
+
+Slogan:
+[[SLOGAN_CAMPANHA]]
+
+Use the campaign colors:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create clear separation between proposals using clean cards, lines, shapes or typographic blocks. Avoid excessive icons or infographic clutter.
+
+All visible text must be in Brazilian Portuguese and reproduced exactly. Do not rewrite, shorten, exaggerate or invent proposals.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "14",
+          title: "Arte de evento, caminhada ou comício",
+          description: "Peça de divulgação com candidato, data, horário, local e CTA.",
+          label: "Prompt de evento",
+          prompt: `Create a premium Brazilian political campaign event poster.
+
+References:
+[[FOTO_CANDIDATO_PRINCIPAL]]
+[[FOTO_VICE_OU_SUPLENTE]]
+[[LOGO_PARTIDO]]
+[[REFERENCIA_ESTILO_VISUAL]]
+
+Output:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the event composition to vertical, square or horizontal formats.
+
+Candidate:
+[[NOME_CANDIDATO]]
+
+Ballot number:
+[[NUMERO_URNA]]
+
+Office:
+[[CARGO]]
+
+Event name:
+[[NOME_EVENTO]]
+
+Date:
+[[DATA_EVENTO]]
+
+Time:
+[[HORARIO_EVENTO]]
+
+Location:
+[[LOCAL_EVENTO]]
+
+Party:
+[[PARTIDO]]
+
+Slogan:
+[[SLOGAN_CAMPANHA]]
+
+CTA:
+[[CHAMADA_CURTA]]
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create an energetic but organized event poster with premium typography, clear date and time hierarchy, realistic candidate photography and professional campaign branding.
+
+The candidate must remain the main visual element. Event information must remain immediately understandable.
+
+Do not create fake crowds, stages, flags, fireworks or supporters unless specifically supplied through reference images.
+
+All visible text must be in Brazilian Portuguese and exactly match the approved information.
+
+Footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+Optional:
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "15",
+          title: "Arte de frase ou posicionamento",
+          description: "Composição editorial com mensagem principal, apoio visual do candidato e identificação da campanha.",
+          label: "Prompt de conteúdo",
+          prompt: `Create a premium Brazilian political campaign quote graphic.
+
+Use:
+[[FOTO_CANDIDATO_PRINCIPAL]]
+[[LOGO_PARTIDO]]
+[[REFERENCIA_ESTILO_VISUAL]]
+
+Output dimension:
+[[DIMENSAO_FINAL]]
+
+Automatically adapt the portrait and typography to the canvas while maintaining strong readability.
+
+Candidate:
+[[NOME_CANDIDATO]]
+
+Number:
+[[NUMERO_URNA]]
+
+Office:
+[[CARGO]]
+
+Main message:
+"[[TITULO_PRINCIPAL]]"
+
+Supporting message:
+[[TEXTO_SECUNDARIO]]
+
+Party:
+[[PARTIDO]]
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create a sophisticated editorial composition with the quote as the central communication element. Use the candidate portrait as visual reinforcement without competing with the message.
+
+All text must be in Brazilian Portuguese and reproduced exactly. Do not alter the meaning, add quotation marks incorrectly or attribute the phrase to another person.
+
+Preserve the exact identity and expression of the candidate.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        }
+      ],
+      utilitarios: [
+        {
+          number: "16",
+          title: "Adaptar arte pronta a outra dimensão",
+          description: "Use depois que uma primeira arte já estiver aprovada.",
+          label: "Prompt utilitário",
+          prompt: `Adapt the supplied approved campaign design to [[DIMENSAO_FINAL]].
+
+Preserve exactly:
+- The candidate's identity and face
+- The original campaign colors
+- The party logo
+- The visual style
+- The typography style
+- The ballot number
+- The candidate name
+- The slogan
+- The graphic language
+- The information hierarchy
+
+Do not simply stretch, crop or distort the original design.
+
+Professionally rebuild and reflow the composition for the new canvas dimensions.
+
+Maintain safe margins around every important element. Do not crop faces, heads, hands, logos, ballot numbers or legal information.
+
+When adapting to a vertical format, reorganize the composition into a clear top-to-bottom hierarchy.
+
+When adapting to a horizontal format, use the candidate on one side and the main information on the other.
+
+When adapting to a square format, create a balanced central or diagonal composition.
+
+Keep all visible text exactly as written in the approved original design. Do not invent, rewrite, remove or duplicate information.`
+        },
+        {
+          number: "17",
+          title: "Corrigir somente os textos",
+          description: "Use quando a arte estiver visualmente boa, mas o Nano Banana tiver escrito uma palavra ou número incorretamente.",
+          label: "Prompt utilitário",
+          prompt: `Keep the exact approved composition, candidate appearance, facial identity, body position, background, colors, lighting, graphic shapes, logo placement and overall visual style.
+
+Do not redesign the image.
+
+Correct only the visible text and numbers according to the approved copy below:
+
+Candidate name:
+[[NOME_CANDIDATO]]
+
+Ballot number:
+[[NUMERO_URNA]]
+
+Office:
+[[CARGO]]
+
+Party:
+[[PARTIDO]]
+
+Federation or coalition:
+[[FEDERACAO_OU_COLIGACAO]]
+
+Slogan:
+[[SLOGAN_CAMPANHA]]
+
+Call to action:
+[[CHAMADA_CURTA]]
+
+Legal footer:
+[[TEXTO_LEGAL_RODAPE]]
+
+AI disclosure when applicable:
+[[AVISO_USO_IA]]
+
+All visible text must be in Brazilian Portuguese.
+
+Use the exact spelling, accents, capitalization and numbers supplied above.
+
+Do not change the candidate, colors, composition, portrait, background or visual hierarchy.`
+        },
+        {
+          number: "18",
+          title: "Substituir o candidato mantendo a identidade visual",
+          description: "Troca apenas o candidato e atualiza nome, número, cargo, partido e slogan.",
+          label: "Prompt utilitário",
+          prompt: `Replace only the candidate in the supplied campaign artwork.
+
+Use [[FOTO_CANDIDATO_PRINCIPAL]] as the exact identity reference for the new candidate.
+
+Preserve exactly:
+- The existing background
+- The color palette
+- The typography
+- The party identity
+- The graphic shapes
+- The lighting direction
+- The visual hierarchy
+- The canvas dimensions
+- The overall campaign style
+
+Replace the previous candidate name and number with:
+
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+
+Rebuild the portrait integration naturally, matching the original lighting, scale and perspective.
+
+Preserve the exact facial identity, skin tone, hairstyle, age and body characteristics from the new reference.
+
+Do not blend the old and new faces. Do not retain facial characteristics from the previous candidate.
+
+Keep all text in Brazilian Portuguese and do not invent additional information.`
+        }
+      ],
+      restricoes: [
+        {
+          number: "19",
+          title: "Bloco universal de restrições",
+          description: "Trecho final para reforçar consistência, hierarquia eleitoral e proteção contra informação inventada.",
+          label: "Complemento",
+          prompt: `STRICT REQUIREMENTS:
+
+Preserve the exact identity of every person from the supplied reference images.
+
+Do not create duplicated faces, merged faces, deformed hands, distorted logos or incorrect ballot numbers.
+
+Do not invent candidate names, party names, slogans, proposals, statistics, endorsements, alliances or legal information.
+
+Do not add politicians, public officials, supporters, celebrities, crowds, flags, government buildings or public authority symbols unless explicitly provided.
+
+Do not stretch or deform the party logo.
+
+All visible text must be written in Brazilian Portuguese and must exactly match the approved copy.
+
+Prioritize professional typography, high readability, balanced spacing, safe margins and clear electoral hierarchy.
+
+The design must automatically adapt to [[DIMENSAO_FINAL]] without cropping important content.
+
+Create a polished, premium and realistic final result suitable for a professional Brazilian election campaign.`
+        }
+      ]
+    };
+
+    Object.assign(electionPromptGroups, {
+      sistema: [
+        {
+          number: "20",
+          title: "Travar identidade da campanha",
+          description: "Use uma vez antes das aplicações para criar um sistema visual consistente.",
+          label: "Prompt de sistema",
+          prompt: `Using the uploaded campaign references, establish a complete and consistent Brazilian election campaign visual system.
+
+REFERENCE ORDER:
+1. Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+2. Running mate, when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+3. Official party logo: [[LOGO_PARTIDO]]
+4. Approved campaign master artwork: [[REFERENCIA_ARTE_MESTRA]]
+5. Optional visual direction: [[REFERENCIA_ESTILO_VISUAL]]
+
+CAMPAIGN DATA:
+Candidate: [[NOME_CANDIDATO]]
+Ballot number: [[NUMERO_URNA]]
+Office: [[CARGO]]
+Party: [[PARTIDO]]
+Federation or coalition: [[FEDERACAO_OU_COLIGACAO]]
+Running mate: [[NOME_VICE_OU_SUPLENTE]]
+Slogan: [[SLOGAN_CAMPANHA]]
+Location: [[NOME_CIDADE_OU_ESTADO]]
+
+COLOR SYSTEM:
+Primary: [[COR_PRINCIPAL]]
+Secondary: [[COR_SECUNDARIA]]
+Accent: [[COR_DESTAQUE]]
+Background: [[COR_FUNDO]]
+
+TYPOGRAPHY:
+[[ESTILO_TIPOGRAFIA]]
+
+GRAPHIC LANGUAGE:
+[[SIMBOLO_GRAFICO]]
+
+Create a premium Brazilian political campaign system with realistic candidate photography, clear electoral hierarchy, bold and memorable ballot-number treatment, organized typography, refined shapes, controlled depth and consistent visual branding.
+
+Preserve the exact facial identity, age, skin tone, hairstyle, body structure and recognizable characteristics of every supplied person.
+
+Define a consistent system that can later be applied to flags, printed flyers, rear-window graphics, placards, team uniforms, editorial covers, social media, banners and digital stickers.
+
+Do not create the individual applications yet. Create only a clean campaign identity board showing the campaign lockup, candidate-name treatment, ballot-number treatment, color palette, typography hierarchy, background patterns, graphic symbols, portrait treatment, running mate treatment, legal-footer style and AI-disclosure style.
+
+All visible text must be in Brazilian Portuguese.
+
+Use only the exact information provided. Do not invent names, numbers, slogans, endorsements, parties or political claims.`
+        }
+      ],
+      impressos: [
+        {
+          number: "21",
+          title: "Bandeira eleitoral",
+          description: "Arte plana de bandeira, sem cenário, haste, vento ou mockup.",
+          label: "Prompt impresso",
+          prompt: `Create the flat, front-facing production artwork for a premium Brazilian election campaign flag.
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Approved campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+- Exact flag template when available: [[REFERENCIA_GABARITO_PRODUCAO]]
+
+PEOPLE MODE:
+[[MODO_PESSOAS]]
+
+OUTPUT:
+Exact size: [[DIMENSAO_FINAL]]
+Material: printed campaign fabric
+Color mode: [[MODO_COR_IMPRESSAO]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Expected viewing distance: [[DISTANCIA_LEITURA]]
+
+Create only the flat artwork. Do not show a flagpole, person holding the flag, fabric folds, wind, street, sky, shadows or environmental mockup.
+
+DESIGN PRIORITY:
+The ballot number [[NUMERO_URNA]] must be the first element recognized from a distance.
+
+Include:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+
+If the running mate is required, include:
+[[NOME_VICE_OU_SUPLENTE]]
+[[CARGO_VICE_OU_SUPLENTE]]
+
+The running mate's name must remain clear and must not be smaller than 30 percent of the main candidate's name.
+
+Use the campaign colors:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Use a simplified composition suitable for fabric printing: large typography, strong contrast, reduced fine detail, clean silhouette and no thin fragile lines.
+
+Keep faces and important text away from seams, borders and pole-side finishing areas.
+
+Do not mirror the candidate's face or text. Create the correct readable front side.
+
+Reserve a discreet area when required for:
+[[AVISO_USO_IA]]
+
+Do not create multiple flags in one image. Do not add crowds, supporters, national symbols or additional politicians unless supplied.`
+        },
+        {
+          number: "22",
+          title: "Bandeira somente com número e nome",
+          description: "Versão simplificada para leitura de longa distância.",
+          label: "Prompt impresso",
+          prompt: `Create a simplified premium Brazilian election campaign flag using the approved campaign identity from [[REFERENCIA_ARTE_MESTRA]].
+
+Output: [[DIMENSAO_FINAL]].
+
+Create only the flat print artwork with no mockup.
+
+Use only:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+
+The ballot number must occupy approximately 45 to 60 percent of the visual area.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+The design must remain understandable while moving and from a long viewing distance. Use extremely bold typography, strong color contrast and minimal graphic elements.
+
+Do not include any candidate portrait, person, face, body silhouette, photographic character or illustrated politician. This flag must be a typography-first design focused only on the candidate name, ballot number, office, party and approved campaign identity.
+
+Do not include proposals, long slogans, QR codes, small social media information or decorative text.
+
+Preserve the exact approved number treatment and party logo. Keep all elements inside [[MARGEM_SEGURANCA]].`
+        },
+        {
+          number: "23",
+          title: "Santinho - frente",
+          description: "Frente de santinho com retrato, número, partido, slogan e rodapé.",
+          label: "Prompt impresso",
+          prompt: `Create the front side of a premium Brazilian election campaign flyer, known as a "santinho".
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Approved visual identity: [[REFERENCIA_ARTE_MESTRA]]
+
+OUTPUT:
+Exact size: [[DIMENSAO_FINAL]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+Print material: [[TIPO_MATERIAL]]
+
+Create only the flat front-side artwork. Do not generate a photograph of printed flyers, paper texture, table, hand or mockup.
+
+PEOPLE MODE:
+[[MODO_PESSOAS]]
+
+Main information:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Running mate when applicable:
+[[NOME_VICE_OU_SUPLENTE]]
+[[CARGO_VICE_OU_SUPLENTE]]
+
+For a majoritarian campaign, keep the running mate's name at least 30 percent of the main candidate's name size.
+
+Use the candidate portrait as the central recognition element and the ballot number as the strongest typographic element.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create a premium but highly direct layout suitable for rapid physical distribution.
+
+Reserve a readable bottom footer for:
+[[TEXTO_LEGAL_RODAPE]]
+
+When applicable, include:
+[[AVISO_USO_IA]]
+
+Keep the legal footer inside the safe area and do not place it over the candidate's clothing or complex background.
+
+All text must be in Brazilian Portuguese and reproduced exactly.
+
+Do not invent proposals, statistics, contact details, endorsements or additional text.`
+        },
+        {
+          number: "24",
+          title: "Santinho - verso",
+          description: "Verso de santinho com guia visual de votação na urna, propostas, QR code e contatos.",
+          label: "Prompt impresso",
+          prompt: `Create the back side of the same premium Brazilian election campaign flyer.
+
+Use [[REFERENCIA_ARTE_MESTRA]] and the approved santinho front as strict visual references.
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+
+Create only the flat back-side artwork with the same colors, typography, shapes and visual language as the front.
+
+INFORMATION:
+Headline: [[TITULO_PRINCIPAL]]
+Short biography: [[BIO_CURTA]]
+Proposal 1: [[PROPOSTA_1]]
+Proposal 2: [[PROPOSTA_2]]
+Proposal 3: [[PROPOSTA_3]]
+Proposal 4: [[PROPOSTA_4]]
+Social media: [[REDE_SOCIAL]]
+Website: [[SITE]]
+QR code: [[REFERENCIA_QR_CODE]]
+
+Use the supplied QR code exactly. Do not redraw, reinterpret or generate a different QR code.
+
+HOW TO VOTE ON THE ELECTRONIC BALLOT:
+Create a clear visual instruction area titled "COMO VOTAR" or "NA URNA".
+Show a simplified, neutral and educational illustration of a Brazilian electronic ballot screen and keypad, inspired by the TSE voting simulator logic, without using the TSE logo, Justiça Eleitoral logo, official seals or government symbols.
+The illustrated screen must show the candidate's office [[CARGO]], the candidate number [[NUMERO_URNA]] displayed in separate digit boxes exactly as it should be typed, the candidate name [[NOME_CANDIDATO]] and the party [[PARTIDO]].
+Create one box for each digit of [[NUMERO_URNA]]. Preserve the exact digit order and do not add, remove, repeat or replace any digit.
+Include a simple step-by-step voting cue: 1. Digite o número [[NUMERO_URNA]]. 2. Confira as informações. 3. Aperte CONFIRMA.
+Represent the green CONFIRMA key clearly and the red CORRIGE key discreetly. Do not emphasize blank voting, null voting or any unrelated candidate.
+For municipal material, when relevant, respect the Brazilian voting logic that voters choose vereador first and prefeito second, but do not add another office or another candidate unless that information was supplied in the prompt.
+Keep this "Como votar" panel clean, didactic and secondary to the campaign identity, with high readability at the final printed size.
+
+Organize the proposals into highly readable sections using short titles, clear spacing and restrained graphic icons.
+
+Do not rewrite, summarize, exaggerate or invent any proposal.
+
+Reserve the complete bottom area for:
+[[TEXTO_LEGAL_RODAPE]]
+
+When applicable:
+[[AVISO_USO_IA]]
+
+The legal text and AI disclosure must be readable at the final printed size.
+
+Do not add fake testimonials, institutional seals, awards, polling numbers or government logos.`
+        },
+        {
+          number: "25",
+          title: "Praguinha eleitoral",
+          description: "Arte plana de praguinha ou placa pequena de haste.",
+          label: "Prompt impresso",
+          prompt: `Create the flat production artwork for a small Brazilian election campaign placard mounted on a lightweight rod, commonly known as a "praguinha".
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+- Exact die-cut or rectangular template: [[REFERENCIA_GABARITO_PRODUCAO]]
+
+OUTPUT:
+Exact size: [[DIMENSAO_FINAL]]
+Material: [[TIPO_MATERIAL]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+Viewing distance: [[DISTANCIA_LEITURA]]
+
+Create only the flat front-facing artwork. Do not show the rod, a person's hand, street, grass, rally or physical mockup.
+
+The placard must communicate instantly.
+
+Primary hierarchy:
+1. Ballot number [[NUMERO_URNA]]
+2. Candidate name [[NOME_CANDIDATO]]
+3. Candidate portrait
+4. Office [[CARGO]]
+5. Party [[PARTIDO]]
+
+Optional short slogan:
+[[SLOGAN_CAMPANHA]]
+
+Use very large typography, clear portrait cropping, strong edge contrast and a minimal composition.
+
+People mode:
+[[MODO_PESSOAS]]
+
+If other candidates are included, keep the main candidate clearly dominant and connect each name and number to the correct portrait.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Keep essential content away from the rod insertion area and cutting contour.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]
+
+Do not use long proposals, QR codes, fine text, excessive patterns or low-contrast gradients.`
+        },
+        {
+          number: "26",
+          title: "Capa de revista eleitoral",
+          description: "Capa editorial oficial da campanha, sem simular veículo jornalístico real.",
+          label: "Prompt editorial",
+          prompt: `Create a premium editorial cover for an official Brazilian election campaign magazine.
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+- Optional editorial reference: [[REFERENCIA_ESTILO_VISUAL]]
+
+OUTPUT:
+Exact cover size: [[DIMENSAO_FINAL]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+
+Create only the flat front cover.
+
+PUBLICATION:
+Original campaign-owned magazine title: [[TITULO_REVISTA]]
+Edition: [[INFO_EDICAO]]
+Main headline: [[TITULO_PRINCIPAL]]
+Supporting headline 1: [[MANCHETE_APOIO_1]]
+Supporting headline 2: [[MANCHETE_APOIO_2]]
+Supporting headline 3: [[MANCHETE_APOIO_3]]
+
+Candidate:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+
+Create an authoritative editorial portrait with premium magazine photography, realistic skin texture, controlled studio lighting and sophisticated typography.
+
+The design must be clearly identified as an official campaign publication.
+
+Do not imitate the name, logo, masthead, typography or visual identity of any real newspaper, magazine, television channel or journalistic organization.
+
+Do not imply independent media endorsement.
+
+Do not add fake award badges, polling results, quotations, interviews or publication logos.
+
+All visible text must be in Brazilian Portuguese and exactly match the supplied copy.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "27",
+          title: "Banner eleitoral",
+          description: "Banner plano para comitê, palco, entrada, roll-up, wind banner ou painel.",
+          label: "Prompt impresso",
+          prompt: `Create the flat production artwork for a premium Brazilian election campaign banner.
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+- Exact production template: [[REFERENCIA_GABARITO_PRODUCAO]]
+
+BANNER TYPE:
+[[TIPO_BANNER]]
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+Material: [[TIPO_MATERIAL]]
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+Viewing distance: [[DISTANCIA_LEITURA]]
+
+Create only the flat print artwork without stands, walls, people, event stages or mockups.
+
+Include:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+People mode:
+[[MODO_PESSOAS]]
+
+When creating a horizontal banner, position the portrait on one side and the campaign information on the other.
+
+When creating a vertical banner, use a top-to-bottom hierarchy with the face in the upper or central area and the number in the lower visual block.
+
+When creating a repeating photo-wall, use only the approved campaign logo, number and party logo in a controlled repeating pattern. Do not use repeated candidate faces.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Keep all information readable from [[DISTANCIA_LEITURA]].
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]
+
+Do not create an outdoor-style environmental placement. Do not add crowds, stages or public buildings.`
+        },
+        {
+          number: "28",
+          title: "Banner com candidato principal e integrantes",
+          description: "Banner de chapa ou grupo com candidato principal dominante.",
+          label: "Prompt impresso",
+          prompt: `Create a premium Brazilian election slate banner featuring one main candidate and supporting party candidates.
+
+REFERENCES:
+Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+Supporting person 1: [[FOTO_CANDIDATO_APOIO_1]]
+Supporting person 2: [[FOTO_CANDIDATO_APOIO_2]]
+Running mate: [[FOTO_VICE_OU_SUPLENTE]]
+Party logo: [[LOGO_PARTIDO]]
+Campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+
+Create only the flat print artwork.
+
+The main candidate must hold approximately 60 to 70 percent of the visual hierarchy.
+
+Arrange additional people in a clearly separated secondary strip or side area.
+
+MAIN:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+
+OTHERS:
+[[INFORMACOES_PESSOAS_APOIO]]
+
+PARTY:
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+
+SLOGAN:
+[[SLOGAN_CAMPANHA]]
+
+Every portrait must remain connected to the correct name, office and number.
+
+Preserve the exact identity of every person. Do not merge faces, duplicate people or exchange facial characteristics.
+
+Use the campaign colors and maintain a clean professional hierarchy.
+
+Reserve:
+[[TEXTO_LEGAL_RODAPE]]
+[[AVISO_USO_IA]]`
+        }
+      ],
+      producao: [
+        {
+          number: "29",
+          title: "Vidro vigia traseiro",
+          description: "Arte plana para adesivo microperfurado de vidro traseiro.",
+          label: "Prompt de produção",
+          prompt: `Create the flat production artwork for a full-size microperforated Brazilian election campaign rear-window graphic.
+
+REFERENCES:
+- Exact rear-window photo or technical template: [[REFERENCIA_VIDRO_TRASEIRO]]
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Party logo: [[LOGO_PARTIDO]]
+- Campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+
+VEHICLE:
+[[MODELO_ANO_VEICULO]]
+
+OUTPUT:
+Exact production size: [[DIMENSAO_FINAL]]
+Material: microperforated rear-window vinyl
+Bleed: [[SANGRIA]]
+Safe margin: [[MARGEM_SEGURANCA]]
+Color mode: CMYK
+
+Create only the undistorted flat artwork fitted to the exact rear-window shape. Do not generate the complete vehicle and do not create a perspective mockup.
+
+Respect all structural areas shown in the template: rear-window contour, windshield wiper sweep, defroster lines, camera or sensor areas, brake-light area, curved corners and areas with reduced visibility.
+
+Keep the candidate's eyes, face, ballot number and essential text away from the windshield wiper, brake light and strongly curved edges.
+
+Include:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[SLOGAN_CAMPANHA]]
+
+People mode:
+[[MODO_PESSOAS]]
+
+If the running mate appears, use a clear secondary position and include:
+[[NOME_VICE_OU_SUPLENTE]]
+
+Use large horizontal hierarchy and extremely legible text because the material will be viewed from other vehicles.
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Avoid excessive small details because the microperforation will reduce visual sharpness.
+
+Reserve:
+[[AVISO_USO_IA]]
+
+Do not include fake license plates, fake vehicle branding, random phone numbers, invented URLs or text outside the approved campaign information.`
+        },
+        {
+          number: "30",
+          title: "Testar arte no veículo",
+          description: "Mockup realista de verificação do vidro traseiro aprovado.",
+          label: "Prompt de mockup",
+          prompt: `Apply the approved flat rear-window artwork to the vehicle reference [[REFERENCIA_VIDRO_TRASEIRO]].
+
+Preserve the original vehicle, glass shape, environment, camera angle, reflections and proportions.
+
+Apply the design realistically as microperforated rear-window vinyl.
+
+The graphic must follow the glass curvature naturally without changing the candidate's face, ballot number, spelling, logo or colors.
+
+Keep the rear-window wiper, brake light, sensors and vehicle structure visible.
+
+This is only a realistic production-verification mockup. Do not redesign the approved artwork.`
+        },
+        {
+          number: "31",
+          title: "Camiseta da equipe de campanha",
+          description: "Uniforme de equipe com candidato, número e identidade de campanha, sem linguagem de brinde promocional.",
+          label: "Prompt de produção",
+          prompt: `Create a clean Brazilian election campaign staff shirt design that also works as a professional campaign visibility piece.
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Campaign logo: [[REFERENCIA_LOGO_CAMPANHA]]
+- Official party logo: [[LOGO_PARTIDO]]
+- Candidate name treatment: [[REFERENCIA_ARTE_MESTRA]]
+- Exact shirt template: [[REFERENCIA_GABARITO_PRODUCAO]]
+
+IMPORTANT PURPOSE:
+This is a work uniform for authorized campaign staff and internal campaign use, not a promotional giveaway, prize, gift or voter-distribution item.
+
+Create separate flat production views for:
+1. Front
+2. Back
+3. Left sleeve
+4. Right sleeve
+
+Do not create a lifestyle mockup or person wearing the shirt.
+
+SHIRT COLOR:
+[[COR_CAMISETA]]
+
+PRINT COLORS:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+ALLOWED VISIBLE ELEMENTS:
+- Main candidate portrait from [[FOTO_CANDIDATO_PRINCIPAL]]
+- Candidate name: [[NOME_CANDIDATO]]
+- Ballot number: [[NUMERO_URNA]]
+- Office: [[CARGO]]
+- Party, federation or coalition identification: [[PARTIDO]]
+- Campaign logo: [[REFERENCIA_LOGO_CAMPANHA]]
+- Official party logo: [[LOGO_PARTIDO]]
+- Campaign slogan when useful: [[SLOGAN_CAMPANHA]]
+- Optional functional staff identification: [[TEXTO_FUNCAO_EQUIPE]]
+
+SHIRT LAYOUT:
+Use the visual language commonly seen in Brazilian campaign staff shirts: strong candidate recognition, large readable ballot number, campaign colors, simplified typography, clean sponsor-free layout, and high visibility for people moving in streets, meetings or campaign events.
+
+Front: place a small or medium campaign logo / candidate name lockup on the chest, with the party logo smaller and discreet.
+
+Back: create the main campaign visibility area with the candidate portrait, candidate name, large ballot number and office. Keep the number highly readable and fully visible from a distance.
+
+Sleeves: use small party logo, campaign color stripes, number detail or staff function only if it remains clean and printable.
+
+The candidate portrait must be cleanly cut out, well lit and integrated with the shirt artwork. Preserve the face exactly from the reference.
+
+Do not overload the shirt with proposals, long texts, QR codes, social handles, excessive icons, fake sponsors, official government symbols or unrelated decorative elements.
+
+Use durable screen-printing logic, limited ink colors, clean vector-like forms and no extremely fine detail.
+
+Maintain exact logo proportions and do not redesign the official party symbol or campaign logo.
+
+Keep a professional uniform appearance: campaign visibility first, staff identification second, no gift-like presentation, no packaging, no promotional giveaway scene.`
+        },
+        {
+          number: "32",
+          title: "Mockup da camiseta",
+          description: "Aplica a arte aprovada em mockup neutro de camiseta.",
+          label: "Prompt de mockup",
+          prompt: `Apply the approved staff-uniform artwork to a realistic plain shirt mockup.
+
+Show one front view and one back view with neutral lighting and a solid background.
+
+Preserve the exact approved artwork, candidate portrait, ballot number, scale, logo proportions and garment color.
+
+Do not add a person wearing the shirt, campaign rally, street scene, packaging, giveaway context or additional decorative elements.`
+        },
+        {
+          number: "33",
+          title: "Mockup universal após aprovação",
+          description: "Aplica uma arte plana aprovada em um material físico para apresentação.",
+          label: "Prompt de mockup",
+          prompt: `Apply the supplied approved flat campaign artwork to a realistic professional mockup of:
+
+[[TIPO_MATERIAL]]
+
+Use the supplied product or production reference:
+[[REFERENCIA_GABARITO_PRODUCAO]]
+
+Preserve exactly:
+- Candidate identity
+- Candidate name
+- Ballot number
+- Party logo
+- Colors
+- Typography
+- Slogan
+- Legal footer
+- AI disclosure
+- Original artwork proportions
+
+Do not redesign, simplify, crop, rewrite or generate new campaign content.
+
+Apply the artwork naturally according to the physical material, including realistic perspective, surface texture, folds or reflections only when physically appropriate.
+
+The mockup must be presented against a clean neutral background with professional lighting.
+
+Do not add crowds, rallies, public buildings, supporters or unrelated campaign items.
+
+This image is a production-presentation mockup, not the final printable file.`
+        }
+      ],
+      digital: [
+        {
+          number: "34",
+          title: "Redes sociais - arte principal",
+          description: "Key visual digital para redes sociais com leitura mobile.",
+          label: "Prompt digital",
+          prompt: `Create a premium Brazilian election campaign social media key visual.
+
+REFERENCES:
+- Main candidate: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Running mate when applicable: [[FOTO_VICE_OU_SUPLENTE]]
+- Supporting people when applicable: [[FOTO_CANDIDATO_APOIO_1]] and [[FOTO_CANDIDATO_APOIO_2]]
+- Party logo: [[LOGO_PARTIDO]]
+- Approved campaign identity: [[REFERENCIA_ARTE_MESTRA]]
+
+PEOPLE MODE:
+[[MODO_PESSOAS]]
+
+OUTPUT:
+[[DIMENSAO_FINAL]]
+Color mode: RGB
+Safe margin: [[MARGEM_SEGURANCA]]
+
+Automatically reorganize the composition for the specified aspect ratio without stretching or cropping important content.
+
+CAMPAIGN CONTENT:
+[[NOME_CANDIDATO]]
+[[NUMERO_URNA]]
+[[CARGO]]
+[[PARTIDO]]
+[[FEDERACAO_OU_COLIGACAO]]
+[[SLOGAN_CAMPANHA]]
+[[CHAMADA_CURTA]]
+
+Running mate:
+[[NOME_VICE_OU_SUPLENTE]]
+
+Supporting candidates:
+[[INFORMACOES_PESSOAS_APOIO]]
+
+Use:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[COR_FUNDO]]
+
+Create a polished digital campaign composition with strong mobile readability, realistic candidate portrait, memorable number treatment, clean shapes and sufficient negative space.
+
+Maintain safe areas for platform interfaces. Do not place essential text near the extreme top, bottom or side edges.
+
+All visible text must be in Brazilian Portuguese.
+
+Use only the exact approved text and do not invent hashtags, promises, dates, statistics or endorsements.
+
+Reserve when required:
+[[TEXTO_CONFORMIDADE_DIGITAL]]
+[[AVISO_USO_IA]]`
+        },
+        {
+          number: "35",
+          title: "Adaptar arte para formatos sociais",
+          description: "Recompõe um key visual aprovado em feed, square, story, horizontal e perfil.",
+          label: "Prompt digital",
+          prompt: `Adapt the supplied approved campaign key visual into a coordinated social media set without changing the campaign theme, typography or visual identity.
+
+STRICT REFERENCES:
+- Approved campaign key visual / master artwork: [[REFERENCIA_ARTE_MESTRA]]
+- Main candidate when present in the approved artwork: [[FOTO_CANDIDATO_PRINCIPAL]]
+- Party logo: [[LOGO_PARTIDO]]
+- Campaign logo: [[REFERENCIA_LOGO_CAMPANHA]]
+
+Create separate finalized versions for:
+1. Instagram and Facebook feed - 1080 x 1350 pixels
+2. Square post and WhatsApp sharing - 1080 x 1080 pixels
+3. Story and Reels cover - 1080 x 1920 pixels
+4. Horizontal Facebook or video cover - 1920 x 1080 pixels
+5. Profile-image safe composition - 1080 x 1080 pixels
+
+PRESERVE EXACTLY FROM THE APPROVED ARTWORK:
+- Candidate identity
+- Ballot number
+- Candidate name
+- Party logo
+- Campaign logo
+- Campaign colors
+- Typography
+- Slogan
+- Graphic language
+- Background style
+- Shape system
+- Shadow style
+- Photo treatment
+- Text effects
+- Visual hierarchy
+- Political campaign theme
+
+This is a faithful responsive adaptation task, not a redesign. Do not invent a new theme, new typography, new color palette, new background, new shape language, new photo treatment, new text effect, new slogan style or new decorative system.
+
+Professionally recompose every version according to its format while keeping the same campaign identity. Move, resize and rebalance approved elements only as needed to fit each canvas.
+
+Use the same or visually matching typefaces from [[REFERENCIA_ARTE_MESTRA]]. If the exact font cannot be reproduced, use the closest matching typography with the same weight, width, casing, spacing, hierarchy and political campaign character.
+
+Keep the candidate, ballot number, name, party logo and slogan in the same visual relationship as the approved key visual. The candidate must remain the main visual subject when the source artwork includes the candidate.
+
+Preserve the approved color proportions and do not introduce unrelated colors. Keep background forms, gradients, opacity, textures and shadows consistent with the master artwork.
+
+Do not stretch, warp, mechanically crop, mirror, distort or regenerate the approved artwork. Recompose with clean margins, platform-safe areas and legible hierarchy.
+
+For each format, protect the candidate's face, ballot number, name, logos and essential text from platform interface areas, circular profile cropping and edge trimming.
+
+For profile-image format, simplify the layout and use only the approved portrait, name or number elements that remain recognizable inside a circular crop.
+
+Keep legal and AI-disclosure information readable whenever required.
+
+Do not place all formats together in one collage. Generate each format as an individual final image.
+
+Final check: every output must look like it belongs to the same campaign as [[REFERENCIA_ARTE_MESTRA]], with no strange typography, no unrelated theme and no disconnected visual style.`
+        },
+        {
+          number: "36",
+          title: "Pack de figurinhas digitais",
+          description: "Pacote de 12 figurinhas com retrato, número, texto aprovado e contorno limpo.",
+          label: "Prompt digital",
+          prompt: `Create a coordinated pack of 12 Brazilian election campaign digital stickers using the exact candidate identity from [[FOTO_CANDIDATO_PRINCIPAL]].
+
+Use [[REFERENCIA_ARTE_MESTRA]] and [[LOGO_PARTIDO]] as strict branding references.
+
+OUTPUT:
+Create 12 separate sticker assets.
+Transparent background.
+Square working canvas.
+High-resolution clean edges.
+Each sticker must include a thick clean external contour suitable for WhatsApp and Telegram.
+
+STYLE:
+Premium photo-cutout sticker pack with realistic candidate identity, expressive but natural poses, bold campaign typography and consistent use of:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+
+Preserve the candidate's exact face, age, skin tone and recognizable characteristics.
+
+Do not turn the candidate into a different person.
+
+Create these approved stickers:
+1. Candidate portrait + "[[TEXTO_FIGURINHA_1]]"
+2. Candidate portrait + "[[TEXTO_FIGURINHA_2]]"
+3. Candidate portrait + "[[TEXTO_FIGURINHA_3]]"
+4. Candidate portrait + "[[TEXTO_FIGURINHA_4]]"
+5. Candidate portrait + "[[TEXTO_FIGURINHA_5]]"
+6. Candidate portrait + "[[TEXTO_FIGURINHA_6]]"
+7. Ballot number [[NUMERO_URNA]] + "[[TEXTO_FIGURINHA_7]]"
+8. Candidate name + "[[TEXTO_FIGURINHA_8]]"
+9. Party logo + "[[TEXTO_FIGURINHA_9]]"
+10. Campaign symbol + "[[TEXTO_FIGURINHA_10]]"
+11. Candidate and running mate + "[[TEXTO_FIGURINHA_11]]"
+12. Ballot number and campaign slogan: "[[TEXTO_FIGURINHA_12]]"
+
+All visible text must be in Brazilian Portuguese and exactly match the supplied phrases.
+
+Use different approved poses or portrait crops without changing the candidate's clothing identity or facial structure.
+
+Do not invent quotes, jokes, slang, promises or political claims.
+
+Do not create one large collage as the final delivery. Generate each sticker as an individual transparent image.`
+        },
+        {
+          number: "37",
+          title: "Figurinhas somente com números e símbolos",
+          description: "Pack tipográfico de figurinhas sem retrato do candidato.",
+          label: "Prompt digital",
+          prompt: `Create a pack of 10 typographic Brazilian election campaign digital stickers.
+
+Use:
+Candidate name: [[NOME_CANDIDATO]]
+Ballot number: [[NUMERO_URNA]]
+Party: [[PARTIDO]]
+Slogan: [[SLOGAN_CAMPANHA]]
+Campaign symbol: [[SIMBOLO_GRAFICO]]
+
+Use the exact visual identity from [[REFERENCIA_ARTE_MESTRA]].
+
+Create separate transparent PNG-style assets with strong external contours and clean edges.
+
+Prioritize the ballot number, name, approved slogan and campaign symbol.
+
+Do not use candidate portraits.
+
+Do not invent additional phrases, logos, emojis or political claims.
+
+Maintain consistent:
+[[COR_PRINCIPAL]]
+[[COR_SECUNDARIA]]
+[[COR_DESTAQUE]]
+[[ESTILO_TIPOGRAFIA]]`
+        },
+        {
+          number: "38",
+          title: "Revisar todo o kit",
+          description: "Board de controle de qualidade para conferir consistência entre materiais.",
+          label: "Prompt de revisão",
+          prompt: `Review the supplied Brazilian election campaign material set for visual consistency.
+
+The set includes:
+- Campaign flag
+- Rear-window graphic
+- Santinho front
+- Santinho back
+- Small placard
+- Staff uniform
+- Campaign magazine cover
+- Social media materials
+- Banners
+- Digital sticker pack
+
+Do not redesign the approved identity.
+
+Check and correct only:
+- Candidate facial consistency
+- Candidate-name spelling
+- Ballot-number accuracy
+- Party-logo accuracy
+- Campaign-color consistency
+- Typography consistency
+- Running-mate hierarchy
+- Safe margins
+- Print bleed
+- Legal-footer placement
+- AI-disclosure placement
+- Association between each portrait, name, office and number
+- Readability at the intended viewing distance
+- Consistency between print and digital materials
+
+Create a visual quality-control board showing each material as a small flat preview and identifying any inconsistency that still requires correction.
+
+Do not invent new text, new slogans or new visual elements.`
+        }
+      ]
+    });
+
+    const campaignFieldGroups = [
+      {
+        title: "Referências visuais",
+        description: "Fotos, logos e referências usadas como base visual pelo Nano Banana.",
+        open: true,
+        fields: [
+          ["FOTO_CANDIDATO_PRINCIPAL", "Foto do candidato principal", "Ex.: imagem 1, foto oficial do candidato"],
+          ["FOTO_VICE_OU_SUPLENTE", "Foto do vice ou suplente", "Ex.: imagem 2, foto oficial do vice"],
+          ["FOTO_CANDIDATO_APOIO_1", "Foto do candidato de apoio 1", "Ex.: imagem 3, deputado federal"],
+          ["FOTO_CANDIDATO_APOIO_2", "Foto do candidato de apoio 2", "Ex.: imagem 4, deputado estadual"],
+          ["FOTO_CANDIDATO_APOIO_3", "Foto do candidato de apoio 3", "Ex.: imagem 5, apoiador da chapa"],
+          ["LOGO_PARTIDO", "Logo do partido", "Ex.: imagem do logo oficial em PNG"],
+          ["REFERENCIA_LOGO_CAMPANHA", "Logo da campanha do candidato", "Ex.: logo oficial da campanha, exatamente como deve aparecer"],
+          ["REFERENCIA_ARTE_MESTRA", "Arte mestra aprovada", "Ex.: arte principal já aprovada da campanha"],
+          ["REFERENCIA_ESTILO_VISUAL", "Referência de estilo visual", "Ex.: arte aprovada, paleta ou layout anterior"],
+          ["REFERENCIA_CIDADE_OU_ESTADO", "Referência da cidade ou estado", "Ex.: imagem da cidade, praça, monumento ou paisagem"],
+          ["REFERENCIA_GABARITO_PRODUCAO", "Gabarito de produção", "Ex.: molde de bandeira, camiseta, placa, banner ou faca"],
+          ["REFERENCIA_VIDRO_TRASEIRO", "Referência do vidro traseiro", "Ex.: foto ou molde exato do vidro do veículo"],
+          ["REFERENCIA_QR_CODE", "QR code aprovado", "Ex.: imagem do QR code oficial"]
+        ]
+      },
+      {
+        title: "Candidato principal",
+        description: "Dados centrais que aparecem na maioria das peças.",
+        open: true,
+        fields: [
+          ["NOME_CANDIDATO", "Nome eleitoral", "Ex.: Maria Silva"],
+          ["NUMERO_URNA", "Número de urna", "Ex.: 12345"],
+          ["CARGO", "Cargo", "Ex.: PREFEITA, VEREADOR, GOVERNADOR"],
+          ["PARTIDO", "Partido", "Ex.: SIGLA ou nome do partido"],
+          ["FEDERACAO_OU_COLIGACAO", "Federação ou coligação", "Ex.: Coligação Cidade Forte"],
+          ["SLOGAN_CAMPANHA", "Slogan da campanha", "Ex.: Trabalho de verdade pela nossa cidade"],
+          ["CHAMADA_CURTA", "Chamada curta", "Ex.: CONFIRME, VOTE, JUNTOS"],
+          ["NOME_CIDADE_OU_ESTADO", "Cidade ou estado", "Ex.: Goiânia, Bahia, São Paulo"]
+        ]
+      },
+      {
+        title: "Chapa e apoiadores",
+        description: "Campos usados em prompts com vice, suplente, casadinha ou integrantes do partido.",
+        fields: [
+          ["MODO_PESSOAS", "Modo de pessoas", "Ex.: SINGLE CANDIDATE, MAIN CANDIDATE AND RUNNING MATE"],
+          ["NOME_VICE_OU_SUPLENTE", "Nome do vice ou suplente", "Ex.: João Pereira"],
+          ["CARGO_VICE_OU_SUPLENTE", "Cargo do vice ou suplente", "Ex.: Vice-prefeito, 1º suplente"],
+          ["NOME_CANDIDATO_APOIO_1", "Nome do candidato de apoio 1", "Ex.: Ana Costa"],
+          ["NUMERO_CANDIDATO_APOIO_1", "Número do apoio 1", "Ex.: 4567"],
+          ["CARGO_CANDIDATO_APOIO_1", "Cargo do apoio 1", "Ex.: Deputada Federal"],
+          ["NOME_CANDIDATO_APOIO_2", "Nome do candidato de apoio 2", "Ex.: Paulo Santos"],
+          ["NUMERO_CANDIDATO_APOIO_2", "Número do apoio 2", "Ex.: 90123"],
+          ["CARGO_CANDIDATO_APOIO_2", "Cargo do apoio 2", "Ex.: Deputado Estadual"],
+          ["NOME_CANDIDATO_APOIO_3", "Nome do candidato de apoio 3", "Ex.: Carla Mendes"],
+          ["NUMERO_CANDIDATO_APOIO_3", "Número do apoio 3", "Ex.: 67890"],
+          ["CARGO_CANDIDATO_APOIO_3", "Cargo do apoio 3", "Ex.: Vereadora"],
+          ["INFORMACOES_PESSOAS_APOIO", "Informações dos apoios", "Ex.: Ana Costa - 4567 - VEREADORA; Paulo Santos - 90123 - DEPUTADO"]
+        ]
+      },
+      {
+        title: "Identidade visual",
+        description: "Cores, dimensão e linguagem gráfica da campanha.",
+        fields: [
+          ["DIMENSAO_FINAL", "Dimensão final", "Ex.: 1080 x 1350 pixels, 9:16 vertical, A4 vertical"],
+          ["COR_PRINCIPAL", "Cor principal", "Ex.: azul institucional, #063b7a"],
+          ["COR_SECUNDARIA", "Cor secundária", "Ex.: branco, verde, #ffffff"],
+          ["COR_DESTAQUE", "Cor de destaque", "Ex.: amarelo, vermelho, #ffd447"],
+          ["COR_FUNDO", "Cor de fundo", "Ex.: azul escuro, branco, degradê verde"],
+          ["ESTILO_TIPOGRAFIA", "Estilo de tipografia", "Ex.: bold geometric sans serif"],
+          ["SIMBOLO_GRAFICO", "Símbolo gráfico", "Ex.: estrela, ondas, mapa, seta, círculo"]
+        ]
+      },
+      {
+        title: "Produção e impressão",
+        description: "Medidas, margens, material, distância de leitura e dados técnicos de produção.",
+        fields: [
+          ["SANGRIA", "Sangria", "Ex.: 3 mm, 5 mm, 2 cm"],
+          ["MARGEM_SEGURANCA", "Margem de segurança", "Ex.: 5 cm, 10 mm, 8% da borda"],
+          ["TIPO_MATERIAL", "Tipo de material", "Ex.: lona, tecido, adesivo microperfurado, papel, PVC"],
+          ["MODO_COR_IMPRESSAO", "Modo de cor", "Ex.: CMYK ou RGB"],
+          ["DISTANCIA_LEITURA", "Distância de leitura", "Ex.: 2 metros, 10 metros, leitura de veículos"],
+          ["MODELO_ANO_VEICULO", "Modelo e ano do veículo", "Ex.: Fiat Uno 2018, Hilux 2023"],
+          ["COR_CAMISETA", "Cor da camiseta", "Ex.: azul-marinho, branca, verde"],
+          ["TEXTO_FUNCAO_EQUIPE", "Função da equipe", "Ex.: Coordenação, Fiscalização, Apoio de Rua"],
+          ["TIPO_BANNER", "Tipo de banner", "Ex.: horizontal de evento, roll-up, painel de palco, wind banner"]
+        ]
+      },
+      {
+        title: "Conteúdo da peça",
+        description: "Textos para artes editoriais, propostas e posicionamentos.",
+        fields: [
+          ["TITULO_PRINCIPAL", "Título principal", "Ex.: Saúde perto de quem precisa"],
+          ["TEXTO_SECUNDARIO", "Texto secundário", "Ex.: Uma cidade mais humana começa no bairro"],
+          ["BIO_CURTA", "Biografia curta", "Ex.: Professora, mãe e servidora pública há 20 anos"],
+          ["PROPOSTA_1", "Proposta 1", "Ex.: Ampliar o horário das unidades de saúde"],
+          ["PROPOSTA_2", "Proposta 2", "Ex.: Reforçar a segurança nas escolas"],
+          ["PROPOSTA_3", "Proposta 3", "Ex.: Melhorar o transporte nos bairros"],
+          ["PROPOSTA_4", "Proposta 4", "Ex.: Criar programas de qualificação profissional"],
+          ["TITULO_REVISTA", "Título da revista", "Ex.: Revista Oficial da Campanha"],
+          ["INFO_EDICAO", "Informação da edição", "Ex.: Edição 01 - Plano de Governo"],
+          ["MANCHETE_APOIO_1", "Manchete de apoio 1", "Ex.: Educação como prioridade"],
+          ["MANCHETE_APOIO_2", "Manchete de apoio 2", "Ex.: Mais saúde nos bairros"],
+          ["MANCHETE_APOIO_3", "Manchete de apoio 3", "Ex.: Desenvolvimento com responsabilidade"]
+        ]
+      },
+      {
+        title: "Evento e canais",
+        description: "Informações para caminhada, comício, agenda e identificação digital.",
+        fields: [
+          ["NOME_EVENTO", "Nome do evento", "Ex.: Grande Caminhada da Mudança"],
+          ["DATA_EVENTO", "Data", "Ex.: 12 de setembro"],
+          ["HORARIO_EVENTO", "Horário", "Ex.: 18h30"],
+          ["LOCAL_EVENTO", "Local", "Ex.: Praça Central"],
+          ["REDE_SOCIAL", "Rede social", "Ex.: @mariasilva"],
+          ["SITE", "Site", "Ex.: mariasilva.com.br"],
+          ["TEXTO_CONFORMIDADE_DIGITAL", "Texto de conformidade digital", "Ex.: Conteúdo oficial da campanha"]
+        ]
+      },
+      {
+        title: "Rodapé e aviso",
+        description: "Textos obrigatórios, legais ou de transparência.",
+        fields: [
+          ["TEXTO_LEGAL_RODAPE", "Texto legal do rodapé", "Ex.: CNPJ, coligação, partido e informações obrigatórias"],
+          ["AVISO_USO_IA", "Aviso de uso de IA", "Ex.: Imagem produzida com auxílio de inteligência artificial"]
+        ]
+      },
+      {
+        title: "Figurinhas digitais",
+        description: "Frases aprovadas para pacotes de WhatsApp, Telegram e redes sociais.",
+        fields: [
+          ["TEXTO_FIGURINHA_1", "Texto da figurinha 1", "Ex.: Tamo junto!"],
+          ["TEXTO_FIGURINHA_2", "Texto da figurinha 2", "Ex.: Vamos em frente!"],
+          ["TEXTO_FIGURINHA_3", "Texto da figurinha 3", "Ex.: Eu apoio!"],
+          ["TEXTO_FIGURINHA_4", "Texto da figurinha 4", "Ex.: É com a gente!"],
+          ["TEXTO_FIGURINHA_5", "Texto da figurinha 5", "Ex.: Pode contar comigo!"],
+          ["TEXTO_FIGURINHA_6", "Texto da figurinha 6", "Ex.: Nossa cidade merece mais!"],
+          ["TEXTO_FIGURINHA_7", "Texto da figurinha 7", "Ex.: Confirme!"],
+          ["TEXTO_FIGURINHA_8", "Texto da figurinha 8", "Ex.: Presença confirmada!"],
+          ["TEXTO_FIGURINHA_9", "Texto da figurinha 9", "Ex.: Juntos pela cidade"],
+          ["TEXTO_FIGURINHA_10", "Texto da figurinha 10", "Ex.: A mudança começa agora"],
+          ["TEXTO_FIGURINHA_11", "Texto da figurinha 11", "Ex.: Uma equipe preparada"],
+          ["TEXTO_FIGURINHA_12", "Texto da figurinha 12", "Ex.: Use o slogan oficial aprovado"]
+        ]
+      }
+    ];
+
+    const CAMPAIGN_FIELD_STORAGE_KEY = "opera-election-prompt-fields-v1";
+    const CAMPAIGN_ACTIVE_STORAGE_KEY = "opera-election-prompt-active-fields-v1";
+
+    const defaultActiveCampaignFields = [
+      "FOTO_CANDIDATO_PRINCIPAL",
+      "DIMENSAO_FINAL",
+      "NOME_CANDIDATO",
+      "NUMERO_URNA"
+    ];
+
+    const campaignFieldPresets = {
+      minimal: defaultActiveCampaignFields,
+      complete: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ESTILO_VISUAL",
+        "DIMENSAO_FINAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "FEDERACAO_OU_COLIGACAO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE",
+        "AVISO_USO_IA"
+      ],
+      ticket: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "DIMENSAO_FINAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "FEDERACAO_OU_COLIGACAO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "NOME_VICE_OU_SUPLENTE",
+        "CARGO_VICE_OU_SUPLENTE",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE"
+      ],
+      support: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_CANDIDATO_APOIO_1",
+        "FOTO_CANDIDATO_APOIO_2",
+        "FOTO_CANDIDATO_APOIO_3",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "DIMENSAO_FINAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "FEDERACAO_OU_COLIGACAO",
+        "SLOGAN_CAMPANHA",
+        "NOME_CANDIDATO_APOIO_1",
+        "NUMERO_CANDIDATO_APOIO_1",
+        "CARGO_CANDIDATO_APOIO_1",
+        "NOME_CANDIDATO_APOIO_2",
+        "NUMERO_CANDIDATO_APOIO_2",
+        "CARGO_CANDIDATO_APOIO_2",
+        "NOME_CANDIDATO_APOIO_3",
+        "NUMERO_CANDIDATO_APOIO_3",
+        "CARGO_CANDIDATO_APOIO_3",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE"
+      ],
+      proposals: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ESTILO_VISUAL",
+        "DIMENSAO_FINAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "SLOGAN_CAMPANHA",
+        "TITULO_PRINCIPAL",
+        "PROPOSTA_1",
+        "PROPOSTA_2",
+        "PROPOSTA_3",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE"
+      ],
+      event: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ESTILO_VISUAL",
+        "DIMENSAO_FINAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "NOME_EVENTO",
+        "DATA_EVENTO",
+        "HORARIO_EVENTO",
+        "LOCAL_EVENTO",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE"
+      ],
+      print: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ARTE_MESTRA",
+        "REFERENCIA_GABARITO_PRODUCAO",
+        "MODO_PESSOAS",
+        "DIMENSAO_FINAL",
+        "SANGRIA",
+        "MARGEM_SEGURANCA",
+        "TIPO_MATERIAL",
+        "MODO_COR_IMPRESSAO",
+        "DISTANCIA_LEITURA",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "FEDERACAO_OU_COLIGACAO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "NOME_VICE_OU_SUPLENTE",
+        "CARGO_VICE_OU_SUPLENTE",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_LEGAL_RODAPE",
+        "AVISO_USO_IA"
+      ],
+      santinho: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ARTE_MESTRA",
+        "REFERENCIA_QR_CODE",
+        "DIMENSAO_FINAL",
+        "SANGRIA",
+        "MARGEM_SEGURANCA",
+        "TIPO_MATERIAL",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TITULO_PRINCIPAL",
+        "BIO_CURTA",
+        "PROPOSTA_1",
+        "PROPOSTA_2",
+        "PROPOSTA_3",
+        "PROPOSTA_4",
+        "REDE_SOCIAL",
+        "SITE",
+        "TEXTO_LEGAL_RODAPE",
+        "AVISO_USO_IA"
+      ],
+      production: [
+        "REFERENCIA_ARTE_MESTRA",
+        "REFERENCIA_GABARITO_PRODUCAO",
+        "REFERENCIA_VIDRO_TRASEIRO",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "DIMENSAO_FINAL",
+        "SANGRIA",
+        "MARGEM_SEGURANCA",
+        "TIPO_MATERIAL",
+        "MODELO_ANO_VEICULO",
+        "COR_CAMISETA",
+        "TEXTO_FUNCAO_EQUIPE",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "SLOGAN_CAMPANHA",
+        "MODO_PESSOAS",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "AVISO_USO_IA"
+      ],
+      social: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "FOTO_CANDIDATO_APOIO_1",
+        "FOTO_CANDIDATO_APOIO_2",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ARTE_MESTRA",
+        "MODO_PESSOAS",
+        "DIMENSAO_FINAL",
+        "MARGEM_SEGURANCA",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "CARGO",
+        "PARTIDO",
+        "FEDERACAO_OU_COLIGACAO",
+        "SLOGAN_CAMPANHA",
+        "CHAMADA_CURTA",
+        "NOME_VICE_OU_SUPLENTE",
+        "INFORMACOES_PESSOAS_APOIO",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "COR_FUNDO",
+        "TEXTO_CONFORMIDADE_DIGITAL",
+        "AVISO_USO_IA"
+      ],
+      stickers: [
+        "FOTO_CANDIDATO_PRINCIPAL",
+        "FOTO_VICE_OU_SUPLENTE",
+        "LOGO_PARTIDO",
+        "REFERENCIA_LOGO_CAMPANHA",
+        "REFERENCIA_ARTE_MESTRA",
+        "NOME_CANDIDATO",
+        "NUMERO_URNA",
+        "PARTIDO",
+        "SLOGAN_CAMPANHA",
+        "SIMBOLO_GRAFICO",
+        "COR_PRINCIPAL",
+        "COR_SECUNDARIA",
+        "COR_DESTAQUE",
+        "ESTILO_TIPOGRAFIA",
+        "TEXTO_FIGURINHA_1",
+        "TEXTO_FIGURINHA_2",
+        "TEXTO_FIGURINHA_3",
+        "TEXTO_FIGURINHA_4",
+        "TEXTO_FIGURINHA_5",
+        "TEXTO_FIGURINHA_6",
+        "TEXTO_FIGURINHA_7",
+        "TEXTO_FIGURINHA_8",
+        "TEXTO_FIGURINHA_9",
+        "TEXTO_FIGURINHA_10",
+        "TEXTO_FIGURINHA_11",
+        "TEXTO_FIGURINHA_12"
+      ]
+    };
+
+    const referenceGuideFields = [
+      ["FOTO_CANDIDATO_PRINCIPAL", "Foto candidato principal", "Anexar a foto oficial. O rosto deve ficar 100% consistente com a referência."],
+      ["FOTO_VICE_OU_SUPLENTE", "Foto vice ou suplente", "Anexar quando a peça incluir vice ou suplente. O rosto deve permanecer idêntico à referência."],
+      ["FOTO_CANDIDATO_APOIO_1", "Foto apoio 1", "Anexar quando a peça incluir primeiro apoio. O rosto deve permanecer idêntico à referência."],
+      ["FOTO_CANDIDATO_APOIO_2", "Foto apoio 2", "Anexar quando a peça incluir segundo apoio. O rosto deve permanecer idêntico à referência."],
+      ["FOTO_CANDIDATO_APOIO_3", "Foto apoio 3", "Anexar quando a peça incluir terceiro apoio. O rosto deve permanecer idêntico à referência."],
+      ["LOGO_PARTIDO", "Logo do partido", "Anexar o logo oficial do partido ou federação."],
+      ["REFERENCIA_LOGO_CAMPANHA", "Logo da campanha", "Anexar a logo oficial da campanha. Ela deve permanecer idêntica à referência."],
+      ["REFERENCIA_ARTE_MESTRA", "Arte mestra", "Anexar a arte aprovada para manter identidade visual."],
+      ["REFERENCIA_ESTILO_VISUAL", "Estilo visual", "Anexar quando houver referência de direção visual."],
+      ["REFERENCIA_CIDADE_OU_ESTADO", "Cidade ou estado", "Anexar paisagem, monumento ou imagem regional."],
+      ["REFERENCIA_GABARITO_PRODUCAO", "Gabarito produção", "Anexar molde técnico, faca ou template do material."],
+      ["REFERENCIA_VIDRO_TRASEIRO", "Vidro traseiro", "Anexar foto ou molde exato do vidro do veículo."],
+      ["REFERENCIA_QR_CODE", "QR code", "Anexar o QR code oficial aprovado."]
+    ];
+
+    const candidatePhotoFields = [
+      ["FOTO_CANDIDATO_PRINCIPAL", "main candidate"],
+      ["FOTO_VICE_OU_SUPLENTE", "running mate or substitute"],
+      ["FOTO_CANDIDATO_APOIO_1", "supporting candidate 1"],
+      ["FOTO_CANDIDATO_APOIO_2", "supporting candidate 2"],
+      ["FOTO_CANDIDATO_APOIO_3", "supporting candidate 3"]
+    ];
+
+    const electionPromptThumbnailBasePath = "./assets/images/Eleição site/miniaturas/";
+    const electionPromptThumbnailFiles = [
+      "Adaptar arte para formatos sociais.jpeg",
+      "Apply_artwork_to_shirt_mockup_202607161723.jpeg",
+      "Arte de evento, caminhada ou comício.jpeg",
+      "Arte de frase ou posicionamento.jpeg",
+      "Arte de propostas.jpeg",
+      "Bandeira eleitoral.jpeg",
+      "Bandeira somente com número e nome.jpeg",
+      "Banner com candidato principal e integrantes.jpeg",
+      "Banner eleitoral.jpeg",
+      "Camiseta da equipe de campanha.jpeg",
+      "Candidato principal com integrantes do partido.jpeg",
+      "Capa de revista eleitoral.jpeg",
+      "Casadinha eleitoral com dois candidatos.jpeg",
+      "Chapa principal com candidato e vice.jpeg",
+      "Estilo comunitário premium.jpeg",
+      "Estilo editorial de revista.jpeg",
+      "Estilo escuro premium.jpeg",
+      "Estilo executivo minimalista.jpeg",
+      "Estilo gradiente moderno para redes sociais.jpeg",
+      "Estilo institucional presidencial.jpeg",
+      "Estilo patriótico sofisticado.jpeg",
+      "Estilo popular premium com número dominante.jpeg",
+      "Figurinhas somente com números e símbolos.jpeg",
+      "Mockup da camiseta.jpeg",
+      "Mockup universal após aprovação.jpeg",
+      "Pack de figurinhas digitais.jpeg",
+      "Praguinha eleitoral.jpeg",
+      "Prompt-Base Universal.jpeg",
+      "Revisar todo o kit.jpeg",
+      "Santinho - frente.jpeg",
+      "Santinho - verso.jpeg",
+      "Testar arte no veículo.jpeg",
+      "Travar identidade da campanha.jpeg",
+      "Vidro vigia traseiro.jpeg"
+    ];
+
+    const normalizePromptAssetKey = (value) =>
+      value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+
+    const electionPromptThumbnailAliases = new Map(
+      [
+        ["Prompt-base universal para qualquer dimensão", "Prompt-Base Universal.jpeg"],
+        ["Redes sociais - arte principal", "Estilo gradiente moderno para redes sociais.jpeg"],
+        ["Adaptar arte pronta a outra dimensão", "Adaptar arte para formatos sociais.jpeg"],
+        ["Corrigir somente os textos", "Revisar todo o kit.jpeg"],
+        ["Substituir o candidato mantendo a identidade visual", "Prompt-Base Universal.jpeg"],
+        ["Bloco universal de restrições", "Revisar todo o kit.jpeg"]
+      ].map(([title, file]) => [normalizePromptAssetKey(title), file])
+    );
+
+    const electionPromptThumbnailByTitle = new Map(
+      electionPromptThumbnailFiles.map((file) => [
+        normalizePromptAssetKey(file.replace(/\.[^.]+$/, "")),
+        file
+      ])
+    );
+
+    const getElectionPromptThumbnail = (prompt) =>
+      electionPromptThumbnailByTitle.get(normalizePromptAssetKey(prompt.title)) ||
+      electionPromptThumbnailAliases.get(normalizePromptAssetKey(prompt.title)) ||
+      null;
+
+    const getStoredCampaignFields = () => {
+      try {
+        return JSON.parse(localStorage.getItem(CAMPAIGN_FIELD_STORAGE_KEY) || "{}");
+      } catch (error) {
+        return {};
+      }
+    };
+
+    const getStoredActiveCampaignFields = () => {
+      try {
+        const storedActiveFields = localStorage.getItem(CAMPAIGN_ACTIVE_STORAGE_KEY);
+
+        if (!storedActiveFields) {
+          return new Set(defaultActiveCampaignFields);
+        }
+
+        return new Set(JSON.parse(storedActiveFields));
+      } catch (error) {
+        return new Set(defaultActiveCampaignFields);
+      }
+    };
+
+    const getCampaignFieldValues = () =>
+      Array.from(document.querySelectorAll("[data-campaign-field]")).reduce((values, field) => {
+        values[field.dataset.campaignField] = field.value.trim();
+        return values;
+      }, {});
+
+    const getActiveCampaignFields = () =>
+      new Set(
+        Array.from(document.querySelectorAll("[data-campaign-field-active]:checked")).map(
+          (field) => field.dataset.campaignFieldActive
+        )
+      );
+
+    const saveCampaignFieldValues = () => {
+      try {
+        localStorage.setItem(CAMPAIGN_FIELD_STORAGE_KEY, JSON.stringify(getCampaignFieldValues()));
+      } catch (error) {
+        // Local storage can be blocked in private browsing; live replacement still works.
+      }
+    };
+
+    const saveActiveCampaignFields = () => {
+      try {
+        localStorage.setItem(CAMPAIGN_ACTIVE_STORAGE_KEY, JSON.stringify([...getActiveCampaignFields()]));
+      } catch (error) {
+        // Local storage can be blocked in private browsing; live replacement still works.
+      }
+    };
+
+    const getPromptTags = (text) => [...text.matchAll(/\[\[([A-Z0-9_]+)\]\]/g)].map((match) => match[1]);
+
+    const isDanglingPromptLabel = (line) => {
+      const text = line.trim();
+      return text.endsWith(":") && !text.includes("[[") && text.length <= 72;
+    };
+
+    const formatActivePromptValue = (value) => {
+      const text = value.trim();
+
+      if (!text || /^"[\s\S]*"$/.test(text)) {
+        return text;
+      }
+
+      return `"${text.replace(/"/g, "'")}"`;
+    };
+
+    const replaceActiveTags = (line, values, activeFields) =>
+      line.replace(/\[\[([A-Z0-9_]+)\]\]/g, (match, tag) => {
+        if (!activeFields.has(tag)) {
+          return "";
+        }
+
+        return values[tag] ? formatActivePromptValue(values[tag]) : match;
+      });
+
+    const hasAnyActiveField = (activeFields, tags) => tags.some((tag) => activeFields.has(tag));
+
+    const rewritePromptLineForActiveFields = (line, activeFields) => {
+      let nextLine = line;
+
+      if (!activeFields.has("LOGO_PARTIDO")) {
+        nextLine = nextLine
+          .replace(/, party logo/gi, "")
+          .replace(/party logo or /gi, "")
+          .replace(/, logos?/gi, "")
+          .replace(/logos?, /gi, "");
+      }
+
+      if (!activeFields.has("SLOGAN_CAMPANHA")) {
+        nextLine = nextLine
+          .replace(/, slogans?/gi, "")
+          .replace(/slogans? and /gi, "")
+          .replace(/ and slogans?/gi, "");
+      }
+
+      if (!activeFields.has("PARTIDO")) {
+        nextLine = nextLine.replace(/, party names?/gi, "");
+      }
+
+      if (!hasAnyActiveField(activeFields, ["PROPOSTA_1", "PROPOSTA_2", "PROPOSTA_3"])) {
+        nextLine = nextLine.replace(/, proposals?/gi, "");
+      }
+
+      if (!activeFields.has("FEDERACAO_OU_COLIGACAO")) {
+        nextLine = nextLine.replace(/, alliances?/gi, "");
+      }
+
+      if (!activeFields.has("TEXTO_LEGAL_RODAPE")) {
+        nextLine = nextLine.replace(/, legal information/gi, "").replace(/ or legal information/gi, "");
+      }
+
+      return nextLine
+        .replace(/,\s*,/g, ",")
+        .replace(/\s{2,}/g, " ")
+        .replace(/\s+,/g, ",")
+        .trimEnd();
+    };
+
+    const shouldDropStaticPromptLine = (line, activeFields) => {
+      const text = line.toLowerCase();
+      const hasLogo = activeFields.has("LOGO_PARTIDO");
+      const hasSlogan = activeFields.has("SLOGAN_CAMPANHA");
+      const hasLegal = activeFields.has("TEXTO_LEGAL_RODAPE");
+      const hasAiDisclosure = activeFields.has("AVISO_USO_IA");
+      const hasRunningMate = hasAnyActiveField(activeFields, [
+        "FOTO_VICE_OU_SUPLENTE",
+        "NOME_VICE_OU_SUPLENTE",
+        "CARGO_VICE_OU_SUPLENTE"
+      ]);
+      const hasSupportingCandidate = hasAnyActiveField(activeFields, [
+        "FOTO_CANDIDATO_APOIO_1",
+        "FOTO_CANDIDATO_APOIO_2",
+        "FOTO_CANDIDATO_APOIO_3",
+        "NOME_CANDIDATO_APOIO_1",
+        "NOME_CANDIDATO_APOIO_2",
+        "NOME_CANDIDATO_APOIO_3",
+        "NUMERO_CANDIDATO_APOIO_1",
+        "NUMERO_CANDIDATO_APOIO_2",
+        "NUMERO_CANDIDATO_APOIO_3",
+        "CARGO_CANDIDATO_APOIO_1",
+        "CARGO_CANDIDATO_APOIO_2",
+        "CARGO_CANDIDATO_APOIO_3",
+        "INFORMACOES_PESSOAS_APOIO"
+      ]);
+      const hasEvent = hasAnyActiveField(activeFields, [
+        "NOME_EVENTO",
+        "DATA_EVENTO",
+        "HORARIO_EVENTO",
+        "LOCAL_EVENTO"
+      ]);
+      const hasProposal = hasAnyActiveField(activeFields, ["PROPOSTA_1", "PROPOSTA_2", "PROPOSTA_3", "PROPOSTA_4"]);
+      const hasQrCode = activeFields.has("REFERENCIA_QR_CODE");
+
+      if (!hasLogo && /party logo|logo placement|unprovided logos|fake logos|deform the party logo|stretch or deform the party logo/.test(text)) {
+        return true;
+      }
+
+      if (!hasSlogan && /keep the slogan|additional slogans/.test(text)) {
+        return true;
+      }
+
+      if (!hasLegal && /legal footer|legal information|compliance area/.test(text)) {
+        return true;
+      }
+
+      if (!hasAiDisclosure && /ai disclosure|artificial intelligence disclosure/.test(text)) {
+        return true;
+      }
+
+      if (!hasRunningMate && /running mate/.test(text)) {
+        return true;
+      }
+
+      if (!hasSupportingCandidate && /supporting candidate|supporting candidates|supporting person|supporting area/.test(text)) {
+        return true;
+      }
+
+      if (!hasEvent && /event composition|event information|event poster/.test(text)) {
+        return true;
+      }
+
+      if (!hasProposal && /proposal blocks|do not rewrite, shorten, exaggerate or invent proposals/.test(text)) {
+        return true;
+      }
+
+      if (!hasQrCode && /qr code|supplied qr/.test(text)) {
+        return true;
+      }
+
+      return false;
+    };
+
+    const normalizePromptBlankLines = (lines) => {
+      const normalized = [];
+
+      lines.forEach((line) => {
+        if (!line.trim() && (!normalized.length || !normalized[normalized.length - 1].trim())) {
+          return;
+        }
+
+        normalized.push(line);
+      });
+
+      while (normalized.length && !normalized[0].trim()) {
+        normalized.shift();
+      }
+
+      while (normalized.length && !normalized[normalized.length - 1].trim()) {
+        normalized.pop();
+      }
+
+      return normalized;
+    };
+
+    const insertGuidanceAfterOpeningLine = (lines, guidance) => {
+      const nextLines = [...lines];
+      const insertIndex = nextLines.findIndex((line) => line.trim()) + 1;
+      nextLines.splice(insertIndex > 0 ? insertIndex : 0, 0, ...guidance);
+      return nextLines;
+    };
+
+    const addPremiumDesignGuidance = (lines, template, activeFields) => {
+      const hasCandidatePhoto = candidatePhotoFields.some(
+        ([tag]) => activeFields.has(tag) && template.includes(`[[${tag}]]`)
+      );
+      const guidance = [
+        "",
+        "NANO BANANA EXECUTION RULES:",
+        "Treat every value inside quotation marks as approved campaign information or an approved reference description. Use the content exactly, but do not render the quotation marks themselves in the final artwork unless they are intentionally part of a supplied phrase. If a requested field is absent, empty or not supplied, omit that element cleanly instead of inventing substitutes.",
+        "Analyze the supplied visual references first and follow the layout conventions of professional Brazilian election campaign materials: clear campaign hierarchy, strong recognition of the main approved element, readable ballot-number hierarchy, restrained party branding, readable typography and practical visibility for street, print and social media use.",
+        "Use exact spelling, accents, capitalization and numbers from the approved information. Do not add filler text, random labels, invented campaign claims, fake endorsements, fake dates, fake statistics, fake party names or unapproved legal text.",
+        "",
+        "PREMIUM DESIGN QUALITY AND LAYOUT CONTROL:",
+        "Create a premium Brazilian political campaign material, thoughtfully composed as a senior graphic designer would: clear visual hierarchy, balanced grid, precise alignment, polished spacing, elegant typography, strong contrast, harmonious color palette, refined shadows, realistic depth, clean masks, sharp cutouts and high-detail finishing.",
+        hasCandidatePhoto
+          ? "Before defining the composition, use the visual logic of professional Brazilian political campaign materials as reference: candidate-first hierarchy, strong portrait recognition, readable ballot number, clean party presence, organized typography and practical campaign readability from a distance."
+          : "Before defining the composition, use the visual logic of professional Brazilian political campaign materials as reference: typography-first hierarchy, strong ballot-number recognition, clean party presence, organized spacing and practical campaign readability from a distance.",
+        hasCandidatePhoto
+          ? "The candidate is the main focus of the material. Keep the portrait dominant, clean and easy to recognize. Avoid overcrowding the design with unnecessary shapes, ornaments, icons, textures, flares, abstract pieces or decorative effects. Use only a few intentional supporting elements, placed with purpose and visual breathing room."
+          : "Do not create or add any candidate portrait, person, face, body silhouette, photographic character or illustrated politician. For typography-only materials, make the approved name, ballot number, office, party logo or campaign identity the main focus.",
+        hasCandidatePhoto
+          ? "Use a simplified campaign layout: candidate portrait as the main visual anchor; candidate name or campaign logo in a medium, balanced area; ballot number beside or below the name with strong readability; party logo small, discreet and secondary; slogan or call to action only when active and visually useful."
+          : "Use a simplified campaign layout: candidate name or campaign logo in a medium, balanced area; ballot number as the strongest visual element; party logo small, discreet and secondary; slogan or call to action only when active and visually useful.",
+        hasCandidatePhoto
+          ? "Protect the candidate's ballot number, name, face, logos, campaign logo, party logo, slogan and legal footer with generous safe areas. Never crop, cover, distort, overlap, hide or place them too close to canvas edges, folds, seams, cut lines, grommets, windshield curves, social platform interface areas or production finishing areas. If the format is tight, remove or reduce decorative elements before reducing the candidate, ballot number or readability."
+          : "Protect the ballot number, candidate name, logos, campaign logo, party logo, slogan and legal footer with generous safe areas. Never crop, cover, distort, overlap, hide or place them too close to canvas edges, folds, seams, cut lines, grommets, windshield curves, social platform interface areas or production finishing areas. If the format is tight, remove or reduce decorative elements before reducing the ballot number or readability.",
+        hasCandidatePhoto
+          ? "The ballot number must always remain complete, readable, correctly spelled and visually important when it is part of the material. Keep every digit fully visible with enough breathing room around it, but do not let it compete chaotically with the candidate's face."
+          : "The ballot number must always remain complete, readable, correctly spelled and visually important when it is part of the material. Keep every digit fully visible with enough breathing room around it.",
+        "Set the slogan, calls to action, proposal text and any secondary text using typography that matches the supplied reference materials and the established campaign style. Maintain typographic consistency across the entire composition: compatible font weight, spacing, hierarchy, alignment, casing, color and effects. Do not mix random fonts or create text treatments that feel disconnected, strange, cluttered or visually uncomfortable.",
+        ...(hasCandidatePhoto
+          ? [
+              "When a candidate or person appears, dress them in formal, campaign-appropriate clothing such as a dress shirt, blazer, suit jacket or another elegant outfit that matches the person and communicates credibility, respect and professionalism. Keep the clothing realistic, well-fitted and compatible with the campaign colors.",
+              "When a candidate or person appears, use a professional photographic portrait style with studio-quality lighting, natural shadows, controlled highlights, realistic skin texture and a clean, well-defined cutout. The character edges must be crisp, precise and naturally integrated into the scene, with no rough halos, melted borders or artificial outlines."
+            ]
+          : []),
+        "Avoid letting white dominate the background unless the user explicitly requests a mostly white design. Build the background with few, clean and crisp vector-like shapes using the chosen campaign colors, with subtle gradients, controlled opacity, soft depth and clear focus. If useful, use low-opacity repetitions of approved campaign symbols, numbers or graphic elements inside background shapes without stealing attention from the main approved element.",
+        "Use a restrained color system. Prefer two main campaign colors plus one accent when necessary. Do not create many unrelated tones or noisy color variations. Keep the full composition pleasant to the eyes, consistent, readable and premium.",
+        hasCandidatePhoto
+          ? "Apply professional color correction across the candidate, background, typography and graphic elements so everything feels integrated, balanced and harmonious. Match light direction, shadows, reflections and contrast so the scene feels intentionally composed."
+          : "Apply professional color correction across the background, typography, logos and graphic elements so everything feels integrated, balanced and harmonious. Match shadows, contrast and color relationships so the design feels intentionally composed.",
+        "The final result must feel premium, RAW quality, 32k, ultra-sharp, high fidelity, professional Brazilian political print and digital advertising, with sophisticated lighting, color harmony and no cheap, random, cluttered or visually confusing effects."
+      ];
+
+      if (lines.some((line) => line.includes("PREMIUM DESIGN QUALITY AND LAYOUT CONTROL:"))) {
+        return lines;
+      }
+
+      return insertGuidanceAfterOpeningLine(lines, guidance);
+    };
+
+    const addCampaignLogoGuidance = (lines, template, values, activeFields) => {
+      if (!activeFields.has("REFERENCIA_LOGO_CAMPANHA") || template.includes("[[REFERENCIA_LOGO_CAMPANHA]]")) {
+        return lines;
+      }
+
+      const logoReference = values.REFERENCIA_LOGO_CAMPANHA
+        ? formatActivePromptValue(values.REFERENCIA_LOGO_CAMPANHA)
+        : "[[REFERENCIA_LOGO_CAMPANHA]]";
+      const guidance = [
+        "",
+        "CAMPAIGN LOGO REFERENCE:",
+        `Use the official campaign logo reference: ${logoReference}.`,
+        "Preserve the campaign logo exactly as supplied. Do not redraw, distort, recolor, simplify, stylize, crop, replace or modify it. Keep its original proportions, colors, typography, symbol and internal spacing."
+      ];
+
+      return insertGuidanceAfterOpeningLine(lines, guidance);
+    };
+
+    const addCandidateFaceConsistencyGuidance = (lines, template, values, activeFields) => {
+      const activePhotoReferences = candidatePhotoFields
+        .filter(([tag]) => activeFields.has(tag) && template.includes(`[[${tag}]]`))
+        .map(([tag, label]) => `${label}: ${values[tag] ? formatActivePromptValue(values[tag]) : `[[${tag}]]`}`);
+
+      if (!activePhotoReferences.length || template.includes("FACE CONSISTENCY REFERENCE:")) {
+        return lines;
+      }
+
+      const guidance = [
+        "",
+        "FACE CONSISTENCY REFERENCE:",
+        `Use these candidate photo references exactly: ${activePhotoReferences.join("; ")}.`,
+        "Preserve each person's face with 100% consistency. Do not alter, modify, redraw, beautify, age, rejuvenate or reconstruct any face. Keep the exact facial structure, expression, skin tone, hair, proportions and recognizable identity from each supplied reference."
+      ];
+
+      return insertGuidanceAfterOpeningLine(lines, guidance);
+    };
+
+    const addCandidateHierarchyGuidance = (lines, template, activeFields) => {
+      const hasMainCandidate = activeFields.has("FOTO_CANDIDATO_PRINCIPAL") && template.includes("[[FOTO_CANDIDATO_PRINCIPAL]]");
+      const hasSecondaryPerson = [
+        "FOTO_VICE_OU_SUPLENTE",
+        "FOTO_CANDIDATO_APOIO_1",
+        "FOTO_CANDIDATO_APOIO_2",
+        "FOTO_CANDIDATO_APOIO_3"
+      ].some((tag) => activeFields.has(tag) && template.includes(`[[${tag}]]`));
+
+      if (!hasMainCandidate || !hasSecondaryPerson || lines.some((line) => line.includes("MAIN CANDIDATE HIERARCHY AND LAYERING:"))) {
+        return lines;
+      }
+
+      const guidance = [
+        "",
+        "MAIN CANDIDATE HIERARCHY AND LAYERING:",
+        "The main candidate from FOTO_CANDIDATO_PRINCIPAL must always be the primary subject, placed in the foreground/front visual layer, larger, clearer and more dominant than any running mate, substitute, supporting candidate or party member.",
+        "The running mate, substitute and supporting people must stay in a secondary layer: beside, slightly behind, lower, in a side column, in a secondary strip or at a smaller scale. They must never appear in front of the main candidate, larger than the main candidate, brighter than the main candidate or visually more important than the main candidate.",
+        "The main candidate's name and ballot number must form the first reading point. Secondary names, offices and numbers must be clearly connected to their own portraits without competing with the main candidate."
+      ];
+
+      return insertGuidanceAfterOpeningLine(lines, guidance);
+    };
+
+    const normalizeCampaignFieldValue = (tag, value) => {
+      let normalizedValue = value
+        .replace(/\r\n?/g, "\n")
+        .split("\n")
+        .map((line) => line.trim().replace(/\s{2,}/g, " "))
+        .filter((line, index, lines) => line || lines.length === 1)
+        .join("\n")
+        .trim();
+
+      if (/^NUMERO_/.test(tag)) {
+        const digits = normalizedValue.replace(/\D+/g, "");
+        normalizedValue = digits || normalizedValue;
+      }
+
+      if (/^CARGO/.test(tag)) {
+        normalizedValue = normalizedValue.toLocaleUpperCase("pt-BR");
+      }
+
+      if (tag === "CHAMADA_CURTA") {
+        normalizedValue = normalizedValue.toLocaleUpperCase("pt-BR");
+      }
+
+      return normalizedValue;
+    };
+
+    const normalizeCampaignFields = () => {
+      document.querySelectorAll("[data-campaign-field]").forEach((field) => {
+        field.value = normalizeCampaignFieldValue(field.dataset.campaignField, field.value);
+
+        if (field.value.trim()) {
+          const fieldCard = field.closest(".election-field-card");
+          const checkbox = fieldCard ? fieldCard.querySelector("[data-campaign-field-active]") : null;
+
+          if (checkbox) {
+            checkbox.checked = true;
+          }
+        }
+      });
+
+      syncCampaignFieldCardStates();
+      saveCampaignFieldValues();
+      saveActiveCampaignFields();
+      updateCampaignPromptCodes();
+    };
+
+    const buildPromptFromTemplate = (template, values, activeFields) => {
+      const outputLines = [];
+
+      template.split("\n").forEach((line) => {
+        const tags = getPromptTags(line);
+        const hasInactiveTag = tags.some((tag) => !activeFields.has(tag));
+
+        if (hasInactiveTag) {
+          while (outputLines.length && !outputLines[outputLines.length - 1].trim()) {
+            outputLines.pop();
+          }
+
+          if (outputLines.length && isDanglingPromptLabel(outputLines[outputLines.length - 1])) {
+            outputLines.pop();
+          }
+
+          return;
+        }
+
+        const rewrittenLine = rewritePromptLineForActiveFields(
+          replaceActiveTags(line, values, activeFields),
+          activeFields
+        );
+
+        if (shouldDropStaticPromptLine(rewrittenLine, activeFields)) {
+          return;
+        }
+
+        outputLines.push(rewrittenLine);
+      });
+
+      const normalizedLines = normalizePromptBlankLines(outputLines);
+      return normalizePromptBlankLines(
+        addPremiumDesignGuidance(
+          addCampaignLogoGuidance(
+            addCandidateHierarchyGuidance(
+              addCandidateFaceConsistencyGuidance(normalizedLines, template, values, activeFields),
+              template,
+              activeFields
+            ),
+            template,
+            values,
+            activeFields
+          ),
+          template,
+          activeFields
+        )
+      ).join("\n");
+    };
+
+    const resetPromptTranslation = (code) => {
+      const translationBlock =
+        code.nextElementSibling && code.nextElementSibling.classList.contains("prompt-translation")
+          ? code.nextElementSibling
+          : null;
+      const header = code.previousElementSibling;
+      const button =
+        header && header.classList.contains("prompt-header")
+          ? header.querySelector(".translation-toggle")
+          : null;
+
+      if (translationBlock) {
+        const translationCode = translationBlock.querySelector(".prompt-translation-code");
+
+        if (translationCode) {
+          delete translationCode.dataset.loaded;
+          translationCode.textContent = "";
+        }
+
+        translationBlock.hidden = true;
+      }
+
+      if (button) {
+        button.textContent = "Mostrar tradução";
+        button.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    const updateCampaignPromptCodes = () => {
+      const values = getCampaignFieldValues();
+      const activeFields = getActiveCampaignFields();
+
+      document.querySelectorAll("[data-prompt-template]").forEach((code) => {
+        const nextPrompt = buildPromptFromTemplate(code.dataset.promptTemplate, values, activeFields);
+
+        if (code.textContent !== nextPrompt) {
+          code.textContent = nextPrompt;
+          resetPromptTranslation(code);
+        }
+      });
+
+      const fields = Array.from(document.querySelectorAll("[data-campaign-field]"));
+      const activeCount = fields.filter((field) => activeFields.has(field.dataset.campaignField)).length;
+      const filledCount = fields.filter(
+        (field) => activeFields.has(field.dataset.campaignField) && field.value.trim()
+      ).length;
+      const progress = document.getElementById("fieldProgress");
+
+      if (progress) {
+        progress.textContent = `${filledCount} de ${activeCount} campos ativos preenchidos`;
+      }
+
+      updateActiveReferenceGuide(values, activeFields);
+    };
+
+    const updateActiveReferenceGuide = (values, activeFields) => {
+      const guide = document.getElementById("activeReferenceGuide");
+
+      if (!guide) {
+        return;
+      }
+
+      guide.textContent = "";
+
+      const activeReferences = referenceGuideFields.filter(([tag]) => activeFields.has(tag));
+
+      if (!activeReferences.length) {
+        const empty = document.createElement("p");
+        empty.className = "election-reference-empty";
+        empty.textContent = "Nenhuma referência visual ativa. Marque os campos de foto, logo ou gabarito que serão enviados no Nano Banana.";
+        guide.appendChild(empty);
+        return;
+      }
+
+      activeReferences.forEach(([tag, label, hint]) => {
+        const item = document.createElement("article");
+        item.className = "election-reference-item";
+        item.classList.toggle("is-missing", !values[tag]);
+
+        const status = document.createElement("span");
+        status.className = "election-reference-status";
+        status.textContent = values[tag] ? "Preenchido" : "Adicionar referência";
+
+        const title = document.createElement("strong");
+        title.textContent = label;
+
+        const code = document.createElement("code");
+        code.textContent = `[[${tag}]]`;
+
+        const value = document.createElement("p");
+        value.textContent = values[tag] || hint;
+
+        item.append(status, title, code, value);
+        guide.appendChild(item);
+      });
+    };
+
+    const syncCampaignFieldCardStates = () => {
+      document.querySelectorAll(".election-field-card").forEach((fieldCard) => {
+        const checkbox = fieldCard.querySelector("[data-campaign-field-active]");
+        fieldCard.classList.toggle("is-inactive", checkbox && !checkbox.checked);
+      });
+    };
+
+    const setActiveCampaignFields = (tags) => {
+      const activeTags = new Set(tags);
+
+      document.querySelectorAll("[data-campaign-field-active]").forEach((checkbox) => {
+        checkbox.checked = activeTags.has(checkbox.dataset.campaignFieldActive);
+      });
+
+      syncCampaignFieldCardStates();
+      saveActiveCampaignFields();
+      updateCampaignPromptCodes();
+    };
+
+    const renderCampaignFields = () => {
+      const container = document.getElementById("campaignFieldGroups");
+
+      if (!container) {
+        return;
+      }
+
+      const storedValues = getStoredCampaignFields();
+      const storedActiveFields = getStoredActiveCampaignFields();
+
+      campaignFieldGroups.forEach((group) => {
+        const details = document.createElement("details");
+        details.className = "lesson-details election-field-group";
+        details.open = Boolean(group.open);
+
+        const summary = document.createElement("summary");
+        summary.textContent = group.title;
+
+        const description = document.createElement("p");
+        description.textContent = group.description;
+
+        const grid = document.createElement("div");
+        grid.className = "election-field-grid";
+
+        group.fields.forEach(([tag, label, placeholder]) => {
+          const fieldCard = document.createElement("div");
+          fieldCard.className = "election-field-card";
+
+          const fieldHead = document.createElement("span");
+          fieldHead.className = "election-field-head";
+
+          const fieldLabel = document.createElement("strong");
+          fieldLabel.textContent = label;
+
+          const tagChip = document.createElement("code");
+          tagChip.textContent = `[[${tag}]]`;
+
+          const includeLabel = document.createElement("label");
+          includeLabel.className = "election-field-toggle";
+
+          const includeCheckbox = document.createElement("input");
+          includeCheckbox.type = "checkbox";
+          includeCheckbox.dataset.campaignFieldActive = tag;
+          includeCheckbox.checked = storedActiveFields.has(tag) || Boolean(storedValues[tag]);
+
+          const includeText = document.createElement("span");
+          includeText.textContent = "Usar no prompt";
+
+          const input = document.createElement("textarea");
+          input.dataset.campaignField = tag;
+          input.rows = tag.includes("PROPOSTA") || tag.includes("RODAPE") || tag.includes("AVISO") ? 3 : 2;
+          input.placeholder = placeholder;
+          input.value = storedValues[tag] || "";
+
+          includeLabel.append(includeCheckbox, includeText);
+          fieldHead.append(fieldLabel, tagChip);
+          fieldCard.append(fieldHead, includeLabel, input);
+          grid.appendChild(fieldCard);
+        });
+
+        details.append(summary, description, grid);
+        container.appendChild(details);
+      });
+
+      container.addEventListener("input", (event) => {
+        if (!event.target.matches("[data-campaign-field]")) {
+          return;
+        }
+
+        if (event.target.value.trim()) {
+          const fieldCard = event.target.closest(".election-field-card");
+          const checkbox = fieldCard ? fieldCard.querySelector("[data-campaign-field-active]") : null;
+
+          if (checkbox && !checkbox.checked) {
+            checkbox.checked = true;
+            saveActiveCampaignFields();
+          }
+        }
+
+        syncCampaignFieldCardStates();
+        saveCampaignFieldValues();
+        updateCampaignPromptCodes();
+      });
+
+      container.addEventListener("change", (event) => {
+        if (!event.target.matches("[data-campaign-field-active]")) {
+          return;
+        }
+
+        syncCampaignFieldCardStates();
+        saveActiveCampaignFields();
+        updateCampaignPromptCodes();
+      });
+
+      document.querySelectorAll("[data-preset]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setActiveCampaignFields(campaignFieldPresets[button.dataset.preset] || defaultActiveCampaignFields);
+        });
+      });
+
+      const clearButton = document.getElementById("clearCampaignFields");
+      const normalizeButton = document.getElementById("normalizeCampaignFields");
+
+      if (normalizeButton) {
+        normalizeButton.addEventListener("click", normalizeCampaignFields);
+      }
+
+      if (clearButton) {
+        clearButton.addEventListener("click", () => {
+          document.querySelectorAll("[data-campaign-field]").forEach((field) => {
+            field.value = "";
+          });
+
+          try {
+            localStorage.removeItem(CAMPAIGN_FIELD_STORAGE_KEY);
+            localStorage.removeItem(CAMPAIGN_ACTIVE_STORAGE_KEY);
+          } catch (error) {
+            // Ignore storage failures; fields are still cleared on screen.
+          }
+
+          setActiveCampaignFields(defaultActiveCampaignFields);
+        });
+      }
+
+      syncCampaignFieldCardStates();
+    };
+
+    const promptGroupsWithoutThumbnails = new Set(["utilitarios", "restricoes"]);
+
+    const createElectionPromptCard = (prompt, displayNumber, groupKey) => {
+      const article = document.createElement("article");
+      article.className = "prompt-box";
+
+      const thumbnailFile = promptGroupsWithoutThumbnails.has(groupKey)
+        ? null
+        : getElectionPromptThumbnail(prompt);
+
+      if (thumbnailFile) {
+        const figure = document.createElement("figure");
+        figure.className = "prompt-reference election-prompt-reference";
+
+        const image = document.createElement("img");
+        image.src = encodeURI(`${electionPromptThumbnailBasePath}${thumbnailFile}`);
+        image.alt = `Miniatura do prompt ${prompt.title}`;
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.setAttribute("fetchpriority", "low");
+
+        image.addEventListener("load", () => {
+          if (!image.naturalWidth || !image.naturalHeight) {
+            return;
+          }
+
+          const ratio = image.naturalWidth / image.naturalHeight;
+          figure.style.setProperty("--thumb-ratio", `${image.naturalWidth} / ${image.naturalHeight}`);
+          figure.classList.toggle("is-portrait", ratio < 0.9);
+          figure.classList.toggle("is-square", ratio >= 0.9 && ratio <= 1.1);
+          figure.classList.toggle("is-landscape", ratio > 1.1);
+        });
+
+        figure.appendChild(image);
+        article.appendChild(figure);
+      }
+
+      const title = document.createElement("div");
+      title.className = "prompt-title";
+
+      const promptNumber = document.createElement("span");
+      promptNumber.textContent = `Prompt ${displayNumber}`;
+
+      const promptTitle = document.createElement("h3");
+      promptTitle.textContent = prompt.title;
+
+      const promptDescription = document.createElement("p");
+      promptDescription.textContent = prompt.description;
+
+      title.append(promptNumber, promptTitle, promptDescription);
+
+      const header = document.createElement("div");
+      header.className = "prompt-header";
+
+      const promptType = document.createElement("span");
+      promptType.textContent = prompt.label || "Prompt";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = "copy-button";
+      copyButton.type = "button";
+      copyButton.textContent = "Copiar Prompt";
+
+      header.append(promptType, copyButton);
+
+      const code = document.createElement("pre");
+      code.className = "prompt-code";
+      code.dataset.promptTemplate = prompt.prompt;
+      code.textContent = prompt.prompt;
+
+      article.append(title, header, code);
+      return article;
+    };
+
+    renderCampaignFields();
+
+    let promptDisplayNumber = 1;
+
+    document.querySelectorAll("[data-prompt-group]").forEach((container) => {
+      const prompts = electionPromptGroups[container.dataset.promptGroup];
+
+      if (!prompts) {
+        return;
+      }
+
+      prompts.forEach((prompt) => {
+        container.appendChild(
+          createElectionPromptCard(prompt, String(promptDisplayNumber).padStart(2, "0"), container.dataset.promptGroup)
+        );
+        promptDisplayNumber += 1;
+      });
+    });
+
+    updateCampaignPromptCodes();
+  </script>
+  <script src="./assets/js/material-aula.js?v=20260716-eleitorais-revisao" defer></script>
+  <script src="./assets/js/prompt-translations.js?v=20260716-eleitorais-revisao" defer></script>
+</body>
+</html>
+
