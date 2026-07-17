@@ -42,6 +42,7 @@
 
     <nav class="lesson-nav" aria-label="Navegação da biblioteca eleitoral">
       <a href="#como-usar">Como usar</a>
+      <a href="#assistente-eleitoral">Configuração</a>
       <a href="#campos-campanha">Campos</a>
       <a href="#sistema-visual">Sistema</a>
       <a href="#prompt-base">Prompt-base</a>
@@ -70,7 +71,7 @@
         <article class="lesson-card">
           <p class="lesson-card-tag">Identidade</p>
           <h3>Preserve a pessoa</h3>
-          <p>Use a foto oficial como referência e mantenha rosto, idade, tom de pele, cabelo e proporções.</p>
+          <p>Use a foto oficial ou o @ do personagem como referência e mantenha rosto, idade, tom de pele, cabelo e proporções.</p>
         </article>
         <article class="lesson-card">
           <p class="lesson-card-tag">Legibilidade</p>
@@ -99,24 +100,68 @@
       </aside>
     </section>
 
-    <section class="lesson-section election-fields-section" id="campos-campanha" aria-labelledby="campos-campanha-title">
+    <section class="lesson-section election-wizard-section" id="assistente-eleitoral" aria-labelledby="assistente-eleitoral-title">
       <div class="lesson-section-head">
         <p class="lesson-section-label">02</p>
-        <h2 id="campos-campanha-title">Campos da Campanha</h2>
+        <h2 id="assistente-eleitoral-title">Qual cargo o candidato está disputando?</h2>
         <p>
-          Preencha os dados uma vez. Os marcadores iguais dentro dos prompts são atualizados em tempo real
-          e o botão de copiar leva o texto já pronto para uso, com os blocos organizados para leitura e edição.
+          Escolha o cargo para que o sistema mostre somente as informações, tags e configurações
+          necessárias para essa candidatura.
+        </p>
+      </div>
+
+      <ol class="election-wizard-steps" aria-label="Etapas do assistente eleitoral">
+        <li class="is-current" data-election-step="cargo">1. Cargo</li>
+        <li data-election-step="dados">2. Dados</li>
+        <li data-election-step="tags">3. Informações e tags</li>
+        <li data-election-step="prompts">4. Prompts</li>
+        <li data-election-step="revisao">5. Revisão e geração</li>
+      </ol>
+
+      <form class="election-role-form" id="electionRoleForm">
+        <div class="election-role-groups" id="electionRoleGroups" role="radiogroup" aria-labelledby="assistente-eleitoral-title"></div>
+
+        <div class="election-role-panel" id="electionRolePanel" tabindex="-1" hidden>
+          <div>
+            <p class="lesson-card-tag">Configuração obrigatória</p>
+            <h3 id="electionRolePanelTitle">Configuração obrigatória para o cargo selecionado</h3>
+            <p id="electionRoleHelper"></p>
+          </div>
+
+          <dl class="election-role-summary" id="electionRoleSummary"></dl>
+
+          <div class="election-role-actions">
+            <button class="lesson-btn lesson-btn-primary" id="continueElectionFlow" type="button" disabled>Continuar</button>
+            <button class="lesson-btn lesson-btn-secondary" id="changeElectionRole" type="button">Trocar cargo</button>
+            <button class="lesson-btn lesson-btn-secondary election-reset-button" id="resetElectionWizardTop" type="button">Apagar tudo e resetar</button>
+          </div>
+        </div>
+
+        <aside class="lesson-note election-wizard-lock" id="electionWizardLock" aria-live="polite">
+          <h3>Primeiro escolha o cargo</h3>
+          <p>Os campos, tags e prompts ficam bloqueados até a configuração eleitoral inicial ser definida.</p>
+        </aside>
+      </form>
+    </section>
+
+    <section class="lesson-section election-fields-section election-controlled-section" id="campos-campanha" aria-labelledby="campos-campanha-title" hidden>
+      <div class="lesson-section-head">
+        <p class="lesson-section-label">03</p>
+        <h2 id="campos-campanha-title">Campos da campanha</h2>
+        <p>
+          Preencha os dados obrigatórios do cargo escolhido. As tags essenciais já ficam selecionadas
+          automaticamente, e as incompatíveis são bloqueadas.
         </p>
       </div>
 
       <div class="election-fields-toolbar" aria-label="Controle dos campos">
         <div>
-          <p class="lesson-card-tag">Preenchimento</p>
+          <p class="lesson-card-tag">Escolha inicial</p>
           <strong id="fieldProgress">0 de 0 campos preenchidos</strong>
         </div>
         <div class="election-preset-actions" aria-label="Modelos rápidos de elementos">
-          <button class="election-preset-button" type="button" data-preset="minimal">Só nome + número</button>
-          <button class="election-preset-button" type="button" data-preset="complete">Principal completo</button>
+          <button class="election-preset-button" type="button" data-preset="minimal">Básico</button>
+          <button class="election-preset-button" type="button" data-preset="complete">Completo</button>
           <button class="election-preset-button" type="button" data-preset="ticket">Com vice</button>
           <button class="election-preset-button" type="button" data-preset="support">Com apoios</button>
           <button class="election-preset-button" type="button" data-preset="proposals">Propostas</button>
@@ -128,26 +173,24 @@
           <button class="election-preset-button" type="button" data-preset="stickers">Figurinhas</button>
         </div>
         <div class="election-toolbar-actions">
-          <button class="copy-button election-fix-button" id="normalizeCampaignFields" type="button">Corrigir Campos</button>
-          <button class="copy-button election-clear-button" id="clearCampaignFields" type="button">Limpar Tudo</button>
+          <button class="copy-button election-fix-button" id="normalizeCampaignFields" type="button">Corrigir campos</button>
+          <button class="copy-button election-clear-button" id="clearCampaignFields" type="button">Apagar tudo</button>
         </div>
       </div>
 
-      <aside class="election-reference-guide" aria-labelledby="reference-guide-title">
-        <div>
-          <p class="lesson-card-tag">Referências Ativas</p>
-          <strong id="reference-guide-title">Arquivos para anexar no Nano Banana</strong>
-          <p>Use esta lista para conferir quais imagens, logos e gabaritos precisam ser enviados junto com o prompt selecionado.</p>
-        </div>
-        <div class="election-reference-grid" id="activeReferenceGuide" aria-live="polite"></div>
-      </aside>
+      <div class="election-field-stepper" id="campaignFieldStepper" aria-label="Etapas de preenchimento da campanha"></div>
+      <aside class="election-field-step-note" id="campaignFieldStepNote" aria-live="polite"></aside>
+      <div class="election-field-step-actions">
+        <button class="lesson-btn lesson-btn-secondary" id="skipOptionalFieldStep" type="button">Pular etapa não obrigatória</button>
+        <button class="lesson-btn lesson-btn-primary" id="nextFieldStep" type="button">Próxima etapa</button>
+      </div>
 
       <div class="election-fields-groups" id="campaignFieldGroups"></div>
     </section>
 
-    <section class="lesson-section" id="sistema-visual" aria-labelledby="sistema-visual-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="sistema-visual" aria-labelledby="sistema-visual-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">03</p>
+        <p class="lesson-section-label">04</p>
         <h2 id="sistema-visual-title">Sistema Visual</h2>
         <p>Use primeiro para travar a identidade da campanha antes de aplicar em peças individuais.</p>
       </div>
@@ -155,9 +198,9 @@
       <div class="prompt-grid" data-prompt-group="sistema"></div>
     </section>
 
-    <section class="lesson-section" id="prompt-base" aria-labelledby="prompt-base-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="prompt-base" aria-labelledby="prompt-base-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">04</p>
+        <p class="lesson-section-label">05</p>
         <h2 id="prompt-base-title">Prompt-Base Universal</h2>
         <p>Use quando quiser uma arte eleitoral premium em qualquer dimensão, sem escolher um estilo específico.</p>
       </div>
@@ -165,9 +208,9 @@
       <div class="prompt-grid" data-prompt-group="base"></div>
     </section>
 
-    <section class="lesson-section" id="prompts-estilo" aria-labelledby="prompts-estilo-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="prompts-estilo" aria-labelledby="prompts-estilo-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">05</p>
+        <p class="lesson-section-label">06</p>
         <h2 id="prompts-estilo-title">Estilos de Campanha</h2>
         <p>Modelos para variar a direção visual: institucional, minimalista, patriótica, popular, comunitária, social, escura e editorial.</p>
       </div>
@@ -175,9 +218,9 @@
       <div class="prompt-grid" data-prompt-group="estilos"></div>
     </section>
 
-    <section class="lesson-section" id="composicoes" aria-labelledby="composicoes-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="composicoes" aria-labelledby="composicoes-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">06</p>
+        <p class="lesson-section-label">07</p>
         <h2 id="composicoes-title">Composições com Mais Pessoas</h2>
         <p>Prompts para chapa com vice, integrantes do partido e casadinha eleitoral com dois candidatos.</p>
       </div>
@@ -185,9 +228,9 @@
       <div class="prompt-grid" data-prompt-group="composicoes"></div>
     </section>
 
-    <section class="lesson-section" id="conteudo" aria-labelledby="conteudo-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="conteudo" aria-labelledby="conteudo-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">07</p>
+        <p class="lesson-section-label">08</p>
         <h2 id="conteudo-title">Peças de Conteúdo</h2>
         <p>Modelos para propostas, eventos, caminhadas, comícios e frases de posicionamento.</p>
       </div>
@@ -195,9 +238,9 @@
       <div class="prompt-grid" data-prompt-group="conteudo"></div>
     </section>
 
-    <section class="lesson-section" id="materiais-impressos" aria-labelledby="materiais-impressos-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="materiais-impressos" aria-labelledby="materiais-impressos-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">08</p>
+        <p class="lesson-section-label">09</p>
         <h2 id="materiais-impressos-title">Materiais Impressos</h2>
         <p>Modelos para bandeira, santinho, praguinha, banners, capa editorial e peças de impressão.</p>
       </div>
@@ -205,9 +248,9 @@
       <div class="prompt-grid" data-prompt-group="impressos"></div>
     </section>
 
-    <section class="lesson-section" id="producao-mockups" aria-labelledby="producao-mockups-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="producao-mockups" aria-labelledby="producao-mockups-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">09</p>
+        <p class="lesson-section-label">10</p>
         <h2 id="producao-mockups-title">Produção e Mockups</h2>
         <p>Prompts para vidro traseiro, camiseta da equipe, gabaritos técnicos e mockups de aprovação.</p>
       </div>
@@ -215,9 +258,9 @@
       <div class="prompt-grid" data-prompt-group="producao"></div>
     </section>
 
-    <section class="lesson-section" id="digital-redes" aria-labelledby="digital-redes-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="digital-redes" aria-labelledby="digital-redes-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">10</p>
+        <p class="lesson-section-label">11</p>
         <h2 id="digital-redes-title">Digital e Redes</h2>
         <p>Modelos para redes sociais, pacotes de formatos digitais e figurinhas de WhatsApp ou Telegram.</p>
       </div>
@@ -225,9 +268,9 @@
       <div class="prompt-grid" data-prompt-group="digital"></div>
     </section>
 
-    <section class="lesson-section" id="utilitarios" aria-labelledby="utilitarios-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="utilitarios" aria-labelledby="utilitarios-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">11</p>
+        <p class="lesson-section-label">12</p>
         <h2 id="utilitarios-title">Utilitários de Produção</h2>
         <p>Comandos para adaptar formato, corrigir textos e trocar candidato mantendo a identidade visual aprovada.</p>
       </div>
@@ -235,15 +278,21 @@
       <div class="prompt-grid" data-prompt-group="utilitarios"></div>
     </section>
 
-    <section class="lesson-section" id="restricoes" aria-labelledby="restricoes-title">
+    <section class="lesson-section election-prompt-section election-controlled-section" id="restricoes" aria-labelledby="restricoes-title" hidden>
       <div class="lesson-section-head">
-        <p class="lesson-section-label">12</p>
+        <p class="lesson-section-label">13</p>
         <h2 id="restricoes-title">Bloco Universal de Restrições</h2>
         <p>Adicione ao final de qualquer prompt para reforçar segurança, identidade, legalidade e leitura profissional.</p>
       </div>
 
       <div class="prompt-grid" data-prompt-group="restricoes"></div>
     </section>
+
+    <details class="lesson-details election-reference-guide election-reference-guide-final">
+      <summary>Conferir referências ativas para anexar</summary>
+      <p>Lista opcional com fotos, logos e gabaritos que precisam ser enviados junto com o prompt selecionado.</p>
+      <div class="election-reference-grid" id="activeReferenceGuide" aria-live="polite"></div>
+    </details>
 
     <footer class="lesson-footer">
       <p>Conteúdo organizado a partir da Biblioteca Universal de Prompts Eleitorais para Nano Banana.</p>
@@ -2100,11 +2149,11 @@ Do not invent new text, new slogans or new visual elements.`
         description: "Fotos, logos e referências usadas como base visual pelo Nano Banana.",
         open: true,
         fields: [
-          ["FOTO_CANDIDATO_PRINCIPAL", "Foto do candidato principal", "Ex.: imagem 1, foto oficial do candidato"],
-          ["FOTO_VICE_OU_SUPLENTE", "Foto do vice ou suplente", "Ex.: imagem 2, foto oficial do vice"],
-          ["FOTO_CANDIDATO_APOIO_1", "Foto do candidato de apoio 1", "Ex.: imagem 3, deputado federal"],
-          ["FOTO_CANDIDATO_APOIO_2", "Foto do candidato de apoio 2", "Ex.: imagem 4, deputado estadual"],
-          ["FOTO_CANDIDATO_APOIO_3", "Foto do candidato de apoio 3", "Ex.: imagem 5, apoiador da chapa"],
+          ["FOTO_CANDIDATO_PRINCIPAL", "Foto do candidato principal", "Ex.: @maria, @candidato, imagem 1 ou foto oficial do candidato"],
+          ["FOTO_VICE_OU_SUPLENTE", "Foto do vice ou suplente", "Ex.: @joao, imagem 2 ou foto oficial do vice"],
+          ["FOTO_CANDIDATO_APOIO_1", "Foto do candidato de apoio 1", "Ex.: @apoio1, imagem 3 ou deputado federal"],
+          ["FOTO_CANDIDATO_APOIO_2", "Foto do candidato de apoio 2", "Ex.: @apoio2, imagem 4 ou deputado estadual"],
+          ["FOTO_CANDIDATO_APOIO_3", "Foto do candidato de apoio 3", "Ex.: @apoio3, imagem 5 ou apoiador da chapa"],
           ["LOGO_PARTIDO", "Logo do partido", "Ex.: imagem do logo oficial em PNG"],
           ["REFERENCIA_LOGO_CAMPANHA", "Logo da campanha do candidato", "Ex.: logo oficial da campanha, exatamente como deve aparecer"],
           ["REFERENCIA_ARTE_MESTRA", "Arte mestra aprovada", "Ex.: arte principal já aprovada da campanha"],
@@ -2120,10 +2169,11 @@ Do not invent new text, new slogans or new visual elements.`
         description: "Dados centrais que aparecem na maioria das peças.",
         open: true,
         fields: [
-          ["NOME_CANDIDATO", "Nome eleitoral", "Ex.: Maria Silva"],
+          ["NOME_CANDIDATO", "Nome do candidato", "Ex.: Maria Silva"],
           ["NUMERO_URNA", "Número de urna", "Ex.: 12345"],
           ["CARGO", "Cargo", "Ex.: PREFEITA, VEREADOR, GOVERNADOR"],
           ["PARTIDO", "Partido", "Ex.: SIGLA ou nome do partido"],
+          ["SIGLA_PARTIDO", "Sigla do partido", "Ex.: MDB, PT, PL, PSD"],
           ["FEDERACAO_OU_COLIGACAO", "Federação ou coligação", "Ex.: Coligação Cidade Forte"],
           ["SLOGAN_CAMPANHA", "Slogan da campanha", "Ex.: Trabalho de verdade pela nossa cidade"],
           ["CHAMADA_CURTA", "Chamada curta", "Ex.: CONFIRME, VOTE, JUNTOS"],
@@ -2137,6 +2187,10 @@ Do not invent new text, new slogans or new visual elements.`
           ["MODO_PESSOAS", "Modo de pessoas", "Ex.: SINGLE CANDIDATE, MAIN CANDIDATE AND RUNNING MATE"],
           ["NOME_VICE_OU_SUPLENTE", "Nome do vice ou suplente", "Ex.: João Pereira"],
           ["CARGO_VICE_OU_SUPLENTE", "Cargo do vice ou suplente", "Ex.: Vice-prefeito, 1º suplente"],
+          ["PARTIDO_VICE_OU_SUPLENTE", "Partido do vice ou suplente", "Ex.: Partido Democrático"],
+          ["SIGLA_PARTIDO_VICE_OU_SUPLENTE", "Sigla do partido do vice ou suplente", "Ex.: PDT"],
+          ["NOME_PRIMEIRO_SUPLENTE", "Nome do primeiro suplente", "Ex.: Ana Costa"],
+          ["NOME_SEGUNDO_SUPLENTE", "Nome do segundo suplente", "Ex.: Paulo Santos"],
           ["NOME_CANDIDATO_APOIO_1", "Nome do candidato de apoio 1", "Ex.: Ana Costa"],
           ["NUMERO_CANDIDATO_APOIO_1", "Número do apoio 1", "Ex.: 4567"],
           ["CARGO_CANDIDATO_APOIO_1", "Cargo do apoio 1", "Ex.: Deputada Federal"],
@@ -2238,16 +2292,276 @@ Do not invent new text, new slogans or new visual elements.`
 
     const CAMPAIGN_FIELD_STORAGE_KEY = "opera-election-prompt-fields-v1";
     const CAMPAIGN_ACTIVE_STORAGE_KEY = "opera-election-prompt-active-fields-v1";
+    const ELECTION_PROFILE_STORAGE_KEY = "opera-election-profile-v2";
 
-    const defaultActiveCampaignFields = [
+    const commonRequiredTags = [
+      "FOTO_CANDIDATO_PRINCIPAL",
+      "NOME_CANDIDATO",
+      "NUMERO_URNA",
+      "CARGO",
+      "PARTIDO",
+      "SIGLA_PARTIDO"
+    ];
+
+    const viceTags = [
+      "FOTO_VICE_OU_SUPLENTE",
+      "NOME_VICE_OU_SUPLENTE",
+      "CARGO_VICE_OU_SUPLENTE",
+      "PARTIDO_VICE_OU_SUPLENTE",
+      "SIGLA_PARTIDO_VICE_OU_SUPLENTE"
+    ];
+
+    const viceRequiredTags = [
+      "NOME_VICE_OU_SUPLENTE",
+      "CARGO_VICE_OU_SUPLENTE",
+      "PARTIDO_VICE_OU_SUPLENTE",
+      "SIGLA_PARTIDO_VICE_OU_SUPLENTE"
+    ];
+
+    const senatorSubstituteTags = ["NOME_PRIMEIRO_SUPLENTE", "NOME_SEGUNDO_SUPLENTE"];
+    const locationTag = "NOME_CIDADE_OU_ESTADO";
+
+    const ELECTION_ROLE_REGISTRY = {
+      presidente: {
+        id: "presidente",
+        label: "Presidente da República",
+        sphere: "federal",
+        sphereLabel: "Federal",
+        group: "Esfera federal",
+        icon: "BR",
+        system: "majoritario",
+        systemLabel: "Majoritário",
+        jurisdictionLabel: "Nacional",
+        numberLength: 2,
+        requiresState: false,
+        requiresMunicipality: false,
+        fixedJurisdiction: "Brasil",
+        viceRole: "Vice-Presidente",
+        substitutes: 0,
+        description: "Chapa nacional com presidente e vice.",
+        helperText: "Para configurar uma candidatura a Presidente, informe os dados do titular, número de dois dígitos, partido e Vice-Presidente.",
+        requiredTags: [...commonRequiredTags, ...viceRequiredTags],
+        forbiddenTags: [...senatorSubstituteTags]
+      },
+      senador: {
+        id: "senador",
+        label: "Senador",
+        sphere: "federal",
+        sphereLabel: "Federal",
+        group: "Esfera federal",
+        icon: "SF",
+        system: "majoritario",
+        systemLabel: "Majoritário",
+        jurisdictionLabel: "Estado ou Distrito Federal",
+        numberLength: 3,
+        requiresState: true,
+        requiresMunicipality: false,
+        viceRole: null,
+        substitutes: 2,
+        description: "Candidatura majoritária com dois suplentes.",
+        helperText: "Para configurar uma candidatura a Senador, informe estado ou Distrito Federal, titular, número de três dígitos e os dois suplentes.",
+        requiredTags: [...commonRequiredTags, locationTag, ...senatorSubstituteTags],
+        forbiddenTags: [...viceTags]
+      },
+      deputado_federal: {
+        id: "deputado_federal",
+        label: "Deputado Federal",
+        sphere: "federal",
+        sphereLabel: "Federal",
+        group: "Esfera federal",
+        icon: "DF",
+        system: "proporcional",
+        systemLabel: "Proporcional",
+        jurisdictionLabel: "Estado ou Distrito Federal",
+        numberLength: 4,
+        requiresState: true,
+        requiresMunicipality: false,
+        viceRole: null,
+        substitutes: 0,
+        description: "Candidatura proporcional federal.",
+        helperText: "Para configurar uma candidatura a Deputado Federal, informe estado ou Distrito Federal, titular, partido e número de quatro dígitos.",
+        requiredTags: [...commonRequiredTags, locationTag],
+        forbiddenTags: [...viceTags, ...senatorSubstituteTags]
+      },
+      governador: {
+        id: "governador",
+        label: "Governador",
+        sphere: "estadual",
+        sphereLabel: "Estadual",
+        group: "Esfera estadual e distrital",
+        icon: "GE",
+        system: "majoritario",
+        systemLabel: "Majoritário",
+        jurisdictionLabel: "Estado",
+        numberLength: 2,
+        requiresState: true,
+        requiresMunicipality: false,
+        viceRole: "Vice-Governador",
+        substitutes: 0,
+        description: "Chapa estadual com governador e vice.",
+        helperText: "Para configurar uma candidatura a Governador, informe o estado, os dados do titular, número de dois dígitos, partido e Vice-Governador.",
+        requiredTags: [...commonRequiredTags, locationTag, ...viceRequiredTags],
+        forbiddenTags: [...senatorSubstituteTags]
+      },
+      governador_df: {
+        id: "governador_df",
+        label: "Governador do Distrito Federal",
+        sphere: "distrital",
+        sphereLabel: "Distrital",
+        group: "Esfera estadual e distrital",
+        icon: "DF",
+        system: "majoritario",
+        systemLabel: "Majoritário",
+        jurisdictionLabel: "Distrito Federal",
+        numberLength: 2,
+        requiresState: false,
+        requiresMunicipality: false,
+        fixedJurisdiction: "Distrito Federal",
+        viceRole: "Vice-Governador",
+        substitutes: 0,
+        description: "Chapa distrital com governador e vice.",
+        helperText: "Para configurar uma candidatura a Governador do Distrito Federal, o sistema fixa a circunscrição como Distrito Federal e exige os dados do Vice-Governador.",
+        requiredTags: [...commonRequiredTags, locationTag, ...viceRequiredTags],
+        forbiddenTags: [...senatorSubstituteTags]
+      },
+      deputado_estadual: {
+        id: "deputado_estadual",
+        label: "Deputado Estadual",
+        sphere: "estadual",
+        sphereLabel: "Estadual",
+        group: "Esfera estadual e distrital",
+        icon: "DE",
+        system: "proporcional",
+        systemLabel: "Proporcional",
+        jurisdictionLabel: "Estado",
+        numberLength: 5,
+        requiresState: true,
+        requiresMunicipality: false,
+        viceRole: null,
+        substitutes: 0,
+        description: "Candidatura proporcional estadual.",
+        helperText: "Para configurar uma candidatura a Deputado Estadual, informe o estado, titular, partido e número de cinco dígitos. Distrito Federal não se aplica a este cargo.",
+        requiredTags: [...commonRequiredTags, locationTag],
+        forbiddenTags: [...viceTags, ...senatorSubstituteTags]
+      },
+      deputado_distrital: {
+        id: "deputado_distrital",
+        label: "Deputado Distrital",
+        sphere: "distrital",
+        sphereLabel: "Distrital",
+        group: "Esfera estadual e distrital",
+        icon: "DD",
+        system: "proporcional",
+        systemLabel: "Proporcional",
+        jurisdictionLabel: "Distrito Federal",
+        numberLength: 5,
+        requiresState: false,
+        requiresMunicipality: false,
+        fixedJurisdiction: "Distrito Federal",
+        viceRole: null,
+        substitutes: 0,
+        description: "Candidatura proporcional do Distrito Federal.",
+        helperText: "Para configurar uma candidatura a Deputado Distrital, o sistema fixa a circunscrição como Distrito Federal e exige número de cinco dígitos.",
+        requiredTags: [...commonRequiredTags, locationTag],
+        forbiddenTags: [...viceTags, ...senatorSubstituteTags]
+      },
+      prefeito: {
+        id: "prefeito",
+        label: "Prefeito",
+        sphere: "municipal",
+        sphereLabel: "Municipal",
+        group: "Esfera municipal",
+        icon: "PM",
+        system: "majoritario",
+        systemLabel: "Majoritário",
+        jurisdictionLabel: "Município",
+        numberLength: 2,
+        requiresState: true,
+        requiresMunicipality: true,
+        viceRole: "Vice-Prefeito",
+        substitutes: 0,
+        description: "Chapa municipal com prefeito e vice.",
+        helperText: "Para configurar uma candidatura a Prefeito, informe estado, município, titular, número de dois dígitos, partido e Vice-Prefeito.",
+        requiredTags: [...commonRequiredTags, locationTag, ...viceRequiredTags],
+        forbiddenTags: [...senatorSubstituteTags]
+      },
+      vereador: {
+        id: "vereador",
+        label: "Vereador",
+        sphere: "municipal",
+        sphereLabel: "Municipal",
+        group: "Esfera municipal",
+        icon: "VE",
+        system: "proporcional",
+        systemLabel: "Proporcional",
+        jurisdictionLabel: "Município",
+        numberLength: 5,
+        requiresState: true,
+        requiresMunicipality: true,
+        viceRole: null,
+        substitutes: 0,
+        description: "Candidatura proporcional municipal.",
+        helperText: "Para configurar uma candidatura a Vereador, informe estado, município, titular, partido e número de cinco dígitos. Este cargo não possui vice vinculado.",
+        requiredTags: [...commonRequiredTags, locationTag],
+        forbiddenTags: [...viceTags, ...senatorSubstituteTags]
+      },
+      juiz_paz: {
+        id: "juiz_paz",
+        label: "Juiz de Paz",
+        sphere: "municipal",
+        sphereLabel: "Municipal ou distrital local",
+        group: "Esfera municipal",
+        icon: "JP",
+        system: "local",
+        systemLabel: "Regra local",
+        jurisdictionLabel: "Regra local",
+        numberLength: null,
+        requiresState: true,
+        requiresMunicipality: true,
+        requiresLocalRule: true,
+        viceRole: null,
+        substitutes: 0,
+        description: "Configuração dependente de regulamentação local.",
+        helperText: "As regras de candidatura, numeração e composição para Juiz de Paz podem depender da legislação e da regulamentação local. Confirme a configuração aplicável à circunscrição selecionada.",
+        requiredTags: [...commonRequiredTags, locationTag],
+        forbiddenTags: [...viceTags, ...senatorSubstituteTags]
+      }
+    };
+
+    const ELECTION_TAG_REGISTRY = Object.fromEntries(
+      campaignFieldGroups.flatMap((group) =>
+        group.fields.map(([tag, label, placeholder], index) => [
+          tag,
+          {
+            id: tag,
+            token: `[[${tag}]]`,
+            label,
+            description: placeholder,
+            category: group.title,
+            sourcePath: `additionalData.${tag}`,
+            requiredFor: Object.values(ELECTION_ROLE_REGISTRY)
+              .filter((role) => role.requiredTags.includes(tag))
+              .map((role) => role.id),
+            forbiddenFor: Object.values(ELECTION_ROLE_REGISTRY)
+              .filter((role) => role.forbiddenTags.includes(tag))
+              .map((role) => role.id),
+            editable: true,
+            order: index
+          }
+        ])
+      )
+    );
+
+    const minimalCampaignFields = [
       "FOTO_CANDIDATO_PRINCIPAL",
       "DIMENSAO_FINAL",
       "NOME_CANDIDATO",
       "NUMERO_URNA"
     ];
+    const defaultActiveCampaignFields = [];
 
     const campaignFieldPresets = {
-      minimal: defaultActiveCampaignFields,
+      minimal: minimalCampaignFields,
       complete: [
         "FOTO_CANDIDATO_PRINCIPAL",
         "LOGO_PARTIDO",
@@ -2508,11 +2822,11 @@ Do not invent new text, new slogans or new visual elements.`
     };
 
     const referenceGuideFields = [
-      ["FOTO_CANDIDATO_PRINCIPAL", "Foto candidato principal", "Anexar a foto oficial. O rosto deve ficar 100% consistente com a referência."],
-      ["FOTO_VICE_OU_SUPLENTE", "Foto vice ou suplente", "Anexar quando a peça incluir vice ou suplente. O rosto deve permanecer idêntico à referência."],
-      ["FOTO_CANDIDATO_APOIO_1", "Foto apoio 1", "Anexar quando a peça incluir primeiro apoio. O rosto deve permanecer idêntico à referência."],
-      ["FOTO_CANDIDATO_APOIO_2", "Foto apoio 2", "Anexar quando a peça incluir segundo apoio. O rosto deve permanecer idêntico à referência."],
-      ["FOTO_CANDIDATO_APOIO_3", "Foto apoio 3", "Anexar quando a peça incluir terceiro apoio. O rosto deve permanecer idêntico à referência."],
+      ["FOTO_CANDIDATO_PRINCIPAL", "Foto do candidato principal", "Informe o @ do personagem no Flow, a imagem anexada ou a foto oficial. O rosto deve ficar 100% consistente com essa referência."],
+      ["FOTO_VICE_OU_SUPLENTE", "Foto do vice ou suplente", "Informe o @ do personagem no Flow, a imagem anexada ou a foto oficial quando a peça incluir vice ou suplente."],
+      ["FOTO_CANDIDATO_APOIO_1", "Foto do apoio 1", "Informe o @ do personagem no Flow, a imagem anexada ou a foto oficial quando a peça incluir o primeiro apoio."],
+      ["FOTO_CANDIDATO_APOIO_2", "Foto do apoio 2", "Informe o @ do personagem no Flow, a imagem anexada ou a foto oficial quando a peça incluir o segundo apoio."],
+      ["FOTO_CANDIDATO_APOIO_3", "Foto do apoio 3", "Informe o @ do personagem no Flow, a imagem anexada ou a foto oficial quando a peça incluir o terceiro apoio."],
       ["LOGO_PARTIDO", "Logo do partido", "Anexar o logo oficial do partido ou federação."],
       ["REFERENCIA_LOGO_CAMPANHA", "Logo da campanha", "Anexar a logo oficial da campanha. Ela deve permanecer idêntica à referência."],
       ["REFERENCIA_ARTE_MESTRA", "Arte mestra", "Anexar a arte aprovada para manter identidade visual."],
@@ -2600,6 +2914,421 @@ Do not invent new text, new slogans or new visual elements.`
       electionPromptThumbnailAliases.get(normalizePromptAssetKey(prompt.title)) ||
       null;
 
+    const getRoleDefinition = (roleId) => ELECTION_ROLE_REGISTRY[roleId] || null;
+
+    const getAllCampaignFieldTags = () =>
+      Object.keys(ELECTION_TAG_REGISTRY);
+
+    const getRequiredFields = (roleId) => {
+      const role = getRoleDefinition(roleId);
+      return role ? role.requiredTags : [];
+    };
+
+    const getPrimaryRequiredFields = (roleId) => {
+      const role = getRoleDefinition(roleId);
+
+      if (!role) {
+        return [];
+      }
+
+      return role.requiredTags.filter(
+        (tag) => !viceTags.includes(tag) && !senatorSubstituteTags.includes(tag)
+      );
+    };
+
+    const getForbiddenTags = (roleId) => {
+      const role = getRoleDefinition(roleId);
+      return role ? role.forbiddenTags : [];
+    };
+
+    const getAllowedTags = (roleId) => {
+      const forbidden = new Set(getForbiddenTags(roleId));
+      return getAllCampaignFieldTags().filter((tag) => !forbidden.has(tag));
+    };
+
+    const CAMPAIGN_FIELD_STEPS = [
+      {
+        id: "obrigatorios",
+        title: "Obrigatórios do cargo",
+        optional: false,
+        description: "Preencha somente o essencial para a candidatura escolhida: foto ou @ do candidato, nome, número, partido e localização quando o cargo exigir.",
+        getTags: (role) => getPrimaryRequiredFields(role.id)
+      },
+      {
+        id: "composicao",
+        title: "Vice e apoiadores",
+        optional: true,
+        description: "Etapa opcional para vice, suplentes, apoios, casadinha e fotos de pessoas adicionais.",
+        tags: [
+          "FOTO_VICE_OU_SUPLENTE",
+          "FOTO_CANDIDATO_APOIO_1",
+          "FOTO_CANDIDATO_APOIO_2",
+          "FOTO_CANDIDATO_APOIO_3",
+          "MODO_PESSOAS",
+          ...viceTags,
+          ...senatorSubstituteTags,
+          "NOME_CANDIDATO_APOIO_1",
+          "NUMERO_CANDIDATO_APOIO_1",
+          "CARGO_CANDIDATO_APOIO_1",
+          "NOME_CANDIDATO_APOIO_2",
+          "NUMERO_CANDIDATO_APOIO_2",
+          "CARGO_CANDIDATO_APOIO_2",
+          "NOME_CANDIDATO_APOIO_3",
+          "NUMERO_CANDIDATO_APOIO_3",
+          "CARGO_CANDIDATO_APOIO_3",
+          "INFORMACOES_PESSOAS_APOIO"
+        ]
+      },
+      {
+        id: "design",
+        title: "Design e referências",
+        optional: true,
+        description: "Escolha apenas as referências visuais, logos, cores, dimensão e direção gráfica que realmente serão usadas.",
+        tags: [
+          "FOTO_CANDIDATO_PRINCIPAL",
+          "LOGO_PARTIDO",
+          "REFERENCIA_LOGO_CAMPANHA",
+          "REFERENCIA_ARTE_MESTRA",
+          "REFERENCIA_ESTILO_VISUAL",
+          "REFERENCIA_CIDADE_OU_ESTADO",
+          "REFERENCIA_QR_CODE",
+          "DIMENSAO_FINAL",
+          "COR_PRINCIPAL",
+          "COR_SECUNDARIA",
+          "COR_DESTAQUE",
+          "COR_FUNDO",
+          "ESTILO_TIPOGRAFIA",
+          "SIMBOLO_GRAFICO"
+        ]
+      },
+      {
+        id: "conteudo",
+        title: "Conteúdo e evento",
+        optional: true,
+        description: "Adicione slogan, chamadas, propostas, textos editoriais, agenda e canais somente quando forem entrar na peça.",
+        tags: [
+          "FEDERACAO_OU_COLIGACAO",
+          "SLOGAN_CAMPANHA",
+          "CHAMADA_CURTA",
+          "TITULO_PRINCIPAL",
+          "TEXTO_SECUNDARIO",
+          "BIO_CURTA",
+          "PROPOSTA_1",
+          "PROPOSTA_2",
+          "PROPOSTA_3",
+          "PROPOSTA_4",
+          "TITULO_REVISTA",
+          "INFO_EDICAO",
+          "MANCHETE_APOIO_1",
+          "MANCHETE_APOIO_2",
+          "MANCHETE_APOIO_3",
+          "NOME_EVENTO",
+          "DATA_EVENTO",
+          "HORARIO_EVENTO",
+          "LOCAL_EVENTO",
+          "REDE_SOCIAL",
+          "SITE",
+          "TEXTO_CONFORMIDADE_DIGITAL"
+        ]
+      },
+      {
+        id: "producao",
+        title: "Produção e formatos",
+        optional: true,
+        description: "Configure impressão, materiais, mockups, camisetas, vidro traseiro, rodapé legal e figurinhas quando forem necessários.",
+        tags: [
+          "REFERENCIA_GABARITO_PRODUCAO",
+          "REFERENCIA_VIDRO_TRASEIRO",
+          "SANGRIA",
+          "MARGEM_SEGURANCA",
+          "TIPO_MATERIAL",
+          "MODO_COR_IMPRESSAO",
+          "DISTANCIA_LEITURA",
+          "MODELO_ANO_VEICULO",
+          "COR_CAMISETA",
+          "TEXTO_FUNCAO_EQUIPE",
+          "TIPO_BANNER",
+          "TEXTO_LEGAL_RODAPE",
+          "AVISO_USO_IA",
+          "TEXTO_FIGURINHA_1",
+          "TEXTO_FIGURINHA_2",
+          "TEXTO_FIGURINHA_3",
+          "TEXTO_FIGURINHA_4",
+          "TEXTO_FIGURINHA_5",
+          "TEXTO_FIGURINHA_6",
+          "TEXTO_FIGURINHA_7",
+          "TEXTO_FIGURINHA_8",
+          "TEXTO_FIGURINHA_9",
+          "TEXTO_FIGURINHA_10",
+          "TEXTO_FIGURINHA_11",
+          "TEXTO_FIGURINHA_12"
+        ]
+      }
+    ];
+
+    let activeCampaignFieldStep = CAMPAIGN_FIELD_STEPS[0].id;
+
+    const getCampaignFieldStep = (stepId = activeCampaignFieldStep) =>
+      CAMPAIGN_FIELD_STEPS.find((step) => step.id === stepId) || CAMPAIGN_FIELD_STEPS[0];
+
+    const getCampaignFieldStepTags = (step, role = getCurrentRole()) => {
+      if (!role) {
+        return new Set();
+      }
+
+      const tags = typeof step.getTags === "function" ? step.getTags(role) : step.tags || [];
+      const allowedTags = new Set(getAllowedTags(role.id));
+      return new Set(tags.filter((tag) => allowedTags.has(tag)));
+    };
+
+    const getStoredElectionProfile = () => {
+      try {
+        const profile = JSON.parse(localStorage.getItem(ELECTION_PROFILE_STORAGE_KEY) || "null");
+        return profile && typeof profile === "object" ? profile : { schemaVersion: 2, roleId: null };
+      } catch (error) {
+        return { schemaVersion: 2, roleId: null };
+      }
+    };
+
+    const saveElectionProfile = (profile) => {
+      try {
+        localStorage.setItem(ELECTION_PROFILE_STORAGE_KEY, JSON.stringify({ schemaVersion: 2, ...profile }));
+      } catch (error) {
+        // Local storage can be blocked; the page still works during the current session.
+      }
+    };
+
+    const migrateLegacyElectionProfile = () => {
+      const profile = getStoredElectionProfile();
+
+      if (profile.roleId || profile.migratedLegacy) {
+        return profile;
+      }
+
+      const legacyValues = getStoredCampaignFields();
+      const hasLegacyData = Object.values(legacyValues).some((value) => String(value || "").trim());
+
+      if (!hasLegacyData) {
+        return profile;
+      }
+
+      const nextProfile = {
+        ...profile,
+        migratedLegacy: true,
+        pendingRole: true,
+        legacyFields: {
+          NOME_CANDIDATO: legacyValues.NOME_CANDIDATO || "",
+          NUMERO_URNA: legacyValues.NUMERO_URNA || "",
+          PARTIDO: legacyValues.PARTIDO || "",
+          NOME_CIDADE_OU_ESTADO: legacyValues.NOME_CIDADE_OU_ESTADO || ""
+        }
+      };
+
+      saveElectionProfile(nextProfile);
+      return nextProfile;
+    };
+
+    const getCurrentRole = () => getRoleDefinition(getStoredElectionProfile().roleId);
+
+    const getElectionProfile = () => {
+      const storedProfile = getStoredElectionProfile();
+      const values = getCampaignFieldValues();
+      const role = getRoleDefinition(storedProfile.roleId);
+
+      if (!role) {
+        return {
+          roleId: null,
+          candidate: {},
+          jurisdiction: {},
+          selectedTags: [...getActiveCampaignFields()],
+          additionalData: values
+        };
+      }
+
+      const jurisdictionValue = role.fixedJurisdiction || values.NOME_CIDADE_OU_ESTADO || "";
+
+      return {
+        roleId: role.id,
+        role,
+        candidate: {
+          fullName: values.NOME_CANDIDATO || "",
+          ballotName: values.NOME_CANDIDATO || "",
+          number: values.NUMERO_URNA || "",
+          partyName: values.PARTIDO || "",
+          partyAcronym: values.SIGLA_PARTIDO || ""
+        },
+        jurisdiction: {
+          country: role.id === "presidente" ? "Brasil" : "",
+          state: role.requiresState || role.fixedJurisdiction ? jurisdictionValue : "",
+          municipality: role.requiresMunicipality ? jurisdictionValue : "",
+          district: role.requiresLocalRule ? jurisdictionValue : ""
+        },
+        runningMate: role.viceRole
+          ? {
+              role: role.viceRole,
+              fullName: values.NOME_VICE_OU_SUPLENTE || "",
+              ballotName: values.NOME_VICE_OU_SUPLENTE || "",
+              partyName: values.PARTIDO_VICE_OU_SUPLENTE || "",
+              partyAcronym: values.SIGLA_PARTIDO_VICE_OU_SUPLENTE || ""
+            }
+          : null,
+        substitutes: role.substitutes
+          ? [
+              { order: 1, fullName: values.NOME_PRIMEIRO_SUPLENTE || "" },
+              { order: 2, fullName: values.NOME_SEGUNDO_SUPLENTE || "" }
+            ]
+          : [],
+        selectedTags: [...getActiveCampaignFields()],
+        additionalData: values
+      };
+    };
+
+    const validateElectionProfile = (profile = getElectionProfile()) => {
+      const errors = [];
+
+      if (!profile.role) {
+        errors.push({ step: "Cargo", message: "Escolha o cargo disputado antes de preencher tags ou copiar prompts." });
+        return { valid: false, errors };
+      }
+
+      const role = profile.role;
+      const values = profile.additionalData;
+
+      getPrimaryRequiredFields(role.id).forEach((tag) => {
+        if (!String(values[tag] || "").trim()) {
+          errors.push({ step: "Dados", tag, message: `Preencha ${tag.replace(/_/g, " ").toLowerCase()}.` });
+        }
+      });
+
+      const number = profile.candidate.number;
+
+      if (role.numberLength && number.length !== role.numberLength) {
+        errors.push({
+          step: "Dados",
+          tag: "NUMERO_URNA",
+          message: `O número de candidato a ${role.label} deve conter exatamente ${role.numberLength} dígitos.`
+        });
+      }
+
+      if (role.id === "deputado_estadual" && /distrito federal/i.test(values.NOME_CIDADE_OU_ESTADO || "")) {
+        errors.push({
+          step: "Dados",
+          tag: "NOME_CIDADE_OU_ESTADO",
+          message: "Deputado Estadual não permite Distrito Federal. Use Deputado Distrital para essa circunscrição."
+        });
+      }
+
+      if (role.requiresLocalRule) {
+        errors.push({
+          step: "Dados",
+          tag: "NOME_CIDADE_OU_ESTADO",
+          message: "Juiz de Paz pode ser salvo como rascunho, mas exige confirmação da regra local antes da geração final."
+        });
+      }
+
+      return { valid: errors.length === 0, errors };
+    };
+
+    const buildElectionPromptContext = (profile = getElectionProfile()) => {
+      if (!profile.role) {
+        return "";
+      }
+
+      const role = profile.role;
+      const activeTags = new Set(profile.selectedTags || []);
+      const isTagActive = (tag) => activeTags.has(tag);
+      const addContextLine = (lines, label, value) => {
+        if (value) {
+          lines.push(`${label}: ${value}`);
+        }
+      };
+      const lines = [
+        "CONTEXTO ELEITORAL OBRIGATÓRIO",
+        "",
+        `Cargo: ${role.label}`,
+        `Esfera: ${role.sphereLabel}`,
+        `Sistema eleitoral: ${role.systemLabel}`,
+        `Circunscrição: ${role.fixedJurisdiction || profile.jurisdiction.state || profile.jurisdiction.municipality || role.jurisdictionLabel}`,
+        `Quantidade de dígitos: ${role.numberLength || "regra local"}`
+      ];
+
+      if (isTagActive("NOME_CANDIDATO")) {
+        addContextLine(lines, "Candidato", profile.candidate.ballotName || profile.candidate.fullName);
+      }
+
+      if (isTagActive("NUMERO_URNA")) {
+        addContextLine(lines, "Número", profile.candidate.number);
+      }
+
+      if (isTagActive("PARTIDO")) {
+        addContextLine(lines, "Partido", profile.candidate.partyName);
+      }
+
+      if (isTagActive("SIGLA_PARTIDO")) {
+        addContextLine(lines, "Sigla do partido", profile.candidate.partyAcronym);
+      }
+
+      if (role.viceRole && hasAnyActiveField(activeTags, viceTags)) {
+        addContextLine(lines, role.viceRole, profile.runningMate.fullName);
+
+        if (isTagActive("PARTIDO_VICE_OU_SUPLENTE")) {
+          addContextLine(lines, `Partido do ${role.viceRole}`, profile.runningMate.partyName);
+        }
+
+        if (isTagActive("SIGLA_PARTIDO_VICE_OU_SUPLENTE")) {
+          addContextLine(lines, `Sigla do ${role.viceRole}`, profile.runningMate.partyAcronym);
+        }
+      }
+
+      if (role.substitutes === 2) {
+        if (isTagActive("NOME_PRIMEIRO_SUPLENTE")) {
+          addContextLine(lines, "Primeiro suplente", profile.substitutes[0].fullName);
+        }
+
+        if (isTagActive("NOME_SEGUNDO_SUPLENTE")) {
+          addContextLine(lines, "Segundo suplente", profile.substitutes[1].fullName);
+        }
+      }
+
+      lines.push(
+        "",
+        "Utilize somente as informações compatíveis com esta candidatura.",
+        "Não invente município, suplentes, vice, partido, número, apoio, cargo ou circunscrição que não estejam neste contexto."
+      );
+
+      return lines.join("\n");
+    };
+
+    const getPromptCompatibility = (prompt, groupKey, profile = getElectionProfile()) => {
+      const role = profile.role;
+
+      if (!role) {
+        return { available: false, reason: "Escolha e configure o cargo antes de acessar os prompts." };
+      }
+
+      const text = `${prompt.title} ${prompt.description} ${prompt.label || ""}`.toLocaleLowerCase("pt-BR");
+
+      if (/vice|running mate/.test(text) && !role.viceRole) {
+        return { available: false, reason: `Indisponível para ${role.label}: este cargo não possui vice.` };
+      }
+
+      if (/suplente|substitute/.test(text) && role.substitutes !== 2) {
+        return { available: false, reason: `Indisponível para ${role.label}: suplentes só se aplicam a Senador.` };
+      }
+
+      if (/municip|prefeito|vereador/.test(text) && !role.requiresMunicipality && groupKey !== "utilitarios") {
+        return { available: false, reason: `Indisponível para ${role.label}: este prompt depende de município.` };
+      }
+
+      return { available: true, reason: "" };
+    };
+
+    const getCompatiblePromptTemplates = (profile = getElectionProfile()) =>
+      Array.from(document.querySelectorAll("[data-election-prompt-card]")).filter((card) => {
+        const prompt = electionPromptGroups[card.dataset.promptGroup]?.[Number(card.dataset.promptIndex)];
+        return prompt && getPromptCompatibility(prompt, card.dataset.promptGroup, profile).available;
+      });
+
     const getStoredCampaignFields = () => {
       try {
         return JSON.parse(localStorage.getItem(CAMPAIGN_FIELD_STORAGE_KEY) || "{}");
@@ -2628,12 +3357,20 @@ Do not invent new text, new slogans or new visual elements.`
         return values;
       }, {});
 
-    const getActiveCampaignFields = () =>
-      new Set(
-        Array.from(document.querySelectorAll("[data-campaign-field-active]:checked")).map(
-          (field) => field.dataset.campaignFieldActive
-        )
+    const getRoleAllowedTagSet = () => {
+      const role = getCurrentRole();
+      return role ? new Set(getAllowedTags(role.id)) : null;
+    };
+
+    const getActiveCampaignFields = () => {
+      const allowedTags = getRoleAllowedTagSet();
+
+      return new Set(
+        Array.from(document.querySelectorAll("[data-campaign-field-active]:checked"))
+          .map((field) => field.dataset.campaignFieldActive)
+          .filter((tag) => !allowedTags || allowedTags.has(tag))
       );
+    };
 
     const saveCampaignFieldValues = () => {
       try {
@@ -2649,6 +3386,23 @@ Do not invent new text, new slogans or new visual elements.`
       } catch (error) {
         // Local storage can be blocked in private browsing; live replacement still works.
       }
+    };
+
+    const persistElectionProfileSnapshot = () => {
+      const profile = getElectionProfile();
+      const stored = getStoredElectionProfile();
+
+      saveElectionProfile({
+        ...stored,
+        roleId: profile.roleId,
+        candidate: profile.candidate,
+        jurisdiction: profile.jurisdiction,
+        runningMate: profile.runningMate,
+        substitutes: profile.substitutes,
+        selectedTags: profile.selectedTags,
+        additionalData: profile.additionalData,
+        updatedAt: new Date().toISOString()
+      });
     };
 
     const getPromptTags = (text) => [...text.matchAll(/\[\[([A-Z0-9_]+)\]\]/g)].map((match) => match[1]);
@@ -2674,7 +3428,7 @@ Do not invent new text, new slogans or new visual elements.`
           return "";
         }
 
-        return values[tag] ? formatActivePromptValue(values[tag]) : match;
+        return values[tag] ? formatActivePromptValue(values[tag]) : "";
       });
 
     const hasAnyActiveField = (activeFields, tags) => tags.some((tag) => activeFields.has(tag));
@@ -2814,6 +3568,54 @@ Do not invent new text, new slogans or new visual elements.`
       }
 
       return normalized;
+    };
+
+    const compactPromptText = (text) =>
+      text
+        .replace(/\r\n?/g, "\n")
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .join(" ")
+        .replace(/\s{2,}/g, " ")
+        .trim();
+
+    const cleanFinalPromptTextForActiveFields = (text, activeFields) => {
+      let nextText = text;
+
+      if (!activeFields.has("LOGO_PARTIDO") && !activeFields.has("REFERENCIA_LOGO_CAMPANHA")) {
+        nextText = nextText
+          .replace(/,\s*(?:campaign logo|party logo|logos?|logo placement|official logo)/gi, "")
+          .replace(/\b(?:campaign logo|party logo|logos?|logo placement|official logo)\b(?:,?\s*and)?\s*/gi, "");
+      }
+
+      if (!activeFields.has("SLOGAN_CAMPANHA")) {
+        nextText = nextText
+          .replace(/,\s*slogans?/gi, "")
+          .replace(/\bslogans?\b(?:,?\s*and)?\s*/gi, "");
+      }
+
+      if (!activeFields.has("TEXTO_LEGAL_RODAPE")) {
+        nextText = nextText
+          .replace(/,\s*(?:legal footer|legal information|compliance area)/gi, "")
+          .replace(/\b(?:legal footer|legal information|compliance area)\b(?:,?\s*and)?\s*/gi, "");
+      }
+
+      if (!hasAnyActiveField(activeFields, viceTags)) {
+        nextText = nextText
+          .replace(/\b(?:running mate|vice candidate|vice)\b(?:,?\s*and)?\s*/gi, "");
+      }
+
+      if (!hasAnyActiveField(activeFields, senatorSubstituteTags)) {
+        nextText = nextText
+          .replace(/\b(?:substitutes?|suplentes?)\b(?:,?\s*and)?\s*/gi, "");
+      }
+
+      return nextText
+        .replace(/\s+,/g, ",")
+        .replace(/,\s*,/g, ",")
+        .replace(/\s{2,}/g, " ")
+        .trim();
     };
 
     const insertGuidanceAfterOpeningLine = (lines, guidance) => {
@@ -2976,6 +3778,7 @@ Do not invent new text, new slogans or new visual elements.`
       syncCampaignFieldCardStates();
       saveCampaignFieldValues();
       saveActiveCampaignFields();
+      persistElectionProfileSnapshot();
       updateCampaignPromptCodes();
     };
 
@@ -2985,8 +3788,9 @@ Do not invent new text, new slogans or new visual elements.`
       template.split("\n").forEach((line) => {
         const tags = getPromptTags(line);
         const hasInactiveTag = tags.some((tag) => !activeFields.has(tag));
+        const hasEmptyActiveTag = tags.some((tag) => activeFields.has(tag) && !values[tag]);
 
-        if (hasInactiveTag) {
+        if (hasInactiveTag || hasEmptyActiveTag) {
           while (outputLines.length && !outputLines[outputLines.length - 1].trim()) {
             outputLines.pop();
           }
@@ -3011,7 +3815,7 @@ Do not invent new text, new slogans or new visual elements.`
       });
 
       const normalizedLines = normalizePromptBlankLines(outputLines);
-      return normalizePromptBlankLines(
+      const promptBody = normalizePromptBlankLines(
         addPremiumDesignGuidance(
           addCampaignLogoGuidance(
             addCandidateHierarchyGuidance(
@@ -3027,6 +3831,15 @@ Do not invent new text, new slogans or new visual elements.`
           activeFields
         )
       ).join("\n");
+
+      const profile = getElectionProfile();
+      if (!profile.role) {
+        return compactPromptText(cleanFinalPromptTextForActiveFields(promptBody, activeFields));
+      }
+
+      return compactPromptText(
+        cleanFinalPromptTextForActiveFields(`${buildElectionPromptContext(profile)} ${promptBody}`, activeFields)
+      );
     };
 
     const resetPromptTranslation = (code) => {
@@ -3077,11 +3890,16 @@ Do not invent new text, new slogans or new visual elements.`
       ).length;
       const progress = document.getElementById("fieldProgress");
 
+      updateNumberFieldStatus();
+
       if (progress) {
-        progress.textContent = `${filledCount} de ${activeCount} campos ativos preenchidos`;
+        progress.textContent = activeCount
+          ? `${filledCount} de ${activeCount} campos ativos preenchidos`
+          : "Nenhum campo selecionado";
       }
 
       updateActiveReferenceGuide(values, activeFields);
+      updatePromptCompatibilityUI();
     };
 
     const updateActiveReferenceGuide = (values, activeFields) => {
@@ -3127,14 +3945,67 @@ Do not invent new text, new slogans or new visual elements.`
     };
 
     const syncCampaignFieldCardStates = () => {
+      const role = getCurrentRole();
+      const forbiddenTags = role ? new Set(role.forbiddenTags) : new Set();
+      const requiredTags = role ? new Set(getPrimaryRequiredFields(role.id)) : new Set();
+      const step = getCampaignFieldStep();
+      const stepTags = getCampaignFieldStepTags(step, role);
+
       document.querySelectorAll(".election-field-card").forEach((fieldCard) => {
         const checkbox = fieldCard.querySelector("[data-campaign-field-active]");
-        fieldCard.classList.toggle("is-inactive", checkbox && !checkbox.checked);
+        const input = fieldCard.querySelector("[data-campaign-field]");
+        const toggleText = fieldCard.querySelector("[data-campaign-field-toggle-text]");
+        const tag = fieldCard.dataset.campaignFieldCard;
+        const isForbidden = forbiddenTags.has(tag);
+        const isRequired = requiredTags.has(tag);
+        const isOutsideStep = role ? !stepTags.has(tag) : false;
+        const isActive = Boolean(checkbox && checkbox.checked);
+
+        if (checkbox && isForbidden) {
+          checkbox.checked = false;
+        }
+
+        if (checkbox && isRequired) {
+          checkbox.checked = true;
+        }
+
+        fieldCard.hidden = isForbidden || isOutsideStep;
+        fieldCard.classList.toggle("is-required", isRequired);
+        fieldCard.classList.toggle("is-active", isRequired || (checkbox && checkbox.checked));
+        fieldCard.classList.toggle("is-inactive", !isRequired && checkbox && !checkbox.checked);
+
+        if (input) {
+          const shouldShowInput = !isForbidden && !isOutsideStep;
+          input.hidden = !shouldShowInput;
+          input.disabled = isForbidden || isOutsideStep;
+          input.setAttribute("aria-hidden", String(!shouldShowInput));
+        }
+
+        if (checkbox) {
+          checkbox.disabled = isForbidden || isRequired;
+          checkbox.setAttribute("aria-expanded", String(!isForbidden && !isOutsideStep));
+        }
+
+        if (toggleText) {
+          toggleText.textContent = isRequired ? "Obrigatório" : checkbox && checkbox.checked ? "Selecionado" : "Selecionar";
+        }
+      });
+
+      document.querySelectorAll(".election-field-group").forEach((group) => {
+        const visibleCards = Array.from(group.querySelectorAll(".election-field-card")).filter((card) => !card.hidden);
+        group.hidden = visibleCards.length === 0;
+        group.open = visibleCards.length > 0;
       });
     };
 
     const setActiveCampaignFields = (tags) => {
-      const activeTags = new Set(tags);
+      const role = getCurrentRole();
+      const allowedTags = role ? new Set(getAllowedTags(role.id)) : null;
+      const activeTags = new Set((allowedTags ? tags.filter((tag) => allowedTags.has(tag)) : tags));
+
+      if (role) {
+        getPrimaryRequiredFields(role.id).forEach((tag) => activeTags.add(tag));
+      }
 
       document.querySelectorAll("[data-campaign-field-active]").forEach((checkbox) => {
         checkbox.checked = activeTags.has(checkbox.dataset.campaignFieldActive);
@@ -3143,6 +4014,366 @@ Do not invent new text, new slogans or new visual elements.`
       syncCampaignFieldCardStates();
       saveActiveCampaignFields();
       updateCampaignPromptCodes();
+    };
+
+    const getFilledForbiddenTagsForRole = (roleId) => {
+      const values = getCampaignFieldValues();
+      return getForbiddenTags(roleId).filter((tag) => values[tag]);
+    };
+
+    const setFieldValue = (tag, value) => {
+      const field = document.querySelector(`[data-campaign-field="${tag}"]`);
+
+      if (field) {
+        field.value = value;
+      }
+    };
+
+    const applyRoleFieldDefaults = (role, options = {}) => {
+      if (!role) {
+        return;
+      }
+
+      const cargoField = document.querySelector('[data-campaign-field="CARGO"]');
+
+      if (cargoField && (options.force || !cargoField.value.trim())) {
+        cargoField.value = role.label.toLocaleUpperCase("pt-BR");
+      }
+
+      if (role.fixedJurisdiction) {
+        setFieldValue("NOME_CIDADE_OU_ESTADO", role.fixedJurisdiction);
+      }
+
+      if (role.viceRole) {
+        setFieldValue("CARGO_VICE_OU_SUPLENTE", role.viceRole);
+      }
+
+      const numberField = document.querySelector('[data-campaign-field="NUMERO_URNA"]');
+
+      if (numberField && role.numberLength) {
+        numberField.value = numberField.value.replace(/\D+/g, "").slice(0, role.numberLength);
+        numberField.maxLength = role.numberLength;
+        numberField.placeholder = `Ex.: ${"0".repeat(role.numberLength)} (${role.numberLength} dígitos)`;
+      }
+    };
+
+    const updateNumberFieldStatus = () => {
+      const role = getCurrentRole();
+      const numberField = document.querySelector('[data-campaign-field="NUMERO_URNA"]');
+      const numberHelp = document.getElementById("campaign-field-numero-urna-help");
+
+      if (!numberField || !numberHelp) {
+        return;
+      }
+
+      const number = numberField.value.replace(/\D+/g, "");
+
+      if (numberField.value !== number) {
+        numberField.value = number;
+      }
+
+      if (!role) {
+        numberHelp.textContent = "Escolha um cargo para definir a quantidade de dígitos.";
+        numberField.setAttribute("aria-invalid", "false");
+        return;
+      }
+
+      if (!role.numberLength) {
+        numberHelp.textContent = "Este cargo depende de regra local. Confirme a numeração antes de gerar prompts.";
+        numberField.setAttribute("aria-invalid", "true");
+        return;
+      }
+
+      numberHelp.textContent = `${number.length} de ${role.numberLength} dígitos preenchidos.`;
+      numberField.setAttribute("aria-invalid", number.length === role.numberLength ? "false" : "true");
+    };
+
+    const setElectionRole = (roleId, options = {}) => {
+      const role = getRoleDefinition(roleId);
+
+      if (!role) {
+        return;
+      }
+
+      const previousRoleId = getStoredElectionProfile().roleId;
+      const filledForbiddenTags = previousRoleId && previousRoleId !== roleId ? getFilledForbiddenTagsForRole(roleId) : [];
+
+      if (filledForbiddenTags.length && !options.skipConfirm) {
+        const labels = filledForbiddenTags
+          .map((tag) => tag.replace(/_/g, " ").toLocaleLowerCase("pt-BR"))
+          .join(", ");
+        const confirmed = window.confirm(`Ao trocar para ${role.label}, estes dados incompatíveis serão removidos: ${labels}. Deseja continuar?`);
+
+        if (!confirmed) {
+          renderElectionRoleSelection(previousRoleId);
+          return;
+        }
+      }
+
+      filledForbiddenTags.forEach((tag) => setFieldValue(tag, ""));
+      activeCampaignFieldStep = CAMPAIGN_FIELD_STEPS[0].id;
+      saveElectionProfile({ roleId, selectedTags: getPrimaryRequiredFields(roleId), activeStep: CAMPAIGN_FIELD_STEPS[0].id });
+      applyRoleFieldDefaults(role, { force: true });
+
+      const allowedTags = new Set(getAllowedTags(roleId));
+      const activeTags = new Set([...getActiveCampaignFields()].filter((tag) => allowedTags.has(tag)));
+      getPrimaryRequiredFields(roleId).forEach((tag) => activeTags.add(tag));
+      setActiveCampaignFields([...activeTags]);
+      saveCampaignFieldValues();
+      persistElectionProfileSnapshot();
+      renderElectionRoleSelection(roleId);
+      updateElectionWizardUI({ focusPanel: options.focusPanel });
+    };
+
+    const renderElectionRoleSelection = (selectedRoleId = getStoredElectionProfile().roleId) => {
+      const container = document.getElementById("electionRoleGroups");
+
+      if (!container) {
+        return;
+      }
+
+      container.textContent = "";
+
+      const groupedRoles = Object.values(ELECTION_ROLE_REGISTRY).reduce((groups, role) => {
+        groups[role.group] = groups[role.group] || [];
+        groups[role.group].push(role);
+        return groups;
+      }, {});
+
+      Object.entries(groupedRoles).forEach(([groupName, roles]) => {
+        const fieldset = document.createElement("fieldset");
+        fieldset.className = "election-role-group";
+
+        const legend = document.createElement("legend");
+        legend.textContent = groupName;
+        fieldset.appendChild(legend);
+
+        const grid = document.createElement("div");
+        grid.className = "election-role-card-grid";
+
+        roles.forEach((role) => {
+          const label = document.createElement("label");
+          label.className = "election-role-card";
+          label.classList.toggle("is-selected", role.id === selectedRoleId);
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "electionRole";
+          input.value = role.id;
+          input.checked = role.id === selectedRoleId;
+
+          const icon = document.createElement("span");
+          icon.className = "election-role-icon";
+          icon.setAttribute("aria-hidden", "true");
+          icon.textContent = role.icon;
+
+          const content = document.createElement("span");
+          content.className = "election-role-card-content";
+
+          const title = document.createElement("strong");
+          title.textContent = role.label;
+
+          const description = document.createElement("span");
+          description.textContent = role.description;
+
+          const meta = document.createElement("span");
+          meta.className = "election-role-meta";
+          meta.textContent = `${role.sphereLabel} · ${role.numberLength ? `${role.numberLength} dígitos` : "regra local"} · ${
+            role.viceRole ? role.viceRole : role.substitutes ? "2 suplentes" : "sem vice"
+          }`;
+
+          content.append(title, description, meta);
+          label.append(input, icon, content);
+          grid.appendChild(label);
+        });
+
+        fieldset.appendChild(grid);
+        container.appendChild(fieldset);
+      });
+    };
+
+    const renderElectionRolePanel = (role) => {
+      const panel = document.getElementById("electionRolePanel");
+      const title = document.getElementById("electionRolePanelTitle");
+      const helper = document.getElementById("electionRoleHelper");
+      const summary = document.getElementById("electionRoleSummary");
+      const continueButton = document.getElementById("continueElectionFlow");
+
+      if (!panel || !role) {
+        return;
+      }
+
+      panel.hidden = false;
+      title.textContent = `Configuração obrigatória para ${role.label}`;
+      helper.textContent = role.helperText;
+      summary.textContent = "";
+
+      [
+        ["Esfera", role.sphereLabel],
+        ["Sistema", role.systemLabel],
+        ["Número", role.numberLength ? `${role.numberLength} dígitos` : "regra local"],
+        ["Vice", role.viceRole || "não aplicável"],
+        ["Suplentes", role.substitutes ? `${role.substitutes} obrigatórios` : "não aplicável"],
+        ["Circunscrição", role.fixedJurisdiction || role.jurisdictionLabel]
+      ].forEach(([term, description]) => {
+        const dt = document.createElement("dt");
+        const dd = document.createElement("dd");
+        dt.textContent = term;
+        dd.textContent = description;
+        summary.append(dt, dd);
+      });
+
+      continueButton.disabled = false;
+    };
+
+    const updateElectionSteps = (profileValidation) => {
+      const hasRole = Boolean(getStoredElectionProfile().roleId);
+      const hasValidProfile = profileValidation.valid;
+
+      document.querySelectorAll("[data-election-step]").forEach((step) => {
+        const key = step.dataset.electionStep;
+        const isCurrent =
+          (!hasRole && key === "cargo") ||
+          (hasRole && !hasValidProfile && ["dados", "tags"].includes(key)) ||
+          (hasValidProfile && key === "prompts");
+        const isDone = (hasRole && key === "cargo") || (hasValidProfile && ["dados", "tags"].includes(key));
+        const isLocked = !hasRole && key !== "cargo";
+
+        step.classList.toggle("is-current", isCurrent);
+        step.classList.toggle("is-done", isDone);
+        step.classList.toggle("is-locked", isLocked);
+      });
+    };
+
+    const updatePromptCompatibilityUI = () => {
+      const profile = getElectionProfile();
+
+      document.querySelectorAll("[data-election-prompt-card]").forEach((card) => {
+        const prompt = electionPromptGroups[card.dataset.promptGroup]?.[Number(card.dataset.promptIndex)];
+        const compatibility = prompt ? getPromptCompatibility(prompt, card.dataset.promptGroup, profile) : { available: false, reason: "" };
+
+        card.hidden = !profile.role || !compatibility.available;
+        card.classList.toggle("is-unavailable", !compatibility.available);
+        card.dataset.unavailableReason = compatibility.reason || "";
+      });
+    };
+
+    const updateElectionWizardUI = (options = {}) => {
+      const profile = getElectionProfile();
+      const role = profile.role;
+      const validation = validateElectionProfile(profile);
+      const lock = document.getElementById("electionWizardLock");
+      const panel = document.getElementById("electionRolePanel");
+
+      if (!role) {
+        if (panel) {
+          panel.hidden = true;
+        }
+
+        document.querySelectorAll(".election-controlled-section").forEach((section) => {
+          section.hidden = true;
+        });
+
+        if (lock) {
+          lock.hidden = false;
+        }
+
+        updateElectionSteps(validation);
+        return;
+      }
+
+      renderElectionRolePanel(role);
+      applyRoleFieldDefaults(role);
+      updateNumberFieldStatus();
+      renderCampaignFieldStepper();
+
+      document.getElementById("campos-campanha").hidden = false;
+      document.querySelectorAll(".election-prompt-section").forEach((section) => {
+        section.hidden = false;
+      });
+
+      if (lock) {
+        lock.hidden = true;
+      }
+
+      updateElectionSteps(validation);
+      updatePromptCompatibilityUI();
+
+      if (options.focusPanel) {
+        document.getElementById("electionRolePanelTitle")?.focus?.();
+        document.getElementById("electionRolePanel")?.focus();
+      }
+    };
+
+    const renderCampaignFieldStepper = () => {
+      const stepper = document.getElementById("campaignFieldStepper");
+      const note = document.getElementById("campaignFieldStepNote");
+      const skipButton = document.getElementById("skipOptionalFieldStep");
+      const nextButton = document.getElementById("nextFieldStep");
+      const role = getCurrentRole();
+      const activeStep = getCampaignFieldStep();
+
+      if (!stepper || !note) {
+        return;
+      }
+
+      stepper.textContent = "";
+
+      CAMPAIGN_FIELD_STEPS.forEach((step, index) => {
+        const button = document.createElement("button");
+        button.className = "election-field-step-button";
+        button.type = "button";
+        button.dataset.fieldStep = step.id;
+        button.classList.toggle("is-active", step.id === activeCampaignFieldStep);
+        button.classList.toggle("is-optional", step.optional);
+        button.textContent = `${index + 1}. ${step.title}`;
+        stepper.appendChild(button);
+      });
+
+      note.textContent = "";
+
+      const tagCount = role ? getCampaignFieldStepTags(activeStep, role).size : 0;
+      const title = document.createElement("strong");
+      title.textContent = activeStep.optional ? `${activeStep.title} · etapa opcional` : activeStep.title;
+
+      const text = document.createElement("p");
+      text.textContent = tagCount
+        ? activeStep.description
+        : "Esta etapa não possui campos compatíveis com o cargo escolhido. Você pode avançar.";
+
+      note.append(title, text);
+
+      if (skipButton) {
+        skipButton.hidden = !activeStep.optional;
+      }
+
+      if (nextButton) {
+        nextButton.textContent = activeCampaignFieldStep === CAMPAIGN_FIELD_STEPS[CAMPAIGN_FIELD_STEPS.length - 1].id
+          ? "Ver prompts"
+          : "Próxima etapa";
+      }
+    };
+
+    const setCampaignFieldStep = (stepId) => {
+      activeCampaignFieldStep = getCampaignFieldStep(stepId).id;
+      const storedProfile = getStoredElectionProfile();
+      saveElectionProfile({ ...storedProfile, activeStep: activeCampaignFieldStep });
+      renderCampaignFieldStepper();
+      syncCampaignFieldCardStates();
+      updateCampaignPromptCodes();
+    };
+
+    const goToNextCampaignFieldStep = () => {
+      const currentIndex = CAMPAIGN_FIELD_STEPS.findIndex((step) => step.id === activeCampaignFieldStep);
+      const nextStep = CAMPAIGN_FIELD_STEPS[currentIndex + 1];
+
+      if (nextStep) {
+        setCampaignFieldStep(nextStep.id);
+        document.getElementById("campos-campanha")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      document.getElementById("prompt-base")?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     const renderCampaignFields = () => {
@@ -3170,8 +4401,10 @@ Do not invent new text, new slogans or new visual elements.`
         grid.className = "election-field-grid";
 
         group.fields.forEach(([tag, label, placeholder]) => {
+          const inputId = `campaign-field-${tag.toLocaleLowerCase("pt-BR").replace(/_/g, "-")}`;
           const fieldCard = document.createElement("div");
           fieldCard.className = "election-field-card";
+          fieldCard.dataset.campaignFieldCard = tag;
 
           const fieldHead = document.createElement("span");
           fieldHead.className = "election-field-head";
@@ -3189,19 +4422,40 @@ Do not invent new text, new slogans or new visual elements.`
           includeCheckbox.type = "checkbox";
           includeCheckbox.dataset.campaignFieldActive = tag;
           includeCheckbox.checked = storedActiveFields.has(tag) || Boolean(storedValues[tag]);
+          includeCheckbox.setAttribute("aria-controls", inputId);
 
           const includeText = document.createElement("span");
-          includeText.textContent = "Usar no prompt";
+          includeText.dataset.campaignFieldToggleText = tag;
+          includeText.textContent = includeCheckbox.checked ? "Selecionado" : "Selecionar";
 
           const input = document.createElement("textarea");
+          input.id = inputId;
           input.dataset.campaignField = tag;
           input.rows = tag.includes("PROPOSTA") || tag.includes("RODAPE") || tag.includes("AVISO") ? 3 : 2;
           input.placeholder = placeholder;
           input.value = storedValues[tag] || "";
+          input.setAttribute("aria-label", label);
+          input.hidden = false;
+
+          if (tag === "NUMERO_URNA") {
+            input.inputMode = "numeric";
+            input.autocomplete = "off";
+            input.maxLength = 6;
+            input.setAttribute("aria-describedby", `${inputId}-help`);
+          }
 
           includeLabel.append(includeCheckbox, includeText);
           fieldHead.append(fieldLabel, tagChip);
           fieldCard.append(fieldHead, includeLabel, input);
+
+          if (tag === "NUMERO_URNA") {
+            const numberHelp = document.createElement("small");
+            numberHelp.id = `${inputId}-help`;
+            numberHelp.className = "election-field-help";
+            numberHelp.textContent = "O cargo escolhido define a quantidade exata de dígitos.";
+            fieldCard.appendChild(numberHelp);
+          }
+
           grid.appendChild(fieldCard);
         });
 
@@ -3212,6 +4466,12 @@ Do not invent new text, new slogans or new visual elements.`
       container.addEventListener("input", (event) => {
         if (!event.target.matches("[data-campaign-field]")) {
           return;
+        }
+
+        if (event.target.dataset.campaignField === "NUMERO_URNA") {
+          const role = getCurrentRole();
+          const limit = role && role.numberLength ? role.numberLength : 6;
+          event.target.value = event.target.value.replace(/\D+/g, "").slice(0, limit);
         }
 
         if (event.target.value.trim()) {
@@ -3226,7 +4486,9 @@ Do not invent new text, new slogans or new visual elements.`
 
         syncCampaignFieldCardStates();
         saveCampaignFieldValues();
+        persistElectionProfileSnapshot();
         updateCampaignPromptCodes();
+        updateElectionWizardUI();
       });
 
       container.addEventListener("change", (event) => {
@@ -3236,7 +4498,9 @@ Do not invent new text, new slogans or new visual elements.`
 
         syncCampaignFieldCardStates();
         saveActiveCampaignFields();
+        persistElectionProfileSnapshot();
         updateCampaignPromptCodes();
+        updateElectionWizardUI();
       });
 
       document.querySelectorAll("[data-preset]").forEach((button) => {
@@ -3247,26 +4511,74 @@ Do not invent new text, new slogans or new visual elements.`
 
       const clearButton = document.getElementById("clearCampaignFields");
       const normalizeButton = document.getElementById("normalizeCampaignFields");
+      const resetTopButton = document.getElementById("resetElectionWizardTop");
+      const stepper = document.getElementById("campaignFieldStepper");
+      const nextStepButton = document.getElementById("nextFieldStep");
+      const skipStepButton = document.getElementById("skipOptionalFieldStep");
 
       if (normalizeButton) {
         normalizeButton.addEventListener("click", normalizeCampaignFields);
       }
 
-      if (clearButton) {
-        clearButton.addEventListener("click", () => {
-          document.querySelectorAll("[data-campaign-field]").forEach((field) => {
-            field.value = "";
-          });
+      const resetElectionTool = () => {
+        document.querySelectorAll("[data-campaign-field]").forEach((field) => {
+          field.value = "";
+        });
 
-          try {
-            localStorage.removeItem(CAMPAIGN_FIELD_STORAGE_KEY);
-            localStorage.removeItem(CAMPAIGN_ACTIVE_STORAGE_KEY);
-          } catch (error) {
-            // Ignore storage failures; fields are still cleared on screen.
+        document.querySelectorAll("[data-campaign-field-active]").forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+
+        try {
+          const keysToRemove = [];
+
+          for (let index = 0; index < localStorage.length; index += 1) {
+            const key = localStorage.key(index);
+
+            if (key && key.startsWith("opera-election")) {
+              keysToRemove.push(key);
+            }
           }
 
-          setActiveCampaignFields(defaultActiveCampaignFields);
+          keysToRemove.forEach((key) => localStorage.removeItem(key));
+        } catch (error) {
+          // Ignore storage failures; fields are still cleared on screen.
+        }
+
+        activeCampaignFieldStep = CAMPAIGN_FIELD_STEPS[0].id;
+        renderElectionRoleSelection(null);
+        renderCampaignFieldStepper();
+        syncCampaignFieldCardStates();
+        updateCampaignPromptCodes();
+        updateElectionWizardUI();
+      };
+
+      if (clearButton) {
+        clearButton.addEventListener("click", resetElectionTool);
+      }
+
+      if (resetTopButton) {
+        resetTopButton.addEventListener("click", resetElectionTool);
+      }
+
+      if (stepper) {
+        stepper.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-field-step]");
+
+          if (!button) {
+            return;
+          }
+
+          setCampaignFieldStep(button.dataset.fieldStep);
         });
+      }
+
+      if (nextStepButton) {
+        nextStepButton.addEventListener("click", goToNextCampaignFieldStep);
+      }
+
+      if (skipStepButton) {
+        skipStepButton.addEventListener("click", goToNextCampaignFieldStep);
       }
 
       syncCampaignFieldCardStates();
@@ -3274,9 +4586,12 @@ Do not invent new text, new slogans or new visual elements.`
 
     const promptGroupsWithoutThumbnails = new Set(["utilitarios", "restricoes"]);
 
-    const createElectionPromptCard = (prompt, displayNumber, groupKey) => {
+    const createElectionPromptCard = (prompt, displayNumber, groupKey, promptIndex) => {
       const article = document.createElement("article");
       article.className = "prompt-box";
+      article.dataset.electionPromptCard = "true";
+      article.dataset.promptGroup = groupKey;
+      article.dataset.promptIndex = String(promptIndex);
 
       const thumbnailFile = promptGroupsWithoutThumbnails.has(groupKey)
         ? null
@@ -3345,7 +4660,37 @@ Do not invent new text, new slogans or new visual elements.`
       return article;
     };
 
+    const initialElectionProfile = migrateLegacyElectionProfile();
+    activeCampaignFieldStep = getCampaignFieldStep(initialElectionProfile.activeStep).id;
     renderCampaignFields();
+    renderElectionRoleSelection();
+
+    const electionRoleForm = document.getElementById("electionRoleForm");
+
+    if (electionRoleForm) {
+      electionRoleForm.addEventListener("change", (event) => {
+        if (!event.target.matches('[name="electionRole"]')) {
+          return;
+        }
+
+        setElectionRole(event.target.value, { focusPanel: true });
+      });
+    }
+
+    const continueElectionFlow = document.getElementById("continueElectionFlow");
+    const changeElectionRole = document.getElementById("changeElectionRole");
+
+    if (continueElectionFlow) {
+      continueElectionFlow.addEventListener("click", () => {
+        document.getElementById("campos-campanha")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    if (changeElectionRole) {
+      changeElectionRole.addEventListener("click", () => {
+        document.getElementById("assistente-eleitoral")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
 
     let promptDisplayNumber = 1;
 
@@ -3356,15 +4701,16 @@ Do not invent new text, new slogans or new visual elements.`
         return;
       }
 
-      prompts.forEach((prompt) => {
+      prompts.forEach((prompt, promptIndex) => {
         container.appendChild(
-          createElectionPromptCard(prompt, String(promptDisplayNumber).padStart(2, "0"), container.dataset.promptGroup)
+          createElectionPromptCard(prompt, String(promptDisplayNumber).padStart(2, "0"), container.dataset.promptGroup, promptIndex)
         );
         promptDisplayNumber += 1;
       });
     });
 
     updateCampaignPromptCodes();
+    updateElectionWizardUI();
   </script>
   <script src="./assets/js/material-aula.js?v=20260716-eleitorais-revisao" defer></script>
   <script src="./assets/js/prompt-translations.js?v=20260716-eleitorais-revisao" defer></script>

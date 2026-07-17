@@ -693,6 +693,280 @@ button {
   gap: 14px;
 }
 
+.election-field-stepper {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.election-field-step-button {
+  min-height: 44px;
+  border: 1px solid rgba(78, 197, 255, 0.18);
+  border-radius: 8px;
+  padding: 10px;
+  color: #dff3ff;
+  background: rgba(78, 197, 255, 0.075);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.election-field-step-button.is-active {
+  border-color: rgba(156, 255, 106, 0.5);
+  color: #06111a;
+  background: #9cff6a;
+}
+
+.election-field-step-button.is-optional:not(.is-active) {
+  color: #c7d0e4;
+  background: rgba(7, 14, 24, 0.66);
+}
+
+.election-field-step-note {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(156, 255, 106, 0.18);
+  border-radius: 8px;
+  background: rgba(11, 22, 21, 0.62);
+}
+
+.election-field-step-note strong {
+  color: #f4ffe8;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.election-field-step-note p {
+  margin: 0;
+  color: #c7d0e4;
+  line-height: 1.55;
+}
+
+.election-field-step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.election-reset-button {
+  border-color: rgba(250, 30, 78, 0.38);
+  color: #ffe4eb;
+  background: rgba(250, 30, 78, 0.08);
+}
+
+.election-wizard-section {
+  display: grid;
+  gap: 16px;
+}
+
+.election-wizard-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.election-wizard-steps li {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  color: #c7d0e4;
+  background: rgba(7, 14, 24, 0.62);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.election-wizard-steps li.is-current {
+  border-color: rgba(78, 197, 255, 0.48);
+  color: #ffffff;
+  background: rgba(78, 197, 255, 0.14);
+}
+
+.election-wizard-steps li.is-done {
+  border-color: rgba(156, 255, 106, 0.36);
+  color: #f4ffe8;
+}
+
+.election-wizard-steps li.is-locked {
+  opacity: 0.52;
+}
+
+.election-role-form,
+.election-role-groups {
+  display: grid;
+  gap: 14px;
+}
+
+.election-role-group {
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid rgba(78, 197, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(7, 14, 24, 0.72);
+}
+
+.election-role-group legend {
+  padding: 0 8px;
+  color: #8ee7ff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.election-role-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.election-role-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(2, 5, 12, 0.46);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.election-role-card:hover,
+.election-role-card:focus-within {
+  border-color: rgba(78, 197, 255, 0.38);
+  background: rgba(12, 24, 39, 0.68);
+}
+
+.election-role-card.is-selected {
+  border-color: rgba(156, 255, 106, 0.54);
+  background: rgba(12, 35, 24, 0.76);
+  box-shadow: inset 0 0 0 2px rgba(156, 255, 106, 0.18);
+}
+
+.election-role-card input {
+  position: absolute;
+  inset: 10px 10px auto auto;
+  width: 18px;
+  height: 18px;
+  accent-color: #9cff6a;
+}
+
+.election-role-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: #06111a;
+  background: #8ee7ff;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.election-role-card-content {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.election-role-card-content strong {
+  color: #fff6fa;
+  font-size: 0.94rem;
+  line-height: 1.28;
+  text-transform: uppercase;
+}
+
+.election-role-card-content span {
+  color: #c7d0e4;
+  font-size: 0.8rem;
+  line-height: 1.42;
+}
+
+.election-role-card-content .election-role-meta {
+  color: #9cff6a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.election-role-panel {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(156, 255, 106, 0.24);
+  border-radius: 8px;
+  background: rgba(11, 22, 21, 0.72);
+  animation: electionConfigReveal 180ms ease both;
+}
+
+.election-role-panel h3 {
+  margin: 6px 0 0;
+  color: #f4ffe8;
+  font-size: 1.1rem;
+  line-height: 1.28;
+  text-transform: uppercase;
+}
+
+.election-role-panel p {
+  margin: 8px 0 0;
+  color: #d9e3f5;
+  line-height: 1.58;
+}
+
+.election-role-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.election-role-summary dt,
+.election-role-summary dd {
+  margin: 0;
+}
+
+.election-role-summary dt {
+  color: #8ee7ff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.election-role-summary dd {
+  color: #f4f7fb;
+  font-size: 0.84rem;
+  line-height: 1.38;
+}
+
+.election-role-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.election-wizard-lock {
+  margin: 0;
+}
+
+.election-field-card.is-required {
+  border-color: rgba(156, 255, 106, 0.38);
+}
+
 .election-reference-guide {
   display: grid;
   gap: 14px;
@@ -716,6 +990,25 @@ button {
   margin: 8px 0 0;
   color: #c7d0e4;
   line-height: 1.56;
+}
+
+.election-reference-guide-final {
+  margin: 16px 0 28px;
+  padding: 0;
+}
+
+.election-reference-guide-final summary {
+  color: #f4f7fb;
+  text-transform: uppercase;
+}
+
+.election-reference-guide-final > p {
+  margin: 0;
+  padding: 0 20px 16px;
+}
+
+.election-reference-guide-final .election-reference-grid {
+  padding: 0 20px 20px;
 }
 
 .election-reference-grid {
@@ -786,7 +1079,7 @@ button {
 
 .election-field-group .election-field-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   padding: 0 20px 20px;
 }
@@ -799,13 +1092,24 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background: rgba(2, 5, 12, 0.46);
-  transition: opacity 150ms ease, border-color 150ms ease, background 150ms ease;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.election-field-card.is-active {
+  border-color: rgba(156, 255, 106, 0.36);
+  background: rgba(12, 35, 24, 0.72);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
 }
 
 .election-field-card.is-inactive {
-  opacity: 0.58;
-  border-color: rgba(255, 255, 255, 0.07);
-  background: rgba(2, 5, 12, 0.28);
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(8, 14, 25, 0.5);
+}
+
+.election-field-card.is-inactive:hover {
+  border-color: rgba(78, 197, 255, 0.24);
+  background: rgba(12, 24, 39, 0.68);
+  transform: translateY(-1px);
 }
 
 .election-field-head {
@@ -832,18 +1136,34 @@ button {
   overflow-wrap: anywhere;
 }
 
+.election-field-card.is-inactive .election-field-head code {
+  display: none;
+}
+
 .election-field-toggle {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  width: fit-content;
-  min-height: 32px;
-  color: #d9e3f5;
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(78, 197, 255, 0.2);
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: #dff3ff;
+  background: rgba(78, 197, 255, 0.08);
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
   cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.election-field-card.is-active .election-field-toggle {
+  border-color: rgba(156, 255, 106, 0.48);
+  color: #06111a;
+  background: #9cff6a;
 }
 
 .election-field-toggle input {
@@ -867,6 +1187,10 @@ button {
   outline: none;
 }
 
+.election-field-card textarea[hidden] {
+  display: none;
+}
+
 .election-field-card textarea::placeholder {
   color: rgba(199, 208, 228, 0.58);
 }
@@ -876,12 +1200,34 @@ button {
   box-shadow: 0 0 0 3px rgba(78, 197, 255, 0.14);
 }
 
+.election-field-help {
+  color: #c7d0e4;
+  font-size: 0.78rem;
+  line-height: 1.42;
+}
+
+.election-field-card textarea[aria-invalid="true"] + .election-field-help,
+.election-field-card:has(textarea[aria-invalid="true"]) .election-field-help {
+  color: #ff9aad;
+}
+
 @media (max-width: 760px) {
   .election-fields-toolbar {
     align-items: stretch;
     grid-template-columns: 1fr;
     flex-direction: column;
     padding: 16px;
+  }
+
+  .election-wizard-steps,
+  .election-role-card-grid,
+  .election-role-summary,
+  .election-field-stepper {
+    grid-template-columns: 1fr;
+  }
+
+  .election-field-step-actions .lesson-btn {
+    width: 100%;
   }
 
   .election-toolbar-actions,
@@ -1168,7 +1514,7 @@ button {
   }
 
   .lesson-section {
-    scroll-margin-top: 76px;
+    scroll-margin-top: 220px;
     margin-top: 16px;
     padding: 18px 14px;
     border-radius: 10px;
@@ -1722,6 +2068,18 @@ button {
 @media (hover: none), (pointer: coarse) {
   .menu-card:hover {
     transform: none;
+  }
+}
+
+@keyframes electionConfigReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
