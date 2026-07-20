@@ -149,8 +149,9 @@
         <p class="lesson-section-label">03</p>
         <h2 id="campos-campanha-title">Campos da campanha</h2>
         <p>
-          Preencha os dados obrigatórios do cargo escolhido. As tags essenciais já ficam selecionadas
-          automaticamente, e as incompatíveis são bloqueadas.
+          Preencha os dados essenciais do cargo escolhido. As tags obrigatórias já ficam selecionadas
+          automaticamente, as incompatíveis são bloqueadas e o nome do candidato pode ficar vazio quando
+          já estiver na logo da campanha.
         </p>
       </div>
 
@@ -175,6 +176,18 @@
         <div class="election-toolbar-actions">
           <button class="copy-button election-fix-button" id="normalizeCampaignFields" type="button">Corrigir campos</button>
           <button class="copy-button election-clear-button" id="clearCampaignFields" type="button">Apagar tudo</button>
+        </div>
+      </div>
+
+      <div class="election-prompt-language" aria-label="Idioma dos prompts">
+        <div>
+          <p class="lesson-card-tag">Idioma dos prompts</p>
+          <strong>Escolha qual versão visualizar, copiar e colar</strong>
+          <p>A configuração permanece em português. Cada card pode ser usado em português ou em inglês.</p>
+        </div>
+        <div class="election-prompt-language-actions" role="group" aria-label="Selecionar idioma dos prompts">
+          <button class="election-language-button" type="button" data-prompt-language="pt">Português</button>
+          <button class="election-language-button" type="button" data-prompt-language="en">Inglês</button>
         </div>
       </div>
 
@@ -2184,7 +2197,7 @@ Do not invent new text, new slogans or new visual elements.`
         title: "Chapa e apoiadores",
         description: "Campos usados em prompts com vice, suplente, casadinha ou integrantes do partido.",
         fields: [
-          ["MODO_PESSOAS", "Modo de pessoas", "Ex.: SINGLE CANDIDATE, MAIN CANDIDATE AND RUNNING MATE"],
+          ["MODO_PESSOAS", "Modo de pessoas", "Ex.: candidato único, candidato principal com vice ou chapa com apoios"],
           ["NOME_VICE_OU_SUPLENTE", "Nome do vice ou suplente", "Ex.: João Pereira"],
           ["CARGO_VICE_OU_SUPLENTE", "Cargo do vice ou suplente", "Ex.: Vice-prefeito, 1º suplente"],
           ["PARTIDO_VICE_OU_SUPLENTE", "Partido do vice ou suplente", "Ex.: Partido Democrático"],
@@ -2212,7 +2225,7 @@ Do not invent new text, new slogans or new visual elements.`
           ["COR_SECUNDARIA", "Cor secundária", "Ex.: branco, verde, #ffffff"],
           ["COR_DESTAQUE", "Cor de destaque", "Ex.: amarelo, vermelho, #ffd447"],
           ["COR_FUNDO", "Cor de fundo", "Ex.: azul escuro, branco, degradê verde"],
-          ["ESTILO_TIPOGRAFIA", "Estilo de tipografia", "Ex.: bold geometric sans serif"],
+          ["ESTILO_TIPOGRAFIA", "Estilo de tipografia", "Ex.: sem serifa geométrica em peso forte"],
           ["SIMBOLO_GRAFICO", "Símbolo gráfico", "Ex.: estrela, ondas, mapa, seta, círculo"]
         ]
       },
@@ -2293,15 +2306,18 @@ Do not invent new text, new slogans or new visual elements.`
     const CAMPAIGN_FIELD_STORAGE_KEY = "opera-election-prompt-fields-v1";
     const CAMPAIGN_ACTIVE_STORAGE_KEY = "opera-election-prompt-active-fields-v1";
     const ELECTION_PROFILE_STORAGE_KEY = "opera-election-profile-v2";
+    const PROMPT_LANGUAGE_STORAGE_KEY = "opera-election-prompt-language-v1";
+    const PROMPT_TRANSLATION_CACHE_PREFIX = "opera-election-prompt-pt-br:";
+    const PROMPT_TRANSLATION_API = "https://translate.googleapis.com/translate_a/single";
 
     const commonRequiredTags = [
       "FOTO_CANDIDATO_PRINCIPAL",
-      "NOME_CANDIDATO",
       "NUMERO_URNA",
       "CARGO",
       "PARTIDO",
       "SIGLA_PARTIDO"
     ];
+    const optionalPrimaryTags = ["NOME_CANDIDATO"];
 
     const viceTags = [
       "FOTO_VICE_OU_SUPLENTE",
@@ -2951,8 +2967,8 @@ Do not invent new text, new slogans or new visual elements.`
         id: "obrigatorios",
         title: "Obrigatórios do cargo",
         optional: false,
-        description: "Preencha somente o essencial para a candidatura escolhida: foto ou @ do candidato, nome, número, partido e localização quando o cargo exigir.",
-        getTags: (role) => getPrimaryRequiredFields(role.id)
+        description: "Preencha somente o essencial para a candidatura escolhida: foto ou @ do candidato, número, partido e localização quando o cargo exigir. O nome pode ser informado apenas se não estiver na logo da campanha.",
+        getTags: (role) => [...getPrimaryRequiredFields(role.id), ...optionalPrimaryTags]
       },
       {
         id: "composicao",
@@ -3580,6 +3596,180 @@ Do not invent new text, new slogans or new visual elements.`
         .replace(/\s{2,}/g, " ")
         .trim();
 
+    const getStoredPromptLanguage = () => {
+      try {
+        const language = localStorage.getItem(PROMPT_LANGUAGE_STORAGE_KEY);
+        return language === "en" || language === "pt" ? language : "pt";
+      } catch (error) {
+        return "pt";
+      }
+    };
+
+    let activePromptLanguage = getStoredPromptLanguage();
+
+    const hashPromptText = (value) => {
+      let hash = 0;
+
+      for (let index = 0; index < value.length; index += 1) {
+        hash = Math.imul(31, hash) + value.charCodeAt(index) | 0;
+      }
+
+      return String(hash);
+    };
+
+    const protectPromptSegments = (text) => {
+      const segments = [];
+      const protectedText = text.replace(/"\S[\s\S]*?"|\[\[[A-Z0-9_]+\]\]|https?:\/\/\S+|@\w+/g, (match) => {
+        const token = `XQZP${segments.length}ZQX`;
+        segments.push([token, match]);
+        return token;
+      });
+
+      return {
+        text: protectedText,
+        restore: (value) =>
+          segments.reduce(
+            (output, [token, segment]) => output.replaceAll(token, segment),
+            value
+          )
+      };
+    };
+
+    const splitPromptForTranslation = (text) => {
+      const chunks = [];
+      const sentences = text.match(/[^.!?]+[.!?]+|\S.+$/g) || [text];
+      let current = "";
+
+      sentences.forEach((sentence) => {
+        if ((current + sentence).length > 1300 && current) {
+          chunks.push(current.trim());
+          current = sentence;
+          return;
+        }
+
+        current += sentence;
+      });
+
+      if (current.trim()) {
+        chunks.push(current.trim());
+      }
+
+      return chunks;
+    };
+
+    const translatePromptChunkToPortuguese = async (text) => {
+      const params = new URLSearchParams({
+        client: "gtx",
+        sl: "en",
+        tl: "pt",
+        dt: "t",
+        q: text
+      });
+      const response = await fetch(`${PROMPT_TRANSLATION_API}?${params.toString()}`);
+
+      if (!response.ok) {
+        throw new Error("translation-request-failed");
+      }
+
+      const data = await response.json();
+      return Array.isArray(data[0]) ? data[0].map((part) => part[0]).join("") : "";
+    };
+
+    const getCachedPortuguesePrompt = (englishPrompt) => {
+      try {
+        return localStorage.getItem(`${PROMPT_TRANSLATION_CACHE_PREFIX}${hashPromptText(englishPrompt)}`) || "";
+      } catch (error) {
+        return "";
+      }
+    };
+
+    const setCachedPortuguesePrompt = (englishPrompt, portuguesePrompt) => {
+      try {
+        localStorage.setItem(`${PROMPT_TRANSLATION_CACHE_PREFIX}${hashPromptText(englishPrompt)}`, portuguesePrompt);
+      } catch (error) {
+        // Cache is optional; prompts still render without it.
+      }
+    };
+
+    const translatePromptToPortuguese = async (englishPrompt) => {
+      const cached = getCachedPortuguesePrompt(englishPrompt);
+
+      if (cached) {
+        return cached;
+      }
+
+      const protectedPrompt = protectPromptSegments(englishPrompt);
+      const translated = (
+        await Promise.all(splitPromptForTranslation(protectedPrompt.text).map(translatePromptChunkToPortuguese))
+      ).join(" ");
+      const restored = compactPromptText(protectedPrompt.restore(translated));
+      setCachedPortuguesePrompt(englishPrompt, restored);
+      return restored;
+    };
+
+    const setPromptButtonsReady = (code, isReady) => {
+      const promptBox = code.closest(".prompt-box");
+
+      if (!promptBox) {
+        return;
+      }
+
+      promptBox.querySelectorAll("[data-prompt-action]").forEach((button) => {
+        button.disabled = !isReady;
+      });
+    };
+
+    const setPromptCodeContent = (code, englishPrompt) => {
+      code.dataset.promptEnglish = englishPrompt;
+      code.dataset.promptLanguage = activePromptLanguage;
+
+      if (activePromptLanguage === "en") {
+        code.textContent = englishPrompt;
+        code.dataset.promptReady = "true";
+        setPromptButtonsReady(code, true);
+        return;
+      }
+
+      const cached = getCachedPortuguesePrompt(englishPrompt);
+
+      if (cached) {
+        code.textContent = cached;
+        code.dataset.promptReady = "true";
+        setPromptButtonsReady(code, true);
+        return;
+      }
+
+      const requestId = `${Date.now()}-${Math.random()}`;
+      code.dataset.translationRequest = requestId;
+      code.dataset.promptReady = "false";
+      code.textContent = "Gerando a versão em português do prompt...";
+      setPromptButtonsReady(code, false);
+
+      translatePromptToPortuguese(englishPrompt)
+        .then((portuguesePrompt) => {
+          if (
+            code.dataset.translationRequest !== requestId ||
+            code.dataset.promptEnglish !== englishPrompt ||
+            activePromptLanguage !== "pt"
+          ) {
+            return;
+          }
+
+          code.textContent = portuguesePrompt;
+          code.dataset.promptReady = "true";
+          setPromptButtonsReady(code, true);
+        })
+        .catch(() => {
+          if (code.dataset.translationRequest !== requestId || activePromptLanguage !== "pt") {
+            return;
+          }
+
+          code.textContent = "Não foi possível gerar a versão em português agora. Troque para inglês e tente novamente quando a conexão estiver estável.";
+          code.dataset.promptReady = "false";
+          setPromptButtonsReady(code, false);
+        });
+    };
+
     const cleanFinalPromptTextForActiveFields = (text, activeFields) => {
       let nextText = text;
 
@@ -3843,43 +4033,38 @@ Do not invent new text, new slogans or new visual elements.`
     };
 
     const resetPromptTranslation = (code) => {
-      const translationBlock =
-        code.nextElementSibling && code.nextElementSibling.classList.contains("prompt-translation")
-          ? code.nextElementSibling
-          : null;
-      const header = code.previousElementSibling;
-      const button =
-        header && header.classList.contains("prompt-header")
-          ? header.querySelector(".translation-toggle")
-          : null;
-
-      if (translationBlock) {
-        const translationCode = translationBlock.querySelector(".prompt-translation-code");
-
-        if (translationCode) {
-          delete translationCode.dataset.loaded;
-          translationCode.textContent = "";
-        }
-
-        translationBlock.hidden = true;
-      }
-
-      if (button) {
-        button.textContent = "Mostrar tradução";
-        button.setAttribute("aria-expanded", "false");
-      }
+      delete code.dataset.translationRequest;
+      code.dataset.promptReady = "false";
     };
 
     const updateCampaignPromptCodes = () => {
       const values = getCampaignFieldValues();
       const activeFields = getActiveCampaignFields();
+      const profile = getElectionProfile();
 
       document.querySelectorAll("[data-prompt-template]").forEach((code) => {
+        const card = code.closest("[data-election-prompt-card]");
+        const prompt = card
+          ? electionPromptGroups[card.dataset.promptGroup]?.[Number(card.dataset.promptIndex)]
+          : null;
+        const compatibility = prompt && card
+          ? getPromptCompatibility(prompt, card.dataset.promptGroup, profile)
+          : { available: Boolean(profile.role), reason: "" };
+
+        if (!profile.role || !compatibility.available) {
+          resetPromptTranslation(code);
+          code.dataset.promptEnglish = "";
+          code.dataset.promptLanguage = activePromptLanguage;
+          code.textContent = compatibility.reason || "Escolha e configure o cargo para liberar este prompt.";
+          setPromptButtonsReady(code, false);
+          return;
+        }
+
         const nextPrompt = buildPromptFromTemplate(code.dataset.promptTemplate, values, activeFields);
 
-        if (code.textContent !== nextPrompt) {
-          code.textContent = nextPrompt;
+        if (code.dataset.promptEnglish !== nextPrompt || code.dataset.promptLanguage !== activePromptLanguage) {
           resetPromptTranslation(code);
+          setPromptCodeContent(code, nextPrompt);
         }
       });
 
@@ -3900,6 +4085,31 @@ Do not invent new text, new slogans or new visual elements.`
 
       updateActiveReferenceGuide(values, activeFields);
       updatePromptCompatibilityUI();
+    };
+
+    const renderPromptLanguageControls = () => {
+      document.querySelectorAll("[data-prompt-language]").forEach((button) => {
+        const isActive = button.dataset.promptLanguage === activePromptLanguage;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    };
+
+    const setPromptLanguage = (language) => {
+      if (language !== "pt" && language !== "en") {
+        return;
+      }
+
+      activePromptLanguage = language;
+
+      try {
+        localStorage.setItem(PROMPT_LANGUAGE_STORAGE_KEY, language);
+      } catch (error) {
+        // Language persistence is a convenience only.
+      }
+
+      renderPromptLanguageControls();
+      updateCampaignPromptCodes();
     };
 
     const updateActiveReferenceGuide = (values, activeFields) => {
@@ -4644,17 +4854,44 @@ Do not invent new text, new slogans or new visual elements.`
       const promptType = document.createElement("span");
       promptType.textContent = prompt.label || "Prompt";
 
+      const actions = document.createElement("div");
+      actions.className = "prompt-actions";
+
       const copyButton = document.createElement("button");
       copyButton.className = "copy-button";
       copyButton.type = "button";
-      copyButton.textContent = "Copiar Prompt";
+      copyButton.textContent = "Copiar";
+      copyButton.dataset.promptAction = "copy";
 
-      header.append(promptType, copyButton);
+      const selectButton = document.createElement("button");
+      selectButton.className = "prompt-select-button";
+      selectButton.type = "button";
+      selectButton.textContent = "Selecionar para colar";
+      selectButton.dataset.promptAction = "select";
+
+      actions.append(copyButton, selectButton);
+      header.append(promptType, actions);
 
       const code = document.createElement("pre");
       code.className = "prompt-code";
       code.dataset.promptTemplate = prompt.prompt;
       code.textContent = prompt.prompt;
+
+      selectButton.addEventListener("click", () => {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        window.clearTimeout(Number(selectButton.dataset.resetTimer || 0));
+        selectButton.textContent = "Texto selecionado";
+
+        const resetTimer = window.setTimeout(() => {
+          selectButton.textContent = "Selecionar para colar";
+        }, 1600);
+
+        selectButton.dataset.resetTimer = String(resetTimer);
+      });
 
       article.append(title, header, code);
       return article;
@@ -4664,6 +4901,7 @@ Do not invent new text, new slogans or new visual elements.`
     activeCampaignFieldStep = getCampaignFieldStep(initialElectionProfile.activeStep).id;
     renderCampaignFields();
     renderElectionRoleSelection();
+    renderPromptLanguageControls();
 
     const electionRoleForm = document.getElementById("electionRoleForm");
 
@@ -4692,6 +4930,12 @@ Do not invent new text, new slogans or new visual elements.`
       });
     }
 
+    document.querySelectorAll("[data-prompt-language]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setPromptLanguage(button.dataset.promptLanguage);
+      });
+    });
+
     let promptDisplayNumber = 1;
 
     document.querySelectorAll("[data-prompt-group]").forEach((container) => {
@@ -4713,7 +4957,6 @@ Do not invent new text, new slogans or new visual elements.`
     updateElectionWizardUI();
   </script>
   <script src="./assets/js/material-aula.js?v=20260716-eleitorais-revisao" defer></script>
-  <script src="./assets/js/prompt-translations.js?v=20260716-eleitorais-revisao" defer></script>
 </body>
 </html>
 

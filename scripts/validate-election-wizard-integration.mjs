@@ -89,7 +89,11 @@ assert(page.includes('id: "obrigatorios"'), "Primeira etapa deve ser de informa�
 assert(page.includes('id: "composicao"'), "Deve existir etapa opcional para vice e apoiadores.");
 assert(page.includes('id: "design"'), "Deve existir etapa opcional de design.");
 assert(page.includes("getPrimaryRequiredFields"), "Obrigatórios primários do candidato/cargo precisam ser separados de vice e suplentes.");
-assert(page.includes('"FOTO_CANDIDATO_PRINCIPAL",\n      "NOME_CANDIDATO"'), "Foto principal deve fazer parte dos obrigatórios do candidato.");
+Object.values(roles).forEach((role) => {
+  assert(!role.requiredTags.includes("NOME_CANDIDATO"), `Nome do candidato deve ser opcional para ${role.id}.`);
+});
+assert(page.includes('const optionalPrimaryTags = ["NOME_CANDIDATO"];'), "Nome do candidato deve permanecer disponível como campo opcional.");
+assert(page.includes("data-prompt-language"), "Usuário precisa escolher entre prompt em português e em inglês.");
 assert(page.includes("key.startsWith(\"opera-election\")"), "Reset total deve limpar a memória local eleitoral.");
 assert(page.includes("assistente-eleitoral"), "Primeira etapa do assistente não foi encontrada.");
 assert(page.includes("Ex.: @maria, @candidato"), "Campo de foto principal deve orientar uso de @ no Flow.");
